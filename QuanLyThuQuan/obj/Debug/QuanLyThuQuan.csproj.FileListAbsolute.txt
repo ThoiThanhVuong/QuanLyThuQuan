@@ -1,0 +1,11 @@
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Form1.resources
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Login.resources
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Properties.Resources.resources
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
