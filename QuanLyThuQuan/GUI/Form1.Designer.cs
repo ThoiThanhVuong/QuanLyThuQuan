@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuQuan
+﻿namespace QuanLyThuQuan.GUI
 {
     partial class Form1
     {

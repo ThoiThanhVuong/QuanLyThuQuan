@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace QuanLyThuQuan
+namespace QuanLyThuQuan.GUI
 {
     public partial class Login : Form
     {
