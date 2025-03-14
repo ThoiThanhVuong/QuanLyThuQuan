@@ -46,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="BUS\BookBUS.cs" />
+    <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -58,10 +60,20 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\BookModel.cs" />
+    <Compile Include="Model\DeviceModel.cs" />
+    <Compile Include="Model\enums.cs" />
+    <Compile Include="Model\LoginHistoryModel.cs" />
+    <Compile Include="Model\MemberModel.cs" />
+    <Compile Include="Model\ReviewModel.cs" />
+    <Compile Include="Model\RuleModel.cs" />
+    <Compile Include="Model\TransactionItemModel.cs" />
+    <Compile Include="Model\TransactionModel.cs" />
+    <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -91,9 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppConfig\" />
-    <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
-    <Folder Include="Model\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +116,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Public\icons\power-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\burger-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\Dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\Dashboard %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\product %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\devices %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\rule %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
