@@ -73,6 +73,16 @@ namespace QuanLyThuQuan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book__1_ {
+            get {
+                object obj = ResourceManager.GetObject("book (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap burger_bar {
             get {
                 object obj = ResourceManager.GetObject("burger-bar", resourceCulture);
@@ -96,6 +106,16 @@ namespace QuanLyThuQuan.Properties {
         internal static System.Drawing.Bitmap Dashboard__1_ {
             get {
                 object obj = ResourceManager.GetObject("Dashboard (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dashboard_2 {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,16 @@ namespace QuanLyThuQuan.Properties {
         internal static System.Drawing.Bitmap rule__1_ {
             get {
                 object obj = ResourceManager.GetObject("rule (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction {
+            get {
+                object obj = ResourceManager.GetObject("transaction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

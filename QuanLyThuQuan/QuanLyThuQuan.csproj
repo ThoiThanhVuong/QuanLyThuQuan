@@ -48,6 +48,48 @@
   <ItemGroup>
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="GUI\FormBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormBook.Designer.cs">
+      <DependentUpon>FormBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDashBoard.Designer.cs">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDevice.Designer.cs">
+      <DependentUpon>FormDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormReview.Designer.cs">
+      <DependentUpon>FormReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormRule.Designer.cs">
+      <DependentUpon>FormRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormTransaction.Designer.cs">
+      <DependentUpon>FormTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormViolation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormViolation.Designer.cs">
+      <DependentUpon>FormViolation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +114,27 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormBook.resx">
+      <DependentUpon>FormBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDashBoard.resx">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDevice.resx">
+      <DependentUpon>FormDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormReview.resx">
+      <DependentUpon>FormReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormRule.resx">
+      <DependentUpon>FormRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormTransaction.resx">
+      <DependentUpon>FormTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormViolation.resx">
+      <DependentUpon>FormViolation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,14 +143,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,6 +194,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Public\icons\rule %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\Dashboard 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\book %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\devices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Public\icons\rule.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

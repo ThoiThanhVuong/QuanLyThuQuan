@@ -20,3 +20,10 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInpu
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormMain.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormBook.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDashBoard.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormReview.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormRule.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
