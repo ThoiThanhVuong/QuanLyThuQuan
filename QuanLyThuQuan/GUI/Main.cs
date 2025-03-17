@@ -19,18 +19,37 @@ namespace QuanLyThuQuan.GUI
         FormTransaction pnTransaction;
         FormViolation pnViolation;
         FormReview pnReview;
+        FormStatistic pnStatistic;
+        Login formLogin;
         public FormMain()
         {
             InitializeComponent();
+            ShowDefaultForm();
         }
-
-           bool productExpand = false;
+        // Xét form mặc định
+        private void ShowDefaultForm()
+        {
+            if (pnDashBoard == null)
+            {
+                pnDashBoard = new FormDashBoard();
+                pnDashBoard.FormClosed += PnDashBoard_FormClosed;
+                pnDashBoard.MdiParent = this;
+                pnDashBoard.Dock = DockStyle.Fill;
+                pnDashBoard.Show();
+            }
+            else
+            {
+                pnDashBoard.Activate();
+            }
+        }
+        // chuyển động của nút product
+        bool productExpand = false;
         private void ProductTransition_Tick(object sender, EventArgs e)
         {
             if(productExpand == false)
             {
                 ProductContainer.Height += 10;
-                if(ProductContainer.Height >= 156)
+                if(ProductContainer.Height >= 150)
                 {
                     ProductTransition.Stop();
                     productExpand = true;
@@ -51,27 +70,30 @@ namespace QuanLyThuQuan.GUI
         {
             ProductTransition.Start();
         }
+        // chuyển động của sidebar
         bool sidebarExpand = true;
         private void SideBarTransition_Tick(object sender, EventArgs e)
         {
             if(sidebarExpand )
             {
-                SideBar.Width -= 12;
+                SideBar.Width -= 13;
                 if(SideBar.Width <=70)
                 {
                     sidebarExpand = false;
                     SideBarTransition.Stop();
+
                     //btnDashBoard.Width = SideBar.Width;
                     //btnRule.Width = SideBar.Width;
                     //btnTransaction.Width = SideBar.Width;
                     //btnReview.Width = SideBar.Width;
                     //ProductContainer.Width = SideBar.Width;
                     //btnViolation.Width = SideBar.Width;
+
                 }
             }
             else
             {
-                SideBar.Width += 12;
+                SideBar.Width += 13;
                 if (SideBar.Width >= 240)
                 {
                     sidebarExpand = true;
@@ -82,6 +104,7 @@ namespace QuanLyThuQuan.GUI
                     btnReview.Width = SideBar.Width;
                     ProductContainer.Width = SideBar.Width;
                     btnViolation.Width = SideBar.Width;
+                    btnLogout.Width = SideBar.Width;
                 }
             }
         }
@@ -93,18 +116,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-            if(pnDashBoard == null)
-            {
-                pnDashBoard = new FormDashBoard();
-                pnDashBoard.FormClosed += PnDashBoard_FormClosed;
-                pnDashBoard.MdiParent = this;
-                pnDashBoard.Dock = DockStyle.Fill;
-                pnDashBoard.Show();
-            }
-            else
-            {
-                pnDashBoard.Activate();
-            }
+            ShowDefaultForm();
         }
 
         private void PnDashBoard_FormClosed(object sender, FormClosedEventArgs e)
@@ -240,7 +252,8 @@ namespace QuanLyThuQuan.GUI
         }
 
         private void btnCloseProgram_Click(object sender, EventArgs e)
-        {
+        {   
+           
             this.Close();
         }
 
@@ -264,6 +277,40 @@ namespace QuanLyThuQuan.GUI
             else
             {
                 this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            if(pnStatistic == null)
+            {
+                pnStatistic = new FormStatistic();
+                pnStatistic.FormClosed += PnStatistic_FormClosed;
+                pnStatistic.MdiParent = this;
+                pnStatistic.Dock = DockStyle.Fill;
+                pnStatistic.Show();
+            }
+            else
+            {
+                pnStatistic.Activate();
+            }
+        }
+
+        private void PnStatistic_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnStatistic = null;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận",
+                                           MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                this.Hide(); 
+                formLogin = new Login();
+                formLogin.ShowDialog();
+                this.Close(); 
             }
         }
     }

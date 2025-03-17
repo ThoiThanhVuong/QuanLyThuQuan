@@ -1,4 +1,8 @@
-﻿namespace QuanLyThuQuan.GUI
+﻿using System.Drawing.Drawing2D;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyThuQuan.GUI
 {
     partial class FormMain
     {
@@ -19,7 +23,19 @@
             }
             base.Dispose(disposing);
         }
+        private void SideBar_Paint(object sender, PaintEventArgs e)
+        {
+            Color color1 = ColorTranslator.FromHtml("#320643");
+            Color color2 = ColorTranslator.FromHtml("#140534");
 
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                SideBar.ClientRectangle,
+                color1, color2,
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(brush, SideBar.ClientRectangle);
+            }
+        }
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -42,12 +58,17 @@
             this.btnDevice = new System.Windows.Forms.Button();
             this.ProductTransition = new System.Windows.Forms.Timer(this.components);
             this.SideBarTransition = new System.Windows.Forms.Timer(this.components);
-            this.SideBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.TopMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnRule = new System.Windows.Forms.Button();
             this.btnTransaction = new System.Windows.Forms.Button();
             this.btnViolation = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
+            this.btnStatistic = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.SideBar = new System.Windows.Forms.TableLayoutPanel();
+            this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -55,7 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).BeginInit();
             this.ProductContainer.SuspendLayout();
+            this.TopMenu.SuspendLayout();
             this.SideBar.SuspendLayout();
+            this.BottomMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleBar
@@ -130,11 +153,11 @@
             // 
             // ProductContainer
             // 
-            this.ProductContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.ProductContainer.BackColor = System.Drawing.Color.Transparent;
             this.ProductContainer.Controls.Add(this.btnProduct);
             this.ProductContainer.Controls.Add(this.btnBook);
             this.ProductContainer.Controls.Add(this.btnDevice);
-            this.ProductContainer.Location = new System.Drawing.Point(0, 56);
+            this.ProductContainer.Location = new System.Drawing.Point(0, 50);
             this.ProductContainer.Margin = new System.Windows.Forms.Padding(0);
             this.ProductContainer.Name = "ProductContainer";
             this.ProductContainer.Size = new System.Drawing.Size(240, 50);
@@ -143,37 +166,42 @@
             // 
             // btnProduct
             // 
-            this.btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnProduct.BackColor = System.Drawing.Color.Transparent;
             this.btnProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProduct.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnProduct.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProduct.FlatAppearance.BorderSize = 0;
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProduct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(3, 0);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnProduct.Location = new System.Drawing.Point(0, 0);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(0);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProduct.Size = new System.Drawing.Size(240, 50);
             this.btnProduct.TabIndex = 1;
             this.btnProduct.Text = "     Product";
+            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = false;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnBook
             // 
-            this.btnBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnBook.BackColor = System.Drawing.Color.Transparent;
             this.btnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBook.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnBook.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBook.FlatAppearance.BorderSize = 0;
             this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBook.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnBook.Image = ((System.Drawing.Image)(resources.GetObject("btnBook.Image")));
             this.btnBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBook.Location = new System.Drawing.Point(0, 50);
             this.btnBook.Margin = new System.Windows.Forms.Padding(0);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBook.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnBook.Size = new System.Drawing.Size(240, 50);
             this.btnBook.TabIndex = 2;
             this.btnBook.Text = "     Books";
@@ -184,17 +212,19 @@
             // 
             // btnDevice
             // 
-            this.btnDevice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnDevice.BackColor = System.Drawing.Color.Transparent;
             this.btnDevice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDevice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnDevice.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDevice.FlatAppearance.BorderSize = 0;
             this.btnDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDevice.Image = ((System.Drawing.Image)(resources.GetObject("btnDevice.Image")));
             this.btnDevice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDevice.Location = new System.Drawing.Point(0, 100);
             this.btnDevice.Margin = new System.Windows.Forms.Padding(0);
             this.btnDevice.Name = "btnDevice";
-            this.btnDevice.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDevice.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.btnDevice.Size = new System.Drawing.Size(240, 50);
             this.btnDevice.TabIndex = 5;
             this.btnDevice.Text = "     Devices";
@@ -213,33 +243,38 @@
             this.SideBarTransition.Interval = 20;
             this.SideBarTransition.Tick += new System.EventHandler(this.SideBarTransition_Tick);
             // 
-            // SideBar
+            // TopMenu
             // 
-            this.SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.SideBar.Controls.Add(this.btnDashBoard);
-            this.SideBar.Controls.Add(this.ProductContainer);
-            this.SideBar.Controls.Add(this.btnRule);
-            this.SideBar.Controls.Add(this.btnTransaction);
-            this.SideBar.Controls.Add(this.btnViolation);
-            this.SideBar.Controls.Add(this.btnReview);
-            this.SideBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SideBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.SideBar.Location = new System.Drawing.Point(0, 50);
-            this.SideBar.Margin = new System.Windows.Forms.Padding(0);
-            this.SideBar.Name = "SideBar";
-            this.SideBar.Size = new System.Drawing.Size(240, 600);
-            this.SideBar.TabIndex = 8;
+            this.TopMenu.BackColor = System.Drawing.Color.Transparent;
+            this.TopMenu.Controls.Add(this.btnDashBoard);
+            this.TopMenu.Controls.Add(this.ProductContainer);
+            this.TopMenu.Controls.Add(this.btnRule);
+            this.TopMenu.Controls.Add(this.btnTransaction);
+            this.TopMenu.Controls.Add(this.btnViolation);
+            this.TopMenu.Controls.Add(this.btnReview);
+            this.TopMenu.Controls.Add(this.btnStatistic);
+            this.TopMenu.Controls.Add(this.btnSetting);
+            this.TopMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.TopMenu.Location = new System.Drawing.Point(0, 0);
+            this.TopMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.TopMenu.Name = "TopMenu";
+            this.TopMenu.Size = new System.Drawing.Size(240, 540);
+            this.TopMenu.TabIndex = 8;
             // 
             // btnDashBoard
             // 
-            this.btnDashBoard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnDashBoard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDashBoard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnDashBoard.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDashBoard.FlatAppearance.BorderSize = 0;
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashBoard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDashBoard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashBoard.Image")));
             this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard.Location = new System.Drawing.Point(3, 3);
+            this.btnDashBoard.Location = new System.Drawing.Point(0, 0);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(0);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnDashBoard.Size = new System.Drawing.Size(240, 50);
@@ -252,14 +287,17 @@
             // 
             // btnRule
             // 
-            this.btnRule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnRule.BackColor = System.Drawing.Color.Transparent;
             this.btnRule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnRule.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRule.FlatAppearance.BorderSize = 0;
             this.btnRule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRule.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRule.Image = ((System.Drawing.Image)(resources.GetObject("btnRule.Image")));
             this.btnRule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRule.Location = new System.Drawing.Point(3, 109);
+            this.btnRule.Location = new System.Drawing.Point(0, 100);
+            this.btnRule.Margin = new System.Windows.Forms.Padding(0);
             this.btnRule.Name = "btnRule";
             this.btnRule.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRule.Size = new System.Drawing.Size(240, 50);
@@ -272,14 +310,17 @@
             // 
             // btnTransaction
             // 
-            this.btnTransaction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnTransaction.BackColor = System.Drawing.Color.Transparent;
             this.btnTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTransaction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnTransaction.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnTransaction.FlatAppearance.BorderSize = 0;
             this.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaction.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnTransaction.Image = ((System.Drawing.Image)(resources.GetObject("btnTransaction.Image")));
             this.btnTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransaction.Location = new System.Drawing.Point(3, 165);
+            this.btnTransaction.Location = new System.Drawing.Point(0, 150);
+            this.btnTransaction.Margin = new System.Windows.Forms.Padding(0);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnTransaction.Size = new System.Drawing.Size(240, 50);
@@ -292,13 +333,16 @@
             // 
             // btnViolation
             // 
-            this.btnViolation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnViolation.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnViolation.BackColor = System.Drawing.Color.Transparent;
+            this.btnViolation.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnViolation.FlatAppearance.BorderSize = 0;
             this.btnViolation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViolation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViolation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnViolation.Image = ((System.Drawing.Image)(resources.GetObject("btnViolation.Image")));
             this.btnViolation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViolation.Location = new System.Drawing.Point(3, 221);
+            this.btnViolation.Location = new System.Drawing.Point(0, 200);
+            this.btnViolation.Margin = new System.Windows.Forms.Padding(0);
             this.btnViolation.Name = "btnViolation";
             this.btnViolation.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnViolation.Size = new System.Drawing.Size(240, 50);
@@ -311,13 +355,16 @@
             // 
             // btnReview
             // 
-            this.btnReview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnReview.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnReview.BackColor = System.Drawing.Color.Transparent;
+            this.btnReview.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReview.FlatAppearance.BorderSize = 0;
             this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnReview.Image = ((System.Drawing.Image)(resources.GetObject("btnReview.Image")));
             this.btnReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReview.Location = new System.Drawing.Point(3, 277);
+            this.btnReview.Location = new System.Drawing.Point(0, 250);
+            this.btnReview.Margin = new System.Windows.Forms.Padding(0);
             this.btnReview.Name = "btnReview";
             this.btnReview.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnReview.Size = new System.Drawing.Size(240, 50);
@@ -327,6 +374,103 @@
             this.btnReview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReview.UseVisualStyleBackColor = false;
             this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
+            // 
+            // btnStatistic
+            // 
+            this.btnStatistic.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatistic.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnStatistic.FlatAppearance.BorderSize = 0;
+            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnStatistic.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistic.Image")));
+            this.btnStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistic.Location = new System.Drawing.Point(0, 300);
+            this.btnStatistic.Margin = new System.Windows.Forms.Padding(0);
+            this.btnStatistic.Name = "btnStatistic";
+            this.btnStatistic.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnStatistic.Size = new System.Drawing.Size(240, 50);
+            this.btnStatistic.TabIndex = 10;
+            this.btnStatistic.Text = "    Statistics";
+            this.btnStatistic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatistic.UseVisualStyleBackColor = false;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(0, 350);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnSetting.Size = new System.Drawing.Size(240, 50);
+            this.btnSetting.TabIndex = 11;
+            this.btnSetting.Text = "     Settings";
+            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 10);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(240, 50);
+            this.btnLogout.TabIndex = 10;
+            this.btnLogout.Text = "     Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // SideBar
+            // 
+            this.SideBar.AutoScroll = true;
+            this.SideBar.BackColor = System.Drawing.Color.Black;
+            this.SideBar.ColumnCount = 1;
+            this.SideBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SideBar.Controls.Add(this.BottomMenu, 0, 1);
+            this.SideBar.Controls.Add(this.TopMenu, 0, 0);
+            this.SideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SideBar.Location = new System.Drawing.Point(0, 50);
+            this.SideBar.Margin = new System.Windows.Forms.Padding(0);
+            this.SideBar.Name = "SideBar";
+            this.SideBar.RowCount = 2;
+            this.SideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.SideBar.Size = new System.Drawing.Size(240, 600);
+            this.SideBar.TabIndex = 10;
+            this.SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
+            // 
+            // BottomMenu
+            // 
+            this.BottomMenu.BackColor = System.Drawing.Color.Transparent;
+            this.BottomMenu.Controls.Add(this.btnLogout);
+            this.BottomMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BottomMenu.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.BottomMenu.Location = new System.Drawing.Point(0, 540);
+            this.BottomMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.BottomMenu.Name = "BottomMenu";
+            this.BottomMenu.Size = new System.Drawing.Size(240, 60);
+            this.BottomMenu.TabIndex = 12;
             // 
             // FormMain
             // 
@@ -349,7 +493,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseProgram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).EndInit();
             this.ProductContainer.ResumeLayout(false);
+            this.TopMenu.ResumeLayout(false);
             this.SideBar.ResumeLayout(false);
+            this.BottomMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,13 +512,18 @@
         private System.Windows.Forms.Button btnTransaction;
         private System.Windows.Forms.Timer ProductTransition;
         private System.Windows.Forms.Timer SideBarTransition;
-        private System.Windows.Forms.FlowLayoutPanel SideBar;
+        private System.Windows.Forms.FlowLayoutPanel TopMenu;
         private System.Windows.Forms.Button btnViolation;
         private System.Windows.Forms.Button btnReview;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.PictureBox btnMaximize;
         private System.Windows.Forms.PictureBox btnCloseProgram;
+        private System.Windows.Forms.Button btnStatistic;
+        private Button btnSetting;
+        private Button btnLogout;
+        private TableLayoutPanel SideBar;
+        private FlowLayoutPanel BottomMenu;
     }
 }
 
