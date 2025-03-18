@@ -29,53 +29,54 @@ CREATE TABLE IF NOT EXISTS `Books` (
   `Author` VARCHAR(255) NOT NULL,
   `BookImage` VARCHAR(255) NOT NULL,
   `Category` VARCHAR(100) NOT NULL,
-  `PublisYear` INT NOT NULL,
-  `Status` ENUM('Available', 'Borrowed', 'Reserved') NOT NULL DEFAULT 'Available',
+  `PublishYear` INT NOT NULL,
+  `Quantity` INT NOT NULL CHECK (`Quantity` >= 0) ,
+  `Status` ENUM('Available', 'OutOf') NOT NULL DEFAULT 'Available',
   PRIMARY KEY (`BookID`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 
 -- Value Books
-INSERT INTO `Books` (`BookTitle`,`Author`,`BookImage`,`Category`,`PublisYear`)
-	VALUES('Bí Quyết Thành Công Của Steve Jobs','Kim Thác Đao','BiQuyetThanhCongCuaSteveJobs.jpg','Kinh Tế - Quản Lý',2011),
-			('Ai Lấy Miếng Pho Mát Của Tôi?','Spencer Johnson','AiLayMiengPhoMatCuaToi.jpg','Tâm Lý - Kỹ Năng Sống',2021),
-			('Ba Người Lính Ngự Lâm','Alexander Dumas','BaNguoiLinhNguLam.jpg','Tiểu Thuyết - Văn Học',2019),
-			('Các Thế Giới Song Song','Michio Kaku','CacTheGioiSongSong.jpg','Khoa Học - Viễn Tưởng',2024),
-			('Bí Quyết Thành Công Của Napoleon Hill','Napoleon Hill','BiQuyetThanhCongCuaNapoleonHill.jpg','Kinh Tế - Quản Lý',2021),
-			('Bí Quyết Thành Công của Henry Ford','Douglas Brinkley ','BiQuyetThanhCongcuaHenryFord.jpg','Kinh Tế - Quản Lý',2011),
-			('7 Nguyên Tắc Bất Biến Để Xây Dựng Doanh Nghiệp Nhỏ','Steven S. Little','7NguyenTacBatBienDeXayDungDoanhNghiepNho.jpg','Kinh Tế - Quản Lý',2023),
-			('Thiên Long Bát Bộ','Kim Dung','ThienLongBatBo.jpg','Tiểu Thuyết - Văn Học',1963),
-			('Chú Chó Kazan','James Oliver Curwood','ChuChoKazan.jpg','Tiểu Thuyết - Văn Học',2022),
-			('Truyền Thuyết Về Mộc Lan','Laurent Divers','TruyenThuyetVeMocLan.jpg','Tiểu Thuyết - Văn Học',1939),
-			('Bản Chất Của Dối Trá','Dan Ariely','BanChatCuaDoiTra.jpg','Tâm Lý - Kỹ Năng Sống',2014),
-			('Từ Hy Thái Hậu','Buck, Pearl S','TuHyThaiHau.jpg','Văn Hóa - Lịch Sử',1911),
-			('Từ Tơ Lụa Đến Silicon','Jeffrey E. Garten','TuToLuaDenSilicon.jpg','Kinh Tế - Quản Lý',2017),
-			('Vĩ Đại Do Lựa Chọn','Jim Collins - Morten T. Hansen','ViDaiDoLuaChon.jpg','Kinh Tế - Quản Lý',2011),
-			('Xây Dựng Để Trường Tồn','Jim Collins - Jerry I. Porras','XayDungDeTruongTon.jpg','Kinh Tế - Quản Lý',1994),
-			('Giáo Trình Tiền Tệ Ngân Hàng','Ts. Nguyễn Minh Kiều','GiaoTrinhTienTeNganHang.jpg','Kinh Tế - Quản Lý',2017),
-			('Chỉ Cần Mẩu Khăn Giấy','Dan Roam','ChiCanMauKhanGiay.jpg','Kinh Tế - Quản Lý',2013),
-			('Cho Khế Nhận Vàng','Adam Grant','ChoKheNhanVang.jpg','Kinh Tế - Quản Lý',2021),
-			('Tiền Không Mua Được Gì?','Michael Sandel','TienKhongMuaDuocGi.jpg','Kinh Tế - Quản Lý',2019),
-			('Đông Chu Liệt Quốc','Phùng Mộng Long','DongChuLietQuoc.jpg','Tiểu Thuyết - Văn Học',1998),
-			('Kinh Thánh Của Một Người','Cao Hành Kiện','KinhThanhCuaMotNguoi.jpg','Tiểu Thuyết - Văn Học',2006),
-			('Tầng Đầu Địa Ngục','Aleksandr Solzhenitsyn','TangDauDiaNguc.jpg','Tiểu Thuyết - Văn Học',1968),
-			('Tình Yêu Định Mệnh','Alexandre Dumas','TinhYeuDinhMenh.jpg','Tiểu Thuyết - Văn Học',2019),
-			('Cuộc Ngã Giá Của Nhà Tỷ Phú','Barbara Dunlop','CuocNgaGiaCuaNhaTyPhu.jpg','Tiểu Thuyết - Văn Học',2023),
-			('Tổ Ấm Nơi Tận Cùng Thế Giới','Michael Cunningham','ToAmNoiTanCungTheGioi.jpg','Tiểu Thuyết - Văn Học',2010),
-			('Tử huyệt cảm xúc','Roy Garn','TuHuyetCamXuc.jpg','Tâm Lý - Kỹ Năng Sống',2022),
-			('Ngày xưa có một con bò','Camilo Cruz','NgayXuaCoMotConBo.jpg','Tâm Lý - Kỹ Năng Sống',2013),
-			('Bí quyết tay trắng thành triệu phú','Adam Khoo','BiQuyetTayTrangThanhTrieuPhu.jpg','Tâm Lý - Kỹ Năng Sống',2009),
-			('Năng Đoạn Kim Cương','Michael Roach','NangDoanKimCuong.jpg','Tâm Lý - Kỹ Năng Sống',2022),
-			('7 Thói Quen Để Thành Đạt',' Stephen R.Covey','7ThoiQuenDeThanhDat.jpg','Tâm Lý - Kỹ Năng Sống',1998),
-			('Sinh Ra Để Chạy','Christopher McDougall','SinhRaDeChay.jpg','Tâm Lý - Kỹ Năng Sống',2023),
-			('Bí Mật Hành Trình Tình Yêu','David Niven','BiMatHanhTrinhTinhYeu.jpg','Tâm Lý - Kỹ Năng Sống',2017),
-			('Đời Ngắn Đừng Ngủ Dài','Robin Sharma','DoiNganDungNguDai.jpg','Tâm Lý - Kỹ Năng Sống',2014),
-			('Đánh Thức Năng Lực Vô Hạn','Anthony Robbins','DanhThucNangLucVoHan.jpg','Tâm Lý - Kỹ Năng Sống',2015),
-			('Tam Thể','Lưu Từ Hân','TamThe.jpg','Khoa Học - Viễn Tưởng',2006),
-			('Hai Vạn Dặm Dưới Đáy Biển','Jules Verne','HaiVanDamDuoiDayBien.jpg','Khoa Học - Viễn Tưởng',1870),
-			('Hành trình vào tâm Trái Đất','Jules Verne','HanhTrinhVaoTamTraiDat.jpg','Khoa Học - Viễn Tưởng',1864),
-			('Bí kíp quá giang vào Ngân Hà','Douglas Adams','BiKipQuaGiangVaoNganHa','Khoa Học - Viễn Tưởng',1979),
-			('Cỗ máy thời gian','H. G. Wells','CoMayThoiGian .jpg','Khoa Học - Viễn Tưởng',1895),
-			('451 Độ F','Ray Bradbury','451DoF.jpg','Khoa Học - Viễn Tưởng',2021);
+INSERT INTO `Books` (`BookTitle`,`Author`,`BookImage`,`Category`,`PublishYear`,`Quantity`)
+	VALUES('Bí Quyết Thành Công Của Steve Jobs','Kim Thác Đao','BiQuyetThanhCongCuaSteveJobs.jpg','Kinh Tế - Quản Lý',2011,10),
+			('Ai Lấy Miếng Pho Mát Của Tôi?','Spencer Johnson','AiLayMiengPhoMatCuaToi.jpg','Tâm Lý - Kỹ Năng Sống',2021,10),
+			('Ba Người Lính Ngự Lâm','Alexander Dumas','BaNguoiLinhNguLam.jpg','Tiểu Thuyết - Văn Học',2019,10),
+			('Các Thế Giới Song Song','Michio Kaku','CacTheGioiSongSong.jpg','Khoa Học - Viễn Tưởng',2024,10),
+			('Bí Quyết Thành Công Của Napoleon Hill','Napoleon Hill','BiQuyetThanhCongCuaNapoleonHill.jpg','Kinh Tế - Quản Lý',2021,10),
+			('Bí Quyết Thành Công của Henry Ford','Douglas Brinkley ','BiQuyetThanhCongcuaHenryFord.jpg','Kinh Tế - Quản Lý',2011,10),
+			('7 Nguyên Tắc Bất Biến Để Xây Dựng Doanh Nghiệp Nhỏ','Steven S. Little','7NguyenTacBatBienDeXayDungDoanhNghiepNho.jpg','Kinh Tế - Quản Lý',2023,10),
+			('Thiên Long Bát Bộ','Kim Dung','ThienLongBatBo.jpg','Tiểu Thuyết - Văn Học',1963,10),
+			('Chú Chó Kazan','James Oliver Curwood','ChuChoKazan.jpg','Tiểu Thuyết - Văn Học',2022,10),
+			('Truyền Thuyết Về Mộc Lan','Laurent Divers','TruyenThuyetVeMocLan.jpg','Tiểu Thuyết - Văn Học',1939,10),
+			('Bản Chất Của Dối Trá','Dan Ariely','BanChatCuaDoiTra.jpg','Tâm Lý - Kỹ Năng Sống',2014,10),
+			('Từ Hy Thái Hậu','Buck, Pearl S','TuHyThaiHau.jpg','Văn Hóa - Lịch Sử',1911,10),
+			('Từ Tơ Lụa Đến Silicon','Jeffrey E. Garten','TuToLuaDenSilicon.jpg','Kinh Tế - Quản Lý',2017,10),
+			('Vĩ Đại Do Lựa Chọn','Jim Collins - Morten T. Hansen','ViDaiDoLuaChon.jpg','Kinh Tế - Quản Lý',2011,10),
+			('Xây Dựng Để Trường Tồn','Jim Collins - Jerry I. Porras','XayDungDeTruongTon.jpg','Kinh Tế - Quản Lý',1994,10),
+			('Giáo Trình Tiền Tệ Ngân Hàng','Ts. Nguyễn Minh Kiều','GiaoTrinhTienTeNganHang.jpg','Kinh Tế - Quản Lý',2017,10),
+			('Chỉ Cần Mẩu Khăn Giấy','Dan Roam','ChiCanMauKhanGiay.jpg','Kinh Tế - Quản Lý',2013,10),
+			('Cho Khế Nhận Vàng','Adam Grant','ChoKheNhanVang.jpg','Kinh Tế - Quản Lý',2021,10),
+			('Tiền Không Mua Được Gì?','Michael Sandel','TienKhongMuaDuocGi.jpg','Kinh Tế - Quản Lý',2019,10),
+			('Đông Chu Liệt Quốc','Phùng Mộng Long','DongChuLietQuoc.jpg','Tiểu Thuyết - Văn Học',1998,10),
+			('Kinh Thánh Của Một Người','Cao Hành Kiện','KinhThanhCuaMotNguoi.jpg','Tiểu Thuyết - Văn Học',2006,10),
+			('Tầng Đầu Địa Ngục','Aleksandr Solzhenitsyn','TangDauDiaNguc.jpg','Tiểu Thuyết - Văn Học',1968,10),
+			('Tình Yêu Định Mệnh','Alexandre Dumas','TinhYeuDinhMenh.jpg','Tiểu Thuyết - Văn Học',2019,10),
+			('Cuộc Ngã Giá Của Nhà Tỷ Phú','Barbara Dunlop','CuocNgaGiaCuaNhaTyPhu.jpg','Tiểu Thuyết - Văn Học',2023,10),
+			('Tổ Ấm Nơi Tận Cùng Thế Giới','Michael Cunningham','ToAmNoiTanCungTheGioi.jpg','Tiểu Thuyết - Văn Học',2010,10),
+			('Tử huyệt cảm xúc','Roy Garn','TuHuyetCamXuc.jpg','Tâm Lý - Kỹ Năng Sống',2022,10),
+			('Ngày xưa có một con bò','Camilo Cruz','NgayXuaCoMotConBo.jpg','Tâm Lý - Kỹ Năng Sống',2013,10),
+			('Bí quyết tay trắng thành triệu phú','Adam Khoo','BiQuyetTayTrangThanhTrieuPhu.jpg','Tâm Lý - Kỹ Năng Sống',2009,10),
+			('Năng Đoạn Kim Cương','Michael Roach','NangDoanKimCuong.jpg','Tâm Lý - Kỹ Năng Sống',2022,10),
+			('7 Thói Quen Để Thành Đạt',' Stephen R.Covey','7ThoiQuenDeThanhDat.jpg','Tâm Lý - Kỹ Năng Sống',1998,10),
+			('Sinh Ra Để Chạy','Christopher McDougall','SinhRaDeChay.jpg','Tâm Lý - Kỹ Năng Sống',2023,10),
+			('Bí Mật Hành Trình Tình Yêu','David Niven','BiMatHanhTrinhTinhYeu.jpg','Tâm Lý - Kỹ Năng Sống',2017,10),
+			('Đời Ngắn Đừng Ngủ Dài','Robin Sharma','DoiNganDungNguDai.jpg','Tâm Lý - Kỹ Năng Sống',2014,10),
+			('Đánh Thức Năng Lực Vô Hạn','Anthony Robbins','DanhThucNangLucVoHan.jpg','Tâm Lý - Kỹ Năng Sống',2015,10),
+			('Tam Thể','Lưu Từ Hân','TamThe.jpg','Khoa Học - Viễn Tưởng',2006,10),
+			('Hai Vạn Dặm Dưới Đáy Biển','Jules Verne','HaiVanDamDuoiDayBien.jpg','Khoa Học - Viễn Tưởng',1870,10),
+			('Hành trình vào tâm Trái Đất','Jules Verne','HanhTrinhVaoTamTraiDat.jpg','Khoa Học - Viễn Tưởng',1864,10),
+			('Bí kíp quá giang vào Ngân Hà','Douglas Adams','BiKipQuaGiangVaoNganHa.jpg','Khoa Học - Viễn Tưởng',1979,10),
+			('Cỗ máy thời gian','H. G. Wells','CoMayThoiGian .jpg','Khoa Học - Viễn Tưởng',1895,10),
+			('451 Độ F','Ray Bradbury','451DoF.jpg','Khoa Học - Viễn Tưởng',2021,10);
 			
 -- Bảng Devices
 CREATE TABLE IF NOT EXISTS `Devices` (
@@ -83,8 +84,8 @@ CREATE TABLE IF NOT EXISTS `Devices` (
   `DeviceName` VARCHAR(255) NOT NULL,
   `DeviceImage` VARCHAR(255) NOT NULL,
   `DeviceType` VARCHAR(100) NOT NULL,
-  `Quantity` INT NOT NULL CHECK (`Quantity` > 0),
-  `Status` ENUM('Available', 'Borrowed', 'Reserved','Broke') NOT NULL DEFAULT 'Available',
+  `Quantity` INT NOT NULL CHECK (`Quantity` >= 0),
+  `Status` ENUM('Available', 'OutOf') NOT NULL DEFAULT 'Available',
   PRIMARY KEY (`DeviceID`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 
@@ -123,11 +124,11 @@ INSERT INTO `Transactions`(`MemberID`,`TransactionType`,`TransactionDate`,`DueDa
 				(4,'Borrow', '2025-02-06 08:00:00', '2025-02-18 08:30:00', '2025-02-16 08:00:00', 'Completed'),
 				(3,'Borrow', '2025-02-20 07:00:00', '2025-02-27 15:00:00', '2025-02-27 13:00:00', 'Completed'),
 				(3,'Borrow', '2025-03-01 07:00:00', '2025-03-01 16:00:00', '2025-03-01 15:30:00', 'Completed'),
-				(4,'Borrow', '2025-03-02 08:00:00', '2025-03-10 08:30:00', '2025-03-11 08:00:00', 'Overdue');
+				(4,'Borrow', '2025-03-02 08:00:00', '2025-03-10 08:30:00', '2025-03-11 08:00:00', 'Completed');
 -- Bảng TransactionItems
 CREATE TABLE IF NOT EXISTS `TransactionItems`(
 		`ItemID` INT AUTO_INCREMENT NOT NULL,
-		`TransactionID` INT,
+		`TransactionID` INT NOT NULL,
 		`BookID` INT NULL,
 		`DeviceID` INT NULL,
 		`Amount` INT NOT NULL CHECK(`Amount` > 0),
@@ -260,3 +261,42 @@ INSERT INTO `Review` (`MemberID`,`BookID`, `DeviceID`,`Rating`,`ReviewText`,`Rev
 					(4, 5,NULL, 3, 'Sách ổn nhưng không như mong đợi.', '2025-02-22'),
 					(4, 2,NULL,5, 'Tuyệt vời! Mình học được rất nhiều kiến thức bổ ích.', '2025-02-23'),
 					(3, 4,NULL,4, 'Nội dung dễ hiểu và hữu ích cho công việc.', '2025-02-24');
+-- Bảng Categories
+CREATE TABLE Categories (
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    CategoryName VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Bảng Authors
+CREATE TABLE Authors (
+    AuthorID INT AUTO_INCREMENT PRIMARY KEY,
+    AuthorName VARCHAR(255) NOT NULL UNIQUE
+);
+
+ALTER TABLE Books 
+ADD COLUMN CategoryID INT,
+ADD COLUMN AuthorID INT;
+
+INSERT INTO Categories (CategoryName)
+SELECT DISTINCT Category FROM Books;
+
+INSERT INTO Authors (AuthorName)
+SELECT DISTINCT Author FROM Books;
+
+UPDATE Books b
+JOIN Categories c ON b.Category = c.CategoryName
+SET b.CategoryID = c.CategoryID;
+
+UPDATE Books b
+JOIN Authors a ON b.Author = a.AuthorName
+SET b.AuthorID = a.AuthorID;
+
+ALTER TABLE Books
+DROP COLUMN Category,
+DROP COLUMN Author;
+
+ALTER TABLE Books
+ADD FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
+ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
+
+
