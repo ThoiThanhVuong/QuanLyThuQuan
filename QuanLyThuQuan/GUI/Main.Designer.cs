@@ -69,6 +69,7 @@ namespace QuanLyThuQuan.GUI
             this.btnLogout = new System.Windows.Forms.Button();
             this.SideBar = new System.Windows.Forms.TableLayoutPanel();
             this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -472,6 +473,12 @@ namespace QuanLyThuQuan.GUI
             this.BottomMenu.Size = new System.Drawing.Size(240, 60);
             this.BottomMenu.TabIndex = 12;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -524,6 +531,7 @@ namespace QuanLyThuQuan.GUI
         private Button btnLogout;
         private TableLayoutPanel SideBar;
         private FlowLayoutPanel BottomMenu;
+        private ImageList imageList1;
     }
 }
 
