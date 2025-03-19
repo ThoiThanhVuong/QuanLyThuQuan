@@ -11,27 +11,36 @@ namespace QuanLyThuQuan.Model
     {
         public int BookID { get; set; }
         public string BookTitle { get; set; }
-        public string Author { get; set; }
+        public int AuthorID { get; set; }
         public string BookImage { get; set; }
-        public string Category { get; set; }
+        public int CategoryID { get; set; }
         public int PublisYear { get; set; }
         public int BookQuantity { get; set; }
         public ProductStatus BookStatus { get; set; }
+
+        public CategoriesModel Category { get; set; }
+        public AuthorModel Author { get; set; }
         public BookModel()
         {
             
         }
 
-        public BookModel(int bookID, string bookTitle, string author, string bookImage, string category, int publisYear, int bookQuantity, ProductStatus bookStatus)
+        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus)
         {
             BookID = bookID;
             BookTitle = bookTitle;
-            Author = author;
+            AuthorID = authorID;
             BookImage = bookImage;
-            Category = category;
+            CategoryID = categoryID;
             PublisYear = publisYear;
             BookQuantity = bookQuantity;
             BookStatus = bookStatus;
+        }
+
+        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, CategoriesModel category, AuthorModel author) : this(bookID, bookTitle, authorID, bookImage, categoryID, publisYear, bookQuantity, bookStatus)
+        {
+            Category = category;
+            Author = author;
         }
     }
 }

@@ -108,7 +108,9 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AuthorModel.cs" />
     <Compile Include="Model\BookModel.cs" />
+    <Compile Include="Model\CategoriesModel.cs" />
     <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\enums.cs" />
     <Compile Include="Model\LoginHistoryModel.cs" />
