@@ -30,11 +30,24 @@ namespace QuanLyThuQuan.GUI
         public FormTransaction()
         {
             InitializeComponent();
+
+            // Add col button for data transaction table
+            DataGridViewButtonColumn colAdvancedBtn = new DataGridViewButtonColumn();
+            colAdvancedBtn.HeaderText = "Options";
+            colAdvancedBtn.Text = "More";
+            colAdvancedBtn.UseColumnTextForButtonValue = true;
+            dataTransactions.Columns.Add(colAdvancedBtn);
+            colAdvancedBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            colAdvancedBtn.DefaultCellStyle.ForeColor = Color.Black;
+            colAdvancedBtn.DefaultCellStyle.BackColor = Color.White;
         }
 
         private void FormTransaction_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+            dataTransactions.CellClick += dataTransactions_CellContentClick;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -115,6 +128,21 @@ namespace QuanLyThuQuan.GUI
             }
             else
                 e.Cancel = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         //private void timeTextBoxResult_Tick(object sender, EventArgs e)
