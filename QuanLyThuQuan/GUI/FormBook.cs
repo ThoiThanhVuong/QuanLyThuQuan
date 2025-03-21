@@ -20,6 +20,17 @@ namespace QuanLyThuQuan.GUI
         private void FormBook_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+            // thử nghiệm
+            List<string> danhSachSach = new List<string>() { "Sách 1", "Sách 2", "Sách 3" ,"Sách 4","Sách 5"};
+
+            foreach (var tenSach in danhSachSach)
+            {
+                
+                BookItemControl bookItem = new BookItemControl();
+
+                
+                ListBook.Controls.Add(bookItem);
+            }
         }
     }
 }

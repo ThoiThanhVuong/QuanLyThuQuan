@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="GUI\BookItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BookItemControl.Designer.cs">
+      <DependentUpon>BookItemControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\BookItemControl.resx">
+      <DependentUpon>BookItemControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormBook.resx">
       <DependentUpon>FormBook.cs</DependentUpon>
     </EmbeddedResource>
