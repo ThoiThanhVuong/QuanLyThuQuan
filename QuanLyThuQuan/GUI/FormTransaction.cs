@@ -13,6 +13,20 @@ namespace QuanLyThuQuan.GUI
             button.BackColor = color;
         }
 
+        private void TimerForComponent(Control control, int time)
+        {
+            //timeTextBoxResult.Interval = time;
+            Timer countdown = new Timer();
+            countdown.Interval = time;
+            countdown.Tick += (s, e) =>
+            {
+                countdown.Stop();
+                countdown.Dispose();
+                control.Visible = false;
+            };
+            countdown.Start();
+        }
+
         public FormTransaction()
         {
             InitializeComponent();
@@ -67,5 +81,46 @@ namespace QuanLyThuQuan.GUI
         {
             ChangeColorHoverBtn(btnBookReservation, Color.Transparent);
         }
+
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "The program is currently development!",
+                "Alert",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Warning
+                );
+            txtResult.Text = result.ToString();
+            txtResult.Visible = true;
+            TimerForComponent(txtResult, 3000);
+        }
+
+        private void FormTransaction_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult alert = MessageBox.Show(
+                "Do you wanna exit ?",
+                "Exit Program Alert",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+            if (alert.Equals(DialogResult.Yes))
+            {
+                DialogResult result = MessageBox.Show(
+                    "Have a good day friend =_=!",
+                    "See ya",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
+                e.Cancel = false;
+            }
+            else
+                e.Cancel = true;
+        }
+
+        //private void timeTextBoxResult_Tick(object sender, EventArgs e)
+        //{
+        //    timeTextBoxResult.Stop();
+        //    txtResult.Visible = false;
+        //}
     }
 }
