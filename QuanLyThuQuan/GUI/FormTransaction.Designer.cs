@@ -31,7 +31,7 @@
             this.btnBorrow = new System.Windows.Forms.Button();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnBookReservation = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.tbBody = new System.Windows.Forms.TableLayoutPanel();
             this.panelHeader = new System.Windows.Forms.Panel();
@@ -44,7 +44,7 @@
             this.colDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tbHeaderButtons.SuspendLayout();
             this.tbBody.SuspendLayout();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTransactions)).BeginInit();
@@ -98,25 +98,26 @@
             this.btnBookReservation.MouseEnter += new System.EventHandler(this.btnBookReservation_MouseEnter);
             this.btnBookReservation.MouseLeave += new System.EventHandler(this.btnBookReservation_MouseLeave);
             // 
-            // tableLayoutPanel1
+            // tbHeaderButtons
             // 
-            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.btnReturnBook, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnBookReservation, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnBorrow, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(960, 106);
-            this.tableLayoutPanel1.TabIndex = 4;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tbHeaderButtons.BackColor = System.Drawing.Color.Black;
+            this.tbHeaderButtons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.tbHeaderButtons.ColumnCount = 3;
+            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbHeaderButtons.Controls.Add(this.btnReturnBook, 1, 0);
+            this.tbHeaderButtons.Controls.Add(this.btnBookReservation, 2, 0);
+            this.tbHeaderButtons.Controls.Add(this.btnBorrow, 0, 0);
+            this.tbHeaderButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbHeaderButtons.Location = new System.Drawing.Point(0, 0);
+            this.tbHeaderButtons.Margin = new System.Windows.Forms.Padding(4);
+            this.tbHeaderButtons.Name = "tbHeaderButtons";
+            this.tbHeaderButtons.RowCount = 1;
+            this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbHeaderButtons.Size = new System.Drawing.Size(960, 106);
+            this.tbHeaderButtons.TabIndex = 4;
+            this.tbHeaderButtons.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // txtResult
             // 
@@ -157,6 +158,7 @@
             // 
             // panelHeader
             // 
+            this.panelHeader.BackColor = System.Drawing.Color.Black;
             this.panelHeader.Controls.Add(this.lbTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHeader.Location = new System.Drawing.Point(3, 3);
@@ -243,7 +245,7 @@
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.Controls.Add(this.tbBody);
             this.Controls.Add(this.txtResult);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tbHeaderButtons);
             this.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -252,7 +254,7 @@
             this.Text = "FormTransaction";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransaction_FormClosing);
             this.Load += new System.EventHandler(this.FormTransaction_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tbHeaderButtons.ResumeLayout(false);
             this.tbBody.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
@@ -266,7 +268,7 @@
         private System.Windows.Forms.Button btnBorrow;
         private System.Windows.Forms.Button btnReturnBook;
         private System.Windows.Forms.Button btnBookReservation;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tbHeaderButtons;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.TableLayoutPanel tbBody;
         private System.Windows.Forms.Panel panelHeader;
