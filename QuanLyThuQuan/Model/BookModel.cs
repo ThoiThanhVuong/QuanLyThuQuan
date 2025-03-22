@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyThuQuan.Model
+﻿namespace QuanLyThuQuan.Model
 {
-  
+
     class BookModel
     {
         public int BookID { get; set; }
@@ -22,7 +16,7 @@ namespace QuanLyThuQuan.Model
         public AuthorModel Author { get; set; }
         public BookModel()
         {
-            
+
         }
 
         public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus)

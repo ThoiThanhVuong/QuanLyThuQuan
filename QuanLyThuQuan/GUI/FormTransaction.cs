@@ -25,7 +25,32 @@ namespace QuanLyThuQuan.GUI
                 control.Visible = false;
             };
             countdown.Start();
+            dataTransactions.CellClick += dataTransactions_CellContentClick;
+            pnlChildDetailInfo.Paint += pnlChildDetailInfo_Paint;
+        }
 
+        // disable parent component
+        private void DisableParentComponent(Control.ControlCollection controls, Control targetControl)
+        {
+            // Block event from parent component
+            foreach (Control control in controls)
+                if (!control.Equals(targetControl))
+                    control.Enabled = false;
+        }
+
+        // enable parent component
+        private void EnableParentComponent(Control.ControlCollection controls, Control targetControl)
+        {
+            foreach (Control control in controls)
+                if (!control.Equals(targetControl))
+                    control.Enabled = true;
+        }
+
+        // resize panel container
+        private void ResizePanelContainer(Control children, Control parent)
+        {
+            parent.Width = children.Width;
+            //parent.Height = children.Height;
         }
 
         public FormTransaction()
@@ -39,22 +64,12 @@ namespace QuanLyThuQuan.GUI
             this.DoubleBuffered = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            pnlChildDetailInfo.Visible = true;
-            this.ControlBox = false;
-            dataTransactions.CellClick += dataTransactions_CellContentClick;
-            pnlChildDetailInfo.Paint += pnlChildDetailInfo_Paint;
-            // Block event from parent component
-            Control.ControlCollection controls = this.Controls;
-            foreach (Control control in controls)
-                if (!control.Equals(pnlChildDetailInfo))
-                    control.Enabled = false;
-        }
-
         private void btnHandleViolations_Click(object sender, EventArgs e)
         {
-
+            pnlContainer.Visible = true;
+            pnlChildDetailInfo.Visible = true;
+            DisableParentComponent(this.Controls, pnlContainer);
+            ResizePanelContainer(pnlChildDetailInfo, pnlContainer);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -94,15 +109,32 @@ namespace QuanLyThuQuan.GUI
 
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "The program is currently development!",
-                "Alert",
-                MessageBoxButtons.YesNoCancel,
-                MessageBoxIcon.Warning
-                );
-            txtResult.Text = result.ToString();
-            txtResult.Visible = true;
-            TimerForComponent(txtResult, 3000);
+            pnlContainer.Visible = true;
+            pnlFormBorrowBook.Visible = true;
+            DisableParentComponent(this.Controls, pnlContainer);
+            ResizePanelContainer(pnlFormBorrowBook, pnlContainer);
+        }
+
+        private void btnExitBookBorrow_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Visible = false;
+            pnlFormBorrowBook.Visible = false;
+            EnableParentComponent(this.Controls, pnlContainer);
+        }
+
+        private void btnReturnBook_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Visible = true;
+            pnlFormReturnBook.Visible = true;
+            DisableParentComponent(this.Controls, pnlContainer);
+            ResizePanelContainer(pnlFormReturnBook, pnlContainer);
+        }
+
+        private void btnExitChildPanel_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Visible = false;
+            pnlChildDetailInfo.Visible = false;
+            EnableParentComponent(this.Controls, pnlContainer);
         }
 
         private void FormTransaction_FormClosing(object sender, FormClosingEventArgs e)
@@ -136,43 +168,11 @@ namespace QuanLyThuQuan.GUI
             else
                 e.Cancel = true;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void dataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void tbBody_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbTransInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
         {
 
         }
@@ -190,32 +190,16 @@ namespace QuanLyThuQuan.GUI
             //ControlPaint.DrawBorder(e.Graphics, pnlChildDetailInfo.ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
         }
 
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbBlockInfoOne_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private void btnChildPanelExit_Click(object sender, EventArgs e)
-        {
-            pnlChildDetailInfo.Visible = false;
-            Control.ControlCollection controls = this.Controls;
-            foreach (Control control in controls)
-                if (!control.Equals(pnlChildDetailInfo))
-                    control.Enabled = true;
-        }
 
-        private void lbListTransItems_Click(object sender, EventArgs e)
+        private void btnExitFormReturnBook_Click(object sender, EventArgs e)
         {
-
+            pnlContainer.Visible = false;
+            pnlFormReturnBook.Visible = false;
+            EnableParentComponent(this.Controls, pnlContainer);
         }
 
         //private void timeTextBoxResult_Tick(object sender, EventArgs e)

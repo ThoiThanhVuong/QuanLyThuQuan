@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyThuQuan.Model
+﻿namespace QuanLyThuQuan.Model
 {
     class TransactionItemModel
     {
@@ -21,7 +15,7 @@ namespace QuanLyThuQuan.Model
 
         public TransactionItemModel()
         {
-            
+
         }
 
         public TransactionItemModel(int itemID, int transactionID, int? bookID, int? deviceID, int amount)

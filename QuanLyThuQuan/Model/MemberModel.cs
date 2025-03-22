@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.Model
-{ 
- 
+{
+
     class MemberModel
     {
         public int MemberID { get; set; }
@@ -20,7 +16,7 @@ namespace QuanLyThuQuan.Model
         public ActivityStatus MemberStatus { get; set; }
         public MemberModel()
         {
-            
+
         }
 
         public MemberModel(int memberID, string fullName, string email, string phoneNumber, string username, string password, DateTime registrationDate, UserType userType, ActivityStatus memberStatus)

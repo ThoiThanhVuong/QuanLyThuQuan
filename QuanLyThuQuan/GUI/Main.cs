@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
-    public partial class FormMain: Form
+    public partial class FormMain : Form
     {
         FormBook pnBook;
         FormDashBoard pnDashBoard;
@@ -46,10 +40,10 @@ namespace QuanLyThuQuan.GUI
         bool productExpand = false;
         private void ProductTransition_Tick(object sender, EventArgs e)
         {
-            if(productExpand == false)
+            if (productExpand == false)
             {
                 ProductContainer.Height += 10;
-                if(ProductContainer.Height >= 150)
+                if (ProductContainer.Height >= 150)
                 {
                     ProductTransition.Stop();
                     productExpand = true;
@@ -74,10 +68,10 @@ namespace QuanLyThuQuan.GUI
         bool sidebarExpand = true;
         private void SideBarTransition_Tick(object sender, EventArgs e)
         {
-            if(sidebarExpand )
+            if (sidebarExpand)
             {
                 SideBar.Width -= 13;
-                if(SideBar.Width <=70)
+                if (SideBar.Width <= 70)
                 {
                     sidebarExpand = false;
                     SideBarTransition.Stop();
@@ -126,7 +120,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            if(pnBook == null)
+            if (pnBook == null)
             {
                 pnBook = new FormBook();
                 pnBook.FormClosed += PnBook_FormClosed;
@@ -147,7 +141,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnDevice_Click(object sender, EventArgs e)
         {
-            if(pnDevice == null)
+            if (pnDevice == null)
             {
                 pnDevice = new FormDevice();
                 pnDevice.FormClosed += PnDevice_FormClosed;
@@ -168,7 +162,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnRule_Click(object sender, EventArgs e)
         {
-            if(pnRule == null)
+            if (pnRule == null)
             {
                 pnRule = new FormRule();
                 pnRule.FormClosed += PnRule_FormClosed;
@@ -189,7 +183,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            if(pnTransaction == null)
+            if (pnTransaction == null)
             {
                 pnTransaction = new FormTransaction();
                 pnTransaction.FormClosed += PnTransaction_FormClosed;
@@ -206,12 +200,12 @@ namespace QuanLyThuQuan.GUI
 
         private void PnTransaction_FormClosed(object sender, FormClosedEventArgs e)
         {
-            pnTransaction = null; 
+            pnTransaction = null;
         }
 
         private void btnViolation_Click(object sender, EventArgs e)
         {
-            if(pnViolation == null)
+            if (pnViolation == null)
             {
                 pnViolation = new FormViolation();
                 pnViolation.FormClosed += PnViolation_FormClosed;
@@ -232,7 +226,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            if(pnReview == null)
+            if (pnReview == null)
             {
                 pnReview = new FormReview();
                 pnReview.FormClosed += PnReview_FormClosed;
@@ -252,12 +246,12 @@ namespace QuanLyThuQuan.GUI
         }
 
         private void btnCloseProgram_Click(object sender, EventArgs e)
-        {   
-           
+        {
+
             this.Close();
         }
 
-        private  async void btnMinimize_Click(object sender, EventArgs e)
+        private async void btnMinimize_Click(object sender, EventArgs e)
         {
             for (double i = 1.0; i >= 0.1; i -= 0.1)
             {
@@ -282,7 +276,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            if(pnStatistic == null)
+            if (pnStatistic == null)
             {
                 pnStatistic = new FormStatistic();
                 pnStatistic.FormClosed += PnStatistic_FormClosed;
@@ -307,10 +301,10 @@ namespace QuanLyThuQuan.GUI
                                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
-                this.Hide(); 
+                this.Hide();
                 formLogin = new Login();
                 formLogin.ShowDialog();
-                this.Close(); 
+                this.Close();
             }
         }
     }
