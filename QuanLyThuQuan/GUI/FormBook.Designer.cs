@@ -33,28 +33,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnQLSach = new System.Windows.Forms.Panel();
-            this.pnTacgia = new System.Windows.Forms.Panel();
-            this.pnTheLoai = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnTacgia = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnTheLoai = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.ListBook = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnQLSach.SuspendLayout();
-            this.pnTacgia.SuspendLayout();
-            this.pnTheLoai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnTacgia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnTheLoai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
-            this.ListBook.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,36 +98,6 @@
             this.pnQLSach.Size = new System.Drawing.Size(200, 150);
             this.pnQLSach.TabIndex = 0;
             // 
-            // pnTacgia
-            // 
-            this.pnTacgia.Controls.Add(this.button2);
-            this.pnTacgia.Controls.Add(this.pictureBox2);
-            this.pnTacgia.Location = new System.Drawing.Point(261, 0);
-            this.pnTacgia.Margin = new System.Windows.Forms.Padding(40, 0, 40, 0);
-            this.pnTacgia.Name = "pnTacgia";
-            this.pnTacgia.Size = new System.Drawing.Size(200, 150);
-            this.pnTacgia.TabIndex = 1;
-            // 
-            // pnTheLoai
-            // 
-            this.pnTheLoai.Controls.Add(this.button3);
-            this.pnTheLoai.Controls.Add(this.pictureBox3);
-            this.pnTheLoai.Location = new System.Drawing.Point(504, 0);
-            this.pnTheLoai.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pnTheLoai.Name = "pnTheLoai";
-            this.pnTheLoai.Size = new System.Drawing.Size(200, 150);
-            this.pnTheLoai.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 91);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
@@ -148,25 +116,25 @@
             this.button1.Text = " SÁCH";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // pictureBox1
             // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 91);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // pictureBox3
+            // pnTacgia
             // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 91);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.pnTacgia.Controls.Add(this.button2);
+            this.pnTacgia.Controls.Add(this.pictureBox2);
+            this.pnTacgia.Location = new System.Drawing.Point(261, 0);
+            this.pnTacgia.Margin = new System.Windows.Forms.Padding(40, 0, 40, 0);
+            this.pnTacgia.Name = "pnTacgia";
+            this.pnTacgia.Size = new System.Drawing.Size(200, 150);
+            this.pnTacgia.TabIndex = 1;
             // 
             // button2
             // 
@@ -185,6 +153,26 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pnTheLoai
+            // 
+            this.pnTheLoai.Controls.Add(this.button3);
+            this.pnTheLoai.Controls.Add(this.pictureBox3);
+            this.pnTheLoai.Location = new System.Drawing.Point(504, 0);
+            this.pnTheLoai.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pnTheLoai.Name = "pnTheLoai";
+            this.pnTheLoai.Size = new System.Drawing.Size(200, 150);
+            this.pnTheLoai.TabIndex = 2;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
@@ -202,6 +190,16 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.ListBook);
@@ -213,6 +211,17 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(10, 25, 10, 0);
             this.panel2.Size = new System.Drawing.Size(960, 400);
             this.panel2.TabIndex = 3;
+            // 
+            // ListBook
+            // 
+            this.ListBook.AutoScroll = true;
+            this.ListBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListBook.Location = new System.Drawing.Point(10, 54);
+            this.ListBook.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.ListBook.Name = "ListBook";
+            this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.ListBook.Size = new System.Drawing.Size(940, 346);
+            this.ListBook.TabIndex = 1;
             // 
             // label2
             // 
@@ -229,26 +238,6 @@
             this.label2.Text = "SÁCH";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ListBook
-            // 
-            this.ListBook.AutoScroll = true;
-            this.ListBook.Controls.Add(this.panel3);
-            this.ListBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListBook.Location = new System.Drawing.Point(10, 54);
-            this.ListBook.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.ListBook.Name = "ListBook";
-            this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.ListBook.Size = new System.Drawing.Size(940, 346);
-            this.ListBook.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.IndianRed;
-            this.panel3.Location = new System.Drawing.Point(3, 18);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(220, 320);
-            this.panel3.TabIndex = 0;
-            // 
             // FormBook
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -264,14 +253,13 @@
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnQLSach.ResumeLayout(false);
-            this.pnTacgia.ResumeLayout(false);
-            this.pnTheLoai.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnTacgia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnTheLoai.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.ListBook.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -293,6 +281,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel ListBook;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
     }
 }
