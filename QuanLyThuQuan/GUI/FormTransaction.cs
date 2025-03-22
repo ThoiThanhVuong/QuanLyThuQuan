@@ -25,34 +25,31 @@ namespace QuanLyThuQuan.GUI
                 control.Visible = false;
             };
             countdown.Start();
+
         }
 
         public FormTransaction()
         {
             InitializeComponent();
-
-            // Add col button for data transaction table
-            DataGridViewButtonColumn colAdvancedBtn = new DataGridViewButtonColumn();
-            colAdvancedBtn.HeaderText = "Options";
-            colAdvancedBtn.Text = "More";
-            colAdvancedBtn.UseColumnTextForButtonValue = true;
-            dataTransactions.Columns.Add(colAdvancedBtn);
-            colAdvancedBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            colAdvancedBtn.DefaultCellStyle.ForeColor = Color.Black;
-            colAdvancedBtn.DefaultCellStyle.BackColor = Color.White;
         }
 
         private void FormTransaction_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            dataTransactions.CellClick += dataTransactions_CellContentClick;
-
+            this.DoubleBuffered = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            pnlChildDetailInfo.Visible = true;
+            this.ControlBox = false;
+            dataTransactions.CellClick += dataTransactions_CellContentClick;
+            pnlChildDetailInfo.Paint += pnlChildDetailInfo_Paint;
+            // Block event from parent component
+            Control.ControlCollection controls = this.Controls;
+            foreach (Control control in controls)
+                if (!control.Equals(pnlChildDetailInfo))
+                    control.Enabled = false;
         }
 
         private void btnHandleViolations_Click(object sender, EventArgs e)
@@ -110,12 +107,22 @@ namespace QuanLyThuQuan.GUI
 
         private void FormTransaction_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Block Cancel button when child parent is visible
+            if (pnlChildDetailInfo.Visible)
+            {
+                e.Cancel = true;
+                return;
+            }
+            else
+                e.Cancel = false;
+
             DialogResult alert = MessageBox.Show(
                 "Do you wanna exit ?",
                 "Exit Program Alert",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
+            // MessageBox for exit
             if (alert.Equals(DialogResult.Yes))
             {
                 DialogResult result = MessageBox.Show(
@@ -143,6 +150,68 @@ namespace QuanLyThuQuan.GUI
         private void dataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tbBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbTransInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlChildDetailInfo_Paint(object sender, PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            int borderSize = 10;
+            Color borderColor = Color.Red;
+            Control panel = sender as Control;
+            using (Pen pen = new Pen(borderColor, borderSize))
+            {
+                e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, panel.Width - 1, panel.Height - 1));
+            }
+            //ControlPaint.DrawBorder(e.Graphics, pnlChildDetailInfo.ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbBlockInfoOne_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnChildPanelExit_Click(object sender, EventArgs e)
+        {
+            pnlChildDetailInfo.Visible = false;
+            Control.ControlCollection controls = this.Controls;
+            foreach (Control control in controls)
+                if (!control.Equals(pnlChildDetailInfo))
+                    control.Enabled = true;
         }
 
         //private void timeTextBoxResult_Tick(object sender, EventArgs e)
