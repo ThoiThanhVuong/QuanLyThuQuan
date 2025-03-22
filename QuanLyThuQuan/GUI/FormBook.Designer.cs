@@ -83,6 +83,7 @@
             this.flowLayoutPanel1.Controls.Add(this.pnTheLoai);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 50);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(960, 150);
@@ -92,6 +93,7 @@
             // 
             this.pnQLSach.Controls.Add(this.button1);
             this.pnQLSach.Controls.Add(this.pictureBox1);
+            this.pnQLSach.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnQLSach.Location = new System.Drawing.Point(18, 0);
             this.pnQLSach.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnQLSach.Name = "pnQLSach";
@@ -119,10 +121,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -130,11 +134,13 @@
             // 
             this.pnTacgia.Controls.Add(this.button2);
             this.pnTacgia.Controls.Add(this.pictureBox2);
+            this.pnTacgia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnTacgia.Location = new System.Drawing.Point(261, 0);
             this.pnTacgia.Margin = new System.Windows.Forms.Padding(40, 0, 40, 0);
             this.pnTacgia.Name = "pnTacgia";
             this.pnTacgia.Size = new System.Drawing.Size(200, 150);
             this.pnTacgia.TabIndex = 1;
+            this.pnTacgia.Click += new System.EventHandler(this.pnTacGia_Click);
             // 
             // button2
             // 
@@ -152,21 +158,26 @@
             this.button2.Text = "TÁC GIẢ";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.pnTacGia_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pnTacGia_Click);
             // 
             // pnTheLoai
             // 
             this.pnTheLoai.Controls.Add(this.button3);
             this.pnTheLoai.Controls.Add(this.pictureBox3);
+            this.pnTheLoai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnTheLoai.Location = new System.Drawing.Point(504, 0);
             this.pnTheLoai.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnTheLoai.Name = "pnTheLoai";
@@ -193,10 +204,12 @@
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 91);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
@@ -217,7 +230,7 @@
             this.ListBook.AutoScroll = true;
             this.ListBook.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListBook.Location = new System.Drawing.Point(10, 54);
-            this.ListBook.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.ListBook.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.ListBook.Name = "ListBook";
             this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.ListBook.Size = new System.Drawing.Size(940, 346);

@@ -20,17 +20,37 @@ namespace QuanLyThuQuan.GUI
         private void FormBook_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            // thử nghiệm
-            List<string> danhSachSach = new List<string>() { "Sách 1", "Sách 2", "Sách 3" ,"Sách 4","Sách 5"};
+            listSach();
+           
+        }
+        private void listSach()
+        {
+            List<string> danhSachSach = new List<string>() { "Sách 1", "Sách 2", "Sách 3", "Sách 4", "Sách 5" };
 
             foreach (var tenSach in danhSachSach)
             {
-                
+
                 BookItemControl bookItem = new BookItemControl();
 
-                
+
                 ListBook.Controls.Add(bookItem);
             }
+        }
+
+        private void FadeForm(bool fade)
+        {
+            if (fade)
+                this.Opacity = 0.5; // Làm mờ Form chính
+            else
+                this.Opacity = 1; // Khôi phục độ sáng bình thường
+        }
+        // sự kiện cho nút quản lý thông tin tác giả
+        private void pnTacGia_Click(object sender, EventArgs e)
+        {
+            frmQuanLyTacGia formTacGia = new frmQuanLyTacGia();
+            FadeForm(true); // Làm mờ form chính
+            formTacGia.FormClosed += (s, args) => FadeForm(false); // Khi đóng thì trở lại bình thường
+            formTacGia.ShowDialog();
         }
     }
 }

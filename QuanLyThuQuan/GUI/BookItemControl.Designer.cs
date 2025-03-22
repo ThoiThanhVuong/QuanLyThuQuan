@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbBookCover = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblBookTitle = new System.Windows.Forms.Label();
             this.btnViewDetail = new System.Windows.Forms.Button();
+            this.lblBookTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbBookCover)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -43,16 +43,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 10);
+            this.panel1.Size = new System.Drawing.Size(220, 6);
             this.panel1.TabIndex = 0;
             // 
             // pbBookCover
             // 
             this.pbBookCover.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbBookCover.Location = new System.Drawing.Point(0, 10);
+            this.pbBookCover.Location = new System.Drawing.Point(0, 6);
             this.pbBookCover.Margin = new System.Windows.Forms.Padding(0);
             this.pbBookCover.Name = "pbBookCover";
-            this.pbBookCover.Size = new System.Drawing.Size(220, 220);
+            this.pbBookCover.Size = new System.Drawing.Size(220, 224);
             this.pbBookCover.TabIndex = 1;
             this.pbBookCover.TabStop = false;
             // 
@@ -60,21 +60,12 @@
             // 
             this.panel2.Controls.Add(this.btnViewDetail);
             this.panel2.Controls.Add(this.lblBookTitle);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 230);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 90);
             this.panel2.TabIndex = 2;
-            // 
-            // lblBookTitle
-            // 
-            this.lblBookTitle.AutoSize = true;
-            this.lblBookTitle.Location = new System.Drawing.Point(80, 17);
-            this.lblBookTitle.Name = "lblBookTitle";
-            this.lblBookTitle.Size = new System.Drawing.Size(74, 20);
-            this.lblBookTitle.TabIndex = 0;
-            this.lblBookTitle.Text = "Tên sách";
             // 
             // btnViewDetail
             // 
@@ -89,6 +80,15 @@
             this.btnViewDetail.TabIndex = 1;
             this.btnViewDetail.Text = "Xem chi tiết";
             this.btnViewDetail.UseVisualStyleBackColor = false;
+            // 
+            // lblBookTitle
+            // 
+            this.lblBookTitle.AutoSize = true;
+            this.lblBookTitle.Location = new System.Drawing.Point(80, 17);
+            this.lblBookTitle.Name = "lblBookTitle";
+            this.lblBookTitle.Size = new System.Drawing.Size(74, 20);
+            this.lblBookTitle.TabIndex = 0;
+            this.lblBookTitle.Text = "Tên sách";
             // 
             // BookItemControl
             // 
