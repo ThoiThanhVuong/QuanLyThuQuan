@@ -204,7 +204,6 @@ namespace QuanLyThuQuan.GUI
         {
 
         }
-
         private void btnChildPanelExit_Click(object sender, EventArgs e)
         {
             pnlChildDetailInfo.Visible = false;
@@ -212,6 +211,11 @@ namespace QuanLyThuQuan.GUI
             foreach (Control control in controls)
                 if (!control.Equals(pnlChildDetailInfo))
                     control.Enabled = true;
+        }
+
+        private void lbListTransItems_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void timeTextBoxResult_Tick(object sender, EventArgs e)
