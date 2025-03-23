@@ -6,7 +6,6 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormTransaction : Form
     {
-
         // private methods
         private void ChangeColorHoverBtn(Button button, Color color)
         {
@@ -25,8 +24,14 @@ namespace QuanLyThuQuan.GUI
                 control.Visible = false;
             };
             countdown.Start();
-            dataTransactions.CellClick += dataTransactions_CellContentClick;
+            dgvDataTransactions.CellClick += dgvDataTransactions_CellContentClick;
             pnlChildDetailInfo.Paint += pnlChildDetailInfo_Paint;
+        }
+
+        // change position of specific form
+        private void ChangePosition(Point newLocation, Control targetControl)
+        {
+            targetControl.Location = newLocation;
         }
 
         // disable parent component
@@ -66,10 +71,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnHandleViolations_Click(object sender, EventArgs e)
         {
-            pnlContainer.Visible = true;
-            pnlChildDetailInfo.Visible = true;
-            DisableParentComponent(this.Controls, pnlContainer);
-            ResizePanelContainer(pnlChildDetailInfo, pnlContainer);
+            //
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -111,6 +113,8 @@ namespace QuanLyThuQuan.GUI
         {
             pnlContainer.Visible = true;
             pnlFormBorrowBook.Visible = true;
+            txtGetTransType.Text = "Borrow";
+            ChangePosition(new Point(300, 0), pnlContainer);
             DisableParentComponent(this.Controls, pnlContainer);
             ResizePanelContainer(pnlFormBorrowBook, pnlContainer);
         }
@@ -126,6 +130,7 @@ namespace QuanLyThuQuan.GUI
         {
             pnlContainer.Visible = true;
             pnlFormReturnBook.Visible = true;
+            ChangePosition(new Point(300, 0), pnlContainer);
             DisableParentComponent(this.Controls, pnlContainer);
             ResizePanelContainer(pnlFormReturnBook, pnlContainer);
         }
@@ -135,6 +140,7 @@ namespace QuanLyThuQuan.GUI
             pnlContainer.Visible = false;
             pnlChildDetailInfo.Visible = false;
             EnableParentComponent(this.Controls, pnlContainer);
+
         }
 
         private void FormTransaction_FormClosing(object sender, FormClosingEventArgs e)
@@ -168,10 +174,6 @@ namespace QuanLyThuQuan.GUI
             else
                 e.Cancel = true;
         }
-        private void dataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void tbBody_Paint(object sender, PaintEventArgs e)
         {
 
@@ -201,6 +203,58 @@ namespace QuanLyThuQuan.GUI
             pnlFormReturnBook.Visible = false;
             EnableParentComponent(this.Controls, pnlContainer);
         }
+
+        private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pnlContainer.Visible = true;
+            pnlChildDetailInfo.Visible = true;
+            DisableParentComponent(this.Controls, pnlContainer);
+            ResizePanelContainer(pnlChildDetailInfo, pnlContainer);
+            ChangePosition(new Point(12, 12), pnlContainer);
+        }
+
+        private void btnBookReservation_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Visible = true;
+            pnlFormBorrowBook.Visible = true;
+            txtGetTransType.Text = "Reserve";
+            ChangePosition(new Point(300, 0), pnlContainer);
+            DisableParentComponent(this.Controls, pnlContainer);
+            ResizePanelContainer(pnlFormBorrowBook, pnlContainer);
+        }
+
+        private void btnResetFromReturn_Click(object sender, EventArgs e)
+        {
+            Control.ControlCollection list = tbGetBorrowInfo.Controls;
+            foreach (Control control in list)
+                if (control is TextBox textbox && !textbox.ReadOnly)
+                    textbox.Text = "";
+                else if (control is RichTextBox rTextbox && !rTextbox.ReadOnly)
+                    rTextbox.Text = "";
+        }
+
+        private void btnResetFormBorrow_Click(object sender, EventArgs e)
+        {
+            Control.ControlCollection list = tbGetBorrowInfo.Controls;
+            foreach (Control control in list)
+                if (control is TextBox textbox && !textbox.ReadOnly)
+                    textbox.Text = "";
+                else if (control is RichTextBox rTextbox && !rTextbox.ReadOnly)
+                    rTextbox.Text = "";
+                else if (control is DateTimePicker dateTimePicker && dateTimePicker.Enabled)
+                    dateTimePicker.Value = DateTime.Now;
+        }
+
+        private void txtGetMemberIDReturn_Click(object sender, EventArgs e)
+        {
+            txtGetMemberIDReturn.Select(0, txtGetMemberIDReturn.Text.Length);
+
+        }
+        private void txtGetBorrowMemberID_Click(object sender, EventArgs e)
+        {
+            txtGetBorrowMemberID.Select(0, txtGetBorrowMemberID.Text.Length);
+        }
+
 
         //private void timeTextBoxResult_Tick(object sender, EventArgs e)
         //{

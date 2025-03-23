@@ -32,7 +32,7 @@
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnBookReservation = new System.Windows.Forms.Button();
             this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.dataTransactions = new System.Windows.Forms.DataGridView();
+            this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
             this.colTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,10 +73,10 @@
             this.tbBlockInfoEight = new System.Windows.Forms.TableLayoutPanel();
             this.lbViolationStatus = new System.Windows.Forms.Label();
             this.lbViolationList = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDataItemList = new System.Windows.Forms.DataGridView();
             this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvDataViolationHandle = new System.Windows.Forms.DataGridView();
             this.colRuleTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPenaty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,14 +97,12 @@
             this.lbGetBorrowTransType = new System.Windows.Forms.Label();
             this.lbGetBorrowTransDate = new System.Windows.Forms.Label();
             this.lbGetBorrowDueDate = new System.Windows.Forms.Label();
-            this.lbGetBorrowReturnDate = new System.Windows.Forms.Label();
             this.txtGetBorrowMemberID = new System.Windows.Forms.TextBox();
             this.dtpGetBorrowDueDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpGetBorrowReturnDate = new System.Windows.Forms.DateTimePicker();
             this.dtpGetGBorrowTransDate = new System.Windows.Forms.DateTimePicker();
-            this.cbxGetBorrowTransType = new System.Windows.Forms.ComboBox();
             this.lbGetBorrowItem = new System.Windows.Forms.Label();
             this.rtxtGetBorrowListItem = new System.Windows.Forms.RichTextBox();
+            this.txtGetTransType = new System.Windows.Forms.TextBox();
             this.pnlHeaderGetBorrowInfo = new System.Windows.Forms.Panel();
             this.btnExitBookBorrow = new System.Windows.Forms.Button();
             this.lbBookBorrow = new System.Windows.Forms.Label();
@@ -117,21 +115,21 @@
             this.lbGetRealReturnDate = new System.Windows.Forms.Label();
             this.lbGetReturnPenaty = new System.Windows.Forms.Label();
             this.lbGetReturnItem = new System.Windows.Forms.Label();
-            this.txtGetReturnMemberID = new System.Windows.Forms.TextBox();
-            this.cbxGetReturnTransType = new System.Windows.Forms.ComboBox();
-            this.dtpGetReturnRealReturnDate = new System.Windows.Forms.DateTimePicker();
-            this.rtxtShowReturnPenalty = new System.Windows.Forms.RichTextBox();
-            this.rtxtShowReturnListItem = new System.Windows.Forms.RichTextBox();
             this.pnlReturnBookFooter = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbReturnBookButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelFormReturn = new System.Windows.Forms.Button();
             this.btnResetFromReturn = new System.Windows.Forms.Button();
             this.btnSubmitFormReturn = new System.Windows.Forms.Button();
             this.pnlHeaderGetReturnInfo = new System.Windows.Forms.Panel();
             this.btnExitFormReturnBook = new System.Windows.Forms.Button();
             this.lbFormReturnBook = new System.Windows.Forms.Label();
+            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
+            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
+            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
+            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
+            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
             this.tbHeaderButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.tbBody.SuspendLayout();
             this.pnlResultMessageBox.SuspendLayout();
@@ -146,8 +144,8 @@
             this.tbBlockInfoSix.SuspendLayout();
             this.tbBlockInfoSeven.SuspendLayout();
             this.tbBlockInfoEight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).BeginInit();
             this.pnlHeaderTransInfoDetail.SuspendLayout();
             this.pnlFormBorrowBook.SuspendLayout();
             this.pnlBorrowBookFooter.SuspendLayout();
@@ -160,7 +158,7 @@
             this.pnlReturnBookBody.SuspendLayout();
             this.tbGetReturnInfo.SuspendLayout();
             this.pnlReturnBookFooter.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tbReturnBookButtons.SuspendLayout();
             this.pnlHeaderGetReturnInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,7 +206,7 @@
             this.btnBookReservation.TabIndex = 3;
             this.btnBookReservation.Text = "Book Reservation";
             this.btnBookReservation.UseVisualStyleBackColor = true;
-            this.btnBookReservation.Click += new System.EventHandler(this.btnHandleViolations_Click);
+            this.btnBookReservation.Click += new System.EventHandler(this.btnBookReservation_Click);
             this.btnBookReservation.MouseEnter += new System.EventHandler(this.btnBookReservation_MouseEnter);
             this.btnBookReservation.MouseLeave += new System.EventHandler(this.btnBookReservation_MouseLeave);
             // 
@@ -229,16 +227,17 @@
             this.tbHeaderButtons.Name = "tbHeaderButtons";
             this.tbHeaderButtons.RowCount = 1;
             this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tbHeaderButtons.Size = new System.Drawing.Size(960, 106);
             this.tbHeaderButtons.TabIndex = 4;
             this.tbHeaderButtons.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // dataTransactions
+            // dgvDataTransactions
             // 
-            this.dataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataTransactions.BackgroundColor = System.Drawing.Color.Black;
-            this.dataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTransactionID,
             this.colMemberID,
             this.colTransactionType,
@@ -247,11 +246,11 @@
             this.colReturnDate,
             this.colStatus,
             this.colMoreOptions});
-            this.dataTransactions.Location = new System.Drawing.Point(3, 72);
-            this.dataTransactions.Name = "dataTransactions";
-            this.dataTransactions.Size = new System.Drawing.Size(954, 409);
-            this.dataTransactions.TabIndex = 1;
-            this.dataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTransactions_CellContentClick);
+            this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
+            this.dgvDataTransactions.Name = "dgvDataTransactions";
+            this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
+            this.dgvDataTransactions.TabIndex = 1;
+            this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
             // 
             // colTransactionID
             // 
@@ -355,7 +354,7 @@
             this.tbBody.ColumnCount = 1;
             this.tbBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tbBody.Controls.Add(this.pnlHeader, 0, 0);
-            this.tbBody.Controls.Add(this.dataTransactions, 0, 1);
+            this.tbBody.Controls.Add(this.dgvDataTransactions, 0, 1);
             this.tbBody.Controls.Add(this.pnlResultMessageBox, 0, 2);
             this.tbBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBody.Location = new System.Drawing.Point(0, 106);
@@ -399,7 +398,7 @@
             // 
             this.pnlChildDetailInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlChildDetailInfo.BackColor = System.Drawing.Color.Black;
-            this.pnlChildDetailInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlChildDetailInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChildDetailInfo.Controls.Add(this.pnlTransInfoContainer);
             this.pnlChildDetailInfo.Controls.Add(this.pnlHeaderTransInfoDetail);
             this.pnlChildDetailInfo.Location = new System.Drawing.Point(1, 0);
@@ -414,7 +413,7 @@
             this.pnlTransInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTransInfoContainer.Location = new System.Drawing.Point(0, 34);
             this.pnlTransInfoContainer.Name = "pnlTransInfoContainer";
-            this.pnlTransInfoContainer.Size = new System.Drawing.Size(932, 572);
+            this.pnlTransInfoContainer.Size = new System.Drawing.Size(934, 574);
             this.pnlTransInfoContainer.TabIndex = 4;
             // 
             // tbTransInfoWraper
@@ -431,8 +430,8 @@
             this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoSix, 1, 2);
             this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoSeven, 0, 3);
             this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoEight, 1, 3);
-            this.tbTransInfoWraper.Controls.Add(this.dataGridView1, 0, 4);
-            this.tbTransInfoWraper.Controls.Add(this.dataGridView2, 1, 4);
+            this.tbTransInfoWraper.Controls.Add(this.dgvDataItemList, 0, 4);
+            this.tbTransInfoWraper.Controls.Add(this.dgvDataViolationHandle, 1, 4);
             this.tbTransInfoWraper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTransInfoWraper.Location = new System.Drawing.Point(0, 0);
             this.tbTransInfoWraper.Name = "tbTransInfoWraper";
@@ -443,7 +442,7 @@
             this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 298F));
             this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbTransInfoWraper.Size = new System.Drawing.Size(932, 572);
+            this.tbTransInfoWraper.Size = new System.Drawing.Size(934, 574);
             this.tbTransInfoWraper.TabIndex = 0;
             // 
             // tbBlockInfoOne
@@ -459,7 +458,7 @@
             this.tbBlockInfoOne.RowCount = 2;
             this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoOne.Size = new System.Drawing.Size(376, 62);
+            this.tbBlockInfoOne.Size = new System.Drawing.Size(376, 63);
             this.tbBlockInfoOne.TabIndex = 0;
             // 
             // lbTransID
@@ -503,7 +502,7 @@
             this.tbBlockInfoTwo.RowCount = 2;
             this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoTwo.Size = new System.Drawing.Size(544, 62);
+            this.tbBlockInfoTwo.Size = new System.Drawing.Size(546, 63);
             this.tbBlockInfoTwo.TabIndex = 1;
             // 
             // lbMemFullName
@@ -542,12 +541,12 @@
             this.tbBlockInfoThree.Controls.Add(this.lbTransStatus, 0, 1);
             this.tbBlockInfoThree.Controls.Add(this.lbTransType, 0, 0);
             this.tbBlockInfoThree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoThree.Location = new System.Drawing.Point(3, 71);
+            this.tbBlockInfoThree.Location = new System.Drawing.Point(3, 72);
             this.tbBlockInfoThree.Name = "tbBlockInfoThree";
             this.tbBlockInfoThree.RowCount = 2;
             this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoThree.Size = new System.Drawing.Size(376, 62);
+            this.tbBlockInfoThree.Size = new System.Drawing.Size(376, 63);
             this.tbBlockInfoThree.TabIndex = 2;
             // 
             // lbTransStatus
@@ -586,12 +585,12 @@
             this.tbBlockInfoFour.Controls.Add(this.lbUserType, 0, 0);
             this.tbBlockInfoFour.Controls.Add(this.lbUserStatus, 0, 1);
             this.tbBlockInfoFour.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoFour.Location = new System.Drawing.Point(385, 71);
+            this.tbBlockInfoFour.Location = new System.Drawing.Point(385, 72);
             this.tbBlockInfoFour.Name = "tbBlockInfoFour";
             this.tbBlockInfoFour.RowCount = 2;
             this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFour.Size = new System.Drawing.Size(544, 62);
+            this.tbBlockInfoFour.Size = new System.Drawing.Size(546, 63);
             this.tbBlockInfoFour.TabIndex = 3;
             // 
             // lbUserType
@@ -630,12 +629,12 @@
             this.tbBlockInfoFive.Controls.Add(this.lbTransDate, 0, 0);
             this.tbBlockInfoFive.Controls.Add(this.lbDueDate, 0, 1);
             this.tbBlockInfoFive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoFive.Location = new System.Drawing.Point(3, 139);
+            this.tbBlockInfoFive.Location = new System.Drawing.Point(3, 141);
             this.tbBlockInfoFive.Name = "tbBlockInfoFive";
             this.tbBlockInfoFive.RowCount = 2;
             this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFive.Size = new System.Drawing.Size(376, 62);
+            this.tbBlockInfoFive.Size = new System.Drawing.Size(376, 63);
             this.tbBlockInfoFive.TabIndex = 4;
             // 
             // lbTransDate
@@ -674,12 +673,12 @@
             this.tbBlockInfoSix.Controls.Add(this.lbUserEmail, 0, 0);
             this.tbBlockInfoSix.Controls.Add(this.lbUserPhoneNumber, 0, 1);
             this.tbBlockInfoSix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoSix.Location = new System.Drawing.Point(385, 139);
+            this.tbBlockInfoSix.Location = new System.Drawing.Point(385, 141);
             this.tbBlockInfoSix.Name = "tbBlockInfoSix";
             this.tbBlockInfoSix.RowCount = 2;
             this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSix.Size = new System.Drawing.Size(544, 62);
+            this.tbBlockInfoSix.Size = new System.Drawing.Size(546, 63);
             this.tbBlockInfoSix.TabIndex = 5;
             // 
             // lbUserEmail
@@ -718,12 +717,12 @@
             this.tbBlockInfoSeven.Controls.Add(this.lbReturnDate, 0, 0);
             this.tbBlockInfoSeven.Controls.Add(this.lbListTransItems, 0, 1);
             this.tbBlockInfoSeven.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoSeven.Location = new System.Drawing.Point(3, 207);
+            this.tbBlockInfoSeven.Location = new System.Drawing.Point(3, 210);
             this.tbBlockInfoSeven.Name = "tbBlockInfoSeven";
             this.tbBlockInfoSeven.RowCount = 2;
             this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSeven.Size = new System.Drawing.Size(376, 62);
+            this.tbBlockInfoSeven.Size = new System.Drawing.Size(376, 63);
             this.tbBlockInfoSeven.TabIndex = 6;
             // 
             // lbReturnDate
@@ -763,12 +762,12 @@
             this.tbBlockInfoEight.Controls.Add(this.lbViolationStatus, 0, 0);
             this.tbBlockInfoEight.Controls.Add(this.lbViolationList, 0, 1);
             this.tbBlockInfoEight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoEight.Location = new System.Drawing.Point(385, 207);
+            this.tbBlockInfoEight.Location = new System.Drawing.Point(385, 210);
             this.tbBlockInfoEight.Name = "tbBlockInfoEight";
             this.tbBlockInfoEight.RowCount = 2;
             this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoEight.Size = new System.Drawing.Size(544, 62);
+            this.tbBlockInfoEight.Size = new System.Drawing.Size(546, 63);
             this.tbBlockInfoEight.TabIndex = 7;
             // 
             // lbViolationStatus
@@ -799,18 +798,18 @@
             this.lbViolationList.Text = "Violation List :";
             this.lbViolationList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // dgvDataItemList
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDataItemList.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvDataItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colItem,
             this.colItemQuantity});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 275);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(376, 294);
-            this.dataGridView1.TabIndex = 10;
+            this.dgvDataItemList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDataItemList.Location = new System.Drawing.Point(3, 279);
+            this.dgvDataItemList.Name = "dgvDataItemList";
+            this.dgvDataItemList.Size = new System.Drawing.Size(376, 292);
+            this.dgvDataItemList.TabIndex = 10;
             // 
             // colItem
             // 
@@ -829,21 +828,21 @@
             this.colItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colItemQuantity.Width = 87;
             // 
-            // dataGridView2
+            // dgvDataViolationHandle
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.Black;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDataViolationHandle.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvDataViolationHandle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataViolationHandle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colRuleTitle,
             this.colPenaty,
             this.colViolationDate,
             this.colPaidStatus,
             this.colExcuseViolation});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(385, 275);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(544, 294);
-            this.dataGridView2.TabIndex = 11;
+            this.dgvDataViolationHandle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDataViolationHandle.Location = new System.Drawing.Point(385, 279);
+            this.dgvDataViolationHandle.Name = "dgvDataViolationHandle";
+            this.dgvDataViolationHandle.Size = new System.Drawing.Size(546, 292);
+            this.dgvDataViolationHandle.TabIndex = 11;
             // 
             // colRuleTitle
             // 
@@ -893,7 +892,7 @@
             this.pnlHeaderTransInfoDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeaderTransInfoDetail.Location = new System.Drawing.Point(0, 0);
             this.pnlHeaderTransInfoDetail.Name = "pnlHeaderTransInfoDetail";
-            this.pnlHeaderTransInfoDetail.Size = new System.Drawing.Size(932, 34);
+            this.pnlHeaderTransInfoDetail.Size = new System.Drawing.Size(934, 34);
             this.pnlHeaderTransInfoDetail.TabIndex = 1;
             // 
             // btnExitChildPanel
@@ -901,8 +900,8 @@
             this.btnExitChildPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExitChildPanel.BackColor = System.Drawing.Color.Transparent;
             this.btnExitChildPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExitChildPanel.ForeColor = System.Drawing.Color.IndianRed;
-            this.btnExitChildPanel.Location = new System.Drawing.Point(899, 1);
+            this.btnExitChildPanel.ForeColor = System.Drawing.Color.Red;
+            this.btnExitChildPanel.Location = new System.Drawing.Point(900, 1);
             this.btnExitChildPanel.Name = "btnExitChildPanel";
             this.btnExitChildPanel.Size = new System.Drawing.Size(30, 30);
             this.btnExitChildPanel.TabIndex = 1;
@@ -916,7 +915,7 @@
             this.lbTransInfo.AutoSize = true;
             this.lbTransInfo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransInfo.ForeColor = System.Drawing.Color.Aquamarine;
-            this.lbTransInfo.Location = new System.Drawing.Point(381, 3);
+            this.lbTransInfo.Location = new System.Drawing.Point(382, 3);
             this.lbTransInfo.Name = "lbTransInfo";
             this.lbTransInfo.Size = new System.Drawing.Size(208, 23);
             this.lbTransInfo.TabIndex = 0;
@@ -927,6 +926,7 @@
             // 
             this.pnlFormBorrowBook.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlFormBorrowBook.BackColor = System.Drawing.Color.Black;
+            this.pnlFormBorrowBook.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlFormBorrowBook.Controls.Add(this.pnlBorrowBookFooter);
             this.pnlFormBorrowBook.Controls.Add(this.pnlBorrowBookBody);
             this.pnlFormBorrowBook.Controls.Add(this.pnlHeaderGetBorrowInfo);
@@ -940,9 +940,9 @@
             // 
             this.pnlBorrowBookFooter.Controls.Add(this.tbBorrowBookButtons);
             this.pnlBorrowBookFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBorrowBookFooter.Location = new System.Drawing.Point(0, 553);
+            this.pnlBorrowBookFooter.Location = new System.Drawing.Point(0, 551);
             this.pnlBorrowBookFooter.Name = "pnlBorrowBookFooter";
-            this.pnlBorrowBookFooter.Size = new System.Drawing.Size(335, 39);
+            this.pnlBorrowBookFooter.Size = new System.Drawing.Size(333, 39);
             this.pnlBorrowBookFooter.TabIndex = 0;
             // 
             // tbBorrowBookButtons
@@ -959,7 +959,7 @@
             this.tbBorrowBookButtons.Name = "tbBorrowBookButtons";
             this.tbBorrowBookButtons.RowCount = 1;
             this.tbBorrowBookButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbBorrowBookButtons.Size = new System.Drawing.Size(335, 39);
+            this.tbBorrowBookButtons.Size = new System.Drawing.Size(333, 39);
             this.tbBorrowBookButtons.TabIndex = 0;
             // 
             // btnResetFormBorrow
@@ -972,6 +972,7 @@
             this.btnResetFormBorrow.TabIndex = 1;
             this.btnResetFormBorrow.Text = "Reset";
             this.btnResetFormBorrow.UseVisualStyleBackColor = true;
+            this.btnResetFormBorrow.Click += new System.EventHandler(this.btnResetFormBorrow_Click);
             // 
             // btnCancelFormBorrow
             // 
@@ -983,17 +984,19 @@
             this.btnCancelFormBorrow.TabIndex = 2;
             this.btnCancelFormBorrow.Text = "Cancel";
             this.btnCancelFormBorrow.UseVisualStyleBackColor = true;
+            this.btnCancelFormBorrow.Click += new System.EventHandler(this.btnExitBookBorrow_Click);
             // 
             // btnSubmitFormBorrow
             // 
             this.btnSubmitFormBorrow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSubmitFormBorrow.ForeColor = System.Drawing.Color.SlateBlue;
-            this.btnSubmitFormBorrow.Location = new System.Drawing.Point(241, 5);
+            this.btnSubmitFormBorrow.Location = new System.Drawing.Point(240, 5);
             this.btnSubmitFormBorrow.Name = "btnSubmitFormBorrow";
             this.btnSubmitFormBorrow.Size = new System.Drawing.Size(75, 29);
             this.btnSubmitFormBorrow.TabIndex = 0;
             this.btnSubmitFormBorrow.Text = "Submit";
             this.btnSubmitFormBorrow.UseVisualStyleBackColor = true;
+            this.btnSubmitFormBorrow.Click += new System.EventHandler(this.btnExitBookBorrow_Click);
             // 
             // pnlBorrowBookBody
             // 
@@ -1001,7 +1004,7 @@
             this.pnlBorrowBookBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBorrowBookBody.Location = new System.Drawing.Point(0, 54);
             this.pnlBorrowBookBody.Name = "pnlBorrowBookBody";
-            this.pnlBorrowBookBody.Size = new System.Drawing.Size(335, 538);
+            this.pnlBorrowBookBody.Size = new System.Drawing.Size(333, 536);
             this.pnlBorrowBookBody.TabIndex = 1;
             // 
             // tbGetBorrowInfo
@@ -1014,27 +1017,25 @@
             this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowTransType, 0, 1);
             this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowTransDate, 0, 2);
             this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowDueDate, 0, 3);
-            this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowReturnDate, 0, 4);
             this.tbGetBorrowInfo.Controls.Add(this.txtGetBorrowMemberID, 1, 0);
             this.tbGetBorrowInfo.Controls.Add(this.dtpGetBorrowDueDate, 1, 3);
-            this.tbGetBorrowInfo.Controls.Add(this.dtpGetBorrowReturnDate, 1, 4);
             this.tbGetBorrowInfo.Controls.Add(this.dtpGetGBorrowTransDate, 1, 2);
-            this.tbGetBorrowInfo.Controls.Add(this.cbxGetBorrowTransType, 1, 1);
-            this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowItem, 0, 5);
-            this.tbGetBorrowInfo.Controls.Add(this.rtxtGetBorrowListItem, 1, 5);
+            this.tbGetBorrowInfo.Controls.Add(this.lbGetBorrowItem, 0, 4);
+            this.tbGetBorrowInfo.Controls.Add(this.rtxtGetBorrowListItem, 1, 4);
+            this.tbGetBorrowInfo.Controls.Add(this.txtGetTransType, 1, 1);
             this.tbGetBorrowInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbGetBorrowInfo.Location = new System.Drawing.Point(0, 0);
             this.tbGetBorrowInfo.Name = "tbGetBorrowInfo";
-            this.tbGetBorrowInfo.RowCount = 8;
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.55164F));
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.55164F));
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.55164F));
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.55164F));
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.55164F));
-            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.24181F));
+            this.tbGetBorrowInfo.RowCount = 7;
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.67599F));
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.67599F));
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.67599F));
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.67599F));
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.29603F));
             this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbGetBorrowInfo.Size = new System.Drawing.Size(335, 538);
+            this.tbGetBorrowInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tbGetBorrowInfo.Size = new System.Drawing.Size(333, 536);
             this.tbGetBorrowInfo.TabIndex = 1;
             // 
             // lbGetBorrowMemberID
@@ -1042,7 +1043,7 @@
             this.lbGetBorrowMemberID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowMemberID.AutoSize = true;
             this.lbGetBorrowMemberID.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowMemberID.Location = new System.Drawing.Point(3, 24);
+            this.lbGetBorrowMemberID.Location = new System.Drawing.Point(3, 29);
             this.lbGetBorrowMemberID.Name = "lbGetBorrowMemberID";
             this.lbGetBorrowMemberID.Size = new System.Drawing.Size(82, 19);
             this.lbGetBorrowMemberID.TabIndex = 0;
@@ -1054,7 +1055,7 @@
             this.lbGetBorrowTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowTransType.AutoSize = true;
             this.lbGetBorrowTransType.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowTransType.Location = new System.Drawing.Point(3, 91);
+            this.lbGetBorrowTransType.Location = new System.Drawing.Point(3, 106);
             this.lbGetBorrowTransType.Name = "lbGetBorrowTransType";
             this.lbGetBorrowTransType.Size = new System.Drawing.Size(117, 19);
             this.lbGetBorrowTransType.TabIndex = 1;
@@ -1066,7 +1067,7 @@
             this.lbGetBorrowTransDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowTransDate.AutoSize = true;
             this.lbGetBorrowTransDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowTransDate.Location = new System.Drawing.Point(3, 158);
+            this.lbGetBorrowTransDate.Location = new System.Drawing.Point(3, 183);
             this.lbGetBorrowTransDate.Name = "lbGetBorrowTransDate";
             this.lbGetBorrowTransDate.Size = new System.Drawing.Size(116, 19);
             this.lbGetBorrowTransDate.TabIndex = 2;
@@ -1078,76 +1079,48 @@
             this.lbGetBorrowDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowDueDate.AutoSize = true;
             this.lbGetBorrowDueDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowDueDate.Location = new System.Drawing.Point(3, 225);
+            this.lbGetBorrowDueDate.Location = new System.Drawing.Point(3, 260);
             this.lbGetBorrowDueDate.Name = "lbGetBorrowDueDate";
             this.lbGetBorrowDueDate.Size = new System.Drawing.Size(70, 19);
             this.lbGetBorrowDueDate.TabIndex = 3;
             this.lbGetBorrowDueDate.Text = "Due Date :";
             this.lbGetBorrowDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbGetBorrowReturnDate
-            // 
-            this.lbGetBorrowReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbGetBorrowReturnDate.AutoSize = true;
-            this.lbGetBorrowReturnDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowReturnDate.Location = new System.Drawing.Point(3, 292);
-            this.lbGetBorrowReturnDate.Name = "lbGetBorrowReturnDate";
-            this.lbGetBorrowReturnDate.Size = new System.Drawing.Size(87, 19);
-            this.lbGetBorrowReturnDate.TabIndex = 4;
-            this.lbGetBorrowReturnDate.Text = "Return Date :";
-            this.lbGetBorrowReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // txtGetBorrowMemberID
             // 
             this.txtGetBorrowMemberID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetBorrowMemberID.Location = new System.Drawing.Point(128, 21);
+            this.txtGetBorrowMemberID.Location = new System.Drawing.Point(128, 26);
             this.txtGetBorrowMemberID.Name = "txtGetBorrowMemberID";
-            this.txtGetBorrowMemberID.Size = new System.Drawing.Size(204, 25);
+            this.txtGetBorrowMemberID.Size = new System.Drawing.Size(201, 25);
             this.txtGetBorrowMemberID.TabIndex = 6;
             this.txtGetBorrowMemberID.Text = "Member ID";
+            this.txtGetBorrowMemberID.Click += new System.EventHandler(this.txtGetBorrowMemberID_Click);
             // 
             // dtpGetBorrowDueDate
             // 
             this.dtpGetBorrowDueDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpGetBorrowDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetBorrowDueDate.Location = new System.Drawing.Point(128, 222);
+            this.dtpGetBorrowDueDate.Location = new System.Drawing.Point(128, 257);
             this.dtpGetBorrowDueDate.Name = "dtpGetBorrowDueDate";
-            this.dtpGetBorrowDueDate.Size = new System.Drawing.Size(204, 25);
+            this.dtpGetBorrowDueDate.Size = new System.Drawing.Size(201, 25);
             this.dtpGetBorrowDueDate.TabIndex = 10;
-            // 
-            // dtpGetBorrowReturnDate
-            // 
-            this.dtpGetBorrowReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpGetBorrowReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetBorrowReturnDate.Location = new System.Drawing.Point(128, 289);
-            this.dtpGetBorrowReturnDate.Name = "dtpGetBorrowReturnDate";
-            this.dtpGetBorrowReturnDate.Size = new System.Drawing.Size(204, 25);
-            this.dtpGetBorrowReturnDate.TabIndex = 11;
             // 
             // dtpGetGBorrowTransDate
             // 
             this.dtpGetGBorrowTransDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpGetGBorrowTransDate.Enabled = false;
             this.dtpGetGBorrowTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetGBorrowTransDate.Location = new System.Drawing.Point(128, 155);
+            this.dtpGetGBorrowTransDate.Location = new System.Drawing.Point(128, 180);
             this.dtpGetGBorrowTransDate.Name = "dtpGetGBorrowTransDate";
-            this.dtpGetGBorrowTransDate.Size = new System.Drawing.Size(204, 25);
+            this.dtpGetGBorrowTransDate.Size = new System.Drawing.Size(201, 25);
             this.dtpGetGBorrowTransDate.TabIndex = 12;
-            // 
-            // cbxGetBorrowTransType
-            // 
-            this.cbxGetBorrowTransType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbxGetBorrowTransType.FormattingEnabled = true;
-            this.cbxGetBorrowTransType.Location = new System.Drawing.Point(128, 87);
-            this.cbxGetBorrowTransType.Name = "cbxGetBorrowTransType";
-            this.cbxGetBorrowTransType.Size = new System.Drawing.Size(204, 27);
-            this.cbxGetBorrowTransType.TabIndex = 13;
             // 
             // lbGetBorrowItem
             // 
             this.lbGetBorrowItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowItem.AutoSize = true;
             this.lbGetBorrowItem.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowItem.Location = new System.Drawing.Point(3, 405);
+            this.lbGetBorrowItem.Location = new System.Drawing.Point(3, 390);
             this.lbGetBorrowItem.Name = "lbGetBorrowItem";
             this.lbGetBorrowItem.Size = new System.Drawing.Size(67, 19);
             this.lbGetBorrowItem.TabIndex = 5;
@@ -1157,11 +1130,21 @@
             // rtxtGetBorrowListItem
             // 
             this.rtxtGetBorrowListItem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtxtGetBorrowListItem.Location = new System.Drawing.Point(128, 338);
+            this.rtxtGetBorrowListItem.Location = new System.Drawing.Point(128, 323);
             this.rtxtGetBorrowListItem.Name = "rtxtGetBorrowListItem";
-            this.rtxtGetBorrowListItem.Size = new System.Drawing.Size(204, 154);
+            this.rtxtGetBorrowListItem.Size = new System.Drawing.Size(201, 153);
             this.rtxtGetBorrowListItem.TabIndex = 9;
-            this.rtxtGetBorrowListItem.Text = "";
+            this.rtxtGetBorrowListItem.Text = "(write id of this book, delimited by commas)";
+            // 
+            // txtGetTransType
+            // 
+            this.txtGetTransType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetTransType.Enabled = false;
+            this.txtGetTransType.Location = new System.Drawing.Point(128, 103);
+            this.txtGetTransType.Name = "txtGetTransType";
+            this.txtGetTransType.ReadOnly = true;
+            this.txtGetTransType.Size = new System.Drawing.Size(201, 25);
+            this.txtGetTransType.TabIndex = 13;
             // 
             // pnlHeaderGetBorrowInfo
             // 
@@ -1170,16 +1153,16 @@
             this.pnlHeaderGetBorrowInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeaderGetBorrowInfo.Location = new System.Drawing.Point(0, 0);
             this.pnlHeaderGetBorrowInfo.Name = "pnlHeaderGetBorrowInfo";
-            this.pnlHeaderGetBorrowInfo.Size = new System.Drawing.Size(335, 54);
+            this.pnlHeaderGetBorrowInfo.Size = new System.Drawing.Size(333, 54);
             this.pnlHeaderGetBorrowInfo.TabIndex = 0;
             // 
             // btnExitBookBorrow
             // 
             this.btnExitBookBorrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExitBookBorrow.ForeColor = System.Drawing.Color.Red;
-            this.btnExitBookBorrow.Location = new System.Drawing.Point(307, 3);
+            this.btnExitBookBorrow.Location = new System.Drawing.Point(298, 3);
             this.btnExitBookBorrow.Name = "btnExitBookBorrow";
-            this.btnExitBookBorrow.Size = new System.Drawing.Size(25, 30);
+            this.btnExitBookBorrow.Size = new System.Drawing.Size(30, 30);
             this.btnExitBookBorrow.TabIndex = 1;
             this.btnExitBookBorrow.Text = "X";
             this.btnExitBookBorrow.UseVisualStyleBackColor = true;
@@ -1191,7 +1174,7 @@
             this.lbBookBorrow.AutoSize = true;
             this.lbBookBorrow.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBookBorrow.ForeColor = System.Drawing.Color.Aquamarine;
-            this.lbBookBorrow.Location = new System.Drawing.Point(118, 29);
+            this.lbBookBorrow.Location = new System.Drawing.Point(117, 29);
             this.lbBookBorrow.Name = "lbBookBorrow";
             this.lbBookBorrow.Size = new System.Drawing.Size(114, 23);
             this.lbBookBorrow.TabIndex = 0;
@@ -1213,14 +1196,17 @@
             // 
             // pnlFormReturnBook
             // 
+            this.pnlFormReturnBook.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlFormReturnBook.BackColor = System.Drawing.Color.Black;
+            this.pnlFormReturnBook.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlFormReturnBook.Controls.Add(this.pnlReturnBookBody);
             this.pnlFormReturnBook.Controls.Add(this.pnlReturnBookFooter);
             this.pnlFormReturnBook.Controls.Add(this.pnlHeaderGetReturnInfo);
-            this.pnlFormReturnBook.Location = new System.Drawing.Point(0, 0);
+            this.pnlFormReturnBook.Location = new System.Drawing.Point(300, 0);
             this.pnlFormReturnBook.Name = "pnlFormReturnBook";
             this.pnlFormReturnBook.Size = new System.Drawing.Size(335, 592);
-            this.pnlFormReturnBook.TabIndex = 3;
+            this.pnlFormReturnBook.TabIndex = 13;
+            this.pnlFormReturnBook.Visible = false;
             // 
             // pnlReturnBookBody
             // 
@@ -1228,7 +1214,7 @@
             this.pnlReturnBookBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReturnBookBody.Location = new System.Drawing.Point(0, 54);
             this.pnlReturnBookBody.Name = "pnlReturnBookBody";
-            this.pnlReturnBookBody.Size = new System.Drawing.Size(335, 499);
+            this.pnlReturnBookBody.Size = new System.Drawing.Size(333, 497);
             this.pnlReturnBookBody.TabIndex = 2;
             // 
             // tbGetReturnInfo
@@ -1241,11 +1227,11 @@
             this.tbGetReturnInfo.Controls.Add(this.lbGetRealReturnDate, 0, 2);
             this.tbGetReturnInfo.Controls.Add(this.lbGetReturnPenaty, 0, 3);
             this.tbGetReturnInfo.Controls.Add(this.lbGetReturnItem, 0, 4);
-            this.tbGetReturnInfo.Controls.Add(this.txtGetReturnMemberID, 1, 0);
-            this.tbGetReturnInfo.Controls.Add(this.cbxGetReturnTransType, 1, 1);
-            this.tbGetReturnInfo.Controls.Add(this.dtpGetReturnRealReturnDate, 1, 2);
-            this.tbGetReturnInfo.Controls.Add(this.rtxtShowReturnPenalty, 1, 3);
-            this.tbGetReturnInfo.Controls.Add(this.rtxtShowReturnListItem, 1, 4);
+            this.tbGetReturnInfo.Controls.Add(this.txtGetMemberIDReturn, 1, 0);
+            this.tbGetReturnInfo.Controls.Add(this.txtGetTransTypeReturn, 1, 1);
+            this.tbGetReturnInfo.Controls.Add(this.rtxtReturnPenalty, 1, 3);
+            this.tbGetReturnInfo.Controls.Add(this.rtxtReturnListItem, 1, 4);
+            this.tbGetReturnInfo.Controls.Add(this.dtpRealReturnDate, 1, 2);
             this.tbGetReturnInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbGetReturnInfo.Location = new System.Drawing.Point(0, 0);
             this.tbGetReturnInfo.Name = "tbGetReturnInfo";
@@ -1255,14 +1241,15 @@
             this.tbGetReturnInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
             this.tbGetReturnInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.39024F));
             this.tbGetReturnInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.39024F));
-            this.tbGetReturnInfo.Size = new System.Drawing.Size(335, 499);
+            this.tbGetReturnInfo.Size = new System.Drawing.Size(333, 497);
             this.tbGetReturnInfo.TabIndex = 3;
             // 
             // lbGetReturnMemberID
             // 
             this.lbGetReturnMemberID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnMemberID.AutoSize = true;
-            this.lbGetReturnMemberID.Location = new System.Drawing.Point(3, 33);
+            this.lbGetReturnMemberID.ForeColor = System.Drawing.Color.Lime;
+            this.lbGetReturnMemberID.Location = new System.Drawing.Point(3, 32);
             this.lbGetReturnMemberID.Name = "lbGetReturnMemberID";
             this.lbGetReturnMemberID.Size = new System.Drawing.Size(82, 19);
             this.lbGetReturnMemberID.TabIndex = 0;
@@ -1273,7 +1260,8 @@
             // 
             this.lbReturnTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbReturnTransType.AutoSize = true;
-            this.lbReturnTransType.Location = new System.Drawing.Point(3, 118);
+            this.lbReturnTransType.ForeColor = System.Drawing.Color.Lime;
+            this.lbReturnTransType.Location = new System.Drawing.Point(3, 116);
             this.lbReturnTransType.Name = "lbReturnTransType";
             this.lbReturnTransType.Size = new System.Drawing.Size(117, 19);
             this.lbReturnTransType.TabIndex = 1;
@@ -1284,7 +1272,8 @@
             // 
             this.lbGetRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetRealReturnDate.AutoSize = true;
-            this.lbGetRealReturnDate.Location = new System.Drawing.Point(3, 203);
+            this.lbGetRealReturnDate.ForeColor = System.Drawing.Color.Lime;
+            this.lbGetRealReturnDate.Location = new System.Drawing.Point(3, 200);
             this.lbGetRealReturnDate.Name = "lbGetRealReturnDate";
             this.lbGetRealReturnDate.Size = new System.Drawing.Size(115, 19);
             this.lbGetRealReturnDate.TabIndex = 2;
@@ -1295,7 +1284,8 @@
             // 
             this.lbGetReturnPenaty.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnPenaty.AutoSize = true;
-            this.lbGetReturnPenaty.Location = new System.Drawing.Point(3, 306);
+            this.lbGetReturnPenaty.ForeColor = System.Drawing.Color.Lime;
+            this.lbGetReturnPenaty.Location = new System.Drawing.Point(3, 303);
             this.lbGetReturnPenaty.Name = "lbGetReturnPenaty";
             this.lbGetReturnPenaty.Size = new System.Drawing.Size(60, 19);
             this.lbGetReturnPenaty.TabIndex = 3;
@@ -1306,115 +1296,75 @@
             // 
             this.lbGetReturnItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnItem.AutoSize = true;
-            this.lbGetReturnItem.Location = new System.Drawing.Point(3, 428);
+            this.lbGetReturnItem.ForeColor = System.Drawing.Color.Lime;
+            this.lbGetReturnItem.Location = new System.Drawing.Point(3, 425);
             this.lbGetReturnItem.Name = "lbGetReturnItem";
             this.lbGetReturnItem.Size = new System.Drawing.Size(67, 19);
             this.lbGetReturnItem.TabIndex = 4;
             this.lbGetReturnItem.Text = "List Item :";
             this.lbGetReturnItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtGetReturnMemberID
-            // 
-            this.txtGetReturnMemberID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetReturnMemberID.Location = new System.Drawing.Point(128, 30);
-            this.txtGetReturnMemberID.Name = "txtGetReturnMemberID";
-            this.txtGetReturnMemberID.Size = new System.Drawing.Size(204, 25);
-            this.txtGetReturnMemberID.TabIndex = 5;
-            this.txtGetReturnMemberID.Text = "Member ID";
-            // 
-            // cbxGetReturnTransType
-            // 
-            this.cbxGetReturnTransType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbxGetReturnTransType.FormattingEnabled = true;
-            this.cbxGetReturnTransType.Location = new System.Drawing.Point(128, 114);
-            this.cbxGetReturnTransType.Name = "cbxGetReturnTransType";
-            this.cbxGetReturnTransType.Size = new System.Drawing.Size(204, 27);
-            this.cbxGetReturnTransType.TabIndex = 6;
-            // 
-            // dtpGetReturnRealReturnDate
-            // 
-            this.dtpGetReturnRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpGetReturnRealReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetReturnRealReturnDate.Location = new System.Drawing.Point(128, 200);
-            this.dtpGetReturnRealReturnDate.Name = "dtpGetReturnRealReturnDate";
-            this.dtpGetReturnRealReturnDate.Size = new System.Drawing.Size(204, 25);
-            this.dtpGetReturnRealReturnDate.TabIndex = 7;
-            // 
-            // rtxtShowReturnPenalty
-            // 
-            this.rtxtShowReturnPenalty.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtxtShowReturnPenalty.Location = new System.Drawing.Point(128, 258);
-            this.rtxtShowReturnPenalty.Name = "rtxtShowReturnPenalty";
-            this.rtxtShowReturnPenalty.ReadOnly = true;
-            this.rtxtShowReturnPenalty.Size = new System.Drawing.Size(204, 115);
-            this.rtxtShowReturnPenalty.TabIndex = 8;
-            this.rtxtShowReturnPenalty.Text = "";
-            // 
-            // rtxtShowReturnListItem
-            // 
-            this.rtxtShowReturnListItem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtxtShowReturnListItem.Location = new System.Drawing.Point(128, 379);
-            this.rtxtShowReturnListItem.Name = "rtxtShowReturnListItem";
-            this.rtxtShowReturnListItem.ReadOnly = true;
-            this.rtxtShowReturnListItem.Size = new System.Drawing.Size(204, 117);
-            this.rtxtShowReturnListItem.TabIndex = 9;
-            this.rtxtShowReturnListItem.Text = "";
-            // 
             // pnlReturnBookFooter
             // 
-            this.pnlReturnBookFooter.Controls.Add(this.tableLayoutPanel2);
+            this.pnlReturnBookFooter.Controls.Add(this.tbReturnBookButtons);
             this.pnlReturnBookFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlReturnBookFooter.Location = new System.Drawing.Point(0, 553);
+            this.pnlReturnBookFooter.Location = new System.Drawing.Point(0, 551);
             this.pnlReturnBookFooter.Name = "pnlReturnBookFooter";
-            this.pnlReturnBookFooter.Size = new System.Drawing.Size(335, 39);
+            this.pnlReturnBookFooter.Size = new System.Drawing.Size(333, 39);
             this.pnlReturnBookFooter.TabIndex = 1;
             // 
-            // tableLayoutPanel2
+            // tbReturnBookButtons
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.btnCancelFormReturn, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnResetFromReturn, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnSubmitFormReturn, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(335, 39);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tbReturnBookButtons.ColumnCount = 3;
+            this.tbReturnBookButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbReturnBookButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbReturnBookButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbReturnBookButtons.Controls.Add(this.btnCancelFormReturn, 0, 0);
+            this.tbReturnBookButtons.Controls.Add(this.btnResetFromReturn, 1, 0);
+            this.tbReturnBookButtons.Controls.Add(this.btnSubmitFormReturn, 2, 0);
+            this.tbReturnBookButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbReturnBookButtons.Location = new System.Drawing.Point(0, 0);
+            this.tbReturnBookButtons.Name = "tbReturnBookButtons";
+            this.tbReturnBookButtons.RowCount = 1;
+            this.tbReturnBookButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbReturnBookButtons.Size = new System.Drawing.Size(333, 39);
+            this.tbReturnBookButtons.TabIndex = 0;
             // 
             // btnCancelFormReturn
             // 
+            this.btnCancelFormReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancelFormReturn.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelFormReturn.Location = new System.Drawing.Point(3, 3);
+            this.btnCancelFormReturn.Location = new System.Drawing.Point(18, 5);
             this.btnCancelFormReturn.Name = "btnCancelFormReturn";
             this.btnCancelFormReturn.Size = new System.Drawing.Size(75, 29);
             this.btnCancelFormReturn.TabIndex = 0;
             this.btnCancelFormReturn.Text = "Cancel";
             this.btnCancelFormReturn.UseVisualStyleBackColor = true;
+            this.btnCancelFormReturn.Click += new System.EventHandler(this.btnExitFormReturnBook_Click);
             // 
             // btnResetFromReturn
             // 
+            this.btnResetFromReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnResetFromReturn.ForeColor = System.Drawing.Color.Black;
-            this.btnResetFromReturn.Location = new System.Drawing.Point(114, 3);
+            this.btnResetFromReturn.Location = new System.Drawing.Point(129, 5);
             this.btnResetFromReturn.Name = "btnResetFromReturn";
             this.btnResetFromReturn.Size = new System.Drawing.Size(75, 29);
             this.btnResetFromReturn.TabIndex = 1;
             this.btnResetFromReturn.Text = "Reset";
             this.btnResetFromReturn.UseVisualStyleBackColor = true;
+            this.btnResetFromReturn.Click += new System.EventHandler(this.btnResetFromReturn_Click);
             // 
             // btnSubmitFormReturn
             // 
+            this.btnSubmitFormReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSubmitFormReturn.ForeColor = System.Drawing.Color.SlateBlue;
-            this.btnSubmitFormReturn.Location = new System.Drawing.Point(225, 3);
+            this.btnSubmitFormReturn.Location = new System.Drawing.Point(240, 5);
             this.btnSubmitFormReturn.Name = "btnSubmitFormReturn";
             this.btnSubmitFormReturn.Size = new System.Drawing.Size(75, 29);
             this.btnSubmitFormReturn.TabIndex = 2;
             this.btnSubmitFormReturn.Text = "Submit";
             this.btnSubmitFormReturn.UseVisualStyleBackColor = true;
+            this.btnSubmitFormReturn.Click += new System.EventHandler(this.btnExitFormReturnBook_Click);
             // 
             // pnlHeaderGetReturnInfo
             // 
@@ -1424,16 +1374,16 @@
             this.pnlHeaderGetReturnInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeaderGetReturnInfo.Location = new System.Drawing.Point(0, 0);
             this.pnlHeaderGetReturnInfo.Name = "pnlHeaderGetReturnInfo";
-            this.pnlHeaderGetReturnInfo.Size = new System.Drawing.Size(335, 54);
+            this.pnlHeaderGetReturnInfo.Size = new System.Drawing.Size(333, 54);
             this.pnlHeaderGetReturnInfo.TabIndex = 0;
             // 
             // btnExitFormReturnBook
             // 
             this.btnExitFormReturnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExitFormReturnBook.ForeColor = System.Drawing.Color.Red;
-            this.btnExitFormReturnBook.Location = new System.Drawing.Point(307, 5);
+            this.btnExitFormReturnBook.Location = new System.Drawing.Point(298, 3);
             this.btnExitFormReturnBook.Name = "btnExitFormReturnBook";
-            this.btnExitFormReturnBook.Size = new System.Drawing.Size(25, 30);
+            this.btnExitFormReturnBook.Size = new System.Drawing.Size(30, 30);
             this.btnExitFormReturnBook.TabIndex = 4;
             this.btnExitFormReturnBook.Text = "X";
             this.btnExitFormReturnBook.UseVisualStyleBackColor = true;
@@ -1445,12 +1395,60 @@
             this.lbFormReturnBook.AutoSize = true;
             this.lbFormReturnBook.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFormReturnBook.ForeColor = System.Drawing.Color.Aquamarine;
-            this.lbFormReturnBook.Location = new System.Drawing.Point(118, 22);
+            this.lbFormReturnBook.Location = new System.Drawing.Point(117, 22);
             this.lbFormReturnBook.Name = "lbFormReturnBook";
             this.lbFormReturnBook.Size = new System.Drawing.Size(111, 23);
             this.lbFormReturnBook.TabIndex = 3;
             this.lbFormReturnBook.Text = "Return Book";
             this.lbFormReturnBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtGetMemberIDReturn
+            // 
+            this.txtGetMemberIDReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetMemberIDReturn.Location = new System.Drawing.Point(128, 29);
+            this.txtGetMemberIDReturn.Name = "txtGetMemberIDReturn";
+            this.txtGetMemberIDReturn.Size = new System.Drawing.Size(201, 25);
+            this.txtGetMemberIDReturn.TabIndex = 5;
+            this.txtGetMemberIDReturn.Text = "Member ID";
+            this.txtGetMemberIDReturn.Click += new System.EventHandler(this.txtGetMemberIDReturn_Click);
+            // 
+            // txtGetTransTypeReturn
+            // 
+            this.txtGetTransTypeReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetTransTypeReturn.Enabled = false;
+            this.txtGetTransTypeReturn.Location = new System.Drawing.Point(128, 113);
+            this.txtGetTransTypeReturn.Name = "txtGetTransTypeReturn";
+            this.txtGetTransTypeReturn.ReadOnly = true;
+            this.txtGetTransTypeReturn.Size = new System.Drawing.Size(201, 25);
+            this.txtGetTransTypeReturn.TabIndex = 6;
+            // 
+            // rtxtReturnPenalty
+            // 
+            this.rtxtReturnPenalty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnPenalty.Location = new System.Drawing.Point(128, 255);
+            this.rtxtReturnPenalty.Name = "rtxtReturnPenalty";
+            this.rtxtReturnPenalty.ReadOnly = true;
+            this.rtxtReturnPenalty.Size = new System.Drawing.Size(202, 115);
+            this.rtxtReturnPenalty.TabIndex = 7;
+            this.rtxtReturnPenalty.Text = "";
+            // 
+            // rtxtReturnListItem
+            // 
+            this.rtxtReturnListItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnListItem.Location = new System.Drawing.Point(128, 376);
+            this.rtxtReturnListItem.Name = "rtxtReturnListItem";
+            this.rtxtReturnListItem.Size = new System.Drawing.Size(202, 118);
+            this.rtxtReturnListItem.TabIndex = 8;
+            this.rtxtReturnListItem.Text = "";
+            // 
+            // dtpRealReturnDate
+            // 
+            this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpRealReturnDate.Enabled = false;
+            this.dtpRealReturnDate.Location = new System.Drawing.Point(128, 197);
+            this.dtpRealReturnDate.Name = "dtpRealReturnDate";
+            this.dtpRealReturnDate.Size = new System.Drawing.Size(201, 25);
+            this.dtpRealReturnDate.TabIndex = 9;
             // 
             // FormTransaction
             // 
@@ -1470,7 +1468,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransaction_FormClosing);
             this.Load += new System.EventHandler(this.FormTransaction_Load);
             this.tbHeaderButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.tbBody.ResumeLayout(false);
@@ -1495,8 +1493,8 @@
             this.tbBlockInfoSeven.PerformLayout();
             this.tbBlockInfoEight.ResumeLayout(false);
             this.tbBlockInfoEight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).EndInit();
             this.pnlHeaderTransInfoDetail.ResumeLayout(false);
             this.pnlHeaderTransInfoDetail.PerformLayout();
             this.pnlFormBorrowBook.ResumeLayout(false);
@@ -1513,7 +1511,7 @@
             this.tbGetReturnInfo.ResumeLayout(false);
             this.tbGetReturnInfo.PerformLayout();
             this.pnlReturnBookFooter.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tbReturnBookButtons.ResumeLayout(false);
             this.pnlHeaderGetReturnInfo.ResumeLayout(false);
             this.pnlHeaderGetReturnInfo.PerformLayout();
             this.ResumeLayout(false);
@@ -1526,7 +1524,7 @@
         private System.Windows.Forms.Button btnReturnBook;
         private System.Windows.Forms.Button btnBookReservation;
         private System.Windows.Forms.TableLayoutPanel tbHeaderButtons;
-        private System.Windows.Forms.DataGridView dataTransactions;
+        private System.Windows.Forms.DataGridView dgvDataTransactions;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.TableLayoutPanel tbBody;
@@ -1567,10 +1565,10 @@
         private System.Windows.Forms.TableLayoutPanel tbBlockInfoEight;
         private System.Windows.Forms.Label lbViolationStatus;
         private System.Windows.Forms.Label lbViolationList;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDataItemList;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemQuantity;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvDataViolationHandle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRuleTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPenaty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colViolationDate;
@@ -1591,27 +1589,17 @@
         private System.Windows.Forms.Label lbGetBorrowTransType;
         private System.Windows.Forms.Label lbGetBorrowTransDate;
         private System.Windows.Forms.Label lbGetBorrowDueDate;
-        private System.Windows.Forms.Label lbGetBorrowReturnDate;
         private System.Windows.Forms.TextBox txtGetBorrowMemberID;
-        private System.Windows.Forms.DateTimePicker dtpGetBorrowDueDate;
-        private System.Windows.Forms.DateTimePicker dtpGetBorrowReturnDate;
         private System.Windows.Forms.DateTimePicker dtpGetGBorrowTransDate;
-        private System.Windows.Forms.ComboBox cbxGetBorrowTransType;
         private System.Windows.Forms.Label lbGetBorrowItem;
         private System.Windows.Forms.RichTextBox rtxtGetBorrowListItem;
+        private System.Windows.Forms.TextBox txtGetTransType;
         private System.Windows.Forms.Panel pnlHeaderGetBorrowInfo;
         private System.Windows.Forms.Button btnExitBookBorrow;
         private System.Windows.Forms.Label lbBookBorrow;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.DateTimePicker dtpGetBorrowDueDate;
         private System.Windows.Forms.Panel pnlFormReturnBook;
-        private System.Windows.Forms.Panel pnlReturnBookFooter;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel pnlHeaderGetReturnInfo;
-        private System.Windows.Forms.Button btnExitFormReturnBook;
-        private System.Windows.Forms.Label lbFormReturnBook;
-        private System.Windows.Forms.Button btnCancelFormReturn;
-        private System.Windows.Forms.Button btnResetFromReturn;
-        private System.Windows.Forms.Button btnSubmitFormReturn;
         private System.Windows.Forms.Panel pnlReturnBookBody;
         private System.Windows.Forms.TableLayoutPanel tbGetReturnInfo;
         private System.Windows.Forms.Label lbGetReturnMemberID;
@@ -1619,10 +1607,18 @@
         private System.Windows.Forms.Label lbGetRealReturnDate;
         private System.Windows.Forms.Label lbGetReturnPenaty;
         private System.Windows.Forms.Label lbGetReturnItem;
-        private System.Windows.Forms.TextBox txtGetReturnMemberID;
-        private System.Windows.Forms.ComboBox cbxGetReturnTransType;
-        private System.Windows.Forms.DateTimePicker dtpGetReturnRealReturnDate;
-        private System.Windows.Forms.RichTextBox rtxtShowReturnPenalty;
-        private System.Windows.Forms.RichTextBox rtxtShowReturnListItem;
+        private System.Windows.Forms.Panel pnlReturnBookFooter;
+        private System.Windows.Forms.TableLayoutPanel tbReturnBookButtons;
+        private System.Windows.Forms.Button btnCancelFormReturn;
+        private System.Windows.Forms.Button btnResetFromReturn;
+        private System.Windows.Forms.Button btnSubmitFormReturn;
+        private System.Windows.Forms.Panel pnlHeaderGetReturnInfo;
+        private System.Windows.Forms.Button btnExitFormReturnBook;
+        private System.Windows.Forms.Label lbFormReturnBook;
+        private System.Windows.Forms.TextBox txtGetMemberIDReturn;
+        private System.Windows.Forms.TextBox txtGetTransTypeReturn;
+        private System.Windows.Forms.RichTextBox rtxtReturnPenalty;
+        private System.Windows.Forms.RichTextBox rtxtReturnListItem;
+        private System.Windows.Forms.DateTimePicker dtpRealReturnDate;
     }
 }
