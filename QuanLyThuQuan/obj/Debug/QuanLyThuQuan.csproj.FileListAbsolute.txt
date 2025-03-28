@@ -29,11 +29,14 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.reso
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
 =======
+=======
+>>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -53,4 +56,7 @@ C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.c
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
+<<<<<<< HEAD
 >>>>>>> a5c17d971dadb76e8327860d14af90f22049f775
+=======
+>>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
