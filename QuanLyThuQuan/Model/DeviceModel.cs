@@ -13,19 +13,21 @@ namespace QuanLyThuQuan.Model
         public string DeviceImage { get; set; }
         public string DeviceType { get; set; }
         public int DeviceQuantity { get; set; }
+        public int FeePerHour { get; set; }
         public ProductStatus DeviceStatus { get; set; }
         public DeviceModel()
         {
             
         }
 
-        public DeviceModel(int deviceID, string deviceName, string deviceImage, string deviceType, int deviceQuantity, ProductStatus deviceStatus)
+        public DeviceModel(int deviceID, string deviceName, string deviceImage, string deviceType, int deviceQuantity, int feePerHour, ProductStatus deviceStatus)
         {
             DeviceID = deviceID;
             DeviceName = deviceName;
             DeviceImage = deviceImage;
             DeviceType = deviceType;
             DeviceQuantity = deviceQuantity;
+            FeePerHour = feePerHour;
             DeviceStatus = deviceStatus;
         }
     }

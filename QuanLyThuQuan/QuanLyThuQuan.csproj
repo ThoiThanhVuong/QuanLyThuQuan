@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="GUI\BookItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BookItemControl.Designer.cs">
+      <DependentUpon>BookItemControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,24 @@
     <Compile Include="GUI\FormViolation.Designer.cs">
       <DependentUpon>FormViolation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmQuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmQuanLySach.Designer.cs">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmQuanLyTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmQuanLyTacGia.Designer.cs">
+      <DependentUpon>frmQuanLyTacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmTheLoaiSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmTheLoaiSach.Designer.cs">
+      <DependentUpon>frmTheLoaiSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +132,9 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AuthorModel.cs" />
     <Compile Include="Model\BookModel.cs" />
+    <Compile Include="Model\CategoriesModel.cs" />
     <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\enums.cs" />
     <Compile Include="Model\LoginHistoryModel.cs" />
@@ -120,6 +146,9 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\BookItemControl.resx">
+      <DependentUpon>BookItemControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormBook.resx">
       <DependentUpon>FormBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +172,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormViolation.resx">
       <DependentUpon>FormViolation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmQuanLySach.resx">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmQuanLyTacGia.resx">
+      <DependentUpon>frmQuanLyTacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmTheLoaiSach.resx">
+      <DependentUpon>frmTheLoaiSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
