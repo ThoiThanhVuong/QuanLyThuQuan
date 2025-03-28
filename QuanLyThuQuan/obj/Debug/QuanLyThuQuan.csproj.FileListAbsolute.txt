@@ -28,7 +28,29 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.re
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
+<<<<<<< HEAD
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
+=======
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormBook.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDashBoard.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormReview.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormRule.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormMain.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.Login.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Properties.Resources.resources
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
+C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
+>>>>>>> a5c17d971dadb76e8327860d14af90f22049f775
