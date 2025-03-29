@@ -48,10 +48,10 @@
   <ItemGroup>
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
-    <Compile Include="GUI\BookItemControl.cs">
+    <Compile Include="GUI\ProductItem\BookItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\BookItemControl.Designer.cs">
+    <Compile Include="GUI\ProductItem\BookItemControl.Designer.cs">
       <DependentUpon>BookItemControl.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormBook.cs">
@@ -102,22 +102,28 @@
     <Compile Include="GUI\FormViolation.Designer.cs">
       <DependentUpon>FormViolation.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmQuanLySach.cs">
+    <Compile Include="GUI\ProductItem\frmControlBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmQuanLySach.Designer.cs">
+    <Compile Include="GUI\ProductItem\frmControlBook.Designer.cs">
+      <DependentUpon>frmControlBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ProductItem\frmQuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ProductItem\frmQuanLySach.Designer.cs">
       <DependentUpon>frmQuanLySach.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmQuanLyTacGia.cs">
+    <Compile Include="GUI\ProductItem\frmQuanLyTacGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmQuanLyTacGia.Designer.cs">
+    <Compile Include="GUI\ProductItem\frmQuanLyTacGia.Designer.cs">
       <DependentUpon>frmQuanLyTacGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmTheLoaiSach.cs">
+    <Compile Include="GUI\ProductItem\frmTheLoaiSach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmTheLoaiSach.Designer.cs">
+    <Compile Include="GUI\ProductItem\frmTheLoaiSach.Designer.cs">
       <DependentUpon>frmTheLoaiSach.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Main.cs">
@@ -146,7 +152,7 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\BookItemControl.resx">
+    <EmbeddedResource Include="GUI\ProductItem\BookItemControl.resx">
       <DependentUpon>BookItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormBook.resx">
@@ -173,13 +179,16 @@
     <EmbeddedResource Include="GUI\FormViolation.resx">
       <DependentUpon>FormViolation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmQuanLySach.resx">
+    <EmbeddedResource Include="GUI\ProductItem\frmControlBook.resx">
+      <DependentUpon>frmControlBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProductItem\frmQuanLySach.resx">
       <DependentUpon>frmQuanLySach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmQuanLyTacGia.resx">
+    <EmbeddedResource Include="GUI\ProductItem\frmQuanLyTacGia.resx">
       <DependentUpon>frmQuanLyTacGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmTheLoaiSach.resx">
+    <EmbeddedResource Include="GUI\ProductItem\frmTheLoaiSach.resx">
       <DependentUpon>frmTheLoaiSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">

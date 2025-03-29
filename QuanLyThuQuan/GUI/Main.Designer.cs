@@ -69,6 +69,7 @@ namespace QuanLyThuQuan.GUI
             this.btnLogout = new System.Windows.Forms.Button();
             this.SideBar = new System.Windows.Forms.TableLayoutPanel();
             this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnMain = new System.Windows.Forms.Panel();
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -472,15 +473,24 @@ namespace QuanLyThuQuan.GUI
             this.BottomMenu.Size = new System.Drawing.Size(240, 60);
             this.BottomMenu.TabIndex = 12;
             // 
+            // pnMain
+            // 
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(240, 50);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(960, 600);
+            this.pnMain.TabIndex = 11;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1200, 650);
+            this.Controls.Add(this.pnMain);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.TitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IsMdiContainer = true;
             this.MaximumSize = new System.Drawing.Size(1200, 650);
             this.MinimumSize = new System.Drawing.Size(1200, 650);
             this.Name = "FormMain";
@@ -524,6 +534,7 @@ namespace QuanLyThuQuan.GUI
         private Button btnLogout;
         private TableLayoutPanel SideBar;
         private FlowLayoutPanel BottomMenu;
+        private Panel pnMain;
     }
 }
 
