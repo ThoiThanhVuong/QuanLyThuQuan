@@ -34,6 +34,7 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.re
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
@@ -60,3 +61,6 @@ C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.p
 >>>>>>> a5c17d971dadb76e8327860d14af90f22049f775
 =======
 >>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
+=======
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.ProductItem.frmControlBook.resources
+>>>>>>> product

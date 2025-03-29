@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormBook: Form
     {
-        public FormBook()
+        private FormMain mainForm;
+       
+        //UC_TacGia ucTacGia = new UC_TacGia();
+        //UC_TheLoai ucTheLoai = new UC_TheLoai();
+
+        public FormBook(FormMain main)
         {
             InitializeComponent();
+            this.mainForm = main;
         }
 
         private void FormBook_Load(object sender, EventArgs e)
@@ -36,7 +43,13 @@ namespace QuanLyThuQuan.GUI
                 ListBook.Controls.Add(bookItem);
             }
         }
-
+       
+        private void ShowUserControl(UserControl uc)
+        {
+            ListBook.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            ListBook.Controls.Add(uc);
+        }
         private void FadeForm(bool fade)
         {
             if (fade)
@@ -47,26 +60,16 @@ namespace QuanLyThuQuan.GUI
         // sự kiện cho nút quản lý thông tin tác giả
         private void pnTacGia_Click(object sender, EventArgs e)
         {
-            frmQuanLyTacGia formTacGia = new frmQuanLyTacGia();
-            FadeForm(true); // Làm mờ form chính
-            formTacGia.FormClosed += (s, args) => FadeForm(false); // Khi đóng thì trở lại bình thường
-            formTacGia.ShowDialog();
+            mainForm.ShowFormInPanel(new frmQuanLyTacGia(mainForm));
         }
 
         private void pnQLSach_Click(object sender, EventArgs e)
         {
-            frmQuanLySach formQuanLySach = new frmQuanLySach();
-            FadeForm(true);
-            formQuanLySach.FormClosed += (s, args) => FadeForm(false);
-            formQuanLySach.ShowDialog();
+            mainForm.ShowFormInPanel(new frmQuanLySach(mainForm));
         }
 
         private void pnTheLoai_Click(object sender, EventArgs e)
         {
-            frmTheLoaiSach formTheLoaiSach = new frmTheLoaiSach();
-            FadeForm(true);
-            formTheLoaiSach.FormClosed += (s, args) => FadeForm(false);
-            formTheLoaiSach.ShowDialog();
-        }
+            mainForm.ShowFormInPanel(new frmTheLoaiSach(mainForm));        }
     }
 }

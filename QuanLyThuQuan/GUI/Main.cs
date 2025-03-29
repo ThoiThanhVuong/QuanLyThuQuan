@@ -12,15 +12,16 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormMain: Form
     {
-        FormBook pnBook;
-        FormDashBoard pnDashBoard;
-        FormDevice pnDevice;
-        FormRule pnRule;
-        FormTransaction pnTransaction;
-        FormViolation pnViolation;
-        FormReview pnReview;
-        FormStatistic pnStatistic;
+        //FormBook pnBook;
+        //FormDashBoard pnDashBoard;
+        //FormDevice pnDevice;
+        //FormRule pnRule;
+        //FormTransaction pnTransaction;
+        //FormViolation pnViolation;
+        //FormReview pnReview;
+        //FormStatistic pnStatistic;
         Login formLogin;
+        private Form currentForm = null;
         public FormMain()
         {
             InitializeComponent();
@@ -29,18 +30,22 @@ namespace QuanLyThuQuan.GUI
         // Xét form mặc định
         private void ShowDefaultForm()
         {
-            if (pnDashBoard == null)
+            ShowFormInPanel(new FormDashBoard());
+        }
+        public void ShowFormInPanel(Form form)
+        {
+            if (currentForm != null)
             {
-                pnDashBoard = new FormDashBoard();
-                pnDashBoard.FormClosed += PnDashBoard_FormClosed;
-                pnDashBoard.MdiParent = this;
-                pnDashBoard.Dock = DockStyle.Fill;
-                pnDashBoard.Show();
+                currentForm.Close(); // Đóng form cũ trước khi mở form mới
             }
-            else
-            {
-                pnDashBoard.Activate();
-            }
+
+            currentForm = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(form);
+            form.Show();
         }
         // chuyển động của nút product
         bool productExpand = false;
@@ -116,140 +121,41 @@ namespace QuanLyThuQuan.GUI
 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-            ShowDefaultForm();
+            ShowFormInPanel(new FormDashBoard());
         }
 
-        private void PnDashBoard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnDashBoard = null;
-        }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            if(pnBook == null)
-            {
-                pnBook = new FormBook();
-                pnBook.FormClosed += PnBook_FormClosed;
-                pnBook.MdiParent = this;
-                pnBook.Dock = DockStyle.Fill;
-                pnBook.Show();
-            }
-            else
-            {
-                pnBook.Activate();
-            }
+            ShowFormInPanel(new FormBook(this));
         }
 
-        private void PnBook_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnBook = null;
-        }
-
+      
         private void btnDevice_Click(object sender, EventArgs e)
         {
-            if(pnDevice == null)
-            {
-                pnDevice = new FormDevice();
-                pnDevice.FormClosed += PnDevice_FormClosed;
-                pnDevice.MdiParent = this;
-                pnDevice.Dock = DockStyle.Fill;
-                pnDevice.Show();
-            }
-            else
-            {
-                pnDevice.Activate();
-            }
-        }
-
-        private void PnDevice_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnDevice = null;
+            ShowFormInPanel(new FormDevice());
         }
 
         private void btnRule_Click(object sender, EventArgs e)
         {
-            if(pnRule == null)
-            {
-                pnRule = new FormRule();
-                pnRule.FormClosed += PnRule_FormClosed;
-                pnRule.MdiParent = this;
-                pnRule.Dock = DockStyle.Fill;
-                pnRule.Show();
-            }
-            else
-            {
-                pnRule.Activate();
-            }
-        }
-
-        private void PnRule_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnRule = null;
+            ShowFormInPanel(new FormRule());
         }
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            if(pnTransaction == null)
-            {
-                pnTransaction = new FormTransaction();
-                pnTransaction.FormClosed += PnTransaction_FormClosed;
-                pnTransaction.MdiParent = this;
-                pnTransaction.Dock = DockStyle.Fill;
-                pnTransaction.Show();
-
-            }
-            else
-            {
-                pnTransaction.Activate();
-            }
+           ShowFormInPanel(new FormTransaction());
         }
-
-        private void PnTransaction_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnTransaction = null; 
-        }
-
+    
         private void btnViolation_Click(object sender, EventArgs e)
         {
-            if(pnViolation == null)
-            {
-                pnViolation = new FormViolation();
-                pnViolation.FormClosed += PnViolation_FormClosed;
-                pnViolation.MdiParent = this;
-                pnViolation.Dock = DockStyle.Fill;
-                pnViolation.Show();
-            }
-            else
-            {
-                pnViolation.Activate();
-            }
-        }
-
-        private void PnViolation_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnViolation = null;
+            ShowFormInPanel(new FormViolation());
         }
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            if(pnReview == null)
-            {
-                pnReview = new FormReview();
-                pnReview.FormClosed += PnReview_FormClosed;
-                pnReview.MdiParent = this;
-                pnReview.Dock = DockStyle.Fill;
-                pnReview.Show();
-            }
-            else
-            {
-                pnReview.Activate();
-            }
+            ShowFormInPanel(new FormReview());
         }
 
-        private void PnReview_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnReview = null;
-        }
 
         private void btnCloseProgram_Click(object sender, EventArgs e)
         {   
@@ -282,23 +188,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            if(pnStatistic == null)
-            {
-                pnStatistic = new FormStatistic();
-                pnStatistic.FormClosed += PnStatistic_FormClosed;
-                pnStatistic.MdiParent = this;
-                pnStatistic.Dock = DockStyle.Fill;
-                pnStatistic.Show();
-            }
-            else
-            {
-                pnStatistic.Activate();
-            }
-        }
-
-        private void PnStatistic_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            pnStatistic = null;
+            ShowFormInPanel(new FormStatistic());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

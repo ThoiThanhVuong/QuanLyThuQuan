@@ -30,52 +30,62 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLySach));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReturn = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbbTypeBook = new System.Windows.Forms.ComboBox();
+            this.txtSearchBook = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvQuanLySach = new System.Windows.Forms.DataGridView();
-            this.btnCloseQLSach = new System.Windows.Forms.PictureBox();
-            this.txtSearchBook = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
-            this.cbbTypeBook = new System.Windows.Forms.ComboBox();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HinhAnhSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NamXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLySach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseQLSach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
-            this.panel1.Controls.Add(this.btnCloseQLSach);
+            this.panel1.Controls.Add(this.btnReturn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 50);
+            this.panel1.Size = new System.Drawing.Size(960, 50);
             this.panel1.TabIndex = 0;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.Location = new System.Drawing.Point(8, 9);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(30, 30);
+            this.btnReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnReturn.TabIndex = 3;
+            this.btnReturn.TabStop = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.label1.Location = new System.Drawing.Point(5, 11);
+            this.label1.Location = new System.Drawing.Point(48, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 29);
             this.label1.TabIndex = 1;
@@ -88,62 +98,21 @@
             this.panel2.Controls.Add(this.txtSearchBook);
             this.panel2.Location = new System.Drawing.Point(12, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(853, 35);
+            this.panel2.Size = new System.Drawing.Size(808, 35);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
+            // cbbTypeBook
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.btnView);
-            this.panel3.Controls.Add(this.btnRemove);
-            this.panel3.Controls.Add(this.btnEdit);
-            this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Location = new System.Drawing.Point(871, 56);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(120, 537);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dgvQuanLySach);
-            this.panel4.Location = new System.Drawing.Point(12, 97);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(853, 491);
-            this.panel4.TabIndex = 4;
-            // 
-            // dgvQuanLySach
-            // 
-            this.dgvQuanLySach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvQuanLySach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuanLySach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSach,
-            this.TenSach,
-            this.TacGia,
-            this.HinhAnhSach,
-            this.TheLoai,
-            this.NamXuatBan,
-            this.SoLuong,
-            this.GiaThue,
-            this.TrangThai});
-            this.dgvQuanLySach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvQuanLySach.Location = new System.Drawing.Point(0, 0);
-            this.dgvQuanLySach.Name = "dgvQuanLySach";
-            this.dgvQuanLySach.RowHeadersWidth = 62;
-            this.dgvQuanLySach.RowTemplate.Height = 28;
-            this.dgvQuanLySach.Size = new System.Drawing.Size(853, 491);
-            this.dgvQuanLySach.TabIndex = 0;
-            // 
-            // btnCloseQLSach
-            // 
-            this.btnCloseQLSach.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseQLSach.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseQLSach.Image")));
-            this.btnCloseQLSach.Location = new System.Drawing.Point(959, 1);
-            this.btnCloseQLSach.Name = "btnCloseQLSach";
-            this.btnCloseQLSach.Size = new System.Drawing.Size(36, 37);
-            this.btnCloseQLSach.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCloseQLSach.TabIndex = 2;
-            this.btnCloseQLSach.TabStop = false;
-            this.btnCloseQLSach.Click += new System.EventHandler(this.btnCloseQLSach_Click);
+            this.cbbTypeBook.FormattingEnabled = true;
+            this.cbbTypeBook.ItemHeight = 20;
+            this.cbbTypeBook.Items.AddRange(new object[] {
+            ""});
+            this.cbbTypeBook.Location = new System.Drawing.Point(509, 4);
+            this.cbbTypeBook.Margin = new System.Windows.Forms.Padding(0);
+            this.cbbTypeBook.Name = "cbbTypeBook";
+            this.cbbTypeBook.Size = new System.Drawing.Size(146, 28);
+            this.cbbTypeBook.TabIndex = 1;
+            this.cbbTypeBook.Text = "Thể Loại";
             // 
             // txtSearchBook
             // 
@@ -152,47 +121,17 @@
             this.txtSearchBook.Size = new System.Drawing.Size(269, 26);
             this.txtSearchBook.TabIndex = 0;
             // 
-            // btnAdd
+            // panel3
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnAdd.Location = new System.Drawing.Point(8, 16);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(104, 44);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnEdit.Location = new System.Drawing.Point(8, 78);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(104, 44);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnRemove.Location = new System.Drawing.Point(8, 140);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(104, 44);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.Text = "Xóa";
-            this.btnRemove.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.btnView);
+            this.panel3.Controls.Add(this.btnRemove);
+            this.panel3.Controls.Add(this.btnEdit);
+            this.panel3.Controls.Add(this.btnAdd);
+            this.panel3.Location = new System.Drawing.Point(828, 56);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(120, 537);
+            this.panel3.TabIndex = 2;
             // 
             // btnView
             // 
@@ -208,18 +147,77 @@
             this.btnView.Text = "Xem";
             this.btnView.UseVisualStyleBackColor = false;
             // 
-            // cbbTypeBook
+            // btnRemove
             // 
-            this.cbbTypeBook.FormattingEnabled = true;
-            this.cbbTypeBook.ItemHeight = 20;
-            this.cbbTypeBook.Items.AddRange(new object[] {
-            ""});
-            this.cbbTypeBook.Location = new System.Drawing.Point(509, 4);
-            this.cbbTypeBook.Margin = new System.Windows.Forms.Padding(0);
-            this.cbbTypeBook.Name = "cbbTypeBook";
-            this.cbbTypeBook.Size = new System.Drawing.Size(146, 28);
-            this.cbbTypeBook.TabIndex = 1;
-            this.cbbTypeBook.Text = "Thể Loại";
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemove.Location = new System.Drawing.Point(8, 140);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(104, 44);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnEdit.Location = new System.Drawing.Point(8, 78);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(104, 44);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnAdd.Location = new System.Drawing.Point(8, 16);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(104, 44);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dgvQuanLySach);
+            this.panel4.Location = new System.Drawing.Point(12, 97);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(808, 491);
+            this.panel4.TabIndex = 4;
+            // 
+            // dgvQuanLySach
+            // 
+            this.dgvQuanLySach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvQuanLySach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQuanLySach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSach,
+            this.TenSach,
+            this.TacGia,
+            this.TheLoai,
+            this.NamXuatBan,
+            this.SoLuong,
+            this.GiaThue,
+            this.TrangThai});
+            this.dgvQuanLySach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvQuanLySach.Location = new System.Drawing.Point(0, 0);
+            this.dgvQuanLySach.Name = "dgvQuanLySach";
+            this.dgvQuanLySach.RowHeadersWidth = 62;
+            this.dgvQuanLySach.RowTemplate.Height = 28;
+            this.dgvQuanLySach.Size = new System.Drawing.Size(808, 491);
+            this.dgvQuanLySach.TabIndex = 0;
             // 
             // MaSach
             // 
@@ -238,12 +236,6 @@
             this.TacGia.HeaderText = "Mã Tác Giả";
             this.TacGia.MinimumWidth = 8;
             this.TacGia.Name = "TacGia";
-            // 
-            // HinhAnhSach
-            // 
-            this.HinhAnhSach.HeaderText = "Hình Ảnh";
-            this.HinhAnhSach.MinimumWidth = 8;
-            this.HinhAnhSach.Name = "HinhAnhSach";
             // 
             // TheLoai
             // 
@@ -278,7 +270,7 @@
             // frmQuanLySach
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -289,12 +281,12 @@
             this.Text = "frmQuanLySach";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLySach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseQLSach)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,17 +299,16 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvQuanLySach;
-        private System.Windows.Forms.PictureBox btnCloseQLSach;
         private System.Windows.Forms.TextBox txtSearchBook;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ComboBox cbbTypeBook;
+        private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnhSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn NamXuatBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;

@@ -10,16 +10,20 @@ using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
-    public partial class frmTheLoaiSach: Form
+    public partial class frmQuanLyTacGia: Form
     {
-        public frmTheLoaiSach()
+        private FormMain mainForm;
+        public frmQuanLyTacGia(FormMain main)
         {
             InitializeComponent();
+            mainForm = main;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+       
+
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            mainForm.ShowFormInPanel(new FormBook(mainForm));
         }
     }
 }

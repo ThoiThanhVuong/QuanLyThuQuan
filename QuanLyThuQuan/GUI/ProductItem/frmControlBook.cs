@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyThuQuan.GUI
+namespace QuanLyThuQuan.GUI.ProductItem
 {
-    public partial class frmQuanLySach: Form
+    public partial class frmControlBook: Form
     {
-        public frmQuanLySach()
+        public frmControlBook()
         {
             InitializeComponent();
         }
 
-        private void btnCloseQLSach_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
