@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.Model
 {
@@ -22,7 +18,7 @@ namespace QuanLyThuQuan.Model
         public DeviceModel Device { get; set; }
         public ReviewModel()
         {
-            
+
         }
 
         public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DeviceModel device)

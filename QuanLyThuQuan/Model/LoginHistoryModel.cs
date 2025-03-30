@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.Model
 {
@@ -19,7 +15,7 @@ namespace QuanLyThuQuan.Model
 
         public LoginHistoryModel()
         {
-            
+
         }
 
         public LoginHistoryModel(int loginID, int memberID, DateTime loginTime, DateTime? logoutTime, LoginStatus status)

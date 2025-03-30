@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyThuQuan.Model
+﻿namespace QuanLyThuQuan.Model
 {
     class CategoriesModel
     {
@@ -12,7 +6,7 @@ namespace QuanLyThuQuan.Model
         public string CategoryName { get; set; }
         public CategoriesModel()
         {
-            
+
         }
 
         public CategoriesModel(int categoryID, string categoryName)

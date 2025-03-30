@@ -30,6 +30,7 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resourc
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
@@ -64,3 +65,24 @@ C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.p
 =======
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.ProductItem.frmControlBook.resources
 >>>>>>> product
+=======
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormBook.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDashBoard.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormReview.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormRule.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormMain.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.Login.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Properties.Resources.resources
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.cache
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
+D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
+>>>>>>> 80d07a07e987b6edf8e8bdcb9413a8344867b74a

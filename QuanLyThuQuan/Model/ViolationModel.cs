@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.Model
 {
@@ -24,7 +20,7 @@ namespace QuanLyThuQuan.Model
 
         public ViolationModel()
         {
-            
+
         }
 
         public ViolationModel(int violationID, int memberID, int transactionID, int ruleID, decimal fineAmount, string reason, DateTime violationDate, PaidStatus paidStatus)

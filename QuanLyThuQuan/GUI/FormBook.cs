@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 using System;
 using System.Collections.Generic;
@@ -7,11 +8,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+=======
+﻿using System;
+>>>>>>> 80d07a07e987b6edf8e8bdcb9413a8344867b74a
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
-    public partial class FormBook: Form
+    public partial class FormBook : Form
     {
         private FormMain mainForm;
        

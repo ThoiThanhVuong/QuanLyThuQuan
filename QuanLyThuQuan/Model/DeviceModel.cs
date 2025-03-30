@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuanLyThuQuan.Model
+﻿namespace QuanLyThuQuan.Model
 {
     class DeviceModel
     {
@@ -17,7 +11,7 @@ namespace QuanLyThuQuan.Model
         public ProductStatus DeviceStatus { get; set; }
         public DeviceModel()
         {
-            
+
         }
 
         public DeviceModel(int deviceID, string deviceName, string deviceImage, string deviceType, int deviceQuantity, int feePerHour, ProductStatus deviceStatus)
