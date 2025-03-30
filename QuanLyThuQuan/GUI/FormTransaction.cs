@@ -195,7 +195,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnResetFromReturn_Click(object sender, EventArgs e)
         {
-            Control.ControlCollection list = tbGetBorrowInfo.Controls;
+            Control.ControlCollection list = tbGetReturnInfo.Controls;
             foreach (Control control in list)
                 if (control is TextBox textbox && !textbox.ReadOnly)
                     textbox.Text = "";
