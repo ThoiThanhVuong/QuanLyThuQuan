@@ -36,11 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-<<<<<<< HEAD
     <Reference Include="System.DirectoryServices" />
-=======
     <Reference Include="System.Windows.Forms.DataVisualization" />
->>>>>>> 98fb65885eeaf14a3ea22b05d40f863b95d1c7a4
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

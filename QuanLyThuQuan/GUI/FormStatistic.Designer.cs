@@ -89,7 +89,7 @@
             this.ST_HEADER.Size = new System.Drawing.Size(340, 45);
             this.ST_HEADER.TabIndex = 0;
             this.ST_HEADER.Text = "Báo cáo và Thống kê";
-            this.ST_HEADER.Click += new System.EventHandler(this.label1_Click);
+            //this.ST_HEADER.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel4
             // 
@@ -127,7 +127,7 @@
             this.label4.Size = new System.Drawing.Size(182, 33);
             this.label4.TabIndex = 1;
             this.label4.Text = "Số thiết bị đã mượn";
-            this.label4.Click += new System.EventHandler(this.label1_Click_1);
+           
             // 
             // tableLayoutPanel1
             // 
@@ -190,7 +190,7 @@
             this.label1.Size = new System.Drawing.Size(122, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tổng số sách";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            
             // 
             // panel2
             // 
@@ -227,7 +227,7 @@
             this.label2.Size = new System.Drawing.Size(147, 33);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tổng số thiết bị";
-            this.label2.Click += new System.EventHandler(this.label1_Click_1);
+            
             // 
             // panel3
             // 
@@ -275,7 +275,7 @@
             this.label3.Size = new System.Drawing.Size(157, 33);
             this.label3.TabIndex = 1;
             this.label3.Text = "Số sách đã mượn";
-            this.label3.Click += new System.EventHandler(this.label1_Click_1);
+            
             // 
             // dataGridView1
             // 
@@ -456,7 +456,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            
             // 
             // pictureBox2
             // 
