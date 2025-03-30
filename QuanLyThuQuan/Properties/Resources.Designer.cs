@@ -73,6 +73,16 @@ namespace QuanLyThuQuan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book1 {
+            get {
+                object obj = ResourceManager.GetObject("book1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap burger_bar {
             get {
                 object obj = ResourceManager.GetObject("burger-bar", resourceCulture);
@@ -116,6 +126,16 @@ namespace QuanLyThuQuan.Properties {
         internal static System.Drawing.Bitmap profile {
             get {
                 object obj = ResourceManager.GetObject("profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap responsive {
+            get {
+                object obj = ResourceManager.GetObject("responsive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

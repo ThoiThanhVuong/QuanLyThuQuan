@@ -69,7 +69,11 @@ namespace QuanLyThuQuan.GUI
             this.btnLogout = new System.Windows.Forms.Button();
             this.SideBar = new System.Windows.Forms.TableLayoutPanel();
             this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
+<<<<<<< HEAD
             this.pnMain = new System.Windows.Forms.Panel();
+=======
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+>>>>>>> 98fb65885eeaf14a3ea22b05d40f863b95d1c7a4
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -473,6 +477,7 @@ namespace QuanLyThuQuan.GUI
             this.BottomMenu.Size = new System.Drawing.Size(240, 60);
             this.BottomMenu.TabIndex = 12;
             // 
+<<<<<<< HEAD
             // pnMain
             // 
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -481,6 +486,13 @@ namespace QuanLyThuQuan.GUI
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(960, 600);
             this.pnMain.TabIndex = 11;
+=======
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+>>>>>>> 98fb65885eeaf14a3ea22b05d40f863b95d1c7a4
             // 
             // FormMain
             // 
@@ -534,7 +546,11 @@ namespace QuanLyThuQuan.GUI
         private Button btnLogout;
         private TableLayoutPanel SideBar;
         private FlowLayoutPanel BottomMenu;
+<<<<<<< HEAD
         private Panel pnMain;
+=======
+        private ImageList imageList1;
+>>>>>>> 98fb65885eeaf14a3ea22b05d40f863b95d1c7a4
     }
 }
 

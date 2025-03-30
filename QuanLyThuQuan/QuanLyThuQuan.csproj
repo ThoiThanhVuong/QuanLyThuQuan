@@ -36,7 +36,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+<<<<<<< HEAD
     <Reference Include="System.DirectoryServices" />
+=======
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+>>>>>>> 98fb65885eeaf14a3ea22b05d40f863b95d1c7a4
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -273,6 +277,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Public\icons\rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-book.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\responsive.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
