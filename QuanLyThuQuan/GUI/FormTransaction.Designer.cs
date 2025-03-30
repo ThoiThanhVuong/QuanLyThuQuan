@@ -115,6 +115,11 @@
             this.lbGetRealReturnDate = new System.Windows.Forms.Label();
             this.lbGetReturnPenaty = new System.Windows.Forms.Label();
             this.lbGetReturnItem = new System.Windows.Forms.Label();
+            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
+            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
+            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
+            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
+            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
             this.pnlReturnBookFooter = new System.Windows.Forms.Panel();
             this.tbReturnBookButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelFormReturn = new System.Windows.Forms.Button();
@@ -123,11 +128,6 @@
             this.pnlHeaderGetReturnInfo = new System.Windows.Forms.Panel();
             this.btnExitFormReturnBook = new System.Windows.Forms.Button();
             this.lbFormReturnBook = new System.Windows.Forms.Label();
-            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
-            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
-            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
-            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
-            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
             this.tbHeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -1304,6 +1304,55 @@
             this.lbGetReturnItem.Text = "List Item :";
             this.lbGetReturnItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtGetMemberIDReturn
+            // 
+            this.txtGetMemberIDReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetMemberIDReturn.Location = new System.Drawing.Point(128, 29);
+            this.txtGetMemberIDReturn.Name = "txtGetMemberIDReturn";
+            this.txtGetMemberIDReturn.Size = new System.Drawing.Size(201, 25);
+            this.txtGetMemberIDReturn.TabIndex = 5;
+            this.txtGetMemberIDReturn.Text = "Member ID";
+            this.txtGetMemberIDReturn.Click += new System.EventHandler(this.txtGetMemberIDReturn_Click);
+            // 
+            // txtGetTransTypeReturn
+            // 
+            this.txtGetTransTypeReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetTransTypeReturn.Enabled = false;
+            this.txtGetTransTypeReturn.Location = new System.Drawing.Point(128, 113);
+            this.txtGetTransTypeReturn.Name = "txtGetTransTypeReturn";
+            this.txtGetTransTypeReturn.ReadOnly = true;
+            this.txtGetTransTypeReturn.Size = new System.Drawing.Size(201, 25);
+            this.txtGetTransTypeReturn.TabIndex = 6;
+            // 
+            // rtxtReturnPenalty
+            // 
+            this.rtxtReturnPenalty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnPenalty.Enabled = false;
+            this.rtxtReturnPenalty.Location = new System.Drawing.Point(128, 255);
+            this.rtxtReturnPenalty.Name = "rtxtReturnPenalty";
+            this.rtxtReturnPenalty.ReadOnly = true;
+            this.rtxtReturnPenalty.Size = new System.Drawing.Size(202, 115);
+            this.rtxtReturnPenalty.TabIndex = 7;
+            this.rtxtReturnPenalty.Text = "";
+            // 
+            // rtxtReturnListItem
+            // 
+            this.rtxtReturnListItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnListItem.Location = new System.Drawing.Point(128, 376);
+            this.rtxtReturnListItem.Name = "rtxtReturnListItem";
+            this.rtxtReturnListItem.Size = new System.Drawing.Size(202, 118);
+            this.rtxtReturnListItem.TabIndex = 8;
+            this.rtxtReturnListItem.Text = "";
+            // 
+            // dtpRealReturnDate
+            // 
+            this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpRealReturnDate.Enabled = false;
+            this.dtpRealReturnDate.Location = new System.Drawing.Point(128, 197);
+            this.dtpRealReturnDate.Name = "dtpRealReturnDate";
+            this.dtpRealReturnDate.Size = new System.Drawing.Size(201, 25);
+            this.dtpRealReturnDate.TabIndex = 9;
+            // 
             // pnlReturnBookFooter
             // 
             this.pnlReturnBookFooter.Controls.Add(this.tbReturnBookButtons);
@@ -1401,54 +1450,6 @@
             this.lbFormReturnBook.TabIndex = 3;
             this.lbFormReturnBook.Text = "Return Book";
             this.lbFormReturnBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtGetMemberIDReturn
-            // 
-            this.txtGetMemberIDReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetMemberIDReturn.Location = new System.Drawing.Point(128, 29);
-            this.txtGetMemberIDReturn.Name = "txtGetMemberIDReturn";
-            this.txtGetMemberIDReturn.Size = new System.Drawing.Size(201, 25);
-            this.txtGetMemberIDReturn.TabIndex = 5;
-            this.txtGetMemberIDReturn.Text = "Member ID";
-            this.txtGetMemberIDReturn.Click += new System.EventHandler(this.txtGetMemberIDReturn_Click);
-            // 
-            // txtGetTransTypeReturn
-            // 
-            this.txtGetTransTypeReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetTransTypeReturn.Enabled = false;
-            this.txtGetTransTypeReturn.Location = new System.Drawing.Point(128, 113);
-            this.txtGetTransTypeReturn.Name = "txtGetTransTypeReturn";
-            this.txtGetTransTypeReturn.ReadOnly = true;
-            this.txtGetTransTypeReturn.Size = new System.Drawing.Size(201, 25);
-            this.txtGetTransTypeReturn.TabIndex = 6;
-            // 
-            // rtxtReturnPenalty
-            // 
-            this.rtxtReturnPenalty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtReturnPenalty.Location = new System.Drawing.Point(128, 255);
-            this.rtxtReturnPenalty.Name = "rtxtReturnPenalty";
-            this.rtxtReturnPenalty.ReadOnly = true;
-            this.rtxtReturnPenalty.Size = new System.Drawing.Size(202, 115);
-            this.rtxtReturnPenalty.TabIndex = 7;
-            this.rtxtReturnPenalty.Text = "";
-            // 
-            // rtxtReturnListItem
-            // 
-            this.rtxtReturnListItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtReturnListItem.Location = new System.Drawing.Point(128, 376);
-            this.rtxtReturnListItem.Name = "rtxtReturnListItem";
-            this.rtxtReturnListItem.Size = new System.Drawing.Size(202, 118);
-            this.rtxtReturnListItem.TabIndex = 8;
-            this.rtxtReturnListItem.Text = "";
-            // 
-            // dtpRealReturnDate
-            // 
-            this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpRealReturnDate.Enabled = false;
-            this.dtpRealReturnDate.Location = new System.Drawing.Point(128, 197);
-            this.dtpRealReturnDate.Name = "dtpRealReturnDate";
-            this.dtpRealReturnDate.Size = new System.Drawing.Size(201, 25);
-            this.dtpRealReturnDate.TabIndex = 9;
             // 
             // FormTransaction
             // 
