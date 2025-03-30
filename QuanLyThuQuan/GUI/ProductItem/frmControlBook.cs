@@ -21,5 +21,10 @@ namespace QuanLyThuQuan.GUI.ProductItem
         {
             this.Close();
         }
+        public void SetLabelAndButtonText(string labelText, string buttonText)
+        {
+            txtBookControl.Text = labelText;
+            btnBookControl.Text = buttonText;
+        }
     }
 }

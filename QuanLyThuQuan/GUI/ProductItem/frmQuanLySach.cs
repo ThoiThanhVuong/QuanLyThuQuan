@@ -32,13 +32,26 @@ namespace QuanLyThuQuan.GUI
         {
             mainForm.ShowFormInPanel(new FormBook(mainForm));
         }
-
+       
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmControlBook formAddBook = new frmControlBook();
+            // Gọi phương thức để đặt text cho label và button
+            formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
             FadeForm(true);
             formAddBook.FormClosed += (s, args) => FadeForm(false);
             formAddBook.ShowDialog();
+
+           
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmControlBook formEditBook = new frmControlBook();
+            formEditBook.SetLabelAndButtonText("Chỉnh sửa", "Cập nhật");
+            FadeForm(true);
+            formEditBook.FormClosed += (s, args) => FadeForm(false);
+            formEditBook.ShowDialog();
         }
     }
 }

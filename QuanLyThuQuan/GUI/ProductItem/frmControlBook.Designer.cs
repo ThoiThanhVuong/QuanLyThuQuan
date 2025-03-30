@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmControlBook));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaSach = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.ptrBook = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTenSach = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMaTacGia = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -65,6 +65,9 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.txtBookControl = new System.Windows.Forms.Label();
+            this.btnBookControl = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrBook)).BeginInit();
@@ -75,22 +78,23 @@
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMaSach
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(60, 9);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtMaSach.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMaSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaSach.Location = new System.Drawing.Point(60, 9);
+            this.txtMaSach.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaSach.Name = "txtMaSach";
+            this.txtMaSach.Size = new System.Drawing.Size(200, 21);
+            this.txtMaSach.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtMaSach);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +104,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 37);
             this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(6, 29);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(260, 1);
+            this.panel2.TabIndex = 5;
             // 
             // label1
             // 
@@ -115,9 +128,9 @@
             // btnClose
             // 
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(877, 0);
+            this.btnClose.Location = new System.Drawing.Point(864, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(23, 22);
+            this.btnClose.Size = new System.Drawing.Size(36, 35);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 4;
             this.btnClose.TabStop = false;
@@ -132,15 +145,6 @@
             this.ptrBook.TabIndex = 0;
             this.ptrBook.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(6, 29);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 1);
-            this.panel2.TabIndex = 5;
-            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -154,6 +158,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(205, 267);
             this.panel3.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(1, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(201, 1);
+            this.panel7.TabIndex = 2;
             // 
             // panel4
             // 
@@ -185,16 +199,6 @@
             this.panel6.Size = new System.Drawing.Size(1, 265);
             this.panel6.TabIndex = 2;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(1, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(201, 1);
-            this.panel7.TabIndex = 2;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
@@ -212,7 +216,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Controls.Add(this.textBox2);
+            this.panel8.Controls.Add(this.txtTenSach);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label2);
             this.panel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -223,15 +227,15 @@
             this.panel8.Size = new System.Drawing.Size(260, 37);
             this.panel8.TabIndex = 6;
             // 
-            // textBox2
+            // txtTenSach
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(63, 9);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 21);
-            this.textBox2.TabIndex = 1;
+            this.txtTenSach.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTenSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTenSach.Location = new System.Drawing.Point(63, 9);
+            this.txtTenSach.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenSach.Name = "txtTenSach";
+            this.txtTenSach.Size = new System.Drawing.Size(197, 21);
+            this.txtTenSach.TabIndex = 1;
             // 
             // panel9
             // 
@@ -256,7 +260,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.textBox3);
+            this.panel10.Controls.Add(this.txtMaTacGia);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,15 +271,15 @@
             this.panel10.Size = new System.Drawing.Size(260, 37);
             this.panel10.TabIndex = 7;
             // 
-            // textBox3
+            // txtMaTacGia
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(78, 9);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 21);
-            this.textBox3.TabIndex = 1;
+            this.txtMaTacGia.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMaTacGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaTacGia.Location = new System.Drawing.Point(78, 9);
+            this.txtMaTacGia.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaTacGia.Name = "txtMaTacGia";
+            this.txtMaTacGia.Size = new System.Drawing.Size(182, 21);
+            this.txtMaTacGia.TabIndex = 1;
             // 
             // panel11
             // 
@@ -344,7 +348,7 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Controls.Add(this.textBox5);
+            this.panel14.Controls.Add(this.txtSoLuong);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Controls.Add(this.label5);
             this.panel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,15 +359,15 @@
             this.panel14.Size = new System.Drawing.Size(260, 37);
             this.panel14.TabIndex = 9;
             // 
-            // textBox5
+            // txtSoLuong
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(68, 9);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(187, 21);
-            this.textBox5.TabIndex = 1;
+            this.txtSoLuong.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSoLuong.Location = new System.Drawing.Point(68, 9);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(187, 21);
+            this.txtSoLuong.TabIndex = 1;
             // 
             // panel15
             // 
@@ -473,11 +477,49 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Giá Thuê :";
             // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.panel20.Controls.Add(this.txtBookControl);
+            this.panel20.Controls.Add(this.btnClose);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(900, 50);
+            this.panel20.TabIndex = 12;
+            // 
+            // txtBookControl
+            // 
+            this.txtBookControl.AutoSize = true;
+            this.txtBookControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBookControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.txtBookControl.Location = new System.Drawing.Point(410, 12);
+            this.txtBookControl.Name = "txtBookControl";
+            this.txtBookControl.Size = new System.Drawing.Size(98, 32);
+            this.txtBookControl.TabIndex = 0;
+            this.txtBookControl.Text = "label8";
+            // 
+            // btnBookControl
+            // 
+            this.btnBookControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnBookControl.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnBookControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBookControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnBookControl.Location = new System.Drawing.Point(415, 372);
+            this.btnBookControl.Name = "btnBookControl";
+            this.btnBookControl.Size = new System.Drawing.Size(177, 42);
+            this.btnBookControl.TabIndex = 13;
+            this.btnBookControl.Text = "button2";
+            this.btnBookControl.UseVisualStyleBackColor = false;
+            // 
             // frmControlBook
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 450);
+            this.Controls.Add(this.btnBookControl);
+            this.Controls.Add(this.panel20);
             this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel16);
             this.Controls.Add(this.panel14);
@@ -486,7 +528,6 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmControlBook";
@@ -509,6 +550,8 @@
             this.panel16.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -516,7 +559,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox ptrBook;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaSach;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnClose;
@@ -528,11 +571,11 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTenSach;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMaTacGia;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel12;
@@ -540,7 +583,7 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel16;
@@ -551,5 +594,8 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label txtBookControl;
+        private System.Windows.Forms.Button btnBookControl;
     }
 }
