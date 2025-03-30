@@ -115,6 +115,11 @@
             this.lbGetRealReturnDate = new System.Windows.Forms.Label();
             this.lbGetReturnPenaty = new System.Windows.Forms.Label();
             this.lbGetReturnItem = new System.Windows.Forms.Label();
+            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
+            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
+            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
+            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
+            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
             this.pnlReturnBookFooter = new System.Windows.Forms.Panel();
             this.tbReturnBookButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelFormReturn = new System.Windows.Forms.Button();
@@ -123,11 +128,6 @@
             this.pnlHeaderGetReturnInfo = new System.Windows.Forms.Panel();
             this.btnExitFormReturnBook = new System.Windows.Forms.Button();
             this.lbFormReturnBook = new System.Windows.Forms.Label();
-            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
-            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
-            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
-            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
-            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
             this.tbHeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -165,7 +165,7 @@
             // btnBorrow
             // 
             this.btnBorrow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrow.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrow.ForeColor = System.Drawing.Color.Black;
             this.btnBorrow.Location = new System.Drawing.Point(4, 4);
             this.btnBorrow.Margin = new System.Windows.Forms.Padding(4);
@@ -181,7 +181,7 @@
             // btnReturnBook
             // 
             this.btnReturnBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturnBook.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnBook.ForeColor = System.Drawing.Color.Black;
             this.btnReturnBook.Location = new System.Drawing.Point(324, 4);
             this.btnReturnBook.Margin = new System.Windows.Forms.Padding(4);
@@ -197,7 +197,7 @@
             // btnBookReservation
             // 
             this.btnBookReservation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBookReservation.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookReservation.ForeColor = System.Drawing.Color.Black;
             this.btnBookReservation.Location = new System.Drawing.Point(644, 4);
             this.btnBookReservation.Margin = new System.Windows.Forms.Padding(4);
@@ -248,6 +248,7 @@
             this.colMoreOptions});
             this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
             this.dgvDataTransactions.Name = "dgvDataTransactions";
+            this.dgvDataTransactions.RowHeadersWidth = 62;
             this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
             this.dgvDataTransactions.TabIndex = 1;
             this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
@@ -257,25 +258,28 @@
             this.colTransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colTransactionID.Frozen = true;
             this.colTransactionID.HeaderText = "TransactionID";
+            this.colTransactionID.MinimumWidth = 8;
             this.colTransactionID.Name = "colTransactionID";
             this.colTransactionID.ReadOnly = true;
             this.colTransactionID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colTransactionID.Width = 117;
+            this.colTransactionID.Width = 170;
             // 
             // colMemberID
             // 
             this.colMemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colMemberID.Frozen = true;
             this.colMemberID.HeaderText = "MemberID";
+            this.colMemberID.MinimumWidth = 8;
             this.colMemberID.Name = "colMemberID";
             this.colMemberID.ReadOnly = true;
             this.colMemberID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMemberID.Width = 98;
+            this.colMemberID.Width = 139;
             // 
             // colTransactionType
             // 
             this.colTransactionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTransactionType.HeaderText = "Transaction Type";
+            this.colTransactionType.MinimumWidth = 8;
             this.colTransactionType.Name = "colTransactionType";
             this.colTransactionType.ReadOnly = true;
             this.colTransactionType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -284,6 +288,7 @@
             // 
             this.colTransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTransactionDate.HeaderText = "Transaction Date";
+            this.colTransactionDate.MinimumWidth = 8;
             this.colTransactionDate.Name = "colTransactionDate";
             this.colTransactionDate.ReadOnly = true;
             this.colTransactionDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -292,6 +297,7 @@
             // 
             this.colDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDueDate.HeaderText = "Due Date";
+            this.colDueDate.MinimumWidth = 8;
             this.colDueDate.Name = "colDueDate";
             this.colDueDate.ReadOnly = true;
             this.colDueDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -301,6 +307,7 @@
             this.colReturnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colReturnDate.FillWeight = 130F;
             this.colReturnDate.HeaderText = "Return Date";
+            this.colReturnDate.MinimumWidth = 8;
             this.colReturnDate.Name = "colReturnDate";
             this.colReturnDate.ReadOnly = true;
             this.colReturnDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -310,15 +317,17 @@
             // 
             this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 8;
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colStatus.Width = 72;
+            this.colStatus.Width = 104;
             // 
             // colMoreOptions
             // 
             this.colMoreOptions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colMoreOptions.HeaderText = "";
+            this.colMoreOptions.MinimumWidth = 8;
             this.colMoreOptions.Name = "colMoreOptions";
             this.colMoreOptions.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colMoreOptions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -339,10 +348,10 @@
             // 
             this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.Location = new System.Drawing.Point(397, 3);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(178, 31);
+            this.lbTitle.Size = new System.Drawing.Size(261, 37);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Transactions List";
             // 
@@ -380,7 +389,7 @@
             // txtResult
             // 
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtResult.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.ForeColor = System.Drawing.Color.Black;
             this.txtResult.Location = new System.Drawing.Point(0, -1);
             this.txtResult.Margin = new System.Windows.Forms.Padding(4);
@@ -466,11 +475,11 @@
             this.lbTransID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTransID.AutoSize = true;
             this.lbTransID.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransID.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTransID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransID.ForeColor = System.Drawing.Color.Azure;
-            this.lbTransID.Location = new System.Drawing.Point(3, 6);
+            this.lbTransID.Location = new System.Drawing.Point(3, 0);
             this.lbTransID.Name = "lbTransID";
-            this.lbTransID.Size = new System.Drawing.Size(115, 19);
+            this.lbTransID.Size = new System.Drawing.Size(153, 31);
             this.lbTransID.TabIndex = 0;
             this.lbTransID.Text = "Transaction ID : ";
             this.lbTransID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -480,11 +489,11 @@
             this.lbMemID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbMemID.AutoSize = true;
             this.lbMemID.BackColor = System.Drawing.Color.Transparent;
-            this.lbMemID.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMemID.ForeColor = System.Drawing.Color.Azure;
-            this.lbMemID.Location = new System.Drawing.Point(3, 37);
+            this.lbMemID.Location = new System.Drawing.Point(3, 34);
             this.lbMemID.Name = "lbMemID";
-            this.lbMemID.Size = new System.Drawing.Size(88, 19);
+            this.lbMemID.Size = new System.Drawing.Size(130, 25);
             this.lbMemID.TabIndex = 1;
             this.lbMemID.Text = "Member ID :";
             this.lbMemID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -510,11 +519,11 @@
             this.lbMemFullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbMemFullName.AutoSize = true;
             this.lbMemFullName.BackColor = System.Drawing.Color.Transparent;
-            this.lbMemFullName.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMemFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMemFullName.ForeColor = System.Drawing.Color.Azure;
-            this.lbMemFullName.Location = new System.Drawing.Point(3, 6);
+            this.lbMemFullName.Location = new System.Drawing.Point(3, 3);
             this.lbMemFullName.Name = "lbMemFullName";
-            this.lbMemFullName.Size = new System.Drawing.Size(141, 19);
+            this.lbMemFullName.Size = new System.Drawing.Size(206, 25);
             this.lbMemFullName.TabIndex = 0;
             this.lbMemFullName.Text = "Member Full Name :";
             this.lbMemFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,11 +533,11 @@
             this.lbUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbUserName.AutoSize = true;
             this.lbUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserName.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserName.ForeColor = System.Drawing.Color.Azure;
-            this.lbUserName.Location = new System.Drawing.Point(3, 37);
+            this.lbUserName.Location = new System.Drawing.Point(3, 34);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(147, 19);
+            this.lbUserName.Size = new System.Drawing.Size(216, 25);
             this.lbUserName.TabIndex = 1;
             this.lbUserName.Text = "Member User Name :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -554,11 +563,11 @@
             this.lbTransStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTransStatus.AutoSize = true;
             this.lbTransStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTransStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransStatus.ForeColor = System.Drawing.Color.Azure;
-            this.lbTransStatus.Location = new System.Drawing.Point(3, 37);
+            this.lbTransStatus.Location = new System.Drawing.Point(3, 31);
             this.lbTransStatus.Name = "lbTransStatus";
-            this.lbTransStatus.Size = new System.Drawing.Size(140, 19);
+            this.lbTransStatus.Size = new System.Drawing.Size(126, 32);
             this.lbTransStatus.TabIndex = 0;
             this.lbTransStatus.Text = "Transaction Status :";
             this.lbTransStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,11 +577,11 @@
             this.lbTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTransType.AutoSize = true;
             this.lbTransType.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransType.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTransType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransType.ForeColor = System.Drawing.Color.Azure;
-            this.lbTransType.Location = new System.Drawing.Point(3, 6);
+            this.lbTransType.Location = new System.Drawing.Point(3, 0);
             this.lbTransType.Name = "lbTransType";
-            this.lbTransType.Size = new System.Drawing.Size(129, 19);
+            this.lbTransType.Size = new System.Drawing.Size(126, 31);
             this.lbTransType.TabIndex = 0;
             this.lbTransType.Text = "Transaction Type :";
             this.lbTransType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -598,11 +607,11 @@
             this.lbUserType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbUserType.AutoSize = true;
             this.lbUserType.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserType.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserType.ForeColor = System.Drawing.Color.Azure;
-            this.lbUserType.Location = new System.Drawing.Point(3, 6);
+            this.lbUserType.Location = new System.Drawing.Point(3, 3);
             this.lbUserType.Name = "lbUserType";
-            this.lbUserType.Size = new System.Drawing.Size(80, 19);
+            this.lbUserType.Size = new System.Drawing.Size(125, 25);
             this.lbUserType.TabIndex = 1;
             this.lbUserType.Text = "User Type :";
             this.lbUserType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -612,11 +621,11 @@
             this.lbUserStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbUserStatus.AutoSize = true;
             this.lbUserStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserStatus.ForeColor = System.Drawing.Color.Azure;
-            this.lbUserStatus.Location = new System.Drawing.Point(3, 37);
+            this.lbUserStatus.Location = new System.Drawing.Point(3, 34);
             this.lbUserStatus.Name = "lbUserStatus";
-            this.lbUserStatus.Size = new System.Drawing.Size(91, 19);
+            this.lbUserStatus.Size = new System.Drawing.Size(138, 25);
             this.lbUserStatus.TabIndex = 2;
             this.lbUserStatus.Text = "User Status :";
             this.lbUserStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -642,11 +651,11 @@
             this.lbTransDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbTransDate.AutoSize = true;
             this.lbTransDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTransDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransDate.ForeColor = System.Drawing.Color.Azure;
-            this.lbTransDate.Location = new System.Drawing.Point(3, 6);
+            this.lbTransDate.Location = new System.Drawing.Point(3, 0);
             this.lbTransDate.Name = "lbTransDate";
-            this.lbTransDate.Size = new System.Drawing.Size(130, 19);
+            this.lbTransDate.Size = new System.Drawing.Size(126, 31);
             this.lbTransDate.TabIndex = 0;
             this.lbTransDate.Text = "Transaction Date :";
             this.lbTransDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -656,11 +665,11 @@
             this.lbDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbDueDate.AutoSize = true;
             this.lbDueDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbDueDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDueDate.ForeColor = System.Drawing.Color.Azure;
-            this.lbDueDate.Location = new System.Drawing.Point(3, 37);
+            this.lbDueDate.Location = new System.Drawing.Point(3, 34);
             this.lbDueDate.Name = "lbDueDate";
-            this.lbDueDate.Size = new System.Drawing.Size(78, 19);
+            this.lbDueDate.Size = new System.Drawing.Size(115, 25);
             this.lbDueDate.TabIndex = 1;
             this.lbDueDate.Text = "Due Date :";
             this.lbDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -686,11 +695,11 @@
             this.lbUserEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbUserEmail.AutoSize = true;
             this.lbUserEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserEmail.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserEmail.ForeColor = System.Drawing.Color.Azure;
-            this.lbUserEmail.Location = new System.Drawing.Point(3, 6);
+            this.lbUserEmail.Location = new System.Drawing.Point(3, 3);
             this.lbUserEmail.Name = "lbUserEmail";
-            this.lbUserEmail.Size = new System.Drawing.Size(85, 19);
+            this.lbUserEmail.Size = new System.Drawing.Size(129, 25);
             this.lbUserEmail.TabIndex = 0;
             this.lbUserEmail.Text = "User Email :";
             this.lbUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -700,11 +709,11 @@
             this.lbUserPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbUserPhoneNumber.AutoSize = true;
             this.lbUserPhoneNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserPhoneNumber.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserPhoneNumber.ForeColor = System.Drawing.Color.Azure;
-            this.lbUserPhoneNumber.Location = new System.Drawing.Point(3, 37);
+            this.lbUserPhoneNumber.Location = new System.Drawing.Point(3, 34);
             this.lbUserPhoneNumber.Name = "lbUserPhoneNumber";
-            this.lbUserPhoneNumber.Size = new System.Drawing.Size(116, 19);
+            this.lbUserPhoneNumber.Size = new System.Drawing.Size(168, 25);
             this.lbUserPhoneNumber.TabIndex = 1;
             this.lbUserPhoneNumber.Text = "Phone Number :";
             this.lbUserPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -730,11 +739,11 @@
             this.lbReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbReturnDate.AutoSize = true;
             this.lbReturnDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbReturnDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReturnDate.ForeColor = System.Drawing.Color.Azure;
-            this.lbReturnDate.Location = new System.Drawing.Point(3, 6);
+            this.lbReturnDate.Location = new System.Drawing.Point(3, 3);
             this.lbReturnDate.Name = "lbReturnDate";
-            this.lbReturnDate.Size = new System.Drawing.Size(98, 19);
+            this.lbReturnDate.Size = new System.Drawing.Size(139, 25);
             this.lbReturnDate.TabIndex = 0;
             this.lbReturnDate.Text = "Return Date :";
             this.lbReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -744,11 +753,11 @@
             this.lbListTransItems.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbListTransItems.AutoSize = true;
             this.lbListTransItems.BackColor = System.Drawing.Color.Transparent;
-            this.lbListTransItems.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListTransItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbListTransItems.ForeColor = System.Drawing.Color.Azure;
-            this.lbListTransItems.Location = new System.Drawing.Point(3, 37);
+            this.lbListTransItems.Location = new System.Drawing.Point(3, 31);
             this.lbListTransItems.Name = "lbListTransItems";
-            this.lbListTransItems.Size = new System.Drawing.Size(155, 19);
+            this.lbListTransItems.Size = new System.Drawing.Size(126, 32);
             this.lbListTransItems.TabIndex = 1;
             this.lbListTransItems.Text = "Transaction Item List :";
             this.lbListTransItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -775,11 +784,11 @@
             this.lbViolationStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbViolationStatus.AutoSize = true;
             this.lbViolationStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbViolationStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViolationStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViolationStatus.ForeColor = System.Drawing.Color.Azure;
-            this.lbViolationStatus.Location = new System.Drawing.Point(3, 6);
+            this.lbViolationStatus.Location = new System.Drawing.Point(3, 3);
             this.lbViolationStatus.Name = "lbViolationStatus";
-            this.lbViolationStatus.Size = new System.Drawing.Size(120, 19);
+            this.lbViolationStatus.Size = new System.Drawing.Size(177, 25);
             this.lbViolationStatus.TabIndex = 0;
             this.lbViolationStatus.Text = "Violation Status :";
             this.lbViolationStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -789,11 +798,11 @@
             this.lbViolationList.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbViolationList.AutoSize = true;
             this.lbViolationList.BackColor = System.Drawing.Color.Transparent;
-            this.lbViolationList.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViolationList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViolationList.ForeColor = System.Drawing.Color.Azure;
-            this.lbViolationList.Location = new System.Drawing.Point(3, 37);
+            this.lbViolationList.Location = new System.Drawing.Point(3, 34);
             this.lbViolationList.Name = "lbViolationList";
-            this.lbViolationList.Size = new System.Drawing.Size(101, 19);
+            this.lbViolationList.Size = new System.Drawing.Size(149, 25);
             this.lbViolationList.TabIndex = 1;
             this.lbViolationList.Text = "Violation List :";
             this.lbViolationList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,6 +817,7 @@
             this.dgvDataItemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataItemList.Location = new System.Drawing.Point(3, 279);
             this.dgvDataItemList.Name = "dgvDataItemList";
+            this.dgvDataItemList.RowHeadersWidth = 62;
             this.dgvDataItemList.Size = new System.Drawing.Size(376, 292);
             this.dgvDataItemList.TabIndex = 10;
             // 
@@ -815,6 +825,7 @@
             // 
             this.colItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colItem.HeaderText = "Item";
+            this.colItem.MinimumWidth = 8;
             this.colItem.Name = "colItem";
             this.colItem.ReadOnly = true;
             this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -823,10 +834,11 @@
             // 
             this.colItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colItemQuantity.HeaderText = "Quantity";
+            this.colItemQuantity.MinimumWidth = 8;
             this.colItemQuantity.Name = "colItemQuantity";
             this.colItemQuantity.ReadOnly = true;
             this.colItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colItemQuantity.Width = 87;
+            this.colItemQuantity.Width = 121;
             // 
             // dgvDataViolationHandle
             // 
@@ -841,6 +853,7 @@
             this.dgvDataViolationHandle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataViolationHandle.Location = new System.Drawing.Point(385, 279);
             this.dgvDataViolationHandle.Name = "dgvDataViolationHandle";
+            this.dgvDataViolationHandle.RowHeadersWidth = 62;
             this.dgvDataViolationHandle.Size = new System.Drawing.Size(546, 292);
             this.dgvDataViolationHandle.TabIndex = 11;
             // 
@@ -848,6 +861,7 @@
             // 
             this.colRuleTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colRuleTitle.HeaderText = "Rule";
+            this.colRuleTitle.MinimumWidth = 8;
             this.colRuleTitle.Name = "colRuleTitle";
             this.colRuleTitle.ReadOnly = true;
             this.colRuleTitle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -855,32 +869,37 @@
             // colPenaty
             // 
             this.colPenaty.HeaderText = "Penaty";
+            this.colPenaty.MinimumWidth = 8;
             this.colPenaty.Name = "colPenaty";
             this.colPenaty.ReadOnly = true;
             this.colPenaty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colPenaty.Width = 150;
             // 
             // colViolationDate
             // 
             this.colViolationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colViolationDate.HeaderText = "Violation Date";
+            this.colViolationDate.MinimumWidth = 8;
             this.colViolationDate.Name = "colViolationDate";
             this.colViolationDate.ReadOnly = true;
             this.colViolationDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colViolationDate.Width = 118;
+            this.colViolationDate.Width = 169;
             // 
             // colPaidStatus
             // 
             this.colPaidStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colPaidStatus.HeaderText = "Paid Status";
+            this.colPaidStatus.MinimumWidth = 8;
             this.colPaidStatus.Name = "colPaidStatus";
             this.colPaidStatus.ReadOnly = true;
             this.colPaidStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colPaidStatus.Width = 101;
+            this.colPaidStatus.Width = 148;
             // 
             // colExcuseViolation
             // 
             this.colExcuseViolation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colExcuseViolation.HeaderText = "";
+            this.colExcuseViolation.MinimumWidth = 8;
             this.colExcuseViolation.Name = "colExcuseViolation";
             this.colExcuseViolation.ReadOnly = true;
             this.colExcuseViolation.Width = 20;
@@ -913,11 +932,11 @@
             // 
             this.lbTransInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTransInfo.AutoSize = true;
-            this.lbTransInfo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTransInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTransInfo.ForeColor = System.Drawing.Color.Aquamarine;
             this.lbTransInfo.Location = new System.Drawing.Point(382, 3);
             this.lbTransInfo.Name = "lbTransInfo";
-            this.lbTransInfo.Size = new System.Drawing.Size(208, 23);
+            this.lbTransInfo.Size = new System.Drawing.Size(287, 29);
             this.lbTransInfo.TabIndex = 0;
             this.lbTransInfo.Text = "Transaction Information";
             this.lbTransInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1043,9 +1062,9 @@
             this.lbGetBorrowMemberID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowMemberID.AutoSize = true;
             this.lbGetBorrowMemberID.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowMemberID.Location = new System.Drawing.Point(3, 29);
+            this.lbGetBorrowMemberID.Location = new System.Drawing.Point(3, 26);
             this.lbGetBorrowMemberID.Name = "lbGetBorrowMemberID";
-            this.lbGetBorrowMemberID.Size = new System.Drawing.Size(82, 19);
+            this.lbGetBorrowMemberID.Size = new System.Drawing.Size(119, 25);
             this.lbGetBorrowMemberID.TabIndex = 0;
             this.lbGetBorrowMemberID.Text = "Member ID :";
             this.lbGetBorrowMemberID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1055,9 +1074,9 @@
             this.lbGetBorrowTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowTransType.AutoSize = true;
             this.lbGetBorrowTransType.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowTransType.Location = new System.Drawing.Point(3, 106);
+            this.lbGetBorrowTransType.Location = new System.Drawing.Point(3, 90);
             this.lbGetBorrowTransType.Name = "lbGetBorrowTransType";
-            this.lbGetBorrowTransType.Size = new System.Drawing.Size(117, 19);
+            this.lbGetBorrowTransType.Size = new System.Drawing.Size(115, 50);
             this.lbGetBorrowTransType.TabIndex = 1;
             this.lbGetBorrowTransType.Text = "Transaction Type :";
             this.lbGetBorrowTransType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1067,9 +1086,9 @@
             this.lbGetBorrowTransDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowTransDate.AutoSize = true;
             this.lbGetBorrowTransDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowTransDate.Location = new System.Drawing.Point(3, 183);
+            this.lbGetBorrowTransDate.Location = new System.Drawing.Point(3, 167);
             this.lbGetBorrowTransDate.Name = "lbGetBorrowTransDate";
-            this.lbGetBorrowTransDate.Size = new System.Drawing.Size(116, 19);
+            this.lbGetBorrowTransDate.Size = new System.Drawing.Size(115, 50);
             this.lbGetBorrowTransDate.TabIndex = 2;
             this.lbGetBorrowTransDate.Text = "Transaction Date :";
             this.lbGetBorrowTransDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1079,9 +1098,9 @@
             this.lbGetBorrowDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowDueDate.AutoSize = true;
             this.lbGetBorrowDueDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowDueDate.Location = new System.Drawing.Point(3, 260);
+            this.lbGetBorrowDueDate.Location = new System.Drawing.Point(3, 257);
             this.lbGetBorrowDueDate.Name = "lbGetBorrowDueDate";
-            this.lbGetBorrowDueDate.Size = new System.Drawing.Size(70, 19);
+            this.lbGetBorrowDueDate.Size = new System.Drawing.Size(105, 25);
             this.lbGetBorrowDueDate.TabIndex = 3;
             this.lbGetBorrowDueDate.Text = "Due Date :";
             this.lbGetBorrowDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1089,9 +1108,9 @@
             // txtGetBorrowMemberID
             // 
             this.txtGetBorrowMemberID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetBorrowMemberID.Location = new System.Drawing.Point(128, 26);
+            this.txtGetBorrowMemberID.Location = new System.Drawing.Point(128, 23);
             this.txtGetBorrowMemberID.Name = "txtGetBorrowMemberID";
-            this.txtGetBorrowMemberID.Size = new System.Drawing.Size(201, 25);
+            this.txtGetBorrowMemberID.Size = new System.Drawing.Size(201, 30);
             this.txtGetBorrowMemberID.TabIndex = 6;
             this.txtGetBorrowMemberID.Text = "Member ID";
             this.txtGetBorrowMemberID.Click += new System.EventHandler(this.txtGetBorrowMemberID_Click);
@@ -1100,9 +1119,9 @@
             // 
             this.dtpGetBorrowDueDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpGetBorrowDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetBorrowDueDate.Location = new System.Drawing.Point(128, 257);
+            this.dtpGetBorrowDueDate.Location = new System.Drawing.Point(128, 254);
             this.dtpGetBorrowDueDate.Name = "dtpGetBorrowDueDate";
-            this.dtpGetBorrowDueDate.Size = new System.Drawing.Size(201, 25);
+            this.dtpGetBorrowDueDate.Size = new System.Drawing.Size(201, 30);
             this.dtpGetBorrowDueDate.TabIndex = 10;
             // 
             // dtpGetGBorrowTransDate
@@ -1110,9 +1129,9 @@
             this.dtpGetGBorrowTransDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpGetGBorrowTransDate.Enabled = false;
             this.dtpGetGBorrowTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpGetGBorrowTransDate.Location = new System.Drawing.Point(128, 180);
+            this.dtpGetGBorrowTransDate.Location = new System.Drawing.Point(128, 177);
             this.dtpGetGBorrowTransDate.Name = "dtpGetGBorrowTransDate";
-            this.dtpGetGBorrowTransDate.Size = new System.Drawing.Size(201, 25);
+            this.dtpGetGBorrowTransDate.Size = new System.Drawing.Size(201, 30);
             this.dtpGetGBorrowTransDate.TabIndex = 12;
             // 
             // lbGetBorrowItem
@@ -1120,9 +1139,9 @@
             this.lbGetBorrowItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetBorrowItem.AutoSize = true;
             this.lbGetBorrowItem.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetBorrowItem.Location = new System.Drawing.Point(3, 390);
+            this.lbGetBorrowItem.Location = new System.Drawing.Point(3, 387);
             this.lbGetBorrowItem.Name = "lbGetBorrowItem";
-            this.lbGetBorrowItem.Size = new System.Drawing.Size(67, 19);
+            this.lbGetBorrowItem.Size = new System.Drawing.Size(95, 25);
             this.lbGetBorrowItem.TabIndex = 5;
             this.lbGetBorrowItem.Text = "List Item :";
             this.lbGetBorrowItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1140,10 +1159,10 @@
             // 
             this.txtGetTransType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGetTransType.Enabled = false;
-            this.txtGetTransType.Location = new System.Drawing.Point(128, 103);
+            this.txtGetTransType.Location = new System.Drawing.Point(128, 100);
             this.txtGetTransType.Name = "txtGetTransType";
             this.txtGetTransType.ReadOnly = true;
-            this.txtGetTransType.Size = new System.Drawing.Size(201, 25);
+            this.txtGetTransType.Size = new System.Drawing.Size(201, 30);
             this.txtGetTransType.TabIndex = 13;
             // 
             // pnlHeaderGetBorrowInfo
@@ -1172,11 +1191,11 @@
             // 
             this.lbBookBorrow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbBookBorrow.AutoSize = true;
-            this.lbBookBorrow.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBookBorrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBookBorrow.ForeColor = System.Drawing.Color.Aquamarine;
             this.lbBookBorrow.Location = new System.Drawing.Point(117, 29);
             this.lbBookBorrow.Name = "lbBookBorrow";
-            this.lbBookBorrow.Size = new System.Drawing.Size(114, 23);
+            this.lbBookBorrow.Size = new System.Drawing.Size(164, 29);
             this.lbBookBorrow.TabIndex = 0;
             this.lbBookBorrow.Text = "Book Borrow";
             this.lbBookBorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1249,9 +1268,9 @@
             this.lbGetReturnMemberID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnMemberID.AutoSize = true;
             this.lbGetReturnMemberID.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetReturnMemberID.Location = new System.Drawing.Point(3, 32);
+            this.lbGetReturnMemberID.Location = new System.Drawing.Point(3, 29);
             this.lbGetReturnMemberID.Name = "lbGetReturnMemberID";
-            this.lbGetReturnMemberID.Size = new System.Drawing.Size(82, 19);
+            this.lbGetReturnMemberID.Size = new System.Drawing.Size(119, 25);
             this.lbGetReturnMemberID.TabIndex = 0;
             this.lbGetReturnMemberID.Text = "Member ID :";
             this.lbGetReturnMemberID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1261,9 +1280,9 @@
             this.lbReturnTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbReturnTransType.AutoSize = true;
             this.lbReturnTransType.ForeColor = System.Drawing.Color.Lime;
-            this.lbReturnTransType.Location = new System.Drawing.Point(3, 116);
+            this.lbReturnTransType.Location = new System.Drawing.Point(3, 101);
             this.lbReturnTransType.Name = "lbReturnTransType";
-            this.lbReturnTransType.Size = new System.Drawing.Size(117, 19);
+            this.lbReturnTransType.Size = new System.Drawing.Size(115, 50);
             this.lbReturnTransType.TabIndex = 1;
             this.lbReturnTransType.Text = "Transaction Type :";
             this.lbReturnTransType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1273,9 +1292,9 @@
             this.lbGetRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetRealReturnDate.AutoSize = true;
             this.lbGetRealReturnDate.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetRealReturnDate.Location = new System.Drawing.Point(3, 200);
+            this.lbGetRealReturnDate.Location = new System.Drawing.Point(3, 185);
             this.lbGetRealReturnDate.Name = "lbGetRealReturnDate";
-            this.lbGetRealReturnDate.Size = new System.Drawing.Size(115, 19);
+            this.lbGetRealReturnDate.Size = new System.Drawing.Size(113, 50);
             this.lbGetRealReturnDate.TabIndex = 2;
             this.lbGetRealReturnDate.Text = "Real Return Date :";
             this.lbGetRealReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1285,9 +1304,9 @@
             this.lbGetReturnPenaty.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnPenaty.AutoSize = true;
             this.lbGetReturnPenaty.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetReturnPenaty.Location = new System.Drawing.Point(3, 303);
+            this.lbGetReturnPenaty.Location = new System.Drawing.Point(3, 300);
             this.lbGetReturnPenaty.Name = "lbGetReturnPenaty";
-            this.lbGetReturnPenaty.Size = new System.Drawing.Size(60, 19);
+            this.lbGetReturnPenaty.Size = new System.Drawing.Size(88, 25);
             this.lbGetReturnPenaty.TabIndex = 3;
             this.lbGetReturnPenaty.Text = "Penalty :";
             this.lbGetReturnPenaty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1297,12 +1316,60 @@
             this.lbGetReturnItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbGetReturnItem.AutoSize = true;
             this.lbGetReturnItem.ForeColor = System.Drawing.Color.Lime;
-            this.lbGetReturnItem.Location = new System.Drawing.Point(3, 425);
+            this.lbGetReturnItem.Location = new System.Drawing.Point(3, 422);
             this.lbGetReturnItem.Name = "lbGetReturnItem";
-            this.lbGetReturnItem.Size = new System.Drawing.Size(67, 19);
+            this.lbGetReturnItem.Size = new System.Drawing.Size(95, 25);
             this.lbGetReturnItem.TabIndex = 4;
             this.lbGetReturnItem.Text = "List Item :";
             this.lbGetReturnItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtGetMemberIDReturn
+            // 
+            this.txtGetMemberIDReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetMemberIDReturn.Location = new System.Drawing.Point(128, 27);
+            this.txtGetMemberIDReturn.Name = "txtGetMemberIDReturn";
+            this.txtGetMemberIDReturn.Size = new System.Drawing.Size(201, 30);
+            this.txtGetMemberIDReturn.TabIndex = 5;
+            this.txtGetMemberIDReturn.Text = "Member ID";
+            this.txtGetMemberIDReturn.Click += new System.EventHandler(this.txtGetMemberIDReturn_Click);
+            // 
+            // txtGetTransTypeReturn
+            // 
+            this.txtGetTransTypeReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGetTransTypeReturn.Enabled = false;
+            this.txtGetTransTypeReturn.Location = new System.Drawing.Point(128, 111);
+            this.txtGetTransTypeReturn.Name = "txtGetTransTypeReturn";
+            this.txtGetTransTypeReturn.ReadOnly = true;
+            this.txtGetTransTypeReturn.Size = new System.Drawing.Size(201, 30);
+            this.txtGetTransTypeReturn.TabIndex = 6;
+            // 
+            // rtxtReturnPenalty
+            // 
+            this.rtxtReturnPenalty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnPenalty.Location = new System.Drawing.Point(128, 255);
+            this.rtxtReturnPenalty.Name = "rtxtReturnPenalty";
+            this.rtxtReturnPenalty.ReadOnly = true;
+            this.rtxtReturnPenalty.Size = new System.Drawing.Size(202, 115);
+            this.rtxtReturnPenalty.TabIndex = 7;
+            this.rtxtReturnPenalty.Text = "";
+            // 
+            // rtxtReturnListItem
+            // 
+            this.rtxtReturnListItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtReturnListItem.Location = new System.Drawing.Point(128, 376);
+            this.rtxtReturnListItem.Name = "rtxtReturnListItem";
+            this.rtxtReturnListItem.Size = new System.Drawing.Size(202, 118);
+            this.rtxtReturnListItem.TabIndex = 8;
+            this.rtxtReturnListItem.Text = "";
+            // 
+            // dtpRealReturnDate
+            // 
+            this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpRealReturnDate.Enabled = false;
+            this.dtpRealReturnDate.Location = new System.Drawing.Point(128, 195);
+            this.dtpRealReturnDate.Name = "dtpRealReturnDate";
+            this.dtpRealReturnDate.Size = new System.Drawing.Size(201, 30);
+            this.dtpRealReturnDate.TabIndex = 9;
             // 
             // pnlReturnBookFooter
             // 
@@ -1393,79 +1460,30 @@
             // 
             this.lbFormReturnBook.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbFormReturnBook.AutoSize = true;
-            this.lbFormReturnBook.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFormReturnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFormReturnBook.ForeColor = System.Drawing.Color.Aquamarine;
             this.lbFormReturnBook.Location = new System.Drawing.Point(117, 22);
             this.lbFormReturnBook.Name = "lbFormReturnBook";
-            this.lbFormReturnBook.Size = new System.Drawing.Size(111, 23);
+            this.lbFormReturnBook.Size = new System.Drawing.Size(157, 29);
             this.lbFormReturnBook.TabIndex = 3;
             this.lbFormReturnBook.Text = "Return Book";
             this.lbFormReturnBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtGetMemberIDReturn
-            // 
-            this.txtGetMemberIDReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetMemberIDReturn.Location = new System.Drawing.Point(128, 29);
-            this.txtGetMemberIDReturn.Name = "txtGetMemberIDReturn";
-            this.txtGetMemberIDReturn.Size = new System.Drawing.Size(201, 25);
-            this.txtGetMemberIDReturn.TabIndex = 5;
-            this.txtGetMemberIDReturn.Text = "Member ID";
-            this.txtGetMemberIDReturn.Click += new System.EventHandler(this.txtGetMemberIDReturn_Click);
-            // 
-            // txtGetTransTypeReturn
-            // 
-            this.txtGetTransTypeReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGetTransTypeReturn.Enabled = false;
-            this.txtGetTransTypeReturn.Location = new System.Drawing.Point(128, 113);
-            this.txtGetTransTypeReturn.Name = "txtGetTransTypeReturn";
-            this.txtGetTransTypeReturn.ReadOnly = true;
-            this.txtGetTransTypeReturn.Size = new System.Drawing.Size(201, 25);
-            this.txtGetTransTypeReturn.TabIndex = 6;
-            // 
-            // rtxtReturnPenalty
-            // 
-            this.rtxtReturnPenalty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtReturnPenalty.Location = new System.Drawing.Point(128, 255);
-            this.rtxtReturnPenalty.Name = "rtxtReturnPenalty";
-            this.rtxtReturnPenalty.ReadOnly = true;
-            this.rtxtReturnPenalty.Size = new System.Drawing.Size(202, 115);
-            this.rtxtReturnPenalty.TabIndex = 7;
-            this.rtxtReturnPenalty.Text = "";
-            // 
-            // rtxtReturnListItem
-            // 
-            this.rtxtReturnListItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtReturnListItem.Location = new System.Drawing.Point(128, 376);
-            this.rtxtReturnListItem.Name = "rtxtReturnListItem";
-            this.rtxtReturnListItem.Size = new System.Drawing.Size(202, 118);
-            this.rtxtReturnListItem.TabIndex = 8;
-            this.rtxtReturnListItem.Text = "";
-            // 
-            // dtpRealReturnDate
-            // 
-            this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpRealReturnDate.Enabled = false;
-            this.dtpRealReturnDate.Location = new System.Drawing.Point(128, 197);
-            this.dtpRealReturnDate.Name = "dtpRealReturnDate";
-            this.dtpRealReturnDate.Size = new System.Drawing.Size(201, 25);
-            this.dtpRealReturnDate.TabIndex = 9;
-            // 
             // FormTransaction
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.tbBody);
             this.Controls.Add(this.tbHeaderButtons);
-            this.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormTransaction";
             this.Text = "cccccffffddeeeeewwwwwhhhhhhhhbbbnnmmmmmmvbvvvvvvv                   ";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransaction_FormClosing);
             this.Load += new System.EventHandler(this.FormTransaction_Load);
             this.tbHeaderButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).EndInit();

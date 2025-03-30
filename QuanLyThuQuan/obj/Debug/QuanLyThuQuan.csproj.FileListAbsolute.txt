@@ -28,18 +28,10 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.re
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -59,14 +51,7 @@ C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.c
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 C:\Users\ASUS\source\repos\quanlythuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
-<<<<<<< HEAD
->>>>>>> a5c17d971dadb76e8327860d14af90f22049f775
-=======
->>>>>>> 07007e4157c9d4bf9e63d9533664eb5db581f25d
-=======
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.ProductItem.frmControlBook.resources
->>>>>>> product
-=======
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -86,8 +71,6 @@ D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.G
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
->>>>>>> 80d07a07e987b6edf8e8bdcb9413a8344867b74a
-=======
 D:\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -108,4 +91,3 @@ D:\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.c
 D:\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
 D:\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 D:\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
->>>>>>> origin/review

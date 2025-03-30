@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using System.Data;
 namespace QuanLyThuQuan.GUI
 {
     public partial class FormReview : Form

@@ -12,7 +12,7 @@ namespace QuanLyThuQuan.GUI
 
         private void FormRule_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            //this.ControlBox = false;
         }
     }
 }
