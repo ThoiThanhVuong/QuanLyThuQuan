@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MySQL Connector NET 9.1\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -49,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConfig\ConnectDB.cs" />
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
@@ -224,7 +229,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppConfig\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,6 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormTransaction.re
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormViolation.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDevice.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormStatistic.resources
-
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -48,4 +47,15 @@ D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.Genera
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
-
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\MySql.Data.dll
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Memory.dll
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Numerics.Vectors.dll
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Buffers.dll
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\MySql.Data.xml
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.ProductItem.frmControlBook.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLySach.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyTh.BD2212A7.Up2Date
