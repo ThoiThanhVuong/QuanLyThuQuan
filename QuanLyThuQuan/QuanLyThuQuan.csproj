@@ -98,8 +98,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BaseBUS.cs" />
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="BUS\TransactionBUS.cs" />
+    <Compile Include="BUS\TransactionItemBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\TransactionDAO.cs" />
     <Compile Include="DAO\TransactionItemDAO.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBUS.cs" />
     <Compile Include="Interfaces\IDBConnection.cs" />
     <Compile Include="Model\AuthorModel.cs" />
     <Compile Include="Model\BookModel.cs" />
