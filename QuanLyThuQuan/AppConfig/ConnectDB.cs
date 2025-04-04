@@ -16,7 +16,10 @@ namespace QuanLyThuQuan.AppConfig
         {
             connection = new MySqlConnection(connectionString);
         }
-
+        public MySqlConnection Connection
+        {
+            get { return connection; }
+        }
         // Mở kết nối MySQL
         public void OpenConnection()
         {

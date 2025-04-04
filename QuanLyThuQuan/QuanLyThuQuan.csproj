@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="AppConfig\ConnectDB.cs" />
     <Compile Include="BUS\BookBUS.cs" />
+    <Compile Include="BUS\DeviceBUS.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="DAO\DeviceDAO.cs" />
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
