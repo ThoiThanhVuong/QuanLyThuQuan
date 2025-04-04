@@ -153,19 +153,19 @@ namespace QuanLyThuQuan.DAO
             {
                 try
                 {
-                    using(MySqlCommand myCmd = new MySqlCommand(query, connection))
+                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
                     {
                         myCmd.Parameters.AddWithValue("@TransactionID", transactionID);
                         return myCmd.ExecuteNonQuery() > 0;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
                     return false;
                 }
-            } 
-                
+            }
+
         }
     }
 }

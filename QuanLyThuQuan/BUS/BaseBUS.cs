@@ -1,4 +1,5 @@
 ﻿using QuanLyThuQuan.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,8 +23,15 @@ namespace QuanLyThuQuan.BUS
 
         public void LoadLocal()
         {
-            listLocal.Clear();
-            listLocal.AddRange(GetAll());
+            try
+            {
+                listLocal.Clear();
+                listLocal.AddRange(GetAll());
+            }
+            catch (ArgumentNullException ex)
+            {
+                System.Console.WriteLine(ex.StackTrace);
+            }
         }
     }
 }

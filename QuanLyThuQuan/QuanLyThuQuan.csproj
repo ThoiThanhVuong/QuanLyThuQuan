@@ -238,9 +238,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppConfig\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Public\icons\login_4661334.png" />
   </ItemGroup>
