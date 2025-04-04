@@ -34,10 +34,10 @@ namespace QuanLyThuQuan.Service
             {
                 try
                 {
-                connection = new MySqlConnection(connectionString);
+                    connection = new MySqlConnection(connectionString);
                     connection.Open();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     System.Console.WriteLine("Error when connect to database!");
                     System.Console.WriteLine(ex.StackTrace);

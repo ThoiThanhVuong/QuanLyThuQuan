@@ -1,4 +1,5 @@
-﻿using QuanLyThuQuan.DAO;
+﻿using QuanLyThuQuan.Config;
+using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
 using QuanLyThuQuan.Service;
@@ -21,7 +22,8 @@ namespace QuanLyThuQuan.BUS
 
         public override List<TransactionModel> GetAll()
         {
-            IDBConnection dbConnection = new DBConnection("localhost", "quanlythuquan", "root", "");
+            DatabaseConfig config = new DatabaseConfig();
+            IDBConnection dbConnection = new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
             return new TransactionDAO(dbConnection).GetAll();
         }
     }

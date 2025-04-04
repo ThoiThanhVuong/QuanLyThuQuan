@@ -102,6 +102,8 @@
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="BUS\TransactionBUS.cs" />
     <Compile Include="BUS\TransactionItemBUS.cs" />
+    <Compile Include="Config\DatabaseConfig.cs" />
+    <Compile Include="Config\FakeDatabaseConfig.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\TransactionDAO.cs" />
     <Compile Include="DAO\TransactionItemDAO.cs" />
@@ -286,6 +288,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Public\icons\rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
