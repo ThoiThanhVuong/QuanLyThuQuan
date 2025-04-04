@@ -1,7 +1,5 @@
-﻿using QuanLyThuQuan.DAO;
-using QuanLyThuQuan.Interfaces;
+﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Service;
 using System;
 using System.Collections.Generic;
 namespace QuanLyThuQuan
@@ -17,12 +15,12 @@ namespace QuanLyThuQuan
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormMain());
-            IDBConnection connection = new DBConnection("localhost", "quanlythuquan", "root", "");
-            TransactionDAO transaction = new TransactionDAO(connection);
-            List<TransactionModel> list = transaction.GetAll();
-            foreach (TransactionModel trans in list)
-                Console.WriteLine(trans.TransactionID);
-            Console.WriteLine(transaction.GetByID("1"));
+
+            TransactionBUS.GetInstance().LoadLocal();
+            List<TransactionModel> list = TransactionBUS.GetInstance().GetAllLocal();
+            System.Console.WriteLine(list.Count);
+            foreach (TransactionModel item in list)
+                System.Console.WriteLine(item.ReturnDate);
         }
     }
 }
