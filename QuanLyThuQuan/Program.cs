@@ -1,6 +1,9 @@
-﻿using QuanLyThuQuan.GUI;
+﻿using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.Interfaces;
+using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Service;
 using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
 namespace QuanLyThuQuan
 {
     static class Program
@@ -11,9 +14,15 @@ namespace QuanLyThuQuan
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new FormMain());
+            IDBConnection connection = new DBConnection("localhost", "quanlythuquan", "root", "");
+            TransactionDAO transaction = new TransactionDAO(connection);
+            List<TransactionModel> list = transaction.GetAll();
+            foreach (TransactionModel trans in list)
+                Console.WriteLine(trans.TransactionID);
+            Console.WriteLine(transaction.GetByID("1"));
         }
     }
 }
