@@ -24,11 +24,11 @@ namespace QuanLyThuQuan.BUS
             return Instance;
         }
 
-        public override List<TransactionItemModel> GetAll()
-        {
-            DatabaseConfig config = new DatabaseConfig();
-            IDBConnection dbConnection = new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
-            return new TransactionItemDAO(dbConnection).GetAll();
-        }
+        //public override List<TransactionItemModel> GetAll()
+        //{
+        //    DatabaseConfig config = new DatabaseConfig();
+        //    IDBConnection dbConnection = new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
+        //    return new TransactionItemDAO(dbConnection).GetAll();
+        //}
     }
 }

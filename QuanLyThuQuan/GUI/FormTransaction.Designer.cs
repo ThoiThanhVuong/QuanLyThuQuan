@@ -1486,7 +1486,7 @@
             this.pnlFormReturnBook.TabIndex = 15;
             this.pnlFormReturnBook.Visible = false;
             // 
-<<<<<<< HEAD
+
             // pnlHeaderTransInfoDetail
             // 
             this.pnlHeaderTransInfoDetail.BackColor = System.Drawing.Color.Snow;
@@ -2016,8 +2016,7 @@
             this.pnlChildDetailInfo.Visible = false;
 
             // 
-=======
->>>>>>> e7676d2ff98b5e249d657b4bb08a23f8aa0f1491
+
             // FormTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
