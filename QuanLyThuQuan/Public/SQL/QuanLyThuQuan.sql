@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `QuanLyThuQuan` 
+devicesCREATE DATABASE IF NOT EXISTS `QuanLyThuQuan` 
   /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `QuanLyThuQuan`;
 
@@ -298,5 +298,10 @@ DROP COLUMN Author;
 ALTER TABLE Books
 ADD FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
 ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
+
+ALTER TABLE Books ADD COLUMN fee_per_day INT DEFAULT 10000;
+ALTER TABLE Devices ADD COLUMN fee_per_hour INT DEFAULT 5000;
+
+
 
 

@@ -1,7 +1,7 @@
 ﻿namespace QuanLyThuQuan.Model
 {
 
-    class BookModel
+    public class BookModel
     {
         public int BookID { get; set; }
         public string BookTitle { get; set; }
@@ -11,7 +11,7 @@
         public int PublisYear { get; set; }
         public int BookQuantity { get; set; }
         public ProductStatus BookStatus { get; set; }
-
+        public int FeePerDay { get; set; }
         public CategoriesModel Category { get; set; }
         public AuthorModel Author { get; set; }
         public BookModel()
@@ -19,7 +19,7 @@
 
         }
 
-        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus)
+        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, int feePerDay)
         {
             BookID = bookID;
             BookTitle = bookTitle;
@@ -29,12 +29,18 @@
             PublisYear = publisYear;
             BookQuantity = bookQuantity;
             BookStatus = bookStatus;
+            FeePerDay = feePerDay;
         }
 
-        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, CategoriesModel category, AuthorModel author) : this(bookID, bookTitle, authorID, bookImage, categoryID, publisYear, bookQuantity, bookStatus)
+        public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, int feePerDay, CategoriesModel category, AuthorModel author) : this(bookID, bookTitle, authorID, bookImage, categoryID, publisYear, bookQuantity, bookStatus, feePerDay)
         {
             Category = category;
             Author = author;
         }
+        public override string ToString()
+        {
+            return $"BookID: {BookID}, Title: {BookTitle}, AuthorID: {AuthorID}, CategoryID: {CategoryID}, Year: {PublisYear}, Quantity: {BookQuantity}, Status: {BookStatus}, Fee: {FeePerDay}đ/ngày ,{Category},{Author}";
+        }
+
     }
 }

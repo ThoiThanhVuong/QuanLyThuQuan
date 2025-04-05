@@ -143,37 +143,7 @@ namespace QuanLyThuQuan.GUI
 
         }
 
-        private void FormTransaction_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Block Cancel button when child parent is visible
-            if (pnlChildDetailInfo.Visible)
-            {
-                e.Cancel = true;
-                return;
-            }
-            else
-                e.Cancel = false;
-
-            DialogResult alert = MessageBox.Show(
-                "Do you wanna exit ?",
-                "Exit Program Alert",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-                );
-            // MessageBox for exit
-            if (alert.Equals(DialogResult.Yes))
-            {
-                DialogResult result = MessageBox.Show(
-                    "Have a good day friend =_=!",
-                    "See ya",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                    );
-                e.Cancel = false;
-            }
-            else
-                e.Cancel = true;
-        }
+      
         private void tbBody_Paint(object sender, PaintEventArgs e)
         {
 

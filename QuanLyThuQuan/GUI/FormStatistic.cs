@@ -8,5 +8,6 @@ namespace QuanLyThuQuan.GUI
         {
             InitializeComponent();
         }
+
     }
 }

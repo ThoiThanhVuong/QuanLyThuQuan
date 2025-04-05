@@ -65,10 +65,10 @@ namespace QuanLyThuQuan.GUI
             this.btnViolation = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
             this.btnStatistic = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.SideBar = new System.Windows.Forms.TableLayoutPanel();
             this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnMain = new System.Windows.Forms.Panel();
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -253,7 +253,6 @@ namespace QuanLyThuQuan.GUI
             this.TopMenu.Controls.Add(this.btnViolation);
             this.TopMenu.Controls.Add(this.btnReview);
             this.TopMenu.Controls.Add(this.btnStatistic);
-            this.TopMenu.Controls.Add(this.btnSetting);
             this.TopMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.TopMenu.Location = new System.Drawing.Point(0, 0);
@@ -397,27 +396,6 @@ namespace QuanLyThuQuan.GUI
             this.btnStatistic.UseVisualStyleBackColor = false;
             this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
-            // btnSetting
-            // 
-            this.btnSetting.BackColor = System.Drawing.Color.Transparent;
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(0, 350);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSetting.Size = new System.Drawing.Size(240, 50);
-            this.btnSetting.TabIndex = 11;
-            this.btnSetting.Text = "     Settings";
-            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSetting.UseVisualStyleBackColor = false;
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
@@ -472,15 +450,24 @@ namespace QuanLyThuQuan.GUI
             this.BottomMenu.Size = new System.Drawing.Size(240, 60);
             this.BottomMenu.TabIndex = 12;
             // 
+            // pnMain
+            // 
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(240, 50);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(960, 600);
+            this.pnMain.TabIndex = 11;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1200, 650);
+            this.Controls.Add(this.pnMain);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.TitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IsMdiContainer = true;
             this.MaximumSize = new System.Drawing.Size(1200, 650);
             this.MinimumSize = new System.Drawing.Size(1200, 650);
             this.Name = "FormMain";
@@ -520,10 +507,12 @@ namespace QuanLyThuQuan.GUI
         private System.Windows.Forms.PictureBox btnMaximize;
         private System.Windows.Forms.PictureBox btnCloseProgram;
         private System.Windows.Forms.Button btnStatistic;
-        private Button btnSetting;
         private Button btnLogout;
         private TableLayoutPanel SideBar;
         private FlowLayoutPanel BottomMenu;
+
+        private Panel pnMain;
+
     }
 }
 
