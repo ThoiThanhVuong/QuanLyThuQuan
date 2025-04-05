@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuQuan.Model
 {
-    class CategoriesModel
+   public class CategoriesModel
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
@@ -13,6 +13,10 @@
         {
             CategoryID = categoryID;
             CategoryName = categoryName;
+        }
+        public override string ToString()
+        {
+            return $"CategoryID:{CategoryID} , CategoryName: {CategoryName}";
         }
     }
 }

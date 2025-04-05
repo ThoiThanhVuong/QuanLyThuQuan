@@ -30,26 +30,26 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnView = new System.Windows.Forms.Panel();
+            this.btnViewDetail = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvDevices = new System.Windows.Forms.DataGridView();
-            this.MaThietBi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenThietBi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiThietBi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeePerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.btnView.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevices)).BeginInit();
@@ -77,41 +77,47 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ THIẾT BỊ";
             // 
-            // panel2
+            // btnView
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(821, 50);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(139, 550);
-            this.panel2.TabIndex = 2;
+            this.btnView.Controls.Add(this.btnViewDetail);
+            this.btnView.Controls.Add(this.btnRemove);
+            this.btnView.Controls.Add(this.btnEdit);
+            this.btnView.Controls.Add(this.panel3);
+            this.btnView.Controls.Add(this.btnAdd);
+            this.btnView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnView.Location = new System.Drawing.Point(821, 50);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(139, 550);
+            this.btnView.TabIndex = 2;
             // 
-            // button1
+            // btnViewDetail
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button1.Location = new System.Drawing.Point(11, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 46);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnViewDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnViewDetail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnViewDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnViewDetail.Location = new System.Drawing.Point(11, 233);
+            this.btnViewDetail.Name = "btnViewDetail";
+            this.btnViewDetail.Size = new System.Drawing.Size(118, 46);
+            this.btnViewDetail.TabIndex = 4;
+            this.btnViewDetail.Text = "Xem";
+            this.btnViewDetail.UseVisualStyleBackColor = false;
+            this.btnViewDetail.Click += new System.EventHandler(this.btnViewDetail_Click);
             // 
-            // panel3
+            // btnRemove
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(3, 550);
-            this.panel3.TabIndex = 1;
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemove.Location = new System.Drawing.Point(11, 164);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(118, 46);
+            this.btnRemove.TabIndex = 3;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
@@ -127,19 +133,28 @@
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // panel3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button3.Location = new System.Drawing.Point(11, 164);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 46);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(3, 550);
+            this.panel3.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnAdd.Location = new System.Drawing.Point(11, 20);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(118, 46);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -153,14 +168,13 @@
             this.panel4.Size = new System.Drawing.Size(821, 52);
             this.panel4.TabIndex = 3;
             // 
-            // panel5
+            // comboBox1
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 50);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(821, 2);
-            this.panel5.TabIndex = 0;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(611, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(138, 28);
+            this.comboBox1.TabIndex = 2;
             // 
             // txtSearch
             // 
@@ -169,13 +183,14 @@
             this.txtSearch.Size = new System.Drawing.Size(237, 26);
             this.txtSearch.TabIndex = 1;
             // 
-            // comboBox1
+            // panel5
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(611, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(138, 28);
-            this.comboBox1.TabIndex = 2;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 50);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(821, 2);
+            this.panel5.TabIndex = 0;
             // 
             // panel6
             // 
@@ -188,15 +203,16 @@
             // 
             // dgvDevices
             // 
+            this.dgvDevices.AllowUserToAddRows = false;
             this.dgvDevices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaThietBi,
-            this.TrangThai,
-            this.TenThietBi,
-            this.LoaiThietBi,
-            this.GiaThue,
-            this.SoLuong});
+            this.DeviceID,
+            this.DeviceName,
+            this.DeviceType,
+            this.FeePerHour,
+            this.DeviceQuantity,
+            this.Status});
             this.dgvDevices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDevices.Location = new System.Drawing.Point(0, 0);
             this.dgvDevices.Name = "dgvDevices";
@@ -204,56 +220,43 @@
             this.dgvDevices.RowTemplate.Height = 28;
             this.dgvDevices.Size = new System.Drawing.Size(821, 498);
             this.dgvDevices.TabIndex = 0;
+            this.dgvDevices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevices_CellClick);
             // 
-            // MaThietBi
+            // DeviceID
             // 
-            this.MaThietBi.HeaderText = "Mã Thiết bị";
-            this.MaThietBi.MinimumWidth = 8;
-            this.MaThietBi.Name = "MaThietBi";
+            this.DeviceID.HeaderText = "Mã Thiết bị";
+            this.DeviceID.MinimumWidth = 8;
+            this.DeviceID.Name = "DeviceID";
             // 
-            // TrangThai
+            // DeviceName
             // 
-            this.TrangThai.HeaderText = "Trạng Thái";
-            this.TrangThai.MinimumWidth = 8;
-            this.TrangThai.Name = "TrangThai";
+            this.DeviceName.HeaderText = "Tên Thiết Bị";
+            this.DeviceName.MinimumWidth = 8;
+            this.DeviceName.Name = "DeviceName";
             // 
-            // TenThietBi
+            // DeviceType
             // 
-            this.TenThietBi.HeaderText = "Tên Thiết Bị";
-            this.TenThietBi.MinimumWidth = 8;
-            this.TenThietBi.Name = "TenThietBi";
+            this.DeviceType.HeaderText = "Loại Thiết Bị";
+            this.DeviceType.MinimumWidth = 8;
+            this.DeviceType.Name = "DeviceType";
             // 
-            // LoaiThietBi
+            // FeePerHour
             // 
-            this.LoaiThietBi.HeaderText = "Loại Thiết Bị";
-            this.LoaiThietBi.MinimumWidth = 8;
-            this.LoaiThietBi.Name = "LoaiThietBi";
+            this.FeePerHour.HeaderText = "Giá Thuê";
+            this.FeePerHour.MinimumWidth = 8;
+            this.FeePerHour.Name = "FeePerHour";
             // 
-            // GiaThue
+            // DeviceQuantity
             // 
-            this.GiaThue.HeaderText = "Giá Thuê";
-            this.GiaThue.MinimumWidth = 8;
-            this.GiaThue.Name = "GiaThue";
+            this.DeviceQuantity.HeaderText = "Số Lượng";
+            this.DeviceQuantity.MinimumWidth = 8;
+            this.DeviceQuantity.Name = "DeviceQuantity";
             // 
-            // SoLuong
+            // Status
             // 
-            this.SoLuong.HeaderText = "Số Lượng";
-            this.SoLuong.MinimumWidth = 8;
-            this.SoLuong.Name = "SoLuong";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button2.Location = new System.Drawing.Point(11, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 46);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Xem";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Status.HeaderText = "Trạng Thái";
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
             // 
             // FormDevice
             // 
@@ -262,7 +265,7 @@
             this.ClientSize = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDevice";
@@ -270,7 +273,7 @@
             this.Load += new System.EventHandler(this.FormDevice_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.btnView.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -283,9 +286,9 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel btnView;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -293,13 +296,13 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btnViewDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeePerHour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridView dgvDevices;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaThietBi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenThietBi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiThietBi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaThue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.Button button2;
     }
 }

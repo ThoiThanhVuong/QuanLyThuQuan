@@ -1,5 +1,7 @@
 
-﻿
+
+using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +17,10 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormBook : Form
     {
+        private BookBUS bookBUS = new BookBUS();
         private FormMain mainForm;
-       
+        private List<BookModel> books;
+
         //UC_TacGia ucTacGia = new UC_TacGia();
         //UC_TheLoai ucTheLoai = new UC_TheLoai();
 
@@ -30,17 +34,23 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             listSach();
+            LoadData();
+           
+        }
+        private void LoadData()
+        {
+            List<BookModel> books = bookBUS.GetAllBooks();
            
         }
         private void listSach()
         {
-            List<string> danhSachSach = new List<string>() { "Sách 1", "Sách 2", "Sách 3", "Sách 4", "Sách 5" };
+            List<BookModel> books = bookBUS.GetAllBooks();
 
-            foreach (var tenSach in danhSachSach)
+            foreach (var book in books)
             {
 
                 BookItemControl bookItem = new BookItemControl();
-
+                bookItem.SetData(book);
 
                 ListBook.Controls.Add(bookItem);
             }
@@ -72,6 +82,7 @@ namespace QuanLyThuQuan.GUI
 
         private void pnTheLoai_Click(object sender, EventArgs e)
         {
-            mainForm.ShowFormInPanel(new frmTheLoaiSach(mainForm));        }
+            mainForm.ShowFormInPanel(new frmTheLoaiSach(mainForm));        
+        }
     }
 }

@@ -12,7 +12,14 @@ namespace QuanLyThuQuan.BUS
         {
             return bookDAO.GetAllBooks();
         }
-
+        public BookModel GetBookByID(int Id)
+        {
+            return bookDAO.GetBookByID(Id);
+        }
+        public BookModel GetBookByName(string name)
+        {
+            return bookDAO.GetBookByName(name);
+        }
         public bool AddBook(BookModel book)
         {
             return bookDAO.AddBook(book);

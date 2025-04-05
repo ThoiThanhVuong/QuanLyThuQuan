@@ -40,7 +40,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpLoadImg = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtTenSach = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -50,7 +50,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTheLoai = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -58,11 +58,11 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPublishYear = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtGiaThue = new System.Windows.Forms.TextBox();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
@@ -85,10 +85,10 @@
             // 
             this.txtMaSach.BackColor = System.Drawing.SystemColors.Window;
             this.txtMaSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaSach.Location = new System.Drawing.Point(60, 9);
+            this.txtMaSach.Location = new System.Drawing.Point(60, 10);
             this.txtMaSach.Margin = new System.Windows.Forms.Padding(0);
             this.txtMaSach.Name = "txtMaSach";
-            this.txtMaSach.Size = new System.Drawing.Size(200, 21);
+            this.txtMaSach.Size = new System.Drawing.Size(244, 21);
             this.txtMaSach.TabIndex = 1;
             // 
             // panel1
@@ -102,7 +102,7 @@
             this.panel1.Location = new System.Drawing.Point(265, 71);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 37);
+            this.panel1.Size = new System.Drawing.Size(307, 37);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -111,7 +111,7 @@
             this.panel2.Location = new System.Drawing.Point(6, 29);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 1);
+            this.panel2.Size = new System.Drawing.Size(295, 1);
             this.panel2.TabIndex = 5;
             // 
             // label1
@@ -199,19 +199,19 @@
             this.panel6.Size = new System.Drawing.Size(1, 265);
             this.panel6.TabIndex = 2;
             // 
-            // button1
+            // btnUpLoadImg
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button1.Location = new System.Drawing.Point(41, 342);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 45);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "UpLoad Image";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnUpLoadImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnUpLoadImg.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnUpLoadImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpLoadImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpLoadImg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnUpLoadImg.Location = new System.Drawing.Point(41, 342);
+            this.btnUpLoadImg.Name = "btnUpLoadImg";
+            this.btnUpLoadImg.Size = new System.Drawing.Size(203, 45);
+            this.btnUpLoadImg.TabIndex = 6;
+            this.btnUpLoadImg.Text = "UpLoad Image";
+            this.btnUpLoadImg.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
@@ -224,17 +224,18 @@
             this.panel8.Location = new System.Drawing.Point(265, 123);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(260, 37);
+            this.panel8.Size = new System.Drawing.Size(307, 37);
             this.panel8.TabIndex = 6;
             // 
             // txtTenSach
             // 
             this.txtTenSach.BackColor = System.Drawing.SystemColors.Window;
             this.txtTenSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenSach.Location = new System.Drawing.Point(63, 9);
+            this.txtTenSach.Location = new System.Drawing.Point(63, 8);
             this.txtTenSach.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenSach.Multiline = true;
             this.txtTenSach.Name = "txtTenSach";
-            this.txtTenSach.Size = new System.Drawing.Size(197, 21);
+            this.txtTenSach.Size = new System.Drawing.Size(244, 21);
             this.txtTenSach.TabIndex = 1;
             // 
             // panel9
@@ -243,7 +244,7 @@
             this.panel9.Location = new System.Drawing.Point(6, 29);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(260, 1);
+            this.panel9.Size = new System.Drawing.Size(295, 1);
             this.panel9.TabIndex = 5;
             // 
             // label2
@@ -268,17 +269,18 @@
             this.panel10.Location = new System.Drawing.Point(265, 178);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(260, 37);
+            this.panel10.Size = new System.Drawing.Size(307, 37);
             this.panel10.TabIndex = 7;
             // 
             // txtMaTacGia
             // 
             this.txtMaTacGia.BackColor = System.Drawing.SystemColors.Window;
             this.txtMaTacGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaTacGia.Location = new System.Drawing.Point(78, 9);
+            this.txtMaTacGia.Location = new System.Drawing.Point(78, 8);
             this.txtMaTacGia.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaTacGia.Multiline = true;
             this.txtMaTacGia.Name = "txtMaTacGia";
-            this.txtMaTacGia.Size = new System.Drawing.Size(182, 21);
+            this.txtMaTacGia.Size = new System.Drawing.Size(229, 21);
             this.txtMaTacGia.TabIndex = 1;
             // 
             // panel11
@@ -287,7 +289,7 @@
             this.panel11.Location = new System.Drawing.Point(6, 29);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(260, 1);
+            this.panel11.Size = new System.Drawing.Size(295, 1);
             this.panel11.TabIndex = 5;
             // 
             // label3
@@ -304,7 +306,7 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.textBox4);
+            this.panel12.Controls.Add(this.txtTheLoai);
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Controls.Add(this.label4);
             this.panel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,18 +314,19 @@
             this.panel12.Location = new System.Drawing.Point(265, 232);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(260, 37);
+            this.panel12.Size = new System.Drawing.Size(307, 37);
             this.panel12.TabIndex = 8;
             // 
-            // textBox4
+            // txtTheLoai
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(90, 9);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(170, 21);
-            this.textBox4.TabIndex = 1;
+            this.txtTheLoai.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTheLoai.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTheLoai.Location = new System.Drawing.Point(90, 8);
+            this.txtTheLoai.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTheLoai.Multiline = true;
+            this.txtTheLoai.Name = "txtTheLoai";
+            this.txtTheLoai.Size = new System.Drawing.Size(217, 21);
+            this.txtTheLoai.TabIndex = 1;
             // 
             // panel13
             // 
@@ -331,7 +334,7 @@
             this.panel13.Location = new System.Drawing.Point(6, 29);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(260, 1);
+            this.panel13.Size = new System.Drawing.Size(295, 1);
             this.panel13.TabIndex = 5;
             // 
             // label4
@@ -392,7 +395,7 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.White;
-            this.panel16.Controls.Add(this.textBox6);
+            this.panel16.Controls.Add(this.txtPublishYear);
             this.panel16.Controls.Add(this.panel17);
             this.panel16.Controls.Add(this.label6);
             this.panel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -403,15 +406,15 @@
             this.panel16.Size = new System.Drawing.Size(260, 37);
             this.panel16.TabIndex = 10;
             // 
-            // textBox6
+            // txtPublishYear
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(92, 9);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(168, 21);
-            this.textBox6.TabIndex = 1;
+            this.txtPublishYear.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPublishYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPublishYear.Location = new System.Drawing.Point(92, 9);
+            this.txtPublishYear.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPublishYear.Name = "txtPublishYear";
+            this.txtPublishYear.Size = new System.Drawing.Size(168, 21);
+            this.txtPublishYear.TabIndex = 1;
             // 
             // panel17
             // 
@@ -436,7 +439,7 @@
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.White;
-            this.panel18.Controls.Add(this.textBox7);
+            this.panel18.Controls.Add(this.txtGiaThue);
             this.panel18.Controls.Add(this.panel19);
             this.panel18.Controls.Add(this.label7);
             this.panel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,15 +450,15 @@
             this.panel18.Size = new System.Drawing.Size(260, 37);
             this.panel18.TabIndex = 11;
             // 
-            // textBox7
+            // txtGiaThue
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(61, 9);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(199, 21);
-            this.textBox7.TabIndex = 1;
+            this.txtGiaThue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGiaThue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGiaThue.Location = new System.Drawing.Point(61, 8);
+            this.txtGiaThue.Margin = new System.Windows.Forms.Padding(0);
+            this.txtGiaThue.Name = "txtGiaThue";
+            this.txtGiaThue.Size = new System.Drawing.Size(199, 21);
+            this.txtGiaThue.TabIndex = 1;
             // 
             // panel19
             // 
@@ -526,7 +529,7 @@
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpLoadImg);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -569,7 +572,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpLoadImg;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txtTenSach;
         private System.Windows.Forms.Panel panel9;
@@ -579,7 +582,7 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTheLoai;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel14;
@@ -587,11 +590,11 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPublishYear;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtGiaThue;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel20;

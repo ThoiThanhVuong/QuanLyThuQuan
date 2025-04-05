@@ -31,10 +31,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbBookCover = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnViewDetail = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblBookTitle = new System.Windows.Forms.Label();
+            this.btnViewDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbBookCover)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,14 +60,38 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.btnViewDetail);
-            this.panel2.Controls.Add(this.lblBookTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 230);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 90);
             this.panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblBookTitle);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panel3.Size = new System.Drawing.Size(220, 49);
+            this.panel3.TabIndex = 0;
+            // 
+            // lblBookTitle
+            // 
+            this.lblBookTitle.AutoEllipsis = true;
+            this.lblBookTitle.AutoSize = true;
+            this.lblBookTitle.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookTitle.Location = new System.Drawing.Point(50, 12);
+            this.lblBookTitle.MaximumSize = new System.Drawing.Size(150, 0);
+            this.lblBookTitle.Name = "lblBookTitle";
+            this.lblBookTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblBookTitle.Size = new System.Drawing.Size(84, 23);
+            this.lblBookTitle.TabIndex = 0;
+            this.lblBookTitle.Text = "Tên sách";
+            this.lblBookTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnViewDetail
             // 
@@ -75,21 +101,13 @@
             this.btnViewDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnViewDetail.Location = new System.Drawing.Point(100, 54);
+            this.btnViewDetail.Location = new System.Drawing.Point(97, 54);
             this.btnViewDetail.Name = "btnViewDetail";
             this.btnViewDetail.Size = new System.Drawing.Size(120, 33);
             this.btnViewDetail.TabIndex = 1;
             this.btnViewDetail.Text = "Xem chi tiết";
             this.btnViewDetail.UseVisualStyleBackColor = false;
-            // 
-            // lblBookTitle
-            // 
-            this.lblBookTitle.AutoSize = true;
-            this.lblBookTitle.Location = new System.Drawing.Point(80, 17);
-            this.lblBookTitle.Name = "lblBookTitle";
-            this.lblBookTitle.Size = new System.Drawing.Size(74, 20);
-            this.lblBookTitle.TabIndex = 0;
-            this.lblBookTitle.Text = "Tên sách";
+            this.btnViewDetail.Click += new System.EventHandler(this.btnViewDetail_Click);
             // 
             // BookItemControl
             // 
@@ -101,7 +119,8 @@
             this.Size = new System.Drawing.Size(220, 320);
             ((System.ComponentModel.ISupportInitialize)(this.pbBookCover)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +132,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnViewDetail;
         private System.Windows.Forms.Label lblBookTitle;
+        private System.Windows.Forms.Panel panel3;
     }
 }

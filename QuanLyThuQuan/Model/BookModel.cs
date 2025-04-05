@@ -1,7 +1,7 @@
 ﻿namespace QuanLyThuQuan.Model
 {
 
-    class BookModel
+    public class BookModel
     {
         public int BookID { get; set; }
         public string BookTitle { get; set; }
@@ -37,5 +37,10 @@
             Category = category;
             Author = author;
         }
+        public override string ToString()
+        {
+            return $"BookID: {BookID}, Title: {BookTitle}, AuthorID: {AuthorID}, CategoryID: {CategoryID}, Year: {PublisYear}, Quantity: {BookQuantity}, Status: {BookStatus}, Fee: {FeePerDay}đ/ngày ,{Category},{Author}";
+        }
+
     }
 }

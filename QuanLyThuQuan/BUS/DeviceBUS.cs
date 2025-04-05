@@ -12,7 +12,9 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.GetAllDevices();
         }
-
+        public DeviceModel GetDeviceByID(int Id) {
+            return deviceDAO.GetDeviceByID(Id);
+        }
         public bool AddDevice(DeviceModel device)
         {
             // Có thể thêm kiểm tra nghiệp vụ tại đây nếu cần
