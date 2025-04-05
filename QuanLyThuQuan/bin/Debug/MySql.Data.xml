@@ -3798,6 +3798,14 @@
             Gets or sets the list of interceptors that can intercept command operations.
             </summary>
         </member>
+<<<<<<< HEAD
+=======
+        <member name="P:MySql.Data.MySqlClient.MySqlConnectionStringBuilder.RewriteBatchedStatements">
+            <summary>
+            Gets or sets a boolean indicating if this connection should rewrite batched statements as one block.
+            </summary>
+        </member>
+>>>>>>> e7676d2ff98b5e249d657b4bb08a23f8aa0f1491
         <member name="P:MySql.Data.MySqlClient.MySqlConnectionStringBuilder.WebAuthnActionRequested">
             <summary>
             Gets or sets the event for the WebauthN callback.
