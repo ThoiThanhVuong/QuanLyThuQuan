@@ -34,7 +34,7 @@ namespace QuanLyThuQuan.Service
             {
                 try
                 {
-                    connection = new MySqlConnection(connectionString);
+                    MySqlConnection connection = new MySqlConnection(connectionString);
                     connection.Open();
                 }
                 catch (Exception ex)

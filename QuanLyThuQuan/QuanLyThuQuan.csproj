@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConfig\ConnectDB.cs" />
     <Compile Include="BUS\BaseBUS.cs" />
     <Compile Include="BUS\BookBUS.cs" />
     <Compile Include="BUS\TransactionBUS.cs" />

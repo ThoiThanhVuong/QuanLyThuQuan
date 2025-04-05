@@ -9,7 +9,7 @@ namespace QuanLyThuQuan.BUS
 {
     class TransactionBUS : BaseBUS<TransactionModel, int>
     {
-        private static readonly TransactionBUS Instance = new TransactionBUS();
+        private static readonly TransactionBUS _Instance = new TransactionBUS();
 
         //prevent new TransactionBUS
         private TransactionBUS() { }
@@ -17,14 +17,31 @@ namespace QuanLyThuQuan.BUS
         // getter
         public static TransactionBUS GetInstance()
         {
-            return Instance;
+            return _Instance;
         }
 
         public override List<TransactionModel> GetAll()
         {
-            DatabaseConfig config = new DatabaseConfig();
-            IDBConnection dbConnection = new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
-            return new TransactionDAO(dbConnection).GetAll();
+            //return new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
+            return new TransactionDAO(GetConnectDB()).GetAll();
+        }
+
+        public void Add(TransactionModel transaction)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
+            new TransactionDAO(GetConnectDB()).Insert(transaction);
+        }
+
+        public void Update(TransactionModel transaction)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
+            new TransactionDAO(GetConnectDB()).Update(transaction);
+        }
+
+        public void Delete(string id)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
+            new TransactionDAO(GetConnectDB()).Delete(id);
         }
     }
 }

@@ -26,9 +26,26 @@ namespace QuanLyThuQuan.BUS
 
         public override List<TransactionItemModel> GetAll()
         {
-            DatabaseConfig config = new DatabaseConfig();
-            IDBConnection dbConnection = new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
-            return new TransactionItemDAO(dbConnection).GetAll();
+            //return new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
+            return new TransactionItemDAO(GetConnectDB()).GetAll();
+        }
+
+        public void Add(TransactionItemModel transaction)
+        {
+            //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
+            new TransactionItemDAO(GetConnectDB()).Insert(transaction);
+        }
+
+        public void Update(TransactionItemModel transaction)
+        {
+            //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
+            new TransactionItemDAO(GetConnectDB()).Update(transaction);
+        }
+
+        public void Delete(string id)
+        {
+            //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
+            new TransactionItemDAO(GetConnectDB()).Delete(id);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using QuanLyThuQuan.Interfaces;
+﻿using QuanLyThuQuan.AppConfig;
+using QuanLyThuQuan.Config;
+using QuanLyThuQuan.Interfaces;
+using QuanLyThuQuan.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +35,16 @@ namespace QuanLyThuQuan.BUS
             {
                 System.Console.WriteLine(ex.StackTrace);
             }
+        }
+
+        public IDBConnection GetIDBConnection(DatabaseConfig config)
+        {
+            return new DBConnection(config.GetServer(), config.GetDatabaseName(), config.GetUserID(), config.GetPassword());
+        }
+
+        public ConnectDB GetConnectDB()
+        {
+            return new ConnectDB();
         }
     }
 }
