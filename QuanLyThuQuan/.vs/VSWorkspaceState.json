@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GUI",
+    "\\GUI\\ProductItem"
   ],
-  "SelectedNode": "\\QuanLyThuQuan.csproj.user",
+  "SelectedNode": "\\GUI\\FormBook.cs",
   "PreviewInSolutionExplorer": false
 }
