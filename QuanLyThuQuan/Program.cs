@@ -1,7 +1,6 @@
-﻿using QuanLyThuQuan.BUS;
-using QuanLyThuQuan.Model;
+﻿using QuanLyThuQuan.GUI;
 using System;
-using System.Collections.Generic;
+using System.Windows.Forms;
 namespace QuanLyThuQuan
 {
     static class Program
@@ -12,15 +11,15 @@ namespace QuanLyThuQuan
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormMain());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormMain());
 
-            TransactionBUS.GetInstance().LoadLocal();
-            List<TransactionModel> list = TransactionBUS.GetInstance().GetAllLocal();
-            System.Console.WriteLine(list.Count);
-            foreach (TransactionModel item in list)
-                System.Console.WriteLine(item.ReturnDate);
+            //TransactionBUS.GetInstance().LoadLocal();
+            //List<TransactionModel> list = TransactionBUS.GetInstance().GetAllLocal();
+            //System.Console.WriteLine(list.Count);
+            //foreach (TransactionModel item in list)
+            //    System.Console.WriteLine(item.ReturnDate);
         }
     }
 }
