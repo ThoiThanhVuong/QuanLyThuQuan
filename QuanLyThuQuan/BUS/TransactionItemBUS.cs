@@ -1,4 +1,4 @@
-﻿using QuanLyThuQuan.Config;
+﻿//using QuanLyThuQuan.Config;
 using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;

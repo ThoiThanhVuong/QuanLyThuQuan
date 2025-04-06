@@ -1566,12 +1566,12 @@
             // 
             this.dgvDataViolationHandle.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dgvDataViolationHandle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataViolationHandle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colRuleTitle,
-            this.colPenaty,
-            this.colViolationDate,
-            this.colPaidStatus,
-            this.colExcuseViolation});
+            //this.dgvDataViolationHandle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            //this.colRuleTitle,
+            //this.colPenaty,
+            //this.colViolationDate,
+            //this.colPaidStatus,
+            //});
             this.dgvDataViolationHandle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataViolationHandle.Location = new System.Drawing.Point(385, 279);
             this.dgvDataViolationHandle.Name = "dgvDataViolationHandle";
@@ -1623,9 +1623,9 @@
             // 
             this.dgvDataItemList.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dgvDataItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colItem,
-            this.colItemQuantity});
+            //this.dgvDataItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            //this.colItem,
+            //this.colItemQuantity});
             this.dgvDataItemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataItemList.Location = new System.Drawing.Point(3, 279);
             this.dgvDataItemList.Name = "dgvDataItemList";

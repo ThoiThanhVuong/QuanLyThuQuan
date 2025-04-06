@@ -9,28 +9,18 @@ namespace QuanLyThuQuan.DAO
 {
     class TransactionDAO
     {
-        private readonly IDBConnection db;
-        private readonly ConnectDB dbConnect;
+        private ConnectDB db = new ConnectDB();
 
-        public TransactionDAO(IDBConnection dbConnection)
-        {
-            this.db = dbConnection;
-        }
-
-        public TransactionDAO(ConnectDB db)
-        {
-            this.dbConnect = db;
-        }
 
         // get all value on DB (READ)
         public List<TransactionModel> GetAll()
         {
             List<TransactionModel> transactionList = new List<TransactionModel>();
-            dbConnect.OpenConnection();
+            db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlConnection connection = db.Connection)
             {
-                Console.WriteLine("Success");
+          
                 string query = "SELECT * FROM Transactions";
                 try
                 {
@@ -50,13 +40,13 @@ namespace QuanLyThuQuan.DAO
                             transactionList.Add(transaction);
                         }
                     }
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return transactionList;
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return null;
                 }
             }
@@ -66,9 +56,9 @@ namespace QuanLyThuQuan.DAO
         public TransactionModel GetByID(string id)
         {
             TransactionModel transaction = new TransactionModel();
-            dbConnect.OpenConnection();
+            db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlConnection connection = db.Connection)
             {
                 Console.WriteLine("Success");
                 string query = "SELECT * FROM Transactions WHERE TransactionID = @ID";
@@ -90,14 +80,14 @@ namespace QuanLyThuQuan.DAO
                                 transaction.Status = (TransactionStatus)Enum.Parse(typeof(TransactionStatus), dtReader.GetString("Status"));
                             }
                         }
-                        dbConnect.CloseConnection();
+                        db.CloseConnection();
                         return transaction;
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return null;
                 }
             }
@@ -107,9 +97,9 @@ namespace QuanLyThuQuan.DAO
         public bool Insert(TransactionModel transaction)
         {
             string query = "INSERT INTO Transactions (MemberID, TransactionType, TransactionDate, DueDate, ReturnDate, Status) \n VALUES (@MemberID, @TransactionType, @TransactionDate, @DueDate, @ReturnDate, @Status)";
-            dbConnect.OpenConnection();
+            db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlConnection connection = db.Connection)
             {
                 try
                 {
@@ -121,7 +111,7 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@DueDate", transaction.DueDate);
                         myCmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate);
                         myCmd.Parameters.AddWithValue("@Status", transaction.Status);
-                        dbConnect.CloseConnection();                        
+                        db.CloseConnection();                        
                         bool result = myCmd.ExecuteNonQuery() > 0;
                         return result;
                     }
@@ -129,7 +119,7 @@ namespace QuanLyThuQuan.DAO
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return false;
                 }
             }
@@ -141,9 +131,9 @@ namespace QuanLyThuQuan.DAO
             string query = "UPDATE TABLE Transactions\n" +
                 "SET MemberID = @MemberID, TransactionType = @TransactionType, TransactionDate = @TransactionDate, DueDate = @DueDate, ReturnDate = @ReturnDate, Status = @Status\n" +
                 "WHERE TransactionID = @TransactionID";
-            dbConnect.OpenConnection();
+            db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlConnection connection = db.Connection)
             {
                 try
                 {
@@ -157,14 +147,14 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@ReturnDate", newTransaction.ReturnDate);
                         myCmd.Parameters.AddWithValue("@Status", newTransaction.Status);
                         bool result = myCmd.ExecuteNonQuery() > 0;
-                        dbConnect.CloseConnection();
+                        db.CloseConnection();
                         return result;
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return false;
                 }
             }
@@ -174,9 +164,9 @@ namespace QuanLyThuQuan.DAO
         public bool Delete(string transactionID)
         {
             string query = "DELETE FROM Transactions WHERE TransactionID = @TransactionID";
-            dbConnect.OpenConnection();
+            db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlConnection connection = db.Connection)
             {
                 try
                 {
@@ -184,14 +174,14 @@ namespace QuanLyThuQuan.DAO
                     {
                         myCmd.Parameters.AddWithValue("@TransactionID", transactionID);
                         bool result =  myCmd.ExecuteNonQuery() > 0;
-                        dbConnect.CloseConnection();
+                        db.CloseConnection();
                         return result;
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    db.CloseConnection();
                     return false;
                 }
             }
