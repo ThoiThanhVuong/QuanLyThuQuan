@@ -109,11 +109,12 @@ namespace QuanLyThuQuan.DAO
 
         public bool UpdateReview(ReviewModel review)
         {
-            var (reviewID, memberID, bookID, deviceID, rating, reviewText, reviewDate) = review;
             try
             {
                 db.OpenConnection();
-                string query = $"UPDATE Reviews SET MemberID = {memberID}, BookID = {bookID}, DeviceID = {deviceID}, Rating = {rating}, ReviewText = '{reviewText}', ReviewDate = '{reviewDate.ToString("yyyy-MM-dd")}' WHERE ReviewID = {reviewID}";
+                string query = $"UPDATE Reviews SET MemberID = {review.MemberID}, BookID = {review.BookID}, DeviceID = {review.DeviceID}, " +
+                              $"Rating = {review.Rating}, ReviewText = '{review.ReviewText}', " +
+                              $"ReviewDate = '{review.ReviewDate.ToString("yyyy-MM-dd")}' WHERE ReviewID = {review.ReviewID}";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.ExecuteNonQuery();
