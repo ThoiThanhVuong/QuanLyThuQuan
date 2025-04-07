@@ -26,5 +26,9 @@
             DeviceStatus = deviceStatus;
             FeePerHour = feePerHour;
         }
+        public override string ToString()
+        {
+            return $"{DeviceID} - {DeviceName} -{DeviceImage}- {DeviceType} - {FeePerHour} - {DeviceQuantity} - {DeviceStatus}";
+        }
     }
 }

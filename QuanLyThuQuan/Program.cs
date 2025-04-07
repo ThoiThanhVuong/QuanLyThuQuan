@@ -1,6 +1,8 @@
-﻿using QuanLyThuQuan.GUI;
+﻿
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using QuanLyThuQuan.GUI;
 namespace QuanLyThuQuan
 {
     static class Program
@@ -13,7 +15,9 @@ namespace QuanLyThuQuan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new FormMain() );
+
+       
         }
     }
 }

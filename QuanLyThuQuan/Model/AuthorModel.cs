@@ -1,18 +1,25 @@
-﻿namespace QuanLyThuQuan.Model
+﻿using System.Net;
+using System.Security.Policy;
+
+namespace QuanLyThuQuan.Model
 {
-    class AuthorModel
+    public class AuthorModel
     {
         public int AuthorID { get; set; }
-        public int AuthorName { get; set; }
+        public string AuthorName { get; set; }
         public AuthorModel()
         {
 
         }
 
-        public AuthorModel(int authorID, int authorName)
+        public AuthorModel(int authorID, string authorName)
         {
             AuthorID = authorID;
             AuthorName = authorName;
+        }
+        public override string ToString()
+        {
+            return $"AuthorID:{AuthorID} , AuthorName: {AuthorName}";
         }
     }
 }

@@ -40,9 +40,7 @@ namespace QuanLyThuQuan.GUI
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
             FadeForm(true);
             formAddBook.FormClosed += (s, args) => FadeForm(false);
-            formAddBook.ShowDialog();
-
-           
+            formAddBook.ShowDialog();  
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

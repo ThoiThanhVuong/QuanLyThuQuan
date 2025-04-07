@@ -1,0 +1,48 @@
+﻿//using QuanLyThuQuan.Config;
+using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.Interfaces;
+using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Service;
+using System.Collections.Generic;
+
+namespace QuanLyThuQuan.BUS
+{
+    class TransactionBUS : BaseBUS<TransactionModel, int>
+    {
+        private static readonly TransactionBUS _Instance = new TransactionBUS();
+        private TransactionDAO TDAO = new TransactionDAO();
+
+        //prevent new TransactionBUS
+        private TransactionBUS() { }
+
+        // getter
+        public static TransactionBUS GetInstance()
+        {
+            return _Instance;
+        }
+
+        public override List<TransactionModel> GetAll()
+        {
+            //return new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
+            return TDAO.GetAll();
+        }
+
+        public void Add(TransactionModel transaction)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
+            TDAO.Insert(transaction);
+        }
+
+        public void Update(TransactionModel transaction)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
+            TDAO.Update(transaction);
+        }
+
+        public void Delete(string id)
+        {
+            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
+            TDAO.Delete(id);
+        }
+    }
+}
