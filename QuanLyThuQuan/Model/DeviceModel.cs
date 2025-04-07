@@ -7,7 +7,7 @@
         public string DeviceImage { get; set; }
         public string DeviceType { get; set; }
         public int DeviceQuantity { get; set; }
-       
+
         public ProductStatus DeviceStatus { get; set; }
         public int FeePerHour { get; set; }
         public DeviceModel()
@@ -22,7 +22,7 @@
             DeviceImage = deviceImage;
             DeviceType = deviceType;
             DeviceQuantity = deviceQuantity;
-          
+
             DeviceStatus = deviceStatus;
             FeePerHour = feePerHour;
         }

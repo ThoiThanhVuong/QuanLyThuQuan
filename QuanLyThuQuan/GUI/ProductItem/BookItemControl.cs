@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using QuanLyThuQuan.Model;
-using System.IO;
+﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.GUI.ProductItem;
-using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.Model;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
@@ -53,7 +47,7 @@ namespace QuanLyThuQuan.GUI
                     using (MemoryStream ms = new MemoryStream(imageBytes))
                     {
                         pbBookCover.Image = Image.FromStream(ms);
-                    }               
+                    }
                     pbBookCover.SizeMode = PictureBoxSizeMode.Zoom;
                 }
                 catch (Exception ex)
@@ -66,7 +60,7 @@ namespace QuanLyThuQuan.GUI
                 MessageBox.Show("Ảnh không tồn tại: " + fullPath);
             }
         }
-        
+
         private void btnViewDetail_Click(object sender, EventArgs e)
         {
             frmControlBook formDetailBook = new frmControlBook();
@@ -76,8 +70,8 @@ namespace QuanLyThuQuan.GUI
             formDetailBook.SetValue(book);
             formDetailBook.Height = 400;
             formDetailBook.ShowDialog();
-           
-            
+
+
         }
     }
 }

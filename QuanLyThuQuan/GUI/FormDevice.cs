@@ -64,7 +64,7 @@ namespace QuanLyThuQuan.GUI
 
         private void btnViewDetail_Click(object sender, EventArgs e)
         {
-            if(selectedRowIndex >= 0)
+            if (selectedRowIndex >= 0)
             {
                 string deviceID = dgvDevices.Rows[selectedRowIndex].Cells["DeviceID"].Value.ToString();
                 string deviceName = dgvDevices.Rows[selectedRowIndex].Cells["DeviceName"].Value.ToString();

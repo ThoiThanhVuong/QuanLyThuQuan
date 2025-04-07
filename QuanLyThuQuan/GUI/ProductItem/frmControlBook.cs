@@ -1,18 +1,12 @@
 ﻿using QuanLyThuQuan.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.ProductItem
 {
-    public partial class frmControlBook: Form
+    public partial class frmControlBook : Form
     {
         public frmControlBook()
         {
@@ -30,18 +24,18 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 btnBookControl.Visible = false;
                 btnUpLoadImg.Visible = false;
-               
+
             }
             else
             {
                 btnBookControl.Visible = true;
                 btnBookControl.Text = buttonText;
             }
-                
+
         }
-        public void SetValue (BookModel book)
+        public void SetValue(BookModel book)
         {
-            txtMaSach.Text = book.BookID+"";
+            txtMaSach.Text = book.BookID + "";
             txtTenSach.Text = book.BookTitle;
             txtMaTacGia.Text = book.Author.AuthorName;
             txtTheLoai.Text = book.Category.CategoryName;
@@ -94,8 +88,8 @@ namespace QuanLyThuQuan.GUI.ProductItem
             txtPublishYear.ReadOnly = true;
             txtTheLoai.ReadOnly = true;
             txtSoLuong.ReadOnly = true;
-           
-            
+
+
         }
     }
 }

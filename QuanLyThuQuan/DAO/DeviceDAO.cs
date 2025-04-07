@@ -1,19 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
-using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.DAO
 {
     class DeviceDAO
     {
         private ConnectDB db = new ConnectDB();
-        
+
         public List<DeviceModel> GetAllDevices()
         {
             List<DeviceModel> devices = new List<DeviceModel>();
@@ -38,20 +34,20 @@ namespace QuanLyThuQuan.DAO
                 reader.Close();
                 db.OpenConnection();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy sách " + ex.Message);
             }
 
-            return devices; 
+            return devices;
         }
         public DeviceModel GetDeviceByID(int Id)
         {
-            DeviceModel device = null; 
+            DeviceModel device = null;
 
             try
             {
-                db.OpenConnection(); 
+                db.OpenConnection();
                 string query = "SELECT * FROM Devices WHERE DeviceID = @Id";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
@@ -60,9 +56,9 @@ namespace QuanLyThuQuan.DAO
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read()) 
+                        if (reader.Read())
                         {
-                            device=(new DeviceModel(
+                            device = (new DeviceModel(
                             reader.GetInt32("DeviceID"),
                             reader.GetString("DeviceName"),
                             reader.GetString("DeviceImage"),
@@ -81,10 +77,10 @@ namespace QuanLyThuQuan.DAO
             }
             finally
             {
-                db.CloseConnection(); 
+                db.CloseConnection();
             }
 
-            return device; 
+            return device;
         }
 
         public bool AddDevice(DeviceModel device)
@@ -107,12 +103,13 @@ namespace QuanLyThuQuan.DAO
                     return result;
                 }
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Lỗi khi thêm sách " + ex.Message);
                 return false;
             }
-           
-           
+
+
         }
         public bool UpdateDevice(DeviceModel device)
         {
@@ -141,8 +138,8 @@ namespace QuanLyThuQuan.DAO
                 Console.WriteLine("Lỗi khi chỉnh sửa sách " + ex.Message);
                 return false;
             }
-            
-           
+
+
         }
         public bool DeleteDevice(int DeviceID)
         {
@@ -163,7 +160,7 @@ namespace QuanLyThuQuan.DAO
                 Console.WriteLine("Lỗi khi xóa sách " + ex.Message);
                 return false;
             }
-          
+
         }
         public List<DeviceModel> SearchDevices(string keyword)
         {

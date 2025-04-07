@@ -3,6 +3,7 @@ using QuanLyThuQuan.GUI.TransactionFormChilds;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -98,6 +99,9 @@ namespace QuanLyThuQuan.GUI
             {
                 FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
                 informationForm.ShowDialog();
+                TransactionBUS bus = TransactionBUS.GetInstance(); ;
+                bus.GetAll();
+                bus.CheckOverdue(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
             }
         }
 
@@ -123,8 +127,10 @@ namespace QuanLyThuQuan.GUI
             List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
                                                     "ReturnDate", "MemberID"};
             ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
+
         }
 
+        // Resize columns
         private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
         {
             IEnumerator<string> list = colList.GetEnumerator();
