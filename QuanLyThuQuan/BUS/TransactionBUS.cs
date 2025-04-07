@@ -48,5 +48,7 @@ namespace QuanLyThuQuan.BUS
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
             new TransactionDAO(GetConnectDB()).Delete(id);
         }
+
+        
     }
 }

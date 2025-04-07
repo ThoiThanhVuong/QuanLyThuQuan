@@ -3,7 +3,6 @@ using QuanLyThuQuan.GUI.TransactionFormChilds;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,6 +26,8 @@ namespace QuanLyThuQuan.GUI
             this.ControlBox = false;
             this.DoubleBuffered = true;
             LoadAllTransaction();
+            //dgvDataTransactions.CellContentClick += dgvDataTransactions_CellContentClick;
+
         }
 
         private void btnBorrow_MouseEnter(object sender, EventArgs e)
@@ -93,9 +94,9 @@ namespace QuanLyThuQuan.GUI
 
         private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex.Equals(7))
+            if (dgvDataTransactions.Columns[e.ColumnIndex].Name.Equals("colMoreOptions"))
             {
-                FormInformation informationForm = new FormInformation();
+                FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
                 informationForm.ShowDialog();
             }
         }
@@ -103,7 +104,32 @@ namespace QuanLyThuQuan.GUI
         private void LoadAllTransaction()
         {
             List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
-            Debug.Print(transactions.Count.ToString());
+            foreach (TransactionModel transaction in transactions)
+                dgvDataTransactions.DataSource = null;
+            dgvDataTransactions.DataSource = transactions;
+            if (!dgvDataTransactions.Columns.Contains("More"))
+            {
+                DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
+                moreColumn.Name = "colMoreOptions";
+                moreColumn.HeaderText = "";
+                moreColumn.Text = "...";
+                moreColumn.UseColumnTextForButtonValue = true;
+                moreColumn.Width = 10;
+                dgvDataTransactions.Columns.Add(moreColumn);
+            }
+            dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
+            dgvDataTransactions.DefaultCellStyle.ForeColor = Color.Blue;
+            List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
+                                                    "ReturnDate", "MemberID"};
+            ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
+        }
+
+        private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
+        {
+            IEnumerator<string> list = colList.GetEnumerator();
+            while (list.MoveNext())
+                dgv.Columns[list.Current].AutoSizeMode = mode;
         }
     }
 }

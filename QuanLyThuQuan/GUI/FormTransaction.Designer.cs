@@ -33,14 +33,6 @@
             this.btnBookReservation = new System.Windows.Forms.Button();
             this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
-            this.colTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoreOptions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.tbBody = new System.Windows.Forms.TableLayoutPanel();
@@ -124,104 +116,12 @@
             this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTransactionID,
-            this.colMemberID,
-            this.colTransactionType,
-            this.colTransactionDate,
-            this.colDueDate,
-            this.colReturnDate,
-            this.colStatus,
-            this.colMoreOptions});
             this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
             this.dgvDataTransactions.Name = "dgvDataTransactions";
             this.dgvDataTransactions.RowHeadersWidth = 62;
             this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
             this.dgvDataTransactions.TabIndex = 1;
             this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
-            // 
-            // colTransactionID
-            // 
-            this.colTransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTransactionID.Frozen = true;
-            this.colTransactionID.HeaderText = "TransactionID";
-            this.colTransactionID.MinimumWidth = 8;
-            this.colTransactionID.Name = "colTransactionID";
-            this.colTransactionID.ReadOnly = true;
-            this.colTransactionID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colTransactionID.Width = 116;
-            // 
-            // colMemberID
-            // 
-            this.colMemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colMemberID.Frozen = true;
-            this.colMemberID.HeaderText = "MemberID";
-            this.colMemberID.MinimumWidth = 8;
-            this.colMemberID.Name = "colMemberID";
-            this.colMemberID.ReadOnly = true;
-            this.colMemberID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMemberID.Width = 95;
-            // 
-            // colTransactionType
-            // 
-            this.colTransactionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTransactionType.HeaderText = "Transaction Type";
-            this.colTransactionType.MinimumWidth = 8;
-            this.colTransactionType.Name = "colTransactionType";
-            this.colTransactionType.ReadOnly = true;
-            this.colTransactionType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colTransactionDate
-            // 
-            this.colTransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTransactionDate.HeaderText = "Transaction Date";
-            this.colTransactionDate.MinimumWidth = 8;
-            this.colTransactionDate.Name = "colTransactionDate";
-            this.colTransactionDate.ReadOnly = true;
-            this.colTransactionDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colDueDate
-            // 
-            this.colDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDueDate.HeaderText = "Due Date";
-            this.colDueDate.MinimumWidth = 8;
-            this.colDueDate.Name = "colDueDate";
-            this.colDueDate.ReadOnly = true;
-            this.colDueDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colReturnDate
-            // 
-            this.colReturnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colReturnDate.FillWeight = 130F;
-            this.colReturnDate.HeaderText = "Return Date";
-            this.colReturnDate.MinimumWidth = 8;
-            this.colReturnDate.Name = "colReturnDate";
-            this.colReturnDate.ReadOnly = true;
-            this.colReturnDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colReturnDate.Width = 130;
-            // 
-            // colStatus
-            // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 8;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colStatus.Width = 69;
-            // 
-            // colMoreOptions
-            // 
-            this.colMoreOptions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colMoreOptions.HeaderText = "";
-            this.colMoreOptions.MinimumWidth = 8;
-            this.colMoreOptions.Name = "colMoreOptions";
-            this.colMoreOptions.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMoreOptions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMoreOptions.Text = "...";
-            this.colMoreOptions.ToolTipText = "...";
-            this.colMoreOptions.UseColumnTextForButtonValue = true;
-            this.colMoreOptions.Width = 25;
             // 
             // pnlHeader
             // 
@@ -300,13 +200,5 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.TableLayoutPanel tbBody;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemberID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDueDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReturnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn colMoreOptions;
     }
 }
