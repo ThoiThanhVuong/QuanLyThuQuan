@@ -26,6 +26,11 @@ namespace QuanLyThuQuan.BUS
             return new TransactionDAO(GetConnectDB()).GetAll();
         }
 
+        public TransactionModel GetByID(string id)
+        {
+            return new TransactionDAO(GetConnectDB()).GetByID(id);
+        }
+
         public void Add(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);

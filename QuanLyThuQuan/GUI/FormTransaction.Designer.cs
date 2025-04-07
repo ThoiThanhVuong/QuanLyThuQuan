@@ -218,7 +218,9 @@
             this.colMoreOptions.Name = "colMoreOptions";
             this.colMoreOptions.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colMoreOptions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMoreOptions.Text = "More";
+            this.colMoreOptions.Text = "...";
+            this.colMoreOptions.ToolTipText = "...";
+            this.colMoreOptions.UseColumnTextForButtonValue = true;
             this.colMoreOptions.Width = 25;
             // 
             // pnlHeader

@@ -1,5 +1,9 @@
-﻿using QuanLyThuQuan.GUI.TransactionFormChilds;
+﻿using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.GUI.TransactionFormChilds;
+using QuanLyThuQuan.Model;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -22,6 +26,7 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            LoadAllTransaction();
         }
 
         private void btnBorrow_MouseEnter(object sender, EventArgs e)
@@ -88,8 +93,17 @@ namespace QuanLyThuQuan.GUI
 
         private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormInformation informationForm = new FormInformation();
-            informationForm.ShowDialog();
+            if (e.ColumnIndex.Equals(7))
+            {
+                FormInformation informationForm = new FormInformation();
+                informationForm.ShowDialog();
+            }
+        }
+
+        private void LoadAllTransaction()
+        {
+            List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
+            Debug.Print(transactions.Count.ToString());
         }
     }
 }
