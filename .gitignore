@@ -1,2 +1,38 @@
 .vs
 /QuanLyThuQuan/.vs
+# Visual Studio
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.csproj.FileListAbsolute.txt
+*.dbmdl
+
+# Auto-generated
+*.Designer.cs
+*.Generated.*
+*.g.*
+*.g.cs
+*.g.i.cs
+*.resources
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+
+# Others
+*.config
+*.xml
+*.tmp
+
+
