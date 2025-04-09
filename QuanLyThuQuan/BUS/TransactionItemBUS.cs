@@ -2,7 +2,7 @@
 using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Service;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
