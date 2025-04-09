@@ -2,7 +2,7 @@
 using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Service;
+
 using System.Collections.Generic;
 
 namespace QuanLyThuQuan.BUS

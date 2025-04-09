@@ -1,7 +1,6 @@
 ﻿using QuanLyThuQuan.AppConfig;
 
 using QuanLyThuQuan.Interfaces;
-using QuanLyThuQuan.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
