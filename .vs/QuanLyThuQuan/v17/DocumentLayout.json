@@ -1,46 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\QuanLyThuQuan\\",
+  "WorkspaceRootPath": "D:\\programming\\QuanLyThuQuan\\",
   "Documents": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formtransaction.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\formtransaction.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> d79aee43d8c5c573524569537c1b90a8aa5f4b17
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formtransaction.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\dao\\transactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\dao\\transactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\transactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\dao\\bookdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\dao\\bookdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\bookdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\bus\\transactionitembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\bus\\transactionitembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\transactionitembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
       "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\dao\\authordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,10 +91,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
+<<<<<<< HEAD
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
 <<<<<<< HEAD
 =======
@@ -121,55 +126,55 @@
               "WhenOpened": "2025-04-06T07:19:49.387Z",
               "EditorCaption": ""
 >>>>>>> product
+=======
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+>>>>>>> d79aee43d8c5c573524569537c1b90a8aa5f4b17
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
 <<<<<<< HEAD
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Program.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Program.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\Program.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Program.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Program.cs",
               "RelativeToolTip": "QuanLyThuQuan\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T04:03:16.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T04:03:16.984Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Main.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\Main.cs",
               "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\Main.cs [Design]",
+              "RelativeToolTip": "..\\..\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T04:03:13.096Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-06T04:03:13.096Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "FormTransaction.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T03:35:41.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T03:35:41.882Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "FormTransaction.Designer.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormTransaction.Designer.cs",
-              "ViewState": "AgIAAFMGAAAAAAAAAAAkwFsGAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T03:35:31.265Z",
               "EditorCaption": ""
@@ -178,12 +183,13 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Main.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\Main.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\Main.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-04-06T04:06:18.273Z",
 =======
               "Title": "BookDAO.cs",
@@ -196,30 +202,33 @@
               "WhenOpened": "2025-04-06T07:02:48.67Z",
 >>>>>>> product
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-04-06T04:06:18.273Z"
+>>>>>>> d79aee43d8c5c573524569537c1b90a8aa5f4b17
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
 <<<<<<< HEAD
               "Title": "FormTransaction.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormTransaction.cs [Design]",
+              "RelativeToolTip": "..\\..\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T03:35:24.632Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-06T03:35:24.632Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "TransactionItemBUS.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
               "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAswAAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-04-06T03:30:59.216Z",
 =======
               "Title": "CategoryDAO.cs",
@@ -232,44 +241,46 @@
               "WhenOpened": "2025-04-06T07:02:41.58Z",
 >>>>>>> product
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-04-06T03:30:59.216Z"
+>>>>>>> d79aee43d8c5c573524569537c1b90a8aa5f4b17
             },
             {
               "$type": "Document",
 <<<<<<< HEAD
               "DocumentIndex": 8,
               "Title": "TransactionBUS.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
               "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAkwAcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T03:27:13.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T03:27:13.146Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "BookDAO.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\BookDAO.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
               "RelativeToolTip": "QuanLyThuQuan\\DAO\\BookDAO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T03:19:09.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T03:19:09.321Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "TransactionDAO.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\TransactionDAO.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
               "RelativeToolTip": "QuanLyThuQuan\\DAO\\TransactionDAO.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAzwAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-04-06T03:16:35.752Z",
 =======
               "DocumentIndex": 0,
@@ -283,6 +294,9 @@
               "WhenOpened": "2025-04-06T07:02:25.742Z",
 >>>>>>> product
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-04-06T03:16:35.752Z"
+>>>>>>> d79aee43d8c5c573524569537c1b90a8aa5f4b17
             }
           ]
         }
