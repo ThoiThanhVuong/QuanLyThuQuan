@@ -3,7 +3,8 @@
     public enum ProductStatus
     {
         Available,
-        OutOf
+        OutOf,
+        Unavailable
     }
     public enum UserType
     {

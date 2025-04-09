@@ -34,14 +34,10 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             listSach();
-            LoadData();
+            
            
         }
-        private void LoadData()
-        {
-            List<BookModel> books = bookBUS.GetAllBooks();
-           
-        }
+    
         private void listSach()
         {
             List<BookModel> books = bookBUS.GetAllBooks();

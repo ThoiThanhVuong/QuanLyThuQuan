@@ -1,4 +1,4 @@
-devicesCREATE DATABASE IF NOT EXISTS `QuanLyThuQuan` 
+CREATE DATABASE IF NOT EXISTS `QuanLyThuQuan` 
   /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `QuanLyThuQuan`;
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Books` (
   `Category` VARCHAR(100) NOT NULL,
   `PublishYear` INT NOT NULL,
   `Quantity` INT NOT NULL CHECK (`Quantity` >= 0) ,
-  `Status` ENUM('Available', 'OutOf') NOT NULL DEFAULT 'Available',
+  `Status` ENUM('Available', 'OutOf','Unavailable') NOT NULL DEFAULT 'Available',
   PRIMARY KEY (`BookID`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `Devices` (
   `DeviceImage` VARCHAR(255) NOT NULL,
   `DeviceType` VARCHAR(100) NOT NULL,
   `Quantity` INT NOT NULL CHECK (`Quantity` >= 0),
-  `Status` ENUM('Available', 'OutOf') NOT NULL DEFAULT 'Available',
+  `Status` ENUM('Available', 'OutOf','Unavailable') NOT NULL DEFAULT 'Available',
   PRIMARY KEY (`DeviceID`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 
@@ -264,13 +264,15 @@ INSERT INTO `Review` (`MemberID`,`BookID`, `DeviceID`,`Rating`,`ReviewText`,`Rev
 -- Bảng Categories
 CREATE TABLE Categories (
     CategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    CategoryName VARCHAR(100) NOT NULL UNIQUE
+    CategoryName VARCHAR(100) NOT NULL UNIQUE,
+    CategoryStatus ENUM('Active','Inactive') NOT NULL DEFAULT 'Active'
 );
 
 -- Bảng Authors
 CREATE TABLE Authors (
     AuthorID INT AUTO_INCREMENT PRIMARY KEY,
-    AuthorName VARCHAR(255) NOT NULL UNIQUE
+    AuthorName VARCHAR(255) NOT NULL UNIQUE,
+    AuthorStatus ENUM('Active','Inactive') NOT NULL DEFAULT 'Active'
 );
 
 ALTER TABLE Books 
