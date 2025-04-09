@@ -276,7 +276,7 @@
             // 
             this.txtMaTacGia.BackColor = System.Drawing.SystemColors.Window;
             this.txtMaTacGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaTacGia.Location = new System.Drawing.Point(78, 8);
+            this.txtMaTacGia.Location = new System.Drawing.Point(57, 8);
             this.txtMaTacGia.Margin = new System.Windows.Forms.Padding(0);
             this.txtMaTacGia.Multiline = true;
             this.txtMaTacGia.Name = "txtMaTacGia";
@@ -299,9 +299,9 @@
             this.label3.Location = new System.Drawing.Point(1, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 22);
+            this.label3.Size = new System.Drawing.Size(84, 22);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Mã Tác Giả :";
+            this.label3.Text = "Tác Giả :";
             // 
             // panel12
             // 
@@ -321,7 +321,7 @@
             // 
             this.txtTheLoai.BackColor = System.Drawing.SystemColors.Window;
             this.txtTheLoai.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTheLoai.Location = new System.Drawing.Point(90, 8);
+            this.txtTheLoai.Location = new System.Drawing.Point(63, 8);
             this.txtTheLoai.Margin = new System.Windows.Forms.Padding(0);
             this.txtTheLoai.Multiline = true;
             this.txtTheLoai.Name = "txtTheLoai";
@@ -344,9 +344,9 @@
             this.label4.Location = new System.Drawing.Point(1, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 22);
+            this.label4.Size = new System.Drawing.Size(96, 22);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Mã Thể  Loại :";
+            this.label4.Text = "Thể  Loại :";
             // 
             // panel14
             // 

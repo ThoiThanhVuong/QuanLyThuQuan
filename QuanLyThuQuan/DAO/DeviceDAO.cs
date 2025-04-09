@@ -149,7 +149,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "DELETE FROM Devices WHERE DeviceID =@DeviceID";
+                string query = "UPDATE Devices SET Status='Unavailable' WHERE DeviceID =@DeviceID";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@DeviceID", DeviceID);

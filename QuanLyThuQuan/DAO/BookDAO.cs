@@ -104,11 +104,13 @@ namespace QuanLyThuQuan.DAO
                         {
                             AuthorModel author = new AuthorModel(
                                 reader.GetInt32("AuthorID"),
-                                reader.GetString("AuthorName")
+                                reader.GetString("AuthorName"),
+                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus),reader.GetString("AuthorStatus"))
                                 );
                             CategoriesModel categories = new CategoriesModel(
                                 reader.GetInt32("CategoryID"),
-                                reader.GetString("CategoryName")
+                                reader.GetString("CategoryName"),
+                                 (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("CategoryStatus"))
                                 );
                             book = new BookModel(
                                 reader.GetInt32("BookID"),
@@ -196,7 +198,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "DELETE FROM Books WHERE BookID=@BookID";
+                string query = "UPDATE Books SET Status = 'Unavailable' WHERE BookID = @BookID";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@BookID", bookID);
@@ -205,13 +207,13 @@ namespace QuanLyThuQuan.DAO
                     return result;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi xóa sách " + ex.Message);
+                Console.WriteLine("Lỗi khi cập nhật trạng thái sách: " + ex.Message);
                 return false;
             }
-           
         }
+
         public List<BookModel> SearchBooks(string keyword)
         {
             List<BookModel> books = new List<BookModel>();

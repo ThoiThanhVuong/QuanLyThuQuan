@@ -146,6 +146,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "Xem";
             this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnRemove
             // 
@@ -201,6 +202,7 @@
             // 
             // dgvQuanLySach
             // 
+            this.dgvQuanLySach.AllowUserToAddRows = false;
             this.dgvQuanLySach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQuanLySach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuanLySach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -219,6 +221,7 @@
             this.dgvQuanLySach.RowTemplate.Height = 28;
             this.dgvQuanLySach.Size = new System.Drawing.Size(808, 491);
             this.dgvQuanLySach.TabIndex = 0;
+            this.dgvQuanLySach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanLySach_CellClick);
             // 
             // MaSach
             // 
