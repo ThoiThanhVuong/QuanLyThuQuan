@@ -1536,12 +1536,15 @@
             </summary>
             <param name="values">The values to add to this collection.</param>
         </member>
+<<<<<<< HEAD
         <member name="M:Google.Protobuf.Collections.RepeatedField`1.AddRangeSpan(System.ReadOnlySpan{`0})">
             <summary>
             Adds the elements of the specified span to the end of the collection.
             </summary>
             <param name="source">The span whose elements should be added to the end of the collection.</param>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="M:Google.Protobuf.Collections.RepeatedField`1.Add(System.Collections.Generic.IEnumerable{`0})">
             <summary>
             Adds all of the specified values into this collection. This method is present to
@@ -1581,7 +1584,11 @@
             Returns a hash code for this instance.
             </summary>
             <returns>
+<<<<<<< HEAD
             A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+=======
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </returns>
         </member>
         <member name="M:Google.Protobuf.Collections.RepeatedField`1.Equals(Google.Protobuf.Collections.RepeatedField{`0})">
@@ -3181,6 +3188,7 @@
             tokenizer performing that validation - but not every token stream is valid "protobuf JSON".
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Google.Protobuf.JsonParser.TryParseSingleValue(Google.Protobuf.Reflection.FieldDescriptor,Google.Protobuf.JsonTokenizer,System.Object@)">
             <summary>
             Attempts to parse a single value from the JSON. When the value is completely invalid,
@@ -3191,6 +3199,8 @@
             true if the value was parsed successfully; false for an ignorable parse failure.
             </returns>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="M:Google.Protobuf.JsonParser.Parse``1(System.String)">
             <summary>
             Parses <paramref name="json"/> into a new message.
@@ -3398,6 +3408,7 @@
             It is assumed that the first letter of the literal has already been read.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.ReadInt(System.Text.StringBuilder)">
             <summary>
             Copies an integer into a StringBuilder.
@@ -3427,6 +3438,8 @@
             <param name="count">The number of digits appended to the builder</param>
             <returns>The character following the digits, or -1 for end-of-text.</returns>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="M:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.ValidateAndModifyStateForValue(System.String)">
             <summary>
             Validates that we're in a valid state to read a value (using the given error prefix if necessary)
@@ -3548,11 +3561,16 @@
         </member>
         <member name="F:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.PushBackReader.nextChar">
             <summary>
+<<<<<<< HEAD
             The buffered next character, if we have one, or -1 if there is no buffered character.
+=======
+            The buffered next character, if we have one.
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="M:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.PushBackReader.Read">
             <summary>
+<<<<<<< HEAD
             Returns the next character in the stream, or -1 if we have reached the end of the stream.
             </summary>
         </member>
@@ -3561,12 +3579,18 @@
             Reads the next character from the underlying reader, throwing an <see cref="T:Google.Protobuf.InvalidJsonException" />
             with the specified message if there are no more characters available.
             </summary>
+=======
+            Returns the next character in the stream, or null if we have reached the end.
+            </summary>
+            <returns></returns>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         </member>
         <member name="M:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.PushBackReader.CreateException(System.String)">
             <summary>
             Creates a new exception appropriate for the current state of the reader.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.StringBuilderCache">
             <summary>
             Provide a cached reusable instance of stringbuilder per thread.
@@ -3583,6 +3607,8 @@
         <member name="M:Google.Protobuf.JsonTokenizer.JsonTextTokenizer.StringBuilderCache.GetStringAndRelease(System.Text.StringBuilder)">
             <summary>ToString() the stringbuilder, Release it to the cache, and return the resulting string.</summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.LimitedInputStream">
             <summary>
             Stream implementation which proxies another stream, only allowing a certain amount
@@ -3696,7 +3722,11 @@
         </member>
         <member name="M:Google.Protobuf.MessageExtensions.IsInitialized(Google.Protobuf.IMessage)">
             <summary>
+<<<<<<< HEAD
             Checks if all required fields in a message have values set. For proto3 messages, this returns true.
+=======
+            Checks if all required fields in a message have values set. For proto3 messages, this returns true
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="T:Google.Protobuf.MessageParser">
@@ -4519,12 +4549,15 @@
             A placeholder for an unknown edition value.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="F:Google.Protobuf.Reflection.Edition.Legacy">
             <summary>
             A placeholder edition for specifying default behaviors *before* a feature
             was first introduced.  This is effectively an "infinite past".
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="F:Google.Protobuf.Reflection.Edition.Proto2">
             <summary>
             Legacy syntax "editions".  These pre-date editions, but behave much like
@@ -4543,7 +4576,11 @@
         <member name="F:Google.Protobuf.Reflection.Edition._1TestOnly">
             <summary>
             Placeholder editions for testing feature resolution.  These should not be
+<<<<<<< HEAD
             used or relied on outside of tests.
+=======
+            used or relyed on outside of tests.
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.Edition.Max">
@@ -4660,9 +4697,12 @@
              The supported values are "proto2", "proto3", and "editions".
             
              If `edition` is present, this value must be "editions".
+<<<<<<< HEAD
              WARNING: This field should only be used by protobuf plugins or special
              cases like the proto compiler. Other uses are discouraged and
              developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.FileDescriptorProto.HasSyntax">
@@ -4677,9 +4717,12 @@
         <member name="P:Google.Protobuf.Reflection.FileDescriptorProto.Edition">
             <summary>
             The edition of the proto file.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.FileDescriptorProto.HasEdition">
@@ -5447,6 +5490,7 @@
             <summary>Field number for the "java_string_check_utf8" field.</summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.FileOptions.JavaStringCheckUtf8">
+<<<<<<< HEAD
              <summary>
              A proto2 file can set this to true to opt in to UTF-8 checking for Java,
              which will throw an exception if invalid UTF-8 is parsed from the wire or
@@ -5459,6 +5503,16 @@
              false has no effect: it cannot be used to opt proto3 files out of UTF-8
              checks.
              </summary>
+=======
+            <summary>
+            If set true, then the Java2 code generator will generate code that
+            throws an exception whenever an attempt is made to assign a non-UTF-8
+            byte sequence to a string field.
+            Message reflection will do the same.
+            However, an extension field still accepts non-UTF-8 byte sequences.
+            This option has no effect on when used with the lite runtime.
+            </summary>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         </member>
         <member name="P:Google.Protobuf.Reflection.FileOptions.HasJavaStringCheckUtf8">
             <summary>Gets whether the "java_string_check_utf8" field is set</summary>
@@ -5681,9 +5735,12 @@
         <member name="P:Google.Protobuf.Reflection.FileOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.FileOptions.UninterpretedOptionFieldNumber">
@@ -5845,9 +5902,12 @@
         <member name="P:Google.Protobuf.Reflection.MessageOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.MessageOptions.UninterpretedOptionFieldNumber">
@@ -5863,13 +5923,21 @@
         </member>
         <member name="P:Google.Protobuf.Reflection.FieldOptions.Ctype">
             <summary>
+<<<<<<< HEAD
             NOTE: ctype is deprecated. Use `features.(pb.cpp).string_type` instead.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             The ctype option instructs the C++ code generator to use a different
             representation of the field than it normally would.  See the specific
             options below.  This option is only implemented to support use of
             [ctype=CORD] and [ctype=STRING] (the default) on non-repeated fields of
+<<<<<<< HEAD
             type "bytes" in the open source release.
             TODO: make ctype actually deprecated.
+=======
+            type "bytes" in the open source release -- sorry, we'll try to include
+            other types in a future version!
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.FieldOptions.HasCtype">
@@ -6040,6 +6108,7 @@
         <member name="P:Google.Protobuf.Reflection.FieldOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
@@ -6048,6 +6117,10 @@
         <member name="F:Google.Protobuf.Reflection.FieldOptions.FeatureSupportFieldNumber">
             <summary>Field number for the "feature_support" field.</summary>
         </member>
+=======
+            </summary>
+        </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="F:Google.Protobuf.Reflection.FieldOptions.UninterpretedOptionFieldNumber">
             <summary>Field number for the "uninterpreted_option" field.</summary>
         </member>
@@ -6092,13 +6165,23 @@
         <member name="T:Google.Protobuf.Reflection.FieldOptions.Types.OptionRetention">
             <summary>
             If set to RETENTION_SOURCE, the option will be omitted from the binary.
+<<<<<<< HEAD
+=======
+            Note: as of January 2023, support for this is in progress and does not yet
+            have an effect (b/264593489).
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="T:Google.Protobuf.Reflection.FieldOptions.Types.OptionTargetType">
             <summary>
             This indicates the types of entities that the field may apply to when used
             as an option. If it is unset, then the field may be freely used as an
+<<<<<<< HEAD
             option on any kind of entity.
+=======
+            option on any kind of entity. Note: as of January 2023, support for this is
+            in progress and does not yet have an effect (b/264593489).
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.FieldOptions.Types.EditionDefault.EditionFieldNumber">
@@ -6124,6 +6207,7 @@
         <member name="M:Google.Protobuf.Reflection.FieldOptions.Types.EditionDefault.ClearValue">
             <summary>Clears the value of the "value" field</summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.Reflection.FieldOptions.Types.FeatureSupport">
             <summary>
             Information about the support window of a feature.
@@ -6191,15 +6275,20 @@
         <member name="M:Google.Protobuf.Reflection.FieldOptions.Types.FeatureSupport.ClearEditionRemoved">
             <summary>Clears the value of the "edition_removed" field</summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="F:Google.Protobuf.Reflection.OneofOptions.FeaturesFieldNumber">
             <summary>Field number for the "features" field.</summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.OneofOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.OneofOptions.UninterpretedOptionFieldNumber">
@@ -6267,9 +6356,12 @@
         <member name="P:Google.Protobuf.Reflection.EnumOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.EnumOptions.UninterpretedOptionFieldNumber">
@@ -6303,9 +6395,12 @@
         <member name="P:Google.Protobuf.Reflection.EnumValueOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.EnumValueOptions.DebugRedactFieldNumber">
@@ -6324,6 +6419,7 @@
         <member name="M:Google.Protobuf.Reflection.EnumValueOptions.ClearDebugRedact">
             <summary>Clears the value of the "debug_redact" field</summary>
         </member>
+<<<<<<< HEAD
         <member name="F:Google.Protobuf.Reflection.EnumValueOptions.FeatureSupportFieldNumber">
             <summary>Field number for the "feature_support" field.</summary>
         </member>
@@ -6332,6 +6428,8 @@
             Information about the support window of a feature value.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="F:Google.Protobuf.Reflection.EnumValueOptions.UninterpretedOptionFieldNumber">
             <summary>Field number for the "uninterpreted_option" field.</summary>
         </member>
@@ -6346,9 +6444,12 @@
         <member name="P:Google.Protobuf.Reflection.ServiceOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.ServiceOptions.DeprecatedFieldNumber">
@@ -6408,9 +6509,12 @@
         <member name="P:Google.Protobuf.Reflection.MethodOptions.Features">
             <summary>
             Any features defined in the specific edition.
+<<<<<<< HEAD
             WARNING: This field should only be used by protobuf plugins or special
             cases like the proto compiler. Other uses are discouraged and
             developers should rely on the protoreflect APIs for their client language.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.MethodOptions.UninterpretedOptionFieldNumber">
@@ -6608,6 +6712,7 @@
         <member name="M:Google.Protobuf.Reflection.FeatureSet.ClearJsonFormat">
             <summary>Clears the value of the "json_format" field</summary>
         </member>
+<<<<<<< HEAD
         <member name="F:Google.Protobuf.Reflection.FeatureSet.EnforceNamingStyleFieldNumber">
             <summary>Field number for the "enforce_naming_style" field.</summary>
         </member>
@@ -6617,6 +6722,8 @@
         <member name="M:Google.Protobuf.Reflection.FeatureSet.ClearEnforceNamingStyle">
             <summary>Clears the value of the "enforce_naming_style" field</summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.Reflection.FeatureSet.Types">
             <summary>Container for nested types declared in the FeatureSet message type.</summary>
         </member>
@@ -6681,6 +6788,7 @@
         <member name="M:Google.Protobuf.Reflection.FeatureSetDefaults.Types.FeatureSetEditionDefault.ClearEdition">
             <summary>Clears the value of the "edition" field</summary>
         </member>
+<<<<<<< HEAD
         <member name="F:Google.Protobuf.Reflection.FeatureSetDefaults.Types.FeatureSetEditionDefault.OverridableFeaturesFieldNumber">
             <summary>Field number for the "overridable_features" field.</summary>
         </member>
@@ -6696,6 +6804,10 @@
             <summary>
             Defaults of features that can't be overridden in this edition.
             </summary>
+=======
+        <member name="F:Google.Protobuf.Reflection.FeatureSetDefaults.Types.FeatureSetEditionDefault.FeaturesFieldNumber">
+            <summary>Field number for the "features" field.</summary>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         </member>
         <member name="T:Google.Protobuf.Reflection.SourceCodeInfo">
             <summary>
@@ -6981,6 +7093,7 @@
             Base class for nearly all descriptors, providing common functionality.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="P:Google.Protobuf.Reflection.DescriptorBase.Features">
             <summary>
             The feature set for this descriptor, including inherited features.
@@ -6988,6 +7101,8 @@
             descriptor types (e.g. FieldDescriptor.IsPacked) rather than querying features directly.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="P:Google.Protobuf.Reflection.DescriptorBase.Index">
             <value>
             The index of this descriptor within its parent descriptor.
@@ -7134,6 +7249,7 @@
             <exception cref="T:Google.Protobuf.Reflection.DescriptorValidationException">A field with the same
             containing type and number already exists.</exception>
         </member>
+<<<<<<< HEAD
         <member name="M:Google.Protobuf.Reflection.DescriptorPool.AddEnumValue(Google.Protobuf.Reflection.EnumValueDescriptor)">
             <summary>
             Adds an enum value to the enumValuesByNumber and enumValuesByName tables. If an enum value
@@ -7142,6 +7258,13 @@
             value with the same name already exists, this method throws DescriptorValidationException.
             (It is expected that this method is called after AddSymbol, which would already have thrown
             an exception in this failure case.)
+=======
+        <member name="M:Google.Protobuf.Reflection.DescriptorPool.AddEnumValueByNumber(Google.Protobuf.Reflection.EnumValueDescriptor)">
+            <summary>
+            Adds an enum value to the enumValuesByNumber table. If an enum value
+            with the same type and number already exists, this method does nothing.
+            (This is allowed; the first value defined with the number takes precedence.)
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="M:Google.Protobuf.Reflection.DescriptorPool.LookupSymbol(System.String,Google.Protobuf.Reflection.IDescriptor)">
@@ -7156,11 +7279,14 @@
             If it starts being used more widely, we should look at performance more carefully.
             </remarks>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.Reflection.DescriptorPool.EnumValueByNameDescriptorKey">
             <summary>
             Struct used to hold the keys for the enumValuesByName table.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.Reflection.DescriptorUtil">
             <summary>
             Internal class containing utility methods when working with descriptors.
@@ -7339,6 +7465,7 @@
             the provided descriptor type in ascending field order
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.Reflection.FeatureSetDescriptor">
             <summary>
             A resolved set of features for a file, message etc.
@@ -7375,6 +7502,8 @@
             one. May be null, in which case this descriptor is returned.</param>
             <returns>A descriptor based on the current one, with the given set of overrides.</returns>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.Reflection.FieldAccessorBase">
             <summary>
             Base class for field accessors.
@@ -7433,6 +7562,7 @@
             An extension identifier for this field, or <c>null</c> if this field isn't an extension.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Google.Protobuf.Reflection.FieldDescriptor.GetDirectParentFeatures(Google.Protobuf.Reflection.FieldDescriptorProto,Google.Protobuf.Reflection.FileDescriptor,Google.Protobuf.Reflection.MessageDescriptor)">
             <summary>
             Returns the features from the direct parent:
@@ -7447,6 +7577,8 @@
             need to be inferred.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="P:Google.Protobuf.Reflection.FieldDescriptor.Name">
             <summary>
             The brief name of the descriptor's target.
@@ -7678,11 +7810,14 @@
             Proto3 syntax
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="F:Google.Protobuf.Reflection.Syntax.Editions">
             <summary>
             Editions syntax
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="F:Google.Protobuf.Reflection.Syntax.Unknown">
             <summary>
             An unknown declared syntax
@@ -7719,6 +7854,7 @@
             </summary>
             <returns>A protobuf representation of this file descriptor.</returns>
         </member>
+<<<<<<< HEAD
         <member name="P:Google.Protobuf.Reflection.FileDescriptor.Features">
             <summary>
             The feature set for this file, including inherited features.
@@ -7732,6 +7868,11 @@
         <member name="P:Google.Protobuf.Reflection.FileDescriptor.Syntax">
             <summary>
             The syntax of the file.
+=======
+        <member name="P:Google.Protobuf.Reflection.FileDescriptor.Syntax">
+            <summary>
+            The syntax of the file
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             </summary>
         </member>
         <member name="P:Google.Protobuf.Reflection.FileDescriptor.Name">
@@ -8120,12 +8261,15 @@
             with the addition of presence.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="P:Google.Protobuf.Reflection.MessageDescriptor.IsMapEntry">
             <summary>
             Returns whether this message was synthetically-created to store key/value pairs in a
             map field.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="P:Google.Protobuf.Reflection.MessageDescriptor.ContainingType">
             <value>
             If this is a nested type, get the outer descriptor, otherwise null.
@@ -8664,6 +8808,7 @@
             Builder class which isn't exposed, but acts as a convenient alternative to passing round two dictionaries in recursive calls.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.RepeatedFieldExtensions">
             <summary>
             A set of extension methods on <see cref="T:Google.Protobuf.Collections.RepeatedField`1"/>
@@ -8676,6 +8821,8 @@
             <param name="source">The span whose elements should be added to the end of the <see cref="T:Google.Protobuf.Collections.RepeatedField`1"/>.</param>
             <exception cref="T:System.ArgumentNullException">The <paramref name="repeatedField"/> is null.</exception>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.SegmentedBufferHelper">
             <summary>
             Abstraction for reading from a stream / read only sequence.
@@ -8955,6 +9102,7 @@
             This API is experimental and subject to change.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Google.Protobuf.UnsafeCollectionOperations">
             <summary>
             An unsafe class that provides a set of methods to access the underlying data representations of
@@ -9025,6 +9173,8 @@
             Thrown if <paramref name="count"/> is negative.
             </exception>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:Google.Protobuf.WellKnownTypes.AnyReflection">
             <summary>Holder for reflection information generated from google/protobuf/any.proto</summary>
         </member>
@@ -9434,7 +9584,11 @@
              The mixin construct implies that all methods in `AccessControl` are
              also declared with same name and request/response types in
              `Storage`. A documentation generator or annotation processor will
+<<<<<<< HEAD
              see the effective `Storage.GetAcl` method after inheriting
+=======
+             see the effective `Storage.GetAcl` method after inherting
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              documentation and annotations as follows:
             
                  service Storage {
@@ -11017,9 +11171,12 @@
              Wrapper message for `double`.
             
              The JSON representation for `DoubleValue` is JSON number.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.DoubleValue.ValueFieldNumber">
@@ -11035,9 +11192,12 @@
              Wrapper message for `float`.
             
              The JSON representation for `FloatValue` is JSON number.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.FloatValue.ValueFieldNumber">
@@ -11053,9 +11213,12 @@
              Wrapper message for `int64`.
             
              The JSON representation for `Int64Value` is JSON string.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.Int64Value.ValueFieldNumber">
@@ -11071,9 +11234,12 @@
              Wrapper message for `uint64`.
             
              The JSON representation for `UInt64Value` is JSON string.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.UInt64Value.ValueFieldNumber">
@@ -11089,9 +11255,12 @@
              Wrapper message for `int32`.
             
              The JSON representation for `Int32Value` is JSON number.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.Int32Value.ValueFieldNumber">
@@ -11107,9 +11276,12 @@
              Wrapper message for `uint32`.
             
              The JSON representation for `UInt32Value` is JSON number.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.UInt32Value.ValueFieldNumber">
@@ -11125,9 +11297,12 @@
              Wrapper message for `bool`.
             
              The JSON representation for `BoolValue` is JSON `true` and `false`.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.BoolValue.ValueFieldNumber">
@@ -11143,9 +11318,12 @@
              Wrapper message for `string`.
             
              The JSON representation for `StringValue` is JSON string.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.StringValue.ValueFieldNumber">
@@ -11161,9 +11339,12 @@
              Wrapper message for `bytes`.
             
              The JSON representation for `BytesValue` is JSON string.
+<<<<<<< HEAD
             
              Not recommended for use in new APIs, but still useful for legacy APIs and
              has no plan to be removed.
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.BytesValue.ValueFieldNumber">

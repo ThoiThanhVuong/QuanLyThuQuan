@@ -28,6 +28,15 @@
     <member name="M:System.Configuration.ApplicationSettingsBase.#ctor">
       <summary>Initializes an instance of the <see cref="T:System.Configuration.ApplicationSettingsBase" /> class to its default state.</summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ApplicationSettingsBase.#ctor(System.ComponentModel.IComponent)">
+      <summary>Initializes an instance of the <see cref="T:System.Configuration.ApplicationSettingsBase" /> class using the supplied owner component.</summary>
+      <param name="owner">The component that will act as the owner of the application settings object.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="owner" /> is <see langword="null" />.</exception>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ApplicationSettingsBase.#ctor(System.ComponentModel.IComponent,System.String)">
       <summary>Initializes an instance of the <see cref="T:System.Configuration.ApplicationSettingsBase" /> class using the supplied owner component and settings key.</summary>
       <param name="owner">The component that will act as the owner of the application settings object.</param>
@@ -35,12 +44,15 @@
       <exception cref="T:System.ArgumentNullException">
         <paramref name="owner" /> is <see langword="null" />.</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ApplicationSettingsBase.#ctor(System.ComponentModel.IComponent)">
       <summary>Initializes an instance of the <see cref="T:System.Configuration.ApplicationSettingsBase" /> class using the supplied owner component.</summary>
       <param name="owner">The component that will act as the owner of the application settings object.</param>
       <exception cref="T:System.ArgumentNullException">
         <paramref name="owner" /> is <see langword="null" />.</exception>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ApplicationSettingsBase.#ctor(System.String)">
       <summary>Initializes an instance of the <see cref="T:System.Configuration.ApplicationSettingsBase" /> class using the supplied settings key.</summary>
       <param name="settingsKey">A <see cref="T:System.String" /> that uniquely identifies separate instances of the wrapper class.</param>
@@ -297,10 +309,26 @@
     </member>
     <member name="M:System.Configuration.Configuration.Save">
       <summary>Writes the configuration settings contained within this <see cref="T:System.Configuration.Configuration" /> object to the current XML configuration file.</summary>
+<<<<<<< HEAD
       <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.
 
 -or-
 
+=======
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.  
+  
+-or-
+  
+ The configuration file has changed.</exception>
+    </member>
+    <member name="M:System.Configuration.Configuration.Save(System.Configuration.ConfigurationSaveMode)">
+      <summary>Writes the configuration settings contained within this <see cref="T:System.Configuration.Configuration" /> object to the current XML configuration file.</summary>
+      <param name="saveMode">A <see cref="T:System.Configuration.ConfigurationSaveMode" /> value that determines which property values to save.</param>
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The configuration file has changed.</exception>
     </member>
     <member name="M:System.Configuration.Configuration.Save(System.Configuration.ConfigurationSaveMode,System.Boolean)">
@@ -308,6 +336,7 @@
       <param name="saveMode">A <see cref="T:System.Configuration.ConfigurationSaveMode" /> value that determines which property values to save.</param>
       <param name="forceSaveAll">
         <see langword="true" /> to save even if the configuration was not modified; otherwise, <see langword="false" />.</param>
+<<<<<<< HEAD
       <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.
 
 -or-
@@ -321,6 +350,31 @@
 
 -or-
 
+=======
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.  
+  
+-or-
+  
+ The configuration file has changed.</exception>
+    </member>
+    <member name="M:System.Configuration.Configuration.SaveAs(System.String)">
+      <summary>Writes the configuration settings contained within this <see cref="T:System.Configuration.Configuration" /> object to the specified XML configuration file.</summary>
+      <param name="filename">The path and file name to save the configuration file to.</param>
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.  
+  
+-or-
+  
+ The configuration file has changed.</exception>
+    </member>
+    <member name="M:System.Configuration.Configuration.SaveAs(System.String,System.Configuration.ConfigurationSaveMode)">
+      <summary>Writes the configuration settings contained within this <see cref="T:System.Configuration.Configuration" /> object to the specified XML configuration file.</summary>
+      <param name="filename">The path and file name to save the configuration file to.</param>
+      <param name="saveMode">A <see cref="T:System.Configuration.ConfigurationSaveMode" /> value that determines which property values to save.</param>
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The configuration file could not be written to.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The configuration file has changed.</exception>
     </member>
     <member name="M:System.Configuration.Configuration.SaveAs(System.String,System.Configuration.ConfigurationSaveMode,System.Boolean)">
@@ -332,6 +386,7 @@
       <exception cref="T:System.ArgumentException">
         <paramref name="filename" /> is null or an empty string ("").</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Configuration.SaveAs(System.String,System.Configuration.ConfigurationSaveMode)">
       <summary>Writes the configuration settings contained within this <see cref="T:System.Configuration.Configuration" /> object to the specified XML configuration file.</summary>
       <param name="filename">The path and file name to save the configuration file to.</param>
@@ -351,6 +406,8 @@
 
  The configuration file has changed.</exception>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="P:System.Configuration.Configuration.AppSettings">
       <summary>Gets the <see cref="T:System.Configuration.AppSettingsSection" /> object configuration section that applies to this <see cref="T:System.Configuration.Configuration" /> object.</summary>
       <returns>An <see cref="T:System.Configuration.AppSettingsSection" /> object representing the <see langword="appSettings" /> configuration section that applies to this <see cref="T:System.Configuration.Configuration" /> object.</returns>
@@ -495,6 +552,7 @@
       <param name="reader">The <see cref="T:System.Xml.XmlReader" /> that reads from the configuration file.</param>
       <param name="serializeCollectionKey">
         <see langword="true" /> to serialize only the collection key properties; otherwise, <see langword="false" />.</param>
+<<<<<<< HEAD
       <exception cref="T:System.Configuration.ConfigurationErrorsException">The element to read is locked.
 
 -or-
@@ -503,6 +561,16 @@
 
 -or-
 
+=======
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The element to read is locked.  
+  
+-or-
+  
+ An attribute of the current node is not recognized.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The lock status of the current node cannot be determined.</exception>
     </member>
     <member name="M:System.Configuration.ConfigurationElement.Equals(System.Object)">
@@ -556,6 +624,7 @@
       <summary>Gets a value indicating whether an unknown element is encountered during deserialization.</summary>
       <param name="elementName">The name of the unknown subelement.</param>
       <param name="reader">The <see cref="T:System.Xml.XmlReader" /> being used for deserialization.</param>
+<<<<<<< HEAD
       <exception cref="T:System.Configuration.ConfigurationErrorsException">The element identified by <paramref name="elementName" /> is locked.
 
 -or-
@@ -580,6 +649,32 @@
 
 -or-
 
+=======
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">The element identified by <paramref name="elementName" /> is locked.  
+  
+-or-
+  
+ One or more of the element's attributes is locked.  
+  
+-or-
+  
+ <paramref name="elementName" /> is unrecognized, or the element has an unrecognized attribute.  
+  
+-or-
+  
+ The element has a Boolean attribute with an invalid value.  
+  
+-or-
+  
+ An attempt was made to deserialize a property more than once.  
+  
+-or-
+  
+ An attempt was made to deserialize a property that is not a valid member of the element.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The element cannot contain a CDATA or text element.</exception>
       <returns>
         <see langword="true" /> when an unknown element is encountered while deserializing; otherwise, <see langword="false" />.</returns>
@@ -712,6 +807,13 @@
       <exception cref="T:System.ArgumentNullException">
         <paramref name="comparer" /> is <see langword="null" />.</exception>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConfigurationElementCollection.BaseAdd(System.Configuration.ConfigurationElement)">
+      <summary>Adds a configuration element to the <see cref="T:System.Configuration.ConfigurationElementCollection" />.</summary>
+      <param name="element">The <see cref="T:System.Configuration.ConfigurationElement" /> to add.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationElementCollection.BaseAdd(System.Configuration.ConfigurationElement,System.Boolean)">
       <summary>Adds a configuration element to the configuration element collection.</summary>
       <param name="element">The <see cref="T:System.Configuration.ConfigurationElement" /> to add.</param>
@@ -719,10 +821,13 @@
         <see langword="true" /> to throw an exception if the <see cref="T:System.Configuration.ConfigurationElement" /> specified is already contained in the <see cref="T:System.Configuration.ConfigurationElementCollection" />; otherwise, <see langword="false" />.</param>
       <exception cref="T:System.Exception">The <see cref="T:System.Configuration.ConfigurationElement" /> to add already exists in the <see cref="T:System.Configuration.ConfigurationElementCollection" /> and the <paramref name="throwIfExists" /> parameter is <see langword="true" />.</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationElementCollection.BaseAdd(System.Configuration.ConfigurationElement)">
       <summary>Adds a configuration element to the <see cref="T:System.Configuration.ConfigurationElementCollection" />.</summary>
       <param name="element">The <see cref="T:System.Configuration.ConfigurationElement" /> to add.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationElementCollection.BaseAdd(System.Int32,System.Configuration.ConfigurationElement)">
       <summary>Adds a configuration element to the configuration element collection.</summary>
       <param name="index">The index location at which to add the specified <see cref="T:System.Configuration.ConfigurationElement" />.</param>
@@ -990,6 +1095,18 @@
       <param name="context">Contextual information about the source or destination.</param>
       <exception cref="T:System.InvalidOperationException">The current type is not a <see cref="T:System.Configuration.ConfigurationException" /> or a <see cref="T:System.Configuration.ConfigurationErrorsException" />.</exception>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
+      <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
+    </member>
+    <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
+      <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
+      <param name="inner">The exception that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String,System.Exception,System.String,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
       <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
@@ -1009,11 +1126,14 @@
       <param name="inner">The inner exception that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
       <param name="reader">The <see cref="T:System.Xml.XmlReader" /> object that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
       <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
       <param name="inner">The exception that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String,System.String,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
       <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
@@ -1030,10 +1150,13 @@
       <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
       <param name="reader">The <see cref="T:System.Xml.XmlReader" /> object that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationErrorsException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationErrorsException" /> class.</summary>
       <param name="message">A message that describes why this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception was thrown.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationErrorsException.GetFilename(System.Xml.XmlNode)">
       <summary>Gets the path to the configuration file from which the internal <see cref="T:System.Xml.XmlNode" /> object was loaded when this configuration exception was thrown.</summary>
       <param name="node">The <see cref="T:System.Xml.XmlNode" /> object that caused this <see cref="T:System.Configuration.ConfigurationErrorsException" /> exception to be thrown.</param>
@@ -1086,6 +1209,18 @@
       <param name="info">The object that holds the information to deserialize.</param>
       <param name="context">Contextual information about the source or destination.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConfigurationException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
+      <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
+    </member>
+    <member name="M:System.Configuration.ConfigurationException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
+      <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
+      <param name="inner">The inner exception that caused this <see cref="T:System.Configuration.ConfigurationException" /> to be thrown, if any.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationException.#ctor(System.String,System.Exception,System.String,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
@@ -1099,11 +1234,14 @@
       <param name="inner">The inner exception that caused this <see cref="T:System.Configuration.ConfigurationException" /> to be thrown, if any.</param>
       <param name="node">The <see cref="T:System.Xml.XmlNode" /> that caused this <see cref="T:System.Configuration.ConfigurationException" /> to be thrown.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
       <param name="inner">The inner exception that caused this <see cref="T:System.Configuration.ConfigurationException" /> to be thrown, if any.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationException.#ctor(System.String,System.String,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
@@ -1115,10 +1253,13 @@
       <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
       <param name="node">The <see cref="T:System.Xml.XmlNode" /> that caused this <see cref="T:System.Configuration.ConfigurationException" /> to be thrown.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.ConfigurationException" /> exception was thrown.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
       <summary>Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> object with the file name and line number at which this configuration exception occurred.</summary>
       <param name="info">The object that holds the information to be serialized.</param>
@@ -1288,6 +1429,16 @@
       <exception cref="T:System.Configuration.ConfigurationErrorsException">A configuration file could not be loaded.</exception>
       <returns>The machine configuration file.</returns>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(System.Configuration.ExeConfigurationFileMap,System.Configuration.ConfigurationUserLevel)">
+      <summary>Opens the specified client configuration file as a <see cref="T:System.Configuration.Configuration" /> object that uses the specified file mapping and user level.</summary>
+      <param name="fileMap">The configuration file to use instead of the application default configuration file.</param>
+      <param name="userLevel">One of the enumeration values that specifies the user level for which you are opening the configuration.</param>
+      <exception cref="T:System.Configuration.ConfigurationErrorsException">A configuration file could not be loaded.</exception>
+      <returns>The configuration object.</returns>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(System.Configuration.ExeConfigurationFileMap,System.Configuration.ConfigurationUserLevel,System.Boolean)">
       <summary>Opens the specified client configuration file as a <see cref="T:System.Configuration.Configuration" /> object that uses the specified file mapping, user level, and preload option.</summary>
       <param name="fileMap">The configuration file to use instead of the default application configuration file.</param>
@@ -1297,6 +1448,7 @@
       <exception cref="T:System.Configuration.ConfigurationErrorsException">A configuration file could not be loaded.</exception>
       <returns>The configuration object.</returns>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(System.Configuration.ExeConfigurationFileMap,System.Configuration.ConfigurationUserLevel)">
       <summary>Opens the specified client configuration file as a <see cref="T:System.Configuration.Configuration" /> object that uses the specified file mapping and user level.</summary>
       <param name="fileMap">The configuration file to use instead of the application default configuration file.</param>
@@ -1304,6 +1456,8 @@
       <exception cref="T:System.Configuration.ConfigurationErrorsException">A configuration file could not be loaded.</exception>
       <returns>The configuration object.</returns>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationManager.OpenMappedMachineConfiguration(System.Configuration.ConfigurationFileMap)">
       <summary>Opens the machine configuration file as a <see cref="T:System.Configuration.Configuration" /> object that uses the specified file mapping.</summary>
       <param name="fileMap">The configuration file to use instead of the application default configuration file.</param>
@@ -1327,15 +1481,27 @@
     <member name="T:System.Configuration.ConfigurationProperty">
       <summary>Represents an attribute or a child of a configuration element. This class cannot be inherited.</summary>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object,System.ComponentModel.TypeConverter,System.Configuration.ConfigurationValidatorBase,System.Configuration.ConfigurationPropertyOptions,System.String)">
+=======
+    <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
+      <param name="name">The name of the configuration entity.</param>
+      <param name="type">The type of the configuration entity.</param>
+    </member>
+    <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object)">
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
       <param name="name">The name of the configuration entity.</param>
       <param name="type">The type of the configuration entity.</param>
       <param name="defaultValue">The default value of the configuration entity.</param>
+<<<<<<< HEAD
       <param name="typeConverter">The type of the converter to apply.</param>
       <param name="validator">The validator to use.</param>
       <param name="options">One of the <see cref="T:System.Configuration.ConfigurationPropertyOptions" /> enumeration values.</param>
       <param name="description">The description of the configuration entity.</param>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     </member>
     <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object,System.ComponentModel.TypeConverter,System.Configuration.ConfigurationValidatorBase,System.Configuration.ConfigurationPropertyOptions)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
@@ -1346,6 +1512,19 @@
       <param name="validator">The validator to use.</param>
       <param name="options">One of the <see cref="T:System.Configuration.ConfigurationPropertyOptions" /> enumeration values.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object,System.ComponentModel.TypeConverter,System.Configuration.ConfigurationValidatorBase,System.Configuration.ConfigurationPropertyOptions,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
+      <param name="name">The name of the configuration entity.</param>
+      <param name="type">The type of the configuration entity.</param>
+      <param name="defaultValue">The default value of the configuration entity.</param>
+      <param name="typeConverter">The type of the converter to apply.</param>
+      <param name="validator">The validator to use.</param>
+      <param name="options">One of the <see cref="T:System.Configuration.ConfigurationPropertyOptions" /> enumeration values.</param>
+      <param name="description">The description of the configuration entity.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object,System.Configuration.ConfigurationPropertyOptions)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
       <param name="name">The name of the configuration entity.</param>
@@ -1353,6 +1532,7 @@
       <param name="defaultValue">The default value of the configuration entity.</param>
       <param name="options">One of the <see cref="T:System.Configuration.ConfigurationPropertyOptions" /> enumeration values.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConfigurationProperty.#ctor(System.String,System.Type,System.Object)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConfigurationProperty" /> class.</summary>
       <param name="name">The name of the configuration entity.</param>
@@ -1364,6 +1544,8 @@
       <param name="name">The name of the configuration entity.</param>
       <param name="type">The type of the configuration entity.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="P:System.Configuration.ConfigurationProperty.Converter">
       <summary>Gets the <see cref="T:System.ComponentModel.TypeConverter" /> used to convert this <see cref="T:System.Configuration.ConfigurationProperty" /> into an XML representation for writing to the configuration file.</summary>
       <exception cref="T:System.Exception">This <see cref="T:System.Configuration.ConfigurationProperty" /> cannot be converted.</exception>
@@ -1675,10 +1857,17 @@
       <summary>Forces the declaration for this <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object.</summary>
       <param name="force">
         <see langword="true" /> if the <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object must be written to the file; otherwise, <see langword="false" />.</param>
+<<<<<<< HEAD
       <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object is the root section group.
 
 -or-
 
+=======
+      <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object is the root section group.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object has a location.</exception>
     </member>
     <member name="M:System.Configuration.ConfigurationSectionGroup.ShouldSerializeSectionGroupInTargetVersion(System.Runtime.Versioning.FrameworkName)">
@@ -1715,10 +1904,17 @@
     </member>
     <member name="P:System.Configuration.ConfigurationSectionGroup.Type">
       <summary>Gets or sets the type for this <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object.</summary>
+<<<<<<< HEAD
       <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object is the root section group.
 
 -or-
 
+=======
+      <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object is the root section group.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object has a location.</exception>
       <exception cref="T:System.Configuration.ConfigurationErrorsException">The section or group is already defined at another level.</exception>
       <returns>The type of this <see cref="T:System.Configuration.ConfigurationSectionGroup" /> object.</returns>
@@ -1924,17 +2120,28 @@
     <member name="M:System.Configuration.ConnectionStringSettings.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConnectionStringSettings" /> class.</summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.ConnectionStringSettings.#ctor(System.String,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConnectionStringSettings" /> class.</summary>
+      <param name="name">The name of the connection string.</param>
+      <param name="connectionString">The connection string.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConnectionStringSettings.#ctor(System.String,System.String,System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConnectionStringSettings" /> class.</summary>
       <param name="name">The name of the connection string.</param>
       <param name="connectionString">The connection string.</param>
       <param name="providerName">The name of the provider to use with the connection string.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.ConnectionStringSettings.#ctor(System.String,System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.ConnectionStringSettings" /> class.</summary>
       <param name="name">The name of the connection string.</param>
       <param name="connectionString">The connection string.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.ConnectionStringSettings.ToString">
       <summary>Returns a string representation of the object.</summary>
       <returns>A string representation of the object.</returns>
@@ -2082,6 +2289,7 @@
       <summary>Decrypts the passed <see cref="T:System.Xml.XmlNode" /> object.</summary>
       <param name="encryptedNode">The <see cref="T:System.Xml.XmlNode" /> object to decrypt.</param>
       <exception cref="T:System.Configuration.ConfigurationErrorsException">
+<<<<<<< HEAD
         <paramref name="encryptedNode" /> does not have <see cref="P:System.Xml.XmlNode.Name" /> set to "EncryptedData" and <see cref="T:System.Xml.XmlNodeType" /> set to <see cref="F:System.Xml.XmlNodeType.Element" />.
 
 -or-
@@ -2090,6 +2298,16 @@
 
 -or-
 
+=======
+        <paramref name="encryptedNode" /> does not have <see cref="P:System.Xml.XmlNode.Name" /> set to "EncryptedData" and <see cref="T:System.Xml.XmlNodeType" /> set to <see cref="F:System.Xml.XmlNodeType.Element" />.  
+  
+-or-
+  
+ <paramref name="encryptedNode" /> does not have a child node named "CipherData" with a child node named "CipherValue".  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The child node named "CipherData" is an empty node.</exception>
       <returns>A decrypted <see cref="T:System.Xml.XmlNode" /> object.</returns>
     </member>
@@ -2336,6 +2554,21 @@
     <member name="T:System.Configuration.IntegerValidator">
       <summary>Provides validation of an <see cref="T:System.Int32" /> value.</summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.IntegerValidator.#ctor(System.Int32,System.Int32)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.IntegerValidator" /> class.</summary>
+      <param name="minValue">An <see cref="T:System.Int32" /> object that specifies the minimum value.</param>
+      <param name="maxValue">An <see cref="T:System.Int32" /> object that specifies the maximum value.</param>
+    </member>
+    <member name="M:System.Configuration.IntegerValidator.#ctor(System.Int32,System.Int32,System.Boolean)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.IntegerValidator" /> class.</summary>
+      <param name="minValue">An <see cref="T:System.Int32" /> object that specifies the minimum value.</param>
+      <param name="maxValue">An <see cref="T:System.Int32" /> object that specifies the maximum value.</param>
+      <param name="rangeIsExclusive">
+        <see langword="true" /> to specify that the validation range is exclusive. Inclusive means the value to be validated must be within the specified range; exclusive means that it must be below the minimum or above the maximum.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.IntegerValidator.#ctor(System.Int32,System.Int32,System.Boolean,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.IntegerValidator" /> class.</summary>
       <param name="minValue">An <see cref="T:System.Int32" /> object that specifies the minimum length of the integer value.</param>
@@ -2349,6 +2582,7 @@
   
  <paramref name="minValue" /> is greater than <paramref name="maxValue" />.</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.IntegerValidator.#ctor(System.Int32,System.Int32,System.Boolean)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.IntegerValidator" /> class.</summary>
       <param name="minValue">An <see cref="T:System.Int32" /> object that specifies the minimum value.</param>
@@ -2361,6 +2595,8 @@
       <param name="minValue">An <see cref="T:System.Int32" /> object that specifies the minimum value.</param>
       <param name="maxValue">An <see cref="T:System.Int32" /> object that specifies the maximum value.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.IntegerValidator.CanValidate(System.Type)">
       <summary>Determines whether the type of the object can be validated.</summary>
       <param name="type">The type of the object.</param>
@@ -2545,6 +2781,14 @@
       <returns>
         <see langword="true" /> if the configuration path is trusted; otherwise, <see langword="false" />.</returns>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForRead(System.String)">
+      <summary>Opens a <see cref="T:System.IO.Stream" /> object to read a configuration file.</summary>
+      <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
+      <returns>The object specified by <paramref name="streamName" />.</returns>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForRead(System.String,System.Boolean)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object to read a configuration file.</summary>
       <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
@@ -2552,10 +2796,19 @@
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
       <returns>The object specified by <paramref name="streamName" />.</returns>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForRead(System.String)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object to read a configuration file.</summary>
       <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
       <returns>The object specified by <paramref name="streamName" />.</returns>
+=======
+    <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForWrite(System.String,System.String,System.Object@)">
+      <summary>Opens a <see cref="T:System.IO.Stream" /> object for writing to a configuration file or for writing to a temporary file used to build a configuration file. Allows a <see cref="T:System.IO.Stream" /> object to be designated as a template for copying file attributes.</summary>
+      <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
+      <param name="templateStreamName">The name of a <see cref="T:System.IO.Stream" /> object from which file attributes are to be copied as a template.</param>
+      <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object (passed by reference).</param>
+      <returns>A <see cref="T:System.IO.Stream" /> object.</returns>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     </member>
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForWrite(System.String,System.String,System.Object@,System.Boolean)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object for writing to a configuration file. Allows a <see cref="T:System.IO.Stream" /> object to be designated as a template for copying file attributes.</summary>
@@ -2566,6 +2819,7 @@
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
       <returns>The object specified by the <paramref name="streamName" /> parameter.</returns>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.OpenStreamForWrite(System.String,System.String,System.Object@)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object for writing to a configuration file or for writing to a temporary file used to build a configuration file. Allows a <see cref="T:System.IO.Stream" /> object to be designated as a template for copying file attributes.</summary>
       <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
@@ -2573,6 +2827,8 @@
       <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object (passed by reference).</param>
       <returns>A <see cref="T:System.IO.Stream" /> object.</returns>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.PrefetchAll(System.String,System.String)">
       <summary>Returns a value indicating whether the entire configuration file could be read by a designated <see cref="T:System.IO.Stream" /> object.</summary>
       <param name="configPath">A string representing the path to a configuration file.</param>
@@ -2612,6 +2868,16 @@
       <param name="allowExeDefinition">A <see cref="T:System.Configuration.ConfigurationAllowExeDefinition" /> object.</param>
       <param name="errorInfo">An <see cref="T:System.Configuration.Internal.IConfigErrorInfo" /> object.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.Internal.DelegatingConfigHost.WriteCompleted(System.String,System.Boolean,System.Object)">
+      <summary>Indicates that all writing to the configuration file has completed.</summary>
+      <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
+      <param name="success">
+        <see langword="true" /> if writing to the configuration file completed successfully; otherwise, <see langword="false" />.</param>
+      <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.WriteCompleted(System.String,System.Boolean,System.Object,System.Boolean)">
       <summary>Indicates that all writing to the configuration file has completed and specifies whether permissions should be asserted.</summary>
       <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
@@ -2621,6 +2887,7 @@
       <param name="assertPermissions">
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.DelegatingConfigHost.WriteCompleted(System.String,System.Boolean,System.Object)">
       <summary>Indicates that all writing to the configuration file has completed.</summary>
       <param name="streamName">The name of a <see cref="T:System.IO.Stream" /> object performing I/O tasks on a configuration file.</param>
@@ -2628,6 +2895,8 @@
         <see langword="true" /> if writing to the configuration file completed successfully; otherwise, <see langword="false" />.</param>
       <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="P:System.Configuration.Internal.DelegatingConfigHost.HasLocalConfig">
       <summary>Determines if the delegated host has a local configuration.</summary>
       <returns>
@@ -2948,6 +3217,7 @@
       <returns>
         <see langword="true" /> if the configuration path is trusted; otherwise, <see langword="false" />.</returns>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.IInternalConfigHost.OpenStreamForRead(System.String,System.Boolean)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object to read a configuration file.</summary>
       <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
@@ -2955,16 +3225,24 @@
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
       <returns>The object specified by <paramref name="streamName" />.</returns>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.IInternalConfigHost.OpenStreamForRead(System.String)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> to read a configuration file.</summary>
       <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
       <returns>A <see cref="T:System.IO.Stream" /> object.</returns>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.IInternalConfigHost.OpenStreamForWrite(System.String,System.String,System.Object@,System.Boolean)">
       <summary>Opens a <see cref="T:System.IO.Stream" /> object for writing to a configuration file. Allows a <see cref="T:System.IO.Stream" /> object to be designated as a template for copying file attributes.</summary>
       <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
       <param name="templateStreamName">The name of a <see cref="T:System.IO.Stream" /> from which file attributes are to be copied as a template.</param>
       <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+=======
+    <member name="M:System.Configuration.Internal.IInternalConfigHost.OpenStreamForRead(System.String,System.Boolean)">
+      <summary>Opens a <see cref="T:System.IO.Stream" /> object to read a configuration file.</summary>
+      <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
       <param name="assertPermissions">
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
       <returns>The object specified by <paramref name="streamName" />.</returns>
@@ -2976,6 +3254,18 @@
       <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object.</param>
       <returns>A <see cref="T:System.IO.Stream" /> object.</returns>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.Internal.IInternalConfigHost.OpenStreamForWrite(System.String,System.String,System.Object@,System.Boolean)">
+      <summary>Opens a <see cref="T:System.IO.Stream" /> object for writing to a configuration file. Allows a <see cref="T:System.IO.Stream" /> object to be designated as a template for copying file attributes.</summary>
+      <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+      <param name="templateStreamName">The name of a <see cref="T:System.IO.Stream" /> from which file attributes are to be copied as a template.</param>
+      <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+      <param name="assertPermissions">
+        <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
+      <returns>The object specified by <paramref name="streamName" />.</returns>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.IInternalConfigHost.PrefetchAll(System.String,System.String)">
       <summary>Returns a value that indicates whether the entire configuration file could be read by a designated <see cref="T:System.IO.Stream" /> object.</summary>
       <param name="configPath">A string representing the path of the application configuration file.</param>
@@ -3012,6 +3302,16 @@
       <param name="allowExeDefinition">A <see cref="T:System.Configuration.ConfigurationAllowExeDefinition" /> object.</param>
       <param name="errorInfo">An <see cref="T:System.Configuration.Internal.IConfigErrorInfo" /> object.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.Internal.IInternalConfigHost.WriteCompleted(System.String,System.Boolean,System.Object)">
+      <summary>Indicates that all writing to the configuration file has completed.</summary>
+      <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+      <param name="success">
+        <see langword="true" /> if the write to the configuration file was completed successfully; otherwise, <see langword="false" />.</param>
+      <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Internal.IInternalConfigHost.WriteCompleted(System.String,System.Boolean,System.Object,System.Boolean)">
       <summary>Indicates that all writing to the configuration file has completed and specifies whether permissions should be asserted.</summary>
       <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
@@ -3021,6 +3321,7 @@
       <param name="assertPermissions">
         <see langword="true" /> to assert permissions; otherwise, <see langword="false" />.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Internal.IInternalConfigHost.WriteCompleted(System.String,System.Boolean,System.Object)">
       <summary>Indicates that all writing to the configuration file has completed.</summary>
       <param name="streamName">A string representing the name of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
@@ -3028,6 +3329,8 @@
         <see langword="true" /> if the write to the configuration file was completed successfully; otherwise, <see langword="false" />.</param>
       <param name="writeContext">The write context of the <see cref="T:System.IO.Stream" /> object performing I/O tasks on the configuration file.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="P:System.Configuration.Internal.IInternalConfigHost.IsRemote">
       <summary>Returns a value indicating whether the configuration is remote.</summary>
       <returns>
@@ -3350,6 +3653,20 @@
     <member name="T:System.Configuration.LongValidator">
       <summary>Provides validation of an <see cref="T:System.Int64" /> value.</summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.LongValidator.#ctor(System.Int64,System.Int64)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.LongValidator" /> class.</summary>
+      <param name="minValue">An <see cref="T:System.Int64" /> value that specifies the minimum length of the <see langword="long" /> value.</param>
+      <param name="maxValue">An <see cref="T:System.Int64" /> value that specifies the maximum length of the <see langword="long" /> value.</param>
+    </member>
+    <member name="M:System.Configuration.LongValidator.#ctor(System.Int64,System.Int64,System.Boolean)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.LongValidator" /> class.</summary>
+      <param name="minValue">An <see cref="T:System.Int64" /> value that specifies the minimum length of the <see langword="long" /> value.</param>
+      <param name="maxValue">An <see cref="T:System.Int64" /> value that specifies the maximum length of the <see langword="long" /> value.</param>
+      <param name="rangeIsExclusive">A <see cref="T:System.Boolean" /> value that specifies whether the validation range is exclusive.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.LongValidator.#ctor(System.Int64,System.Int64,System.Boolean,System.Int64)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.LongValidator" /> class.</summary>
       <param name="minValue">An <see cref="T:System.Int64" /> value that specifies the minimum length of the <see langword="long" /> value.</param>
@@ -3363,6 +3680,7 @@
   
  <paramref name="maxValue" /> is less than <paramref name="minValue" />.</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.LongValidator.#ctor(System.Int64,System.Int64,System.Boolean)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.LongValidator" /> class.</summary>
       <param name="minValue">An <see cref="T:System.Int64" /> value that specifies the minimum length of the <see langword="long" /> value.</param>
@@ -3374,6 +3692,8 @@
       <param name="minValue">An <see cref="T:System.Int64" /> value that specifies the minimum length of the <see langword="long" /> value.</param>
       <param name="maxValue">An <see cref="T:System.Int64" /> value that specifies the maximum length of the <see langword="long" /> value.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.LongValidator.CanValidate(System.Type)">
       <summary>Determines whether the type of the object can be validated.</summary>
       <param name="type">The type of object.</param>
@@ -3686,10 +4006,17 @@
         <paramref name="provider" /> is <see langword="null" />.</exception>
       <exception cref="T:System.ArgumentException">
         <paramref name="provider" /> is not a <see cref="T:System.Configuration.ProtectedConfigurationProvider" /> object.</exception>
+<<<<<<< HEAD
       <exception cref="T:System.Configuration.ConfigurationException">The <see cref="T:System.Configuration.ProtectedConfigurationProvider" /> object to add already exists in the collection.
 
 -or-
 
+=======
+      <exception cref="T:System.Configuration.ConfigurationException">The <see cref="T:System.Configuration.ProtectedConfigurationProvider" /> object to add already exists in the collection.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The collection is read-only.</exception>
     </member>
     <member name="P:System.Configuration.ProtectedConfigurationProviderCollection.Item(System.String)">
@@ -3820,15 +4147,25 @@
       <param name="info">The object that holds the information to deserialize.</param>
       <param name="context">Contextual information about the source or destination.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.Provider.ProviderException.#ctor(System.String)">
+      <summary>Creates a new instance of the <see cref="T:System.Configuration.Provider.ProviderException" /> class.</summary>
+      <param name="message">A message describing why this <see cref="T:System.Configuration.Provider.ProviderException" /> was thrown.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.Provider.ProviderException.#ctor(System.String,System.Exception)">
       <summary>Creates a new instance of the <see cref="T:System.Configuration.Provider.ProviderException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.Provider.ProviderException" /> was thrown.</param>
       <param name="innerException">The exception that caused this <see cref="T:System.Configuration.Provider.ProviderException" /> to be thrown.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.Provider.ProviderException.#ctor(System.String)">
       <summary>Creates a new instance of the <see cref="T:System.Configuration.Provider.ProviderException" /> class.</summary>
       <param name="message">A message describing why this <see cref="T:System.Configuration.Provider.ProviderException" /> was thrown.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="T:System.Configuration.ProviderSettings">
       <summary>Represents the configuration elements associated with a provider.</summary>
     </member>
@@ -3895,7 +4232,11 @@
         <see langword="true" /> if the <paramref name="type" /> parameter matches a string; otherwise, <see langword="false" />.</returns>
     </member>
     <member name="M:System.Configuration.RegexStringValidator.Validate(System.Object)">
+<<<<<<< HEAD
       <summary>Validates a string based on the rules provided by a regular expression.</summary>
+=======
+      <summary>Determines whether the value of an object is valid.</summary>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
       <param name="value">The value of an object.</param>
       <exception cref="T:System.ArgumentException">
         <paramref name="value" /> does not conform to the parameters of the <see cref="T:System.Text.RegularExpressions.Regex" /> class.</exception>
@@ -3953,6 +4294,7 @@
       <exception cref="T:System.IO.DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
       <exception cref="T:System.IO.IOException">An error occurred while opening the file.</exception>
       <exception cref="T:System.UnauthorizedAccessException">
+<<<<<<< HEAD
         <paramref name="path" /> specified a file that is read-only.
 
  -or-
@@ -3965,6 +4307,20 @@
 
  -or-
 
+=======
+        <paramref name="path" /> specified a file that is read-only.  
+  
+ -or-  
+  
+ This operation is not supported on the current platform.  
+  
+ -or-  
+  
+ <paramref name="path" /> specified a directory.  
+  
+ -or-  
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The caller does not have the required permission.</exception>
       <exception cref="T:System.IO.FileNotFoundException">The file specified in <paramref name="path" /> was not found.</exception>
       <exception cref="T:System.NotSupportedException">
@@ -3984,6 +4340,7 @@
       <exception cref="T:System.IO.DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
       <exception cref="T:System.IO.IOException">An error occurred while opening the file.</exception>
       <exception cref="T:System.UnauthorizedAccessException">
+<<<<<<< HEAD
         <paramref name="path" /> specified a file that is write-only.
 
  -or-
@@ -3996,6 +4353,20 @@
 
  -or-
 
+=======
+        <paramref name="path" /> specified a file that is write-only.  
+  
+ -or-  
+  
+ This operation is not supported on the current platform.  
+  
+ -or-  
+  
+ <paramref name="path" /> specified a directory.  
+  
+ -or-  
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The caller does not have the required permission.</exception>
       <exception cref="T:System.IO.FileNotFoundException">The file specified in <paramref name="path" /> was not found.</exception>
       <exception cref="T:System.NotSupportedException">
@@ -4098,10 +4469,17 @@
     <member name="M:System.Configuration.SectionInformation.ProtectSection(System.String)">
       <summary>Marks a configuration section for protection.</summary>
       <param name="protectionProvider">The name of the protection provider to use.</param>
+<<<<<<< HEAD
       <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Configuration.SectionInformation.AllowLocation" /> property is set to <see langword="false" />.
 
 -or-
 
+=======
+      <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Configuration.SectionInformation.AllowLocation" /> property is set to <see langword="false" />.  
+  
+-or-
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
  The target section is already a protected data section.</exception>
     </member>
     <member name="M:System.Configuration.SectionInformation.RevertToParent">
@@ -4145,8 +4523,13 @@
     <member name="P:System.Configuration.SectionInformation.ForceSave">
       <summary>Gets or sets a value that indicates whether the associated configuration section will be saved even if it has not been modified.</summary>
       <returns>
+<<<<<<< HEAD
         <see langword="true" /> if the associated <see cref="T:System.Configuration.ConfigurationSection" /> object will be saved even if it has not been modified; otherwise, <see langword="false" />. The default is <see langword="false" />.
 
+=======
+        <see langword="true" /> if the associated <see cref="T:System.Configuration.ConfigurationSection" /> object will be saved even if it has not been modified; otherwise, <see langword="false" />. The default is <see langword="false" />.  
+  
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
 Note: If the configuration file is saved (even if there are no modifications), ASP.NET restarts the application1.exe.config.</returns>
     </member>
     <member name="P:System.Configuration.SectionInformation.InheritInChildApplications">
@@ -4464,6 +4847,13 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsProperty" /> class, based on the supplied parameter.</summary>
       <param name="propertyToCopy">Specifies a copy of an existing <see cref="T:System.Configuration.SettingsProperty" /> object.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.SettingsProperty.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsProperty" /> class. based on the supplied parameter.</summary>
+      <param name="name">Specifies the name of an existing <see cref="T:System.Configuration.SettingsProperty" /> object.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.SettingsProperty.#ctor(System.String,System.Type,System.Configuration.SettingsProvider,System.Boolean,System.Object,System.Configuration.SettingsSerializeAs,System.Configuration.SettingsAttributeDictionary,System.Boolean,System.Boolean)">
       <summary>Creates a new instance of the <see cref="T:System.Configuration.SettingsProperty" /> class based on the supplied parameters.</summary>
       <param name="name">The name of the <see cref="T:System.Configuration.SettingsProperty" /> object.</param>
@@ -4476,10 +4866,13 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <param name="throwOnErrorDeserializing">A Boolean value specifying whether an error will be thrown when the property is unsuccessfully deserialized.</param>
       <param name="throwOnErrorSerializing">A Boolean value specifying whether an error will be thrown when the property is unsuccessfully serialized.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.SettingsProperty.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsProperty" /> class. based on the supplied parameter.</summary>
       <param name="name">Specifies the name of an existing <see cref="T:System.Configuration.SettingsProperty" /> object.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="P:System.Configuration.SettingsProperty.Attributes">
       <summary>Gets a <see cref="T:System.Configuration.SettingsAttributeDictionary" /> object containing the attributes of the <see cref="T:System.Configuration.SettingsProperty" /> object.</summary>
       <returns>A <see cref="T:System.Configuration.SettingsAttributeDictionary" /> object.</returns>
@@ -4606,15 +4999,25 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> object that holds the serialized object data about the exception being thrown.</param>
       <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> object that contains contextual information about the source or destination of the serialized stream.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.SettingsPropertyIsReadOnlyException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyIsReadOnlyException" /> class based on a supplied parameter.</summary>
+      <param name="message">A string containing an exception message.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.SettingsPropertyIsReadOnlyException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyIsReadOnlyException" /> class based on supplied parameters.</summary>
       <param name="message">A string containing an exception message.</param>
       <param name="innerException">The exception that is the cause of the current exception.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.SettingsPropertyIsReadOnlyException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyIsReadOnlyException" /> class based on a supplied parameter.</summary>
       <param name="message">A string containing an exception message.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="T:System.Configuration.SettingsPropertyNotFoundException">
       <summary>Provides an exception for <see cref="T:System.Configuration.SettingsProperty" /> objects that are not found.</summary>
     </member>
@@ -4626,15 +5029,25 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> object that holds the serialized object data about the exception being thrown.</param>
       <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> object that contains contextual information about the source or destination of the serialized stream.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.SettingsPropertyNotFoundException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyNotFoundException" /> class, based on a supplied parameter.</summary>
+      <param name="message">A string containing an exception message.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.SettingsPropertyNotFoundException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyNotFoundException" /> class, based on supplied parameters.</summary>
       <param name="message">A string containing an exception message.</param>
       <param name="innerException">The exception that is the cause of the current exception.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.SettingsPropertyNotFoundException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyNotFoundException" /> class, based on a supplied parameter.</summary>
       <param name="message">A string containing an exception message.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="T:System.Configuration.SettingsPropertyValue">
       <summary>Contains the value of a settings property that can be loaded and stored by an instance of <see cref="T:System.Configuration.SettingsBase" />.</summary>
     </member>
@@ -4745,15 +5158,25 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
       <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination of the serialized stream.</param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.SettingsPropertyWrongTypeException.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyWrongTypeException" /> class based on the supplied parameter.</summary>
+      <param name="message">A string containing an exception message.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.SettingsPropertyWrongTypeException.#ctor(System.String,System.Exception)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyWrongTypeException" /> class based on the supplied parameters.</summary>
       <param name="message">A string containing an exception message.</param>
       <param name="innerException">The exception that is the cause of the current exception.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.SettingsPropertyWrongTypeException.#ctor(System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.SettingsPropertyWrongTypeException" /> class based on the supplied parameter.</summary>
       <param name="message">A string containing an exception message.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="T:System.Configuration.SettingsProvider">
       <summary>Acts as a base class for deriving custom settings providers in the application settings architecture.</summary>
     </member>
@@ -4905,20 +5328,34 @@ Note: If the configuration file is saved (even if there are no modifications), A
     <member name="T:System.Configuration.StringValidator">
       <summary>Provides validation of a string.</summary>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.StringValidator.#ctor(System.Int32,System.Int32,System.String)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.StringValidator" /> class, based on supplied parameters.</summary>
       <param name="minLength">An integer that specifies the minimum length of the string value.</param>
       <param name="maxLength">An integer that specifies the maximum length of the string value.</param>
       <param name="invalidCharacters">A string that represents invalid characters.</param>
+=======
+    <member name="M:System.Configuration.StringValidator.#ctor(System.Int32)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.StringValidator" /> class, based on a supplied parameter.</summary>
+      <param name="minLength">An integer that specifies the minimum length of the string value.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     </member>
     <member name="M:System.Configuration.StringValidator.#ctor(System.Int32,System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.StringValidator" /> class, based on supplied parameters.</summary>
       <param name="minLength">An integer that specifies the minimum length of the string value.</param>
       <param name="maxLength">An integer that specifies the maximum length of the string value.</param>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.StringValidator.#ctor(System.Int32)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.StringValidator" /> class, based on a supplied parameter.</summary>
       <param name="minLength">An integer that specifies the minimum length of the string value.</param>
+=======
+    <member name="M:System.Configuration.StringValidator.#ctor(System.Int32,System.Int32,System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.StringValidator" /> class, based on supplied parameters.</summary>
+      <param name="minLength">An integer that specifies the minimum length of the string value.</param>
+      <param name="maxLength">An integer that specifies the maximum length of the string value.</param>
+      <param name="invalidCharacters">A string that represents invalid characters.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     </member>
     <member name="M:System.Configuration.StringValidator.CanValidate(System.Type)">
       <summary>Determines whether an object can be validated based on type.</summary>
@@ -5085,6 +5522,20 @@ Note: If the configuration file is saved (even if there are no modifications), A
     <member name="T:System.Configuration.TimeSpanValidator">
       <summary>Provides validation of a <see cref="T:System.TimeSpan" /> object.</summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:System.Configuration.TimeSpanValidator.#ctor(System.TimeSpan,System.TimeSpan)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.TimeSpanValidator" /> class, based on supplied parameters.</summary>
+      <param name="minValue">A <see cref="T:System.TimeSpan" /> object that specifies the minimum time allowed to pass validation.</param>
+      <param name="maxValue">A <see cref="T:System.TimeSpan" /> object that specifies the maximum time allowed to pass validation.</param>
+    </member>
+    <member name="M:System.Configuration.TimeSpanValidator.#ctor(System.TimeSpan,System.TimeSpan,System.Boolean)">
+      <summary>Initializes a new instance of the <see cref="T:System.Configuration.TimeSpanValidator" /> class, based on supplied parameters.</summary>
+      <param name="minValue">A <see cref="T:System.TimeSpan" /> object that specifies the minimum time allowed to pass validation.</param>
+      <param name="maxValue">A <see cref="T:System.TimeSpan" /> object that specifies the maximum time allowed to pass validation.</param>
+      <param name="rangeIsExclusive">A <see cref="T:System.Boolean" /> value that specifies whether the validation range is exclusive.</param>
+    </member>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.TimeSpanValidator.#ctor(System.TimeSpan,System.TimeSpan,System.Boolean,System.Int64)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.TimeSpanValidator" /> class, based on supplied parameters.</summary>
       <param name="minValue">A <see cref="T:System.TimeSpan" /> object that specifies the minimum time allowed to pass validation.</param>
@@ -5098,6 +5549,7 @@ Note: If the configuration file is saved (even if there are no modifications), A
   
  <paramref name="minValue" /> is greater than <paramref name="maxValue" />.</exception>
     </member>
+<<<<<<< HEAD
     <member name="M:System.Configuration.TimeSpanValidator.#ctor(System.TimeSpan,System.TimeSpan,System.Boolean)">
       <summary>Initializes a new instance of the <see cref="T:System.Configuration.TimeSpanValidator" /> class, based on supplied parameters.</summary>
       <param name="minValue">A <see cref="T:System.TimeSpan" /> object that specifies the minimum time allowed to pass validation.</param>
@@ -5109,6 +5561,8 @@ Note: If the configuration file is saved (even if there are no modifications), A
       <param name="minValue">A <see cref="T:System.TimeSpan" /> object that specifies the minimum time allowed to pass validation.</param>
       <param name="maxValue">A <see cref="T:System.TimeSpan" /> object that specifies the maximum time allowed to pass validation.</param>
     </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     <member name="M:System.Configuration.TimeSpanValidator.CanValidate(System.Type)">
       <summary>Determines whether the type of the object can be validated.</summary>
       <param name="type">The type of the object.</param>

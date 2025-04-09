@@ -92,14 +92,22 @@
         <member name="M:System.Threading.Tasks.TaskAsyncEnumerableExtensions.ConfigureAwait(System.IAsyncDisposable,System.Boolean)">
             <summary>Configures how awaits on the tasks returned from an async disposable will be performed.</summary>
             <param name="source">The source async disposable.</param>
+<<<<<<< HEAD
             <param name="continueOnCapturedContext"><see langword="true" /> to capture and marshal back to the current context; otherwise, <see langword="false" />.</param>
+=======
+            <param name="continueOnCapturedContext">Whether to capture and marshal back to the current context.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             <returns>The configured async disposable.</returns>
         </member>
         <member name="M:System.Threading.Tasks.TaskAsyncEnumerableExtensions.ConfigureAwait``1(System.Collections.Generic.IAsyncEnumerable{``0},System.Boolean)">
             <summary>Configures how awaits on the tasks returned from an async iteration will be performed.</summary>
             <typeparam name="T">The type of the objects being iterated.</typeparam>
             <param name="source">The source enumerable being iterated.</param>
+<<<<<<< HEAD
             <param name="continueOnCapturedContext"><see langword="true" /> to capture and marshal back to the current context; otherwise, <see langword="false" />.</param>
+=======
+            <param name="continueOnCapturedContext">Whether to capture and marshal back to the current context.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             <returns>The configured enumerable.</returns>
         </member>
         <member name="M:System.Threading.Tasks.TaskAsyncEnumerableExtensions.WithCancellation``1(System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.CancellationToken)">
@@ -151,16 +159,23 @@
         <member name="T:System.Runtime.CompilerServices.ConfiguredAsyncDisposable">
             <summary>Provides a type that can be used to configure how awaits on an <see cref="T:System.IAsyncDisposable"/> are performed.</summary>
         </member>
+<<<<<<< HEAD
         <member name="M:System.Runtime.CompilerServices.ConfiguredAsyncDisposable.DisposeAsync">
             <summary>Asynchronously releases the unmanaged resources used by the <see cref="T:System.Runtime.CompilerServices.ConfiguredAsyncDisposable" />.</summary>
             <returns>A task that represents the asynchronous dispose operation.</returns>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1">
             <summary>Provides an awaitable async enumerable that enables cancelable iteration and configured awaits.</summary>
         </member>
         <member name="M:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.ConfigureAwait(System.Boolean)">
             <summary>Configures how awaits on the tasks returned from an async iteration will be performed.</summary>
+<<<<<<< HEAD
             <param name="continueOnCapturedContext"><see langword="true" /> to capture and marshal back to the current context; otherwise, <see langword="false" />.</param>
+=======
+            <param name="continueOnCapturedContext">Whether to capture and marshal back to the current context.</param>
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
             <returns>The configured enumerable.</returns>
             <remarks>This will replace any previous value set by <see cref="M:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.ConfigureAwait(System.Boolean)"/> for this iteration.</remarks>
         </member>
@@ -170,10 +185,13 @@
             <returns>The configured enumerable.</returns>
             <remarks>This will replace any previous <see cref="T:System.Threading.CancellationToken"/> set by <see cref="M:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.WithCancellation(System.Threading.CancellationToken)"/> for this iteration.</remarks>
         </member>
+<<<<<<< HEAD
         <member name="M:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator">
             <summary>Returns an enumerator that iterates asynchronously through collections that enables cancelable iteration and configured awaits.</summary>
             <returns>An enumerator for the <see cref="T:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1" /> class.</returns>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.Enumerator">
             <summary>Provides an awaitable async enumerator that enables cancelable iteration and configured awaits.</summary>
         </member>
@@ -194,6 +212,7 @@
             resetting unmanaged resources asynchronously.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:System.Runtime.CompilerServices.EnumeratorCancellationAttribute">
             <summary>Allows users of async-enumerable methods to mark the parameter that should receive the cancellation token value from <see cref="M:System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)" />.</summary>
         </member>
@@ -271,6 +290,8 @@
             Use the platform-provided UTF-16 marshaller.
             </summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
         <member name="T:System.Collections.Generic.IAsyncEnumerable`1">
             <summary>Exposes an enumerator that provides asynchronous iteration over values of a specified type.</summary>
             <typeparam name="T">The type of values to enumerate.</typeparam>
@@ -304,6 +325,7 @@
             resetting unmanaged resources asynchronously.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
             <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
         </member>
@@ -413,5 +435,7 @@
         <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
             <summary>Gets field or property member names.</summary>
         </member>
+=======
+>>>>>>> 737f3a8b59ddfc9bf3c3f38fc4a690f67910076f
     </members>
 </doc>
