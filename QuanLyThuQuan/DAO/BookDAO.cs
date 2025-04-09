@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using MySql.Data.MySqlClient;
-using QuanLyThuQuan.Model;
+﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
+using QuanLyThuQuan.Model;
+using System;
+using System.Collections.Generic;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -35,7 +34,8 @@ namespace QuanLyThuQuan.DAO
                     ));
                 }
                 reader.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy sách: " + ex.Message);
             }
@@ -43,7 +43,7 @@ namespace QuanLyThuQuan.DAO
             {
                 db.CloseConnection();
             }
-           
+
             return books;
         }
         public BookModel GetBookByID(int Id)
@@ -75,7 +75,7 @@ namespace QuanLyThuQuan.DAO
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy sách: " + ex.Message);
             }
@@ -84,21 +84,22 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
             }
             return book;
-            
+
         }
         public BookModel GetBookByName(String name)
         {
             BookModel book = null;
-            try {
+            try
+            {
                 db.OpenConnection();
                 string query = "SELECT * FROM Books " +
                     "JOIN authors ON Authors.AuthorID = Books.AuthorID " +
                     "JOIN Categories c ON c.CategoryID =Books.CategoryID" +
                     " WHERE BookTitle =@name";
-                using(MySqlCommand cmd =new MySqlCommand(query, db.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", name);
-                    using(MySqlDataReader reader=cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -129,7 +130,8 @@ namespace QuanLyThuQuan.DAO
                     }
                 }
                 db.CloseConnection();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Tìm sách bị lỗi " + ex.Message);
             }
@@ -138,7 +140,7 @@ namespace QuanLyThuQuan.DAO
         }
         public bool AddBook(BookModel book)
         {
-          
+
             try
             {
                 db.OpenConnection();
@@ -153,7 +155,7 @@ namespace QuanLyThuQuan.DAO
                     cmd.Parameters.AddWithValue("@Quantity", book.BookQuantity);
                     cmd.Parameters.AddWithValue("@Status", book.BookStatus.ToString());
                     cmd.Parameters.AddWithValue("@fee_per_day", book.FeePerDay);
-                    bool  result = cmd.ExecuteNonQuery() > 0;
+                    bool result = cmd.ExecuteNonQuery() > 0;
                     db.CloseConnection();
                     return result;
 
@@ -163,7 +165,7 @@ namespace QuanLyThuQuan.DAO
             {
                 Console.WriteLine("Lỗi khi thêm sách: " + ex.Message);
                 return false;
-            }      
+            }
         }
         public bool UpdateBook(BookModel book)
         {
@@ -186,12 +188,13 @@ namespace QuanLyThuQuan.DAO
                     db.CloseConnection();
                     return result;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi chỉnh sửa sách " + ex.Message);
                 return false;
             }
-           
+
         }
         public bool DeleteBook(int bookID)
         {
@@ -212,6 +215,10 @@ namespace QuanLyThuQuan.DAO
                 Console.WriteLine("Lỗi khi cập nhật trạng thái sách: " + ex.Message);
                 return false;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
 
         public List<BookModel> SearchBooks(string keyword)
@@ -258,11 +265,12 @@ namespace QuanLyThuQuan.DAO
                         }
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi tìm sách" + ex.Message);
             }
-            
+
 
             db.CloseConnection();
             return books;

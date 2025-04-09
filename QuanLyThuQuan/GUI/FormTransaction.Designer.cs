@@ -33,136 +33,13 @@
             this.btnBookReservation = new System.Windows.Forms.Button();
             this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
             this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
-            this.colTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMoreOptions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.tbBody = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlResultMessageBox = new System.Windows.Forms.Panel();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.pnlContainer = new System.Windows.Forms.Panel();
-            this.pnlChildDetailInfo = new System.Windows.Forms.Panel();
-            this.pnlTransInfoContainer = new System.Windows.Forms.Panel();
-            this.tbTransInfoWraper = new System.Windows.Forms.TableLayoutPanel();
-            this.tbBlockInfoOne = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransID = new System.Windows.Forms.Label();
-            this.lbMemID = new System.Windows.Forms.Label();
-            this.tbBlockInfoTwo = new System.Windows.Forms.TableLayoutPanel();
-            this.lbMemFullName = new System.Windows.Forms.Label();
-            this.lbUserName = new System.Windows.Forms.Label();
-            this.tbBlockInfoThree = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransStatus = new System.Windows.Forms.Label();
-            this.lbTransType = new System.Windows.Forms.Label();
-            this.tbBlockInfoFour = new System.Windows.Forms.TableLayoutPanel();
-            this.lbUserType = new System.Windows.Forms.Label();
-            this.lbUserStatus = new System.Windows.Forms.Label();
-            this.tbBlockInfoFive = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransDate = new System.Windows.Forms.Label();
-            this.lbDueDate = new System.Windows.Forms.Label();
-            this.tbBlockInfoSix = new System.Windows.Forms.TableLayoutPanel();
-            this.lbUserEmail = new System.Windows.Forms.Label();
-            this.lbUserPhoneNumber = new System.Windows.Forms.Label();
-            this.tbBlockInfoSeven = new System.Windows.Forms.TableLayoutPanel();
-            this.lbReturnDate = new System.Windows.Forms.Label();
-            this.lbListTransItems = new System.Windows.Forms.Label();
-            this.tbBlockInfoEight = new System.Windows.Forms.TableLayoutPanel();
-            this.lbViolationStatus = new System.Windows.Forms.Label();
-            this.lbViolationList = new System.Windows.Forms.Label();
-            this.dgvDataItemList = new System.Windows.Forms.DataGridView();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDataViolationHandle = new System.Windows.Forms.DataGridView();
-            this.colRuleTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPenaty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaidStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExcuseViolation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHeaderTransInfoDetail = new System.Windows.Forms.Panel();
-            this.btnExitChildPanel = new System.Windows.Forms.Button();
-            this.lbTransInfo = new System.Windows.Forms.Label();
-            this.pnlHeaderGetBorrowInfo = new System.Windows.Forms.Panel();
-            this.lbBookBorrow = new System.Windows.Forms.Label();
-            this.btnExitBookBorrow = new System.Windows.Forms.Button();
-            this.pnlBorrowBookBody = new System.Windows.Forms.Panel();
-            this.tbGetBorrowInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.txtGetTransType = new System.Windows.Forms.TextBox();
-
-            this.rtxtGetBorrowListItem = new System.Windows.Forms.RichTextBox();
-            this.lbGetBorrowItem = new System.Windows.Forms.Label();
-            this.dtpGetGBorrowTransDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpGetBorrowDueDate = new System.Windows.Forms.DateTimePicker();
-            this.txtGetBorrowMemberID = new System.Windows.Forms.TextBox();
-            this.lbGetBorrowDueDate = new System.Windows.Forms.Label();
-            this.lbGetBorrowTransDate = new System.Windows.Forms.Label();
-            this.lbGetBorrowTransType = new System.Windows.Forms.Label();
-            this.lbGetBorrowMemberID = new System.Windows.Forms.Label();
-            this.pnlBorrowBookFooter = new System.Windows.Forms.Panel();
-            this.tbBorrowBookButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSubmitFormBorrow = new System.Windows.Forms.Button();
-            this.btnCancelFormBorrow = new System.Windows.Forms.Button();
-            this.btnResetFormBorrow = new System.Windows.Forms.Button();
-            this.pnlFormBorrowBook = new System.Windows.Forms.Panel();
-            this.pnlHeaderGetReturnInfo = new System.Windows.Forms.Panel();
-            this.lbFormReturnBook = new System.Windows.Forms.Label();
-            this.btnExitFormReturnBook = new System.Windows.Forms.Button();
-
-            this.pnlReturnBookFooter = new System.Windows.Forms.Panel();
-            this.tbReturnBookButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSubmitFormReturn = new System.Windows.Forms.Button();
-
-            this.btnResetFromReturn = new System.Windows.Forms.Button();
-            this.btnCancelFormReturn = new System.Windows.Forms.Button();
-            this.pnlReturnBookBody = new System.Windows.Forms.Panel();
-            this.tbGetReturnInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.dtpRealReturnDate = new System.Windows.Forms.DateTimePicker();
-            this.rtxtReturnListItem = new System.Windows.Forms.RichTextBox();
-            this.rtxtReturnPenalty = new System.Windows.Forms.RichTextBox();
-            this.txtGetTransTypeReturn = new System.Windows.Forms.TextBox();
-            this.txtGetMemberIDReturn = new System.Windows.Forms.TextBox();
-            this.lbGetReturnItem = new System.Windows.Forms.Label();
-            this.lbGetReturnPenaty = new System.Windows.Forms.Label();
-            this.lbGetRealReturnDate = new System.Windows.Forms.Label();
-            this.lbReturnTransType = new System.Windows.Forms.Label();
-            this.lbGetReturnMemberID = new System.Windows.Forms.Label();
-            this.pnlFormReturnBook = new System.Windows.Forms.Panel();
             this.tbHeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.tbBody.SuspendLayout();
-            this.pnlResultMessageBox.SuspendLayout();
-            this.pnlContainer.SuspendLayout();
-            this.pnlChildDetailInfo.SuspendLayout();
-            this.pnlTransInfoContainer.SuspendLayout();
-            this.tbTransInfoWraper.SuspendLayout();
-            this.tbBlockInfoOne.SuspendLayout();
-            this.tbBlockInfoTwo.SuspendLayout();
-            this.tbBlockInfoThree.SuspendLayout();
-            this.tbBlockInfoFour.SuspendLayout();
-            this.tbBlockInfoFive.SuspendLayout();
-            this.tbBlockInfoSix.SuspendLayout();
-            this.tbBlockInfoSeven.SuspendLayout();
-            this.tbBlockInfoEight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).BeginInit();
-            this.pnlHeaderTransInfoDetail.SuspendLayout();
-            this.pnlHeaderGetBorrowInfo.SuspendLayout();
-            this.pnlBorrowBookBody.SuspendLayout();
-            this.tbGetBorrowInfo.SuspendLayout();
-            this.pnlBorrowBookFooter.SuspendLayout();
-            this.tbBorrowBookButtons.SuspendLayout();
-            this.pnlFormBorrowBook.SuspendLayout();
-            this.pnlHeaderGetReturnInfo.SuspendLayout();
-            this.pnlReturnBookFooter.SuspendLayout();
-            this.tbReturnBookButtons.SuspendLayout();
-            this.pnlReturnBookBody.SuspendLayout();
-            this.tbGetReturnInfo.SuspendLayout();
-            this.pnlFormReturnBook.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBorrow
@@ -233,109 +110,18 @@
             this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tbHeaderButtons.Size = new System.Drawing.Size(960, 106);
             this.tbHeaderButtons.TabIndex = 4;
-            this.tbHeaderButtons.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // dgvDataTransactions
             // 
             this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTransactionID,
-            this.colMemberID,
-            this.colTransactionType,
-            this.colTransactionDate,
-            this.colDueDate,
-            this.colReturnDate,
-            this.colStatus,
-            this.colMoreOptions});
             this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
             this.dgvDataTransactions.Name = "dgvDataTransactions";
             this.dgvDataTransactions.RowHeadersWidth = 62;
             this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
             this.dgvDataTransactions.TabIndex = 1;
             this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
-            // 
-            // colTransactionID
-            // 
-            this.colTransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTransactionID.Frozen = true;
-            this.colTransactionID.HeaderText = "TransactionID";
-            this.colTransactionID.MinimumWidth = 8;
-            this.colTransactionID.Name = "colTransactionID";
-            this.colTransactionID.ReadOnly = true;
-            this.colTransactionID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colTransactionID.Width = 170;
-            // 
-            // colMemberID
-            // 
-            this.colMemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colMemberID.Frozen = true;
-            this.colMemberID.HeaderText = "MemberID";
-            this.colMemberID.MinimumWidth = 8;
-            this.colMemberID.Name = "colMemberID";
-            this.colMemberID.ReadOnly = true;
-            this.colMemberID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMemberID.Width = 139;
-            // 
-            // colTransactionType
-            // 
-            this.colTransactionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTransactionType.HeaderText = "Transaction Type";
-            this.colTransactionType.MinimumWidth = 8;
-            this.colTransactionType.Name = "colTransactionType";
-            this.colTransactionType.ReadOnly = true;
-            this.colTransactionType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colTransactionDate
-            // 
-            this.colTransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTransactionDate.HeaderText = "Transaction Date";
-            this.colTransactionDate.MinimumWidth = 8;
-            this.colTransactionDate.Name = "colTransactionDate";
-            this.colTransactionDate.ReadOnly = true;
-            this.colTransactionDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colDueDate
-            // 
-            this.colDueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDueDate.HeaderText = "Due Date";
-            this.colDueDate.MinimumWidth = 8;
-            this.colDueDate.Name = "colDueDate";
-            this.colDueDate.ReadOnly = true;
-            this.colDueDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colReturnDate
-            // 
-            this.colReturnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colReturnDate.FillWeight = 130F;
-            this.colReturnDate.HeaderText = "Return Date";
-            this.colReturnDate.MinimumWidth = 8;
-            this.colReturnDate.Name = "colReturnDate";
-            this.colReturnDate.ReadOnly = true;
-            this.colReturnDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colReturnDate.Width = 130;
-            // 
-            // colStatus
-            // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 8;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colStatus.Width = 104;
-            // 
-            // colMoreOptions
-            // 
-            this.colMoreOptions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colMoreOptions.HeaderText = "";
-            this.colMoreOptions.MinimumWidth = 8;
-            this.colMoreOptions.Name = "colMoreOptions";
-            this.colMoreOptions.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMoreOptions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMoreOptions.Text = "More";
-            this.colMoreOptions.Width = 25;
             // 
             // pnlHeader
             // 
@@ -351,13 +137,11 @@
             // 
             this.lbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbTitle.AutoSize = true;
-
             this.lbTitle.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(417, 1);
-
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(261, 37);
+            this.lbTitle.Size = new System.Drawing.Size(178, 31);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Transactions List";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -371,7 +155,6 @@
             this.tbBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tbBody.Controls.Add(this.pnlHeader, 0, 0);
             this.tbBody.Controls.Add(this.dgvDataTransactions, 0, 1);
-            this.tbBody.Controls.Add(this.pnlResultMessageBox, 0, 2);
             this.tbBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBody.Location = new System.Drawing.Point(0, 106);
             this.tbBody.Margin = new System.Windows.Forms.Padding(0);
@@ -382,8 +165,8 @@
             this.tbBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.088235F));
             this.tbBody.Size = new System.Drawing.Size(960, 544);
             this.tbBody.TabIndex = 7;
-            this.tbBody.Paint += new System.Windows.Forms.PaintEventHandler(this.tbBody_Paint);
             // 
+<<<<<<< HEAD
             // pnlResultMessageBox
             // 
             this.pnlResultMessageBox.Controls.Add(this.txtResult);
@@ -2017,13 +1800,14 @@
 
             // 
 
+=======
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
             // FormTransaction
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(960, 650);
-            this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.tbBody);
             this.Controls.Add(this.tbHeaderButtons);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2038,48 +1822,6 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.tbBody.ResumeLayout(false);
-            this.pnlResultMessageBox.ResumeLayout(false);
-            this.pnlResultMessageBox.PerformLayout();
-            this.pnlContainer.ResumeLayout(false);
-            this.pnlChildDetailInfo.ResumeLayout(false);
-            this.pnlTransInfoContainer.ResumeLayout(false);
-            this.tbTransInfoWraper.ResumeLayout(false);
-            this.tbBlockInfoOne.ResumeLayout(false);
-            this.tbBlockInfoOne.PerformLayout();
-            this.tbBlockInfoTwo.ResumeLayout(false);
-            this.tbBlockInfoTwo.PerformLayout();
-            this.tbBlockInfoThree.ResumeLayout(false);
-            this.tbBlockInfoThree.PerformLayout();
-            this.tbBlockInfoFour.ResumeLayout(false);
-            this.tbBlockInfoFour.PerformLayout();
-            this.tbBlockInfoFive.ResumeLayout(false);
-            this.tbBlockInfoFive.PerformLayout();
-            this.tbBlockInfoSix.ResumeLayout(false);
-            this.tbBlockInfoSix.PerformLayout();
-            this.tbBlockInfoSeven.ResumeLayout(false);
-            this.tbBlockInfoSeven.PerformLayout();
-            this.tbBlockInfoEight.ResumeLayout(false);
-            this.tbBlockInfoEight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).EndInit();
-            this.pnlHeaderTransInfoDetail.ResumeLayout(false);
-            this.pnlHeaderTransInfoDetail.PerformLayout();
-            this.pnlHeaderGetBorrowInfo.ResumeLayout(false);
-            this.pnlHeaderGetBorrowInfo.PerformLayout();
-            this.pnlBorrowBookBody.ResumeLayout(false);
-            this.tbGetBorrowInfo.ResumeLayout(false);
-            this.tbGetBorrowInfo.PerformLayout();
-            this.pnlBorrowBookFooter.ResumeLayout(false);
-            this.tbBorrowBookButtons.ResumeLayout(false);
-            this.pnlFormBorrowBook.ResumeLayout(false);
-            this.pnlHeaderGetReturnInfo.ResumeLayout(false);
-            this.pnlHeaderGetReturnInfo.PerformLayout();
-            this.pnlReturnBookFooter.ResumeLayout(false);
-            this.tbReturnBookButtons.ResumeLayout(false);
-            this.pnlReturnBookBody.ResumeLayout(false);
-            this.tbGetReturnInfo.ResumeLayout(false);
-            this.tbGetReturnInfo.PerformLayout();
-            this.pnlFormReturnBook.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2094,97 +1836,5 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.TableLayoutPanel tbBody;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemberID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTransactionDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDueDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReturnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn colMoreOptions;
-        private System.Windows.Forms.Panel pnlResultMessageBox;
-        private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.Panel pnlContainer;
-        private System.Windows.Forms.Panel pnlChildDetailInfo;
-        private System.Windows.Forms.Panel pnlTransInfoContainer;
-        private System.Windows.Forms.TableLayoutPanel tbTransInfoWraper;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoOne;
-        private System.Windows.Forms.Label lbTransID;
-        private System.Windows.Forms.Label lbMemID;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoTwo;
-        private System.Windows.Forms.Label lbMemFullName;
-        private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoThree;
-        private System.Windows.Forms.Label lbTransStatus;
-        private System.Windows.Forms.Label lbTransType;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoFour;
-        private System.Windows.Forms.Label lbUserType;
-        private System.Windows.Forms.Label lbUserStatus;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoFive;
-        private System.Windows.Forms.Label lbTransDate;
-        private System.Windows.Forms.Label lbDueDate;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoSix;
-        private System.Windows.Forms.Label lbUserEmail;
-        private System.Windows.Forms.Label lbUserPhoneNumber;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoSeven;
-        private System.Windows.Forms.Label lbReturnDate;
-        private System.Windows.Forms.Label lbListTransItems;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoEight;
-        private System.Windows.Forms.Label lbViolationStatus;
-        private System.Windows.Forms.Label lbViolationList;
-        private System.Windows.Forms.DataGridView dgvDataItemList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemQuantity;
-        private System.Windows.Forms.DataGridView dgvDataViolationHandle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRuleTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPenaty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colViolationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPaidStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExcuseViolation;
-        private System.Windows.Forms.Panel pnlHeaderTransInfoDetail;
-        private System.Windows.Forms.Button btnExitChildPanel;
-        private System.Windows.Forms.Label lbTransInfo;
-        private System.Windows.Forms.Panel pnlFormReturnBook;
-        private System.Windows.Forms.Panel pnlReturnBookBody;
-        private System.Windows.Forms.TableLayoutPanel tbGetReturnInfo;
-        private System.Windows.Forms.Label lbGetReturnMemberID;
-        private System.Windows.Forms.Label lbReturnTransType;
-        private System.Windows.Forms.Label lbGetRealReturnDate;
-        private System.Windows.Forms.Label lbGetReturnPenaty;
-        private System.Windows.Forms.Label lbGetReturnItem;
-        private System.Windows.Forms.TextBox txtGetMemberIDReturn;
-        private System.Windows.Forms.TextBox txtGetTransTypeReturn;
-        private System.Windows.Forms.RichTextBox rtxtReturnPenalty;
-        private System.Windows.Forms.RichTextBox rtxtReturnListItem;
-        private System.Windows.Forms.DateTimePicker dtpRealReturnDate;
-        private System.Windows.Forms.Panel pnlReturnBookFooter;
-        private System.Windows.Forms.TableLayoutPanel tbReturnBookButtons;
-        private System.Windows.Forms.Button btnCancelFormReturn;
-        private System.Windows.Forms.Button btnResetFromReturn;
-        private System.Windows.Forms.Button btnSubmitFormReturn;
-        private System.Windows.Forms.Panel pnlHeaderGetReturnInfo;
-        private System.Windows.Forms.Button btnExitFormReturnBook;
-        private System.Windows.Forms.Label lbFormReturnBook;
-        private System.Windows.Forms.Panel pnlFormBorrowBook;
-        private System.Windows.Forms.Panel pnlBorrowBookFooter;
-        private System.Windows.Forms.TableLayoutPanel tbBorrowBookButtons;
-        private System.Windows.Forms.Button btnResetFormBorrow;
-        private System.Windows.Forms.Button btnCancelFormBorrow;
-        private System.Windows.Forms.Button btnSubmitFormBorrow;
-        private System.Windows.Forms.Panel pnlBorrowBookBody;
-        private System.Windows.Forms.TableLayoutPanel tbGetBorrowInfo;
-        private System.Windows.Forms.Label lbGetBorrowMemberID;
-        private System.Windows.Forms.Label lbGetBorrowTransType;
-        private System.Windows.Forms.Label lbGetBorrowTransDate;
-        private System.Windows.Forms.Label lbGetBorrowDueDate;
-        private System.Windows.Forms.TextBox txtGetBorrowMemberID;
-        private System.Windows.Forms.DateTimePicker dtpGetBorrowDueDate;
-        private System.Windows.Forms.DateTimePicker dtpGetGBorrowTransDate;
-        private System.Windows.Forms.Label lbGetBorrowItem;
-        private System.Windows.Forms.RichTextBox rtxtGetBorrowListItem;
-        private System.Windows.Forms.TextBox txtGetTransType;
-        private System.Windows.Forms.Panel pnlHeaderGetBorrowInfo;
-        private System.Windows.Forms.Button btnExitBookBorrow;
-        private System.Windows.Forms.Label lbBookBorrow;
     }
 }

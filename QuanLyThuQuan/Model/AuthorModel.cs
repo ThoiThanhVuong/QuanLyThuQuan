@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Security.Policy;
-
-namespace QuanLyThuQuan.Model
+﻿namespace QuanLyThuQuan.Model
 {
     public class AuthorModel
     {

@@ -1,4 +1,9 @@
-﻿using System;
+﻿using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.GUI.TransactionFormChilds;
+using QuanLyThuQuan.Model;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -12,52 +17,6 @@ namespace QuanLyThuQuan.GUI
             button.BackColor = color;
         }
 
-        private void TimerForComponent(Control control, int time)
-        {
-            //timeTextBoxResult.Interval = time;
-            Timer countdown = new Timer();
-            countdown.Interval = time;
-            countdown.Tick += (s, e) =>
-            {
-                countdown.Stop();
-                countdown.Dispose();
-                control.Visible = false;
-            };
-            countdown.Start();
-            dgvDataTransactions.CellClick += dgvDataTransactions_CellContentClick;
-            pnlChildDetailInfo.Paint += pnlChildDetailInfo_Paint;
-        }
-
-        // change position of specific form
-        private void ChangePosition(Point newLocation, Control targetControl)
-        {
-            targetControl.Location = newLocation;
-        }
-
-        // disable parent component
-        private void DisableParentComponent(Control.ControlCollection controls, Control targetControl)
-        {
-            // Block event from parent component
-            foreach (Control control in controls)
-                if (!control.Equals(targetControl))
-                    control.Enabled = false;
-        }
-
-        // enable parent component
-        private void EnableParentComponent(Control.ControlCollection controls, Control targetControl)
-        {
-            foreach (Control control in controls)
-                if (!control.Equals(targetControl))
-                    control.Enabled = true;
-        }
-
-        // resize panel container
-        private void ResizePanelContainer(Control children, Control parent)
-        {
-            parent.Width = children.Width;
-            //parent.Height = children.Height;
-        }
-
         public FormTransaction()
         {
             InitializeComponent();
@@ -67,15 +26,8 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             this.DoubleBuffered = true;
-        }
-
-        private void btnHandleViolations_Click(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+            LoadAllTransaction();
+            //dgvDataTransactions.CellContentClick += dgvDataTransactions_CellContentClick;
 
         }
 
@@ -109,46 +61,6 @@ namespace QuanLyThuQuan.GUI
             ChangeColorHoverBtn(btnBookReservation, Color.Transparent);
         }
 
-        private void btnBorrow_Click(object sender, EventArgs e)
-        {
-            pnlContainer.Visible = true;
-            pnlFormBorrowBook.Visible = true;
-            txtGetTransType.Text = "Borrow";
-            ChangePosition(new Point(300, 0), pnlContainer);
-            DisableParentComponent(this.Controls, pnlContainer);
-            ResizePanelContainer(pnlFormBorrowBook, pnlContainer);
-        }
-
-        private void btnExitBookBorrow_Click(object sender, EventArgs e)
-        {
-            pnlContainer.Visible = false;
-            pnlFormBorrowBook.Visible = false;
-            EnableParentComponent(this.Controls, pnlContainer);
-        }
-
-        private void btnReturnBook_Click(object sender, EventArgs e)
-        {
-            pnlContainer.Visible = true;
-            pnlFormReturnBook.Visible = true;
-            ChangePosition(new Point(300, 0), pnlContainer);
-            DisableParentComponent(this.Controls, pnlContainer);
-            ResizePanelContainer(pnlFormReturnBook, pnlContainer);
-        }
-
-        private void btnExitChildPanel_Click(object sender, EventArgs e)
-        {
-            pnlContainer.Visible = false;
-            pnlChildDetailInfo.Visible = false;
-            EnableParentComponent(this.Controls, pnlContainer);
-
-        }
-
-      
-        private void tbBody_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void pnlChildDetailInfo_Paint(object sender, PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -162,74 +74,68 @@ namespace QuanLyThuQuan.GUI
             //ControlPaint.DrawBorder(e.Graphics, pnlChildDetailInfo.ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
         }
 
-        private void tbBlockInfoOne_Paint(object sender, PaintEventArgs e)
+        //Borrow button click
+        private void btnBorrow_Click(object sender, EventArgs e)
         {
-
+            FormBorrowBook borrowForm = new FormBorrowBook();
+            borrowForm.ShowDialog();
         }
 
-        private void btnExitFormReturnBook_Click(object sender, EventArgs e)
+        private void btnReturnBook_Click(object sender, EventArgs e)
         {
-            pnlContainer.Visible = false;
-            pnlFormReturnBook.Visible = false;
-            EnableParentComponent(this.Controls, pnlContainer);
-        }
-
-        private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            pnlContainer.Visible = true;
-            pnlChildDetailInfo.Visible = true;
-            DisableParentComponent(this.Controls, pnlContainer);
-            ResizePanelContainer(pnlChildDetailInfo, pnlContainer);
-            ChangePosition(new Point(12, 12), pnlContainer);
+            FormReturnBook returnForm = new FormReturnBook();
+            returnForm.ShowDialog();
         }
 
         private void btnBookReservation_Click(object sender, EventArgs e)
         {
-            pnlContainer.Visible = true;
-            pnlFormBorrowBook.Visible = true;
-            txtGetTransType.Text = "Reserve";
-            ChangePosition(new Point(300, 0), pnlContainer);
-            DisableParentComponent(this.Controls, pnlContainer);
-            ResizePanelContainer(pnlFormBorrowBook, pnlContainer);
+            FormBorrowBook borrowForm = new FormBorrowBook();
+            borrowForm.ShowDialog();
         }
 
-        private void btnResetFromReturn_Click(object sender, EventArgs e)
+        private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Control.ControlCollection list = tbGetReturnInfo.Controls;
-            foreach (Control control in list)
-                if (control is TextBox textbox && !textbox.ReadOnly)
-                    textbox.Text = "";
-                else if (control is RichTextBox rTextbox && !rTextbox.ReadOnly)
-                    rTextbox.Text = "";
+            if (dgvDataTransactions.Columns[e.ColumnIndex].Name.Equals("colMoreOptions"))
+            {
+                FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
+                informationForm.ShowDialog();
+                TransactionBUS bus = TransactionBUS.GetInstance(); ;
+                bus.GetAll();
+                bus.CheckOverdue(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
+            }
         }
 
-        private void btnResetFormBorrow_Click(object sender, EventArgs e)
+        private void LoadAllTransaction()
         {
-            Control.ControlCollection list = tbGetBorrowInfo.Controls;
-            foreach (Control control in list)
-                if (control is TextBox textbox && !textbox.ReadOnly)
-                    textbox.Text = "";
-                else if (control is RichTextBox rTextbox && !rTextbox.ReadOnly)
-                    rTextbox.Text = "";
-                else if (control is DateTimePicker dateTimePicker && dateTimePicker.Enabled)
-                    dateTimePicker.Value = DateTime.Now;
+            List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
+            foreach (TransactionModel transaction in transactions)
+                dgvDataTransactions.DataSource = null;
+            dgvDataTransactions.DataSource = transactions;
+            if (!dgvDataTransactions.Columns.Contains("More"))
+            {
+                DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
+                moreColumn.Name = "colMoreOptions";
+                moreColumn.HeaderText = "";
+                moreColumn.Text = "...";
+                moreColumn.UseColumnTextForButtonValue = true;
+                moreColumn.Width = 10;
+                dgvDataTransactions.Columns.Add(moreColumn);
+            }
+            dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
+            dgvDataTransactions.DefaultCellStyle.ForeColor = Color.Blue;
+            List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
+                                                    "ReturnDate", "MemberID"};
+            ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
+
         }
 
-        private void txtGetMemberIDReturn_Click(object sender, EventArgs e)
+        // Resize columns
+        private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
         {
-            txtGetMemberIDReturn.Select(0, txtGetMemberIDReturn.Text.Length);
-
+            IEnumerator<string> list = colList.GetEnumerator();
+            while (list.MoveNext())
+                dgv.Columns[list.Current].AutoSizeMode = mode;
         }
-        private void txtGetBorrowMemberID_Click(object sender, EventArgs e)
-        {
-            txtGetBorrowMemberID.Select(0, txtGetBorrowMemberID.Text.Length);
-        }
-
-
-        //private void timeTextBoxResult_Tick(object sender, EventArgs e)
-        //{
-        //    timeTextBoxResult.Stop();
-        //    txtResult.Visible = false;
-        //}
     }
 }

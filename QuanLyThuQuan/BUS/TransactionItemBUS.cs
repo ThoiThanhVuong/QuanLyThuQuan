@@ -1,13 +1,15 @@
+<<<<<<< HEAD
 ﻿//using QuanLyThuQuan.Config;
 using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
 
 using System;
+=======
+﻿using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.Model;
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -28,6 +30,11 @@ namespace QuanLyThuQuan.BUS
         {
             //return new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
             return new TransactionItemDAO(GetConnectDB()).GetAll();
+        }
+
+        public TransactionItemModel GetByID(string id)
+        {
+            return new TransactionItemDAO(GetConnectDB()).GetByID(id);
         }
 
         public void Add(TransactionItemModel transaction)

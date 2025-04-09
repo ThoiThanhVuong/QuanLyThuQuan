@@ -2,18 +2,11 @@
 using QuanLyThuQuan.GUI.ProductItem;
 using QuanLyThuQuan.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
-    public partial class frmQuanLySach: Form
+    public partial class frmQuanLySach : Form
     {
         private FormMain mainForm;
         private BookBUS bookBUS = new BookBUS();
@@ -60,14 +53,20 @@ namespace QuanLyThuQuan.GUI
         {
             mainForm.ShowFormInPanel(new FormBook(mainForm));
         }
-       
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmControlBook formAddBook = new frmControlBook();
             // Gọi phương thức để đặt text cho label và button
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
+<<<<<<< HEAD
            
             formAddBook.ShowDialog();  
+=======
+            FadeForm(true);
+            formAddBook.FormClosed += (s, args) => FadeForm(false);
+            formAddBook.ShowDialog();
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -24,7 +24,7 @@ namespace QuanLyThuQuan.DAO
         // READ
         public List<TransactionItemModel> GetAll()
         {
-            List<TransactionItemModel> TransactionItemList = new List<TransactionItemModel>();
+            List<TransactionItemModel> transactionItemList = new List<TransactionItemModel>();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
@@ -44,12 +44,12 @@ namespace QuanLyThuQuan.DAO
                             // just get Int16 for save memory
                             transactionItem.BookID = dtReader.IsDBNull(dtReader.GetOrdinal("BookID")) ? (Int16?)null : dtReader.GetInt16("BookID");
                             transactionItem.DeviceID = dtReader.IsDBNull(dtReader.GetOrdinal("DeviceID")) ? (Int16?)null : dtReader.GetInt16("DeviceID");
-                            transactionItem.Amount = dtReader.GetInt16("Amout");
-                            TransactionItemList.Add(transactionItem);
+                            transactionItem.Amount = dtReader.GetInt16("Amount");
+                            transactionItemList.Add(transactionItem);
                         }
                     }
                     dbConnect.CloseConnection();
-                    return TransactionItemList;
+                    return transactionItemList;
                 }
                 catch (Exception ex)
                 {
@@ -60,7 +60,49 @@ namespace QuanLyThuQuan.DAO
             }
         }
 
-        // READ
+        // READ -> List of specific transactionID
+        public List<TransactionItemModel> GetByTransactionID(string transactionID)
+        {
+            List<TransactionItemModel> transactionItemList = new List<TransactionItemModel>();
+            dbConnect.OpenConnection();
+            //using (MySqlConnection connection = db.GetConnection())
+            using (MySqlConnection connection = dbConnect.Connection)
+            {
+                Console.WriteLine("Success");
+                string query = "SELECT * FROM Transactionitems WHERE TransactionID = @ID";
+                try
+                {
+                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+                    {
+                        myCmd.Parameters.AddWithValue("@ID", transactionID);
+                        using (MySqlDataReader dtReader = myCmd.ExecuteReader())
+                        {
+                            while (dtReader.Read())
+                            {
+                                TransactionItemModel transactionItem = new TransactionItemModel();
+                                transactionItem.ItemID = dtReader.GetInt32("ItemID");
+                                transactionItem.TransactionID = dtReader.GetInt32("TransactionID");
+                                // just get Int16 for save memory
+                                transactionItem.BookID = dtReader.IsDBNull(dtReader.GetOrdinal("BookID")) ? (Int16?)null : dtReader.GetInt16("BookID");
+                                transactionItem.DeviceID = dtReader.IsDBNull(dtReader.GetOrdinal("DeviceID")) ? (Int16?)null : dtReader.GetInt16("DeviceID");
+                                transactionItem.Amount = dtReader.GetInt16("Amount");
+                                transactionItemList.Add(transactionItem);
+                            }
+                        }
+                        dbConnect.CloseConnection();
+                        return transactionItemList;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.StackTrace);
+                    dbConnect.CloseConnection();
+                    return null;
+                }
+            }
+        }
+
+        //Read -> Specific TransactionItem 
         public TransactionItemModel GetByID(string id)
         {
             TransactionItemModel transactionItem = new TransactionItemModel();
@@ -83,7 +125,7 @@ namespace QuanLyThuQuan.DAO
                                 transactionItem.TransactionID = dtReader.GetInt32("TransactionID");
                                 transactionItem.BookID = dtReader.IsDBNull(dtReader.GetOrdinal("BookID")) ? (Int16?)null : dtReader.GetInt16("BookID");
                                 transactionItem.DeviceID = dtReader.IsDBNull(dtReader.GetOrdinal("DeviceID")) ? (Int16?)null : dtReader.GetInt16("DeviceID");
-                                transactionItem.Amount = dtReader.GetInt16("Amout");
+                                transactionItem.Amount = dtReader.GetInt16("Amount");
                             }
                         }
                         dbConnect.CloseConnection();

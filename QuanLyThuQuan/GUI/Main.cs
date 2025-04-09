@@ -117,13 +117,13 @@ namespace QuanLyThuQuan.GUI
 
             ShowFormInPanel(new FormBook(this));
 
-         
+
         }
-      
+
         private void btnDevice_Click(object sender, EventArgs e)
         {
             ShowFormInPanel(new FormDevice());
-       
+
         }
 
         private void btnRule_Click(object sender, EventArgs e)
@@ -134,18 +134,18 @@ namespace QuanLyThuQuan.GUI
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-           ShowFormInPanel(new FormTransaction());
+            ShowFormInPanel(new FormTransaction());
         }
-    
+
         private void btnViolation_Click(object sender, EventArgs e)
         {
             ShowFormInPanel(new FormViolation());
 
         }
 
-     
 
-     
+
+
         private void btnReview_Click(object sender, EventArgs e)
         {
             ShowFormInPanel(new FormReview());

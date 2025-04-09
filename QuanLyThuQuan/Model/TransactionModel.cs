@@ -15,7 +15,7 @@ namespace QuanLyThuQuan.Model
         public TransactionStatus Status { get; set; }
 
         // Nếu muốn lấy thông tin Member trực tiếp
-        public MemberModel Member { get; set; }
+        private MemberModel Member { get; set; }
         public TransactionModel()
         {
 

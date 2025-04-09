@@ -12,7 +12,8 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.GetAllDevices();
         }
-        public DeviceModel GetDeviceByID(int Id) {
+        public DeviceModel GetDeviceByID(int Id)
+        {
             return deviceDAO.GetDeviceByID(Id);
         }
         public bool AddDevice(DeviceModel device)

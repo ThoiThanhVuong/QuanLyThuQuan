@@ -1,18 +1,12 @@
 ﻿using QuanLyThuQuan.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.ProductItem
 {
-    public partial class frmControlBook: Form
+    public partial class frmControlBook : Form
     {
         public frmControlBook()
         {
@@ -30,6 +24,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 btnBookControl.Visible = false;
                 btnUpLoadImg.Visible = false;
+<<<<<<< HEAD
                 txtMaSach.ReadOnly = true;
                 txtTenSach.ReadOnly = true;
                 txtMaTacGia.ReadOnly = true;
@@ -37,6 +32,9 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtPublishYear.ReadOnly = true;
                 txtTheLoai.ReadOnly = true;
                 txtSoLuong.ReadOnly = true;
+=======
+
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
             }
             else
             {
@@ -50,11 +48,11 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtTheLoai.ReadOnly = false;
                 txtSoLuong.ReadOnly = false;
             }
-                
+
         }
-        public void SetValue (BookModel book)
+        public void SetValue(BookModel book)
         {
-            txtMaSach.Text = book.BookID+"";
+            txtMaSach.Text = book.BookID + "";
             txtTenSach.Text = book.BookTitle;
             txtMaTacGia.Text = book.Author.AuthorName;
             txtTheLoai.Text = book.Category.CategoryName;
@@ -100,9 +98,21 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 MessageBox.Show("Ảnh không tồn tại: " + fullPath);
             }
+<<<<<<< HEAD
             
            
             
+=======
+            txtMaSach.ReadOnly = true;
+            txtTenSach.ReadOnly = true;
+            txtMaTacGia.ReadOnly = true;
+            txtGiaThue.ReadOnly = true;
+            txtPublishYear.ReadOnly = true;
+            txtTheLoai.ReadOnly = true;
+            txtSoLuong.ReadOnly = true;
+
+
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
     }
 }

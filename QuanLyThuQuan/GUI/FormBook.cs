@@ -4,12 +4,6 @@ using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.Windows.Forms;
 
@@ -34,8 +28,18 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             listSach();
+<<<<<<< HEAD
             
            
+=======
+            LoadData();
+
+        }
+        private void LoadData()
+        {
+            List<BookModel> books = bookBUS.GetAllBooks();
+
+>>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
     
         private void listSach()
@@ -51,7 +55,7 @@ namespace QuanLyThuQuan.GUI
                 ListBook.Controls.Add(bookItem);
             }
         }
-       
+
         private void ShowUserControl(UserControl uc)
         {
             ListBook.Controls.Clear();
@@ -78,7 +82,7 @@ namespace QuanLyThuQuan.GUI
 
         private void pnTheLoai_Click(object sender, EventArgs e)
         {
-            mainForm.ShowFormInPanel(new frmTheLoaiSach(mainForm));        
+            mainForm.ShowFormInPanel(new frmTheLoaiSach(mainForm));
         }
     }
 }
