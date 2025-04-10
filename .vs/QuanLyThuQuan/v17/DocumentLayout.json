@@ -107,7 +107,8 @@
               "RelativeToolTip": "QuanLyThuQuan\\DAO\\TransactionDAO.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwE8AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:38:26.565Z"
+              "WhenOpened": "2025-04-07T17:38:26.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -153,7 +154,8 @@
               "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T13:14:58.274Z"
+              "WhenOpened": "2025-04-07T13:14:58.274Z",
+              "EditorCaption": ""
             }
           ]
         }
