@@ -63,6 +63,7 @@ namespace QuanLyThuQuan.BUS
             IEnumerator<int> listID = borrowItemID.GetEnumerator();
             while (listID.MoveNext())
             {
+                //find 
                 //  Compare Return Date or DueDate with Borrow Date
                 
             }
