@@ -3,7 +3,6 @@ using QuanLyThuQuan.GUI.TransactionFormChilds;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -99,7 +98,7 @@ namespace QuanLyThuQuan.GUI
             {
                 FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
                 informationForm.ShowDialog();
-                TransactionBUS bus = TransactionBUS.GetInstance(); ;
+                TransactionBUS bus = new TransactionBUS();
                 bus.GetAll();
                 bus.CheckOverdue(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
             }
@@ -107,10 +106,13 @@ namespace QuanLyThuQuan.GUI
 
         private void LoadAllTransaction()
         {
-            List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
-            foreach (TransactionModel transaction in transactions)
-                dgvDataTransactions.DataSource = null;
+
+            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
+            List<TransactionModel> transactions = new TransactionBUS().GetAll();
+
+            dgvDataTransactions.DataSource = null;
             dgvDataTransactions.DataSource = transactions;
+            Console.WriteLine("transactions" + transactions);
             if (!dgvDataTransactions.Columns.Contains("More"))
             {
                 DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();

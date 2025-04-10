@@ -14,7 +14,7 @@ namespace QuanLyThuQuan.BUS
         private TransactionDAO TDAO = new TransactionDAO();
 
         //prevent new TransactionBUS
-        private TransactionBUS() { }
+        public TransactionBUS() { }
 
         // getter
         public static TransactionBUS GetInstance()

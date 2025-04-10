@@ -11,7 +11,7 @@ namespace QuanLyThuQuan.BUS
         private static readonly TransactionItemBUS Instance = new TransactionItemBUS();
 
         // Prevent new TransactionItemBUS
-        private TransactionItemBUS() { }
+        public TransactionItemBUS() { }
 
         // Getter
         public static TransactionItemBUS GetInstance()
