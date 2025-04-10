@@ -3,6 +3,7 @@ using QuanLyThuQuan.GUI.ProductItem;
 using QuanLyThuQuan.Model;
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace QuanLyThuQuan.GUI
 {
@@ -59,14 +60,10 @@ namespace QuanLyThuQuan.GUI
             frmControlBook formAddBook = new frmControlBook();
             // Gọi phương thức để đặt text cho label và button
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
-<<<<<<< HEAD
+
            
             formAddBook.ShowDialog();  
-=======
-            FadeForm(true);
-            formAddBook.FormClosed += (s, args) => FadeForm(false);
-            formAddBook.ShowDialog();
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

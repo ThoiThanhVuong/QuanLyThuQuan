@@ -24,7 +24,6 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 btnBookControl.Visible = false;
                 btnUpLoadImg.Visible = false;
-<<<<<<< HEAD
                 txtMaSach.ReadOnly = true;
                 txtTenSach.ReadOnly = true;
                 txtMaTacGia.ReadOnly = true;
@@ -32,9 +31,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtPublishYear.ReadOnly = true;
                 txtTheLoai.ReadOnly = true;
                 txtSoLuong.ReadOnly = true;
-=======
 
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
             }
             else
             {
@@ -98,11 +95,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 MessageBox.Show("Ảnh không tồn tại: " + fullPath);
             }
-<<<<<<< HEAD
-            
-           
-            
-=======
+
             txtMaSach.ReadOnly = true;
             txtTenSach.ReadOnly = true;
             txtMaTacGia.ReadOnly = true;
@@ -111,8 +104,6 @@ namespace QuanLyThuQuan.GUI.ProductItem
             txtTheLoai.ReadOnly = true;
             txtSoLuong.ReadOnly = true;
 
-
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
     }
 }

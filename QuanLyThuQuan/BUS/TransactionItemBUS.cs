@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-﻿//using QuanLyThuQuan.Config;
-using QuanLyThuQuan.DAO;
-using QuanLyThuQuan.Interfaces;
-using QuanLyThuQuan.Model;
 
-using System;
-=======
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
+
 using System.Collections.Generic;
 
 namespace QuanLyThuQuan.BUS

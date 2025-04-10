@@ -215,10 +215,7 @@ namespace QuanLyThuQuan.DAO
                 Console.WriteLine("Lỗi khi cập nhật trạng thái sách: " + ex.Message);
                 return false;
             }
-<<<<<<< HEAD
-=======
 
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
         }
 
         public List<BookModel> SearchBooks(string keyword)

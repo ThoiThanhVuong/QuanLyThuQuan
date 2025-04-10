@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-﻿//using QuanLyThuQuan.Config;
-using QuanLyThuQuan.DAO;
-using QuanLyThuQuan.Interfaces;
-using QuanLyThuQuan.Model;
 
-=======
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System;
->>>>>>> e9e8c2668c9e6b62e77b330576d43285299ac177
+
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -36,7 +30,7 @@ namespace QuanLyThuQuan.BUS
 
         public TransactionModel GetByID(string id, string condition)
         {
-            return new TransactionDAO(GetConnectDB()).GetByID(id, condition);
+            return new TransactionDAO().GetByID(id, condition);
         }
 
         public void Add(TransactionModel transaction)
