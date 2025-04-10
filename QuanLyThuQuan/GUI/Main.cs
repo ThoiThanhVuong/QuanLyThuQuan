@@ -6,14 +6,7 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormMain : Form
     {
-        //FormBook pnBook;
-        //FormDashBoard pnDashBoard;
-        //FormDevice pnDevice;
-        //FormRule pnRule;
-        //FormTransaction pnTransaction;
-        //FormViolation pnViolation;
-        //FormReview pnReview;
-        //FormStatistic pnStatistic;
+     
         Login formLogin;
         private Form currentForm = null;
         public FormMain()

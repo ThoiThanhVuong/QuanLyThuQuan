@@ -166,6 +166,7 @@
             this.tbBody.Size = new System.Drawing.Size(960, 544);
             this.tbBody.TabIndex = 7;
             // 
+
             // FormTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

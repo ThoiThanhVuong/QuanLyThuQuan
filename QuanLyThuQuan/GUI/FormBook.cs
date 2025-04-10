@@ -13,10 +13,7 @@ namespace QuanLyThuQuan.GUI
     {
         private BookBUS bookBUS = new BookBUS();
         private FormMain mainForm;
-        private List<BookModel> books;
-
-        //UC_TacGia ucTacGia = new UC_TacGia();
-        //UC_TheLoai ucTheLoai = new UC_TheLoai();
+  
 
         public FormBook(FormMain main)
         {
@@ -36,6 +33,7 @@ namespace QuanLyThuQuan.GUI
             List<BookModel> books = bookBUS.GetAllBooks();
 
         }
+    
         private void listSach()
         {
             List<BookModel> books = bookBUS.GetAllBooks();

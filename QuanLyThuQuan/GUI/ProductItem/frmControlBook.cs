@@ -24,12 +24,26 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 btnBookControl.Visible = false;
                 btnUpLoadImg.Visible = false;
+                txtMaSach.ReadOnly = true;
+                txtTenSach.ReadOnly = true;
+                txtMaTacGia.ReadOnly = true;
+                txtGiaThue.ReadOnly = true;
+                txtPublishYear.ReadOnly = true;
+                txtTheLoai.ReadOnly = true;
+                txtSoLuong.ReadOnly = true;
 
             }
             else
             {
                 btnBookControl.Visible = true;
                 btnBookControl.Text = buttonText;
+                txtMaSach.ReadOnly = true;
+                txtTenSach.ReadOnly = false;
+                txtMaTacGia.ReadOnly = false;
+                txtGiaThue.ReadOnly = false;
+                txtPublishYear.ReadOnly = false;
+                txtTheLoai.ReadOnly = false;
+                txtSoLuong.ReadOnly = false;
             }
 
         }
@@ -81,6 +95,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 MessageBox.Show("Ảnh không tồn tại: " + fullPath);
             }
+
             txtMaSach.ReadOnly = true;
             txtTenSach.ReadOnly = true;
             txtMaTacGia.ReadOnly = true;
@@ -88,7 +103,6 @@ namespace QuanLyThuQuan.GUI.ProductItem
             txtPublishYear.ReadOnly = true;
             txtTheLoai.ReadOnly = true;
             txtSoLuong.ReadOnly = true;
-
 
         }
     }

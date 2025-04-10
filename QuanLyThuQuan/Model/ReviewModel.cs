@@ -21,18 +21,7 @@ namespace QuanLyThuQuan.Model
 
         }
 
-        public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DeviceModel device)
-        {
-            ReviewID = reviewID;
-            MemberID = memberID;
-            BookID = bookID;
-            DeviceID = deviceID;
-            Rating = rating;
-            ReviewText = reviewText;
-            Device = device;
-        }
-
-        public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DateTime reviewDate, MemberModel member, BookModel book, DeviceModel device)
+        public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DateTime reviewDate)
         {
             ReviewID = reviewID;
             MemberID = memberID;
@@ -41,6 +30,11 @@ namespace QuanLyThuQuan.Model
             Rating = rating;
             ReviewText = reviewText;
             ReviewDate = reviewDate;
+        }
+
+        public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DateTime reviewDate, MemberModel member, BookModel book, DeviceModel device)
+        : this(reviewID, memberID, bookID, deviceID, rating, reviewText, reviewDate)
+        {
             Member = member;
             Book = book;
             Device = device;

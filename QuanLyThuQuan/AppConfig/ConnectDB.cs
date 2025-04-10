@@ -4,7 +4,7 @@ namespace QuanLyThuQuan.AppConfig
 {
     class ConnectDB
     {
-        private string connectionString = "server=localhost;port=3306;database=QuanLyThuQuan;user=root;password=;";
+        private string connectionString = "server=localhost;port=3306;database=quanlythuquan;user=root;password=;";
         private MySqlConnection connection;
 
         public ConnectDB()

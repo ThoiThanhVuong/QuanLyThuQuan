@@ -1,6 +1,8 @@
+
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System;
+
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -9,6 +11,7 @@ namespace QuanLyThuQuan.BUS
     class TransactionBUS : BaseBUS<TransactionModel, int>
     {
         private static readonly TransactionBUS _Instance = new TransactionBUS();
+        private TransactionDAO TDAO = new TransactionDAO();
 
         //prevent new TransactionBUS
         private TransactionBUS() { }
@@ -22,30 +25,30 @@ namespace QuanLyThuQuan.BUS
         public override List<TransactionModel> GetAll()
         {
             //return new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return new TransactionDAO(GetConnectDB()).GetAll();
+            return TDAO.GetAll();
         }
 
         public TransactionModel GetByID(string id, string condition)
         {
-            return new TransactionDAO(GetConnectDB()).GetByID(id, condition);
+            return new TransactionDAO().GetByID(id, condition);
         }
 
         public void Add(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
-            new TransactionDAO(GetConnectDB()).Insert(transaction);
+            TDAO.Insert(transaction);
         }
 
         public void Update(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
-            new TransactionDAO(GetConnectDB()).Update(transaction);
+            TDAO.Update(transaction);
         }
 
         public void Delete(string id)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            new TransactionDAO(GetConnectDB()).Delete(id);
+            TDAO.Delete(id);
         }
 
         // check if this transaction is overdue
