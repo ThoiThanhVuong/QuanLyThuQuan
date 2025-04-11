@@ -1,50 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\",
+  "WorkspaceRootPath": "D:\\programming\\QuanLyThuQuan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\model\\transactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\transactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\transactionformchilds\\forminformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\transactionformchilds\\forminformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\public\\sql\\quanlythuquan.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\public\\sql\\quanlythuquan.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\bus\\transactionitembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\transactionitembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\dao\\loginhistorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\loginhistorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\model\\loginhistorymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\loginhistorymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\bus\\basebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\basebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\model\\logincountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\logincountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\interfaces\\idbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\interfaces\\idbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\dao\\transactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\transactiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\dao\\transactionitemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\transactionitemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\interfaces\\ibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\interfaces\\ibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\model\\transactionitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\transactionitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\bus\\loginhistorybus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\loginhistorybus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,16 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -73,146 +49,101 @@
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BaseBUS.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\BaseBUS.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\BaseBUS.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\BaseBUS.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\BUS\\BaseBUS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:58:18.346Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IDBConnection.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Interfaces\\IDBConnection.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\Interfaces\\IDBConnection.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Interfaces\\IDBConnection.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\Interfaces\\IDBConnection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "LoginHistoryBUS.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\LoginHistoryBUS.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\LoginHistoryBUS.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\LoginHistoryBUS.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\BUS\\LoginHistoryBUS.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:58:11.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IBUS.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Interfaces\\IBUS.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\Interfaces\\IBUS.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Interfaces\\IBUS.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\Interfaces\\IBUS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T23:58:03.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TransactionItemModel.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionItemModel.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\TransactionItemModel.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionItemModel.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\Model\\TransactionItemModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T18:12:22.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TransactionItemDAO.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionItemDAO.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\TransactionItemDAO.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionItemDAO.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\DAO\\TransactionItemDAO.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAQwH8AAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:51:29.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TransactionDAO.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\TransactionDAO.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\TransactionDAO.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\DAO\\TransactionDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwDQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:38:26.565Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TransactionModel.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionModel.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\TransactionModel.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionModel.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\Model\\TransactionModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T17:17:45.354Z",
+              "WhenOpened": "2025-04-11T14:55:26.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormInformation.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "Title": "FormStatistic.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T16:48:54.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-11T14:45:34.42Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormTransaction.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAUwG4AAAAfAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "LoginCountModel.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\LoginCountModel.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\LoginCountModel.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\LoginCountModel.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\LoginCountModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T13:14:36.466Z",
+              "WhenOpened": "2025-04-11T14:30:05.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TransactionBUS.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAOAAAAAAAAAA==",
+              "Title": "LoginHistoryModel.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\LoginHistoryModel.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\LoginHistoryModel.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\LoginHistoryModel.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\LoginHistoryModel.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwA8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T17:48:15.137Z",
+              "WhenOpened": "2025-04-11T14:29:41.594Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "TransactionItemBUS.cs",
-              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
-              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionItemBUS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Title": "LoginHistoryDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\LoginHistoryDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\LoginHistoryDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\LoginHistoryDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\LoginHistoryDAO.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAAwLAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T13:14:58.274Z",
+              "WhenOpened": "2025-04-11T14:28:09.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAC4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T14:22:40.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuanLyThuQuan.sql",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Public\\SQL\\QuanLyThuQuan.sql",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Public\\SQL\\QuanLyThuQuan.sql",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Public\\SQL\\QuanLyThuQuan.sql",
+              "RelativeToolTip": "QuanLyThuQuan\\Public\\SQL\\QuanLyThuQuan.sql",
+              "ViewState": "AgIAANUAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-04-11T14:12:22.736Z",
               "EditorCaption": ""
             }
           ]

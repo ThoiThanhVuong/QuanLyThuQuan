@@ -19,47 +19,24 @@ namespace QuanLyThuQuan.BUS
             return loginHistoryDAO.GetLoginHistoryByMemberID(memberID);
         }
 
-        public LoginHistoryModel GetLoginHistoryByID(int loginID)
+        public List<LoginCountModel> GetAllLoginCounts()
         {
-            return loginHistoryDAO.GetLoginHistoryByID(loginID);
+            return loginHistoryDAO.GetAllLoginCounts();
         }
 
-        public bool AddLoginHistory(LoginHistoryModel loginHistory)
+        public List<LoginCountModel> GetLoginCountByMemberID(int memberID)
         {
-            return loginHistoryDAO.AddLoginHistory(loginHistory);
+            return loginHistoryDAO.GetLoginCountByMemberID(memberID);
         }
 
-        public bool UpdateLoginHistory(LoginHistoryModel loginHistory)
+        public List<LoginCountModel> GetLoginCountByDate(DateTime from, DateTime to)
         {
-            return loginHistoryDAO.UpdateLoginHistory(loginHistory);
+            return loginHistoryDAO.GetLoginCountByDate(from, to);
         }
 
-        public bool DeleteLoginHistory(int loginID)
+        public List<LoginCountModel> GetLoginCountByMemberAndDate(int memberID, DateTime from, DateTime to)
         {
-            return loginHistoryDAO.DeleteLoginHistory(loginID);
-        }
-
-        public bool UpdateLogoutTime(int loginID, DateTime logoutTime)
-        {
-            return loginHistoryDAO.UpdateLogoutTime(loginID, logoutTime);
-        }
-
-        public bool RecordLogin(int memberID, bool success)
-        {
-            LoginHistoryModel loginRecord = new LoginHistoryModel(
-                0, // LoginID will be assigned by the database
-                memberID,
-                DateTime.Now,
-                null, // LogoutTime will be updated later on logout
-                success ? LoginStatus.Success : LoginStatus.Failed
-            );
-
-            return loginHistoryDAO.AddLoginHistory(loginRecord);
-        }
-
-        public bool RecordLogout(int loginID)
-        {
-            return loginHistoryDAO.UpdateLogoutTime(loginID, DateTime.Now);
+            return loginHistoryDAO.GetLoginCountByMemberAndDate(memberID, from, to);
         }
     }
 }

@@ -210,5 +210,31 @@ namespace QuanLyThuQuan.DAO
             return devices;
         }
 
+
+        public int GetTotalDeviceQuantity()
+        {
+            int total = 0;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT SUM(Quantity) FROM Devices";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                object result = cmd.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    total = Convert.ToInt32(result);
+                }
+                db.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy tổng số lượng thiết bị " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return total;
+        }
     }
 }
