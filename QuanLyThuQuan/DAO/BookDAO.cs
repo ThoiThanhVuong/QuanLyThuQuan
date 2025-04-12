@@ -106,7 +106,7 @@ namespace QuanLyThuQuan.DAO
                             AuthorModel author = new AuthorModel(
                                 reader.GetInt32("AuthorID"),
                                 reader.GetString("AuthorName"),
-                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus),reader.GetString("AuthorStatus"))
+                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("AuthorStatus"))
                                 );
                             CategoriesModel categories = new CategoriesModel(
                                 reader.GetInt32("CategoryID"),
@@ -271,6 +271,27 @@ namespace QuanLyThuQuan.DAO
 
             db.CloseConnection();
             return books;
+        }
+
+        public int GetTotalBookQuantity()
+        {
+            int cnt = 0;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT SUM(Quantity) FROM Books";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cnt = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi đếm sách: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return cnt;
         }
 
 
