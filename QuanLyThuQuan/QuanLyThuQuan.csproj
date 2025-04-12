@@ -106,11 +106,16 @@
   <ItemGroup>
     <Compile Include="AppConfig\ConnectDB.cs" />
     <Compile Include="BUS\DeviceBUS.cs" />
+    <Compile Include="BUS\LoginHistoryBUS.cs" />
+    <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\ViolationBUS.cs" />
+    <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DeviceDAO.cs" />
+    <Compile Include="DAO\LoginHistoryDAO.cs" />
+    <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
     <Compile Include="DAO\ViolationDAO.cs" />
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
