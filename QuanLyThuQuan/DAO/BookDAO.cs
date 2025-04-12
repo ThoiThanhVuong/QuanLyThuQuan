@@ -16,7 +16,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Books";
+                string query = "SELECT * FROM Books WHERE Status IN ('Available','OutOf')";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -52,7 +52,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Books WHERE BookID = @Id";
+                string query = "SELECT * FROM Books WHERE BookID = @Id AND Status IN ('Available','OutOf')";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
@@ -95,7 +95,7 @@ namespace QuanLyThuQuan.DAO
                 string query = "SELECT * FROM Books " +
                     "JOIN authors ON Authors.AuthorID = Books.AuthorID " +
                     "JOIN Categories c ON c.CategoryID =Books.CategoryID" +
-                    " WHERE BookTitle =@name";
+                    " WHERE BookTitle =@name AND Status IN ('Available','OutOf')";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", name);
@@ -226,11 +226,11 @@ namespace QuanLyThuQuan.DAO
                 db.OpenConnection();
 
                 string query = @"
-            SELECT * FROM Books 
-            WHERE BookTitle LIKE @Keyword 
+                SELECT * FROM Books 
+                 WHERE BookTitle LIKE @Keyword 
                 OR AuthorID IN (
                     SELECT AuthorID FROM Authors WHERE AuthorName LIKE @Keyword
-                 )";
+                 ) AND Status IN ('Available','OutOf') ";
 
                 bool isNumber = int.TryParse(keyword, out int bookID);
                 if (isNumber)

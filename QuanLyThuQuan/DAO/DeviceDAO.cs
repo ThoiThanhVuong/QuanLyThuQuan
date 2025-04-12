@@ -16,7 +16,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Devices";
+                string query = "SELECT * FROM Devices WHERE Status IN ('Available','OutOf')";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -48,7 +48,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Devices WHERE DeviceID = @Id";
+                string query = "SELECT * FROM Devices WHERE DeviceID = @Id AND Status IN ('Available','OutOf')";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
@@ -171,7 +171,7 @@ namespace QuanLyThuQuan.DAO
 
                 string query = @"
                     SELECT * FROM Devices 
-                    WHERE DeviceName LIKE @Keyword";
+                    WHERE DeviceName LIKE @Keyword AND Status IN ('Available','OutOf')";
 
                 bool isNumber = int.TryParse(keyword, out int deviceID);
                 if (isNumber)

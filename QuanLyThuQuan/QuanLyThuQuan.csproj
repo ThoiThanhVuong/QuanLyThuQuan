@@ -105,9 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig\ConnectDB.cs" />
+    <Compile Include="BUS\AuthorBUS.cs" />
+    <Compile Include="BUS\CategoryBUS.cs" />
     <Compile Include="BUS\DeviceBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\ViolationBUS.cs" />
+    <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DeviceDAO.cs" />
