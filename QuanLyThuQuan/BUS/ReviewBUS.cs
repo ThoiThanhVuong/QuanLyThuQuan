@@ -6,11 +6,16 @@ namespace QuanLyThuQuan.BUS
 {
     class ReviewBUS
     {
-        private ReviewDao reviewDao = new ReviewDao();
+        private ReviewDAO reviewDao = new ReviewDAO();
 
         public List<ReviewModel> GetAllReviews()
         {
-            return reviewDao.getAllReviews();
+            return reviewDao.GetAllReviews();
+        }
+
+        public int GetMaxReviewID()
+        {
+            return reviewDao.GetMaxReviewID();
         }
 
         public ReviewModel GetReviewByID(int reviewID)

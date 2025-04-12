@@ -2,42 +2,35 @@
 
 namespace QuanLyThuQuan.Model
 {
-    class ReviewModel
+    public class ReviewModel
     {
-        public int ReviewID { get; set; }
-        public int MemberID { get; set; }
-        public int? BookID { get; set; }
-        public int? DeviceID { get; set; }
-        public int Rating { get; set; }
-        public string ReviewText { get; set; }
-        public DateTime ReviewDate { get; set; }
+        private int reviewID;
+        private int memberID;
+        private int? bookID;
+        private int? deviceID;
+        private int rating;
+        private string reviewText;
+        private DateTime reviewDate;
 
-        // Navigation Properties
-        public MemberModel Member { get; set; }
-        public BookModel Book { get; set; }
-        public DeviceModel Device { get; set; }
-        public ReviewModel()
-        {
+        public int ReviewID { get => reviewID; set => reviewID = value; }
+        public int MemberID { get => memberID; set => memberID = value; }
+        public int? BookID { get => bookID; set => bookID = value; }
+        public int? DeviceID { get => deviceID; set => deviceID = value; }
+        public int Rating { get => rating; set => rating = value; }
+        public string ReviewText { get => reviewText; set => reviewText = value; }
+        public DateTime ReviewDate { get => reviewDate; set => reviewDate = value; }
 
-        }
+        public ReviewModel() { }
 
         public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DateTime reviewDate)
         {
-            ReviewID = reviewID;
-            MemberID = memberID;
-            BookID = bookID;
-            DeviceID = deviceID;
-            Rating = rating;
-            ReviewText = reviewText;
-            ReviewDate = reviewDate;
-        }
-
-        public ReviewModel(int reviewID, int memberID, int? bookID, int? deviceID, int rating, string reviewText, DateTime reviewDate, MemberModel member, BookModel book, DeviceModel device)
-        : this(reviewID, memberID, bookID, deviceID, rating, reviewText, reviewDate)
-        {
-            Member = member;
-            Book = book;
-            Device = device;
+            this.reviewID = reviewID;
+            this.memberID = memberID;
+            this.bookID = bookID;
+            this.deviceID = deviceID;
+            this.rating = rating;
+            this.reviewText = reviewText;
+            this.reviewDate = reviewDate;
         }
     }
 }
