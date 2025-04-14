@@ -1,39 +1,29 @@
-.vs
-/QuanLyThuQuan/.vs
-.vscode
-# Visual Studio
-# Visual Studio
+## Ignore Visual Studio files
 .vs/
 *.user
 *.suo
+*.sln.docstates
 
-# Build results
-bin/
-obj/
+## Ignore build results
+[Bb]in/
+[Oo]bj/
 *.exe
 *.dll
 *.pdb
-*.cache
-*.log
-*.csproj.FileListAbsolute.txt
-*.dbmdl
 
-# Auto-generated
-*.Designer.cs
-*.Generated.*
-*.g.*
-*.g.cs
-*.g.i.cs
-*.resources
-
-# NuGet
+## Ignore packages
 packages/
-*.nupkg
-project.lock.json
 
-# Others
-*.config
-*.xml
+## Ignore other temp files
+*.log
+*.cache
 *.tmp
+*.bak
+*.db
 
-
+## OS specific
+Thumbs.db
+ehthumbs.db
+.DS_Store
+QuanLyThuQuan/bin/
+QuanLyThuQuan/obj/
