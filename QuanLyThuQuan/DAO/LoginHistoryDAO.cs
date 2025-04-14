@@ -10,6 +10,7 @@ namespace QuanLyThuQuan.DAO
     {
         private ConnectDB db = new ConnectDB();
 
+        //maybe useless ??
         public List<LoginHistoryModel> GetAllLoginHistory()
         {
             List<LoginHistoryModel> loginHistory = new List<LoginHistoryModel>();
@@ -76,142 +77,131 @@ namespace QuanLyThuQuan.DAO
             return loginHistory;
         }
 
-        public LoginHistoryModel GetLoginHistoryByID(int loginID)
+        public List<LoginCountModel> GetAllLoginCounts()
         {
-            LoginHistoryModel loginHistory = null;
+            List<LoginCountModel> loginCounts = new List<LoginCountModel>();
             try
             {
                 db.OpenConnection();
-                string query = $"SELECT * FROM LoginHistory WHERE LoginID = {loginID}";
-                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                string query = "SELECT mb.MemberID, mb.FullName, COUNT(*) AS LoginCount FROM LoginHistory JOIN Member mb ON LoginHistory.MemberID = mb.MemberID GROUP BY mb.MemberID, mb.FullName";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    loginCounts.Add(new LoginCountModel
                     {
-                        if (reader.Read())
-                        {
-                            loginHistory = new LoginHistoryModel(
-                                reader.GetInt32("LoginID"),
-                                reader.GetInt32("MemberID"),
-                                reader.GetDateTime("LoginTime"),
-                                reader.IsDBNull(reader.GetOrdinal("LogoutTime")) ? (DateTime?)null : reader.GetDateTime("LogoutTime"),
-                                (LoginStatus)Enum.Parse(typeof(LoginStatus), reader.GetString("Status"))
-                            );
-                        }
-                    }
+                        MemberID = reader.GetInt32("MemberID"),
+                        MemberName = reader.GetString("FullName"),
+                        LoginCount = reader.GetInt32("LoginCount")
+                    });
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error retrieving login history: " + ex.Message);
+                Console.WriteLine("Error retrieving login counts: " + ex.Message);
             }
             finally
             {
                 db.CloseConnection();
             }
-            return loginHistory;
+            return loginCounts;
         }
 
-        public bool AddLoginHistory(LoginHistoryModel loginHistory)
+        public List<LoginCountModel> GetLoginCountByMemberID(int memberID)
         {
+            List<LoginCountModel> loginCounts = new List<LoginCountModel>();
             try
             {
                 db.OpenConnection();
-                string query = "INSERT INTO LoginHistory (MemberID, LoginTime, LogoutTime, Status) " +
-                              $"VALUES ({loginHistory.MemberID}, " +
-                              $"'{loginHistory.LoginTime.ToString("yyyy-MM-dd HH:mm:ss")}', " +
-                              (loginHistory.LogoutTime.HasValue ? $"'{loginHistory.LogoutTime.Value.ToString("yyyy-MM-dd HH:mm:ss")}'" : "NULL") + ", " +
-                              $"'{loginHistory.Status.ToString()}')";
-                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                string query = $"SELECT mb.MemberID, mb.FullName, COUNT(*) AS LoginCount FROM LoginHistory JOIN Member mb ON LoginHistory.MemberID = mb.MemberID WHERE mb.MemberID = {memberID} GROUP BY mb.MemberID, mb.FullName";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    cmd.ExecuteNonQuery();
+                    loginCounts.Add(new LoginCountModel
+                    {
+                        MemberID = reader.GetInt32("MemberID"),
+                        MemberName = reader.GetString("FullName"),
+                        LoginCount = reader.GetInt32("LoginCount")
+                    });
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error adding login history: " + ex.Message);
-                return false;
+                Console.WriteLine("Error retrieving login counts: " + ex.Message);
             }
             finally
             {
                 db.CloseConnection();
             }
+            return loginCounts;
         }
 
-        public bool UpdateLoginHistory(LoginHistoryModel loginHistory)
+        public List<LoginCountModel> GetLoginCountByDate(DateTime from, DateTime to)
         {
+            List<LoginCountModel> loginCounts = new List<LoginCountModel>();
             try
             {
                 db.OpenConnection();
-                string query = $"UPDATE LoginHistory SET " +
-                              $"MemberID = {loginHistory.MemberID}, " +
-                              $"LoginTime = '{loginHistory.LoginTime.ToString("yyyy-MM-dd HH:mm:ss")}', " +
-                              $"LogoutTime = " + (loginHistory.LogoutTime.HasValue ? $"'{loginHistory.LogoutTime.Value.ToString("yyyy-MM-dd HH:mm:ss")}'" : "NULL") + ", " +
-                              $"Status = '{loginHistory.Status.ToString()}' " +
-                              $"WHERE LoginID = {loginHistory.LoginID}";
-                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                string query = "SELECT mb.MemberID, mb.FullName, COUNT(*) AS LoginCount FROM LoginHistory JOIN Member mb ON LoginHistory.MemberID = mb.MemberID WHERE LoginTime BETWEEN @from AND @to GROUP BY mb.MemberID, mb.FullName";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@from", from);
+                cmd.Parameters.AddWithValue("@to", to);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    cmd.ExecuteNonQuery();
+                    loginCounts.Add(new LoginCountModel
+                    {
+                        MemberID = reader.GetInt32("MemberID"),
+                        MemberName = reader.GetString("FullName"),
+                        LoginCount = reader.GetInt32("LoginCount")
+                    });
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error updating login history: " + ex.Message);
-                return false;
+                Console.WriteLine("Error retrieving login counts by date: " + ex.Message);
             }
             finally
             {
                 db.CloseConnection();
             }
+
+            return loginCounts;
         }
 
-        public bool DeleteLoginHistory(int loginID)
+        public List<LoginCountModel> GetLoginCountByMemberAndDate(int memberID, DateTime from, DateTime to)
         {
+            List<LoginCountModel> loginCounts = new List<LoginCountModel>();
             try
             {
                 db.OpenConnection();
-                string query = $"DELETE FROM LoginHistory WHERE LoginID = {loginID}";
-                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                string query = "SELECT mb.MemberID, mb.FullName, COUNT(*) AS LoginCount FROM LoginHistory JOIN Member mb ON LoginHistory.MemberID = mb.MemberID WHERE mb.MemberID = @memberID AND LoginTime BETWEEN @from AND @to GROUP BY mb.MemberID, mb.FullName";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@memberID", memberID);
+                cmd.Parameters.AddWithValue("@from", from);
+                cmd.Parameters.AddWithValue("@to", to);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    cmd.ExecuteNonQuery();
+                    loginCounts.Add(new LoginCountModel
+                    {
+                        MemberID = reader.GetInt32("MemberID"),
+                        MemberName = reader.GetString("FullName"),
+                        LoginCount = reader.GetInt32("LoginCount")
+                    });
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error deleting login history: " + ex.Message);
-                return false;
+                Console.WriteLine("Error retrieving login counts by member and date: " + ex.Message);
             }
             finally
             {
                 db.CloseConnection();
             }
-        }
 
-        public bool UpdateLogoutTime(int loginID, DateTime logoutTime)
-        {
-            try
-            {
-                db.OpenConnection();
-                string query = $"UPDATE LoginHistory SET " +
-                              $"LogoutTime = '{logoutTime.ToString("yyyy-MM-dd HH:mm:ss")}' " +
-                              $"WHERE LoginID = {loginID}";
-                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error updating logout time: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
+            return loginCounts;
         }
     }
 }

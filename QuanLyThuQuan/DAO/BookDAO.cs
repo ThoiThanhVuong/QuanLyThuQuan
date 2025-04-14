@@ -16,7 +16,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Books";
+                string query = "SELECT * FROM Books WHERE Status IN ('Available','OutOf')";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -52,7 +52,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Books WHERE BookID = @Id";
+                string query = "SELECT * FROM Books WHERE BookID = @Id AND Status IN ('Available','OutOf')";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
@@ -95,7 +95,7 @@ namespace QuanLyThuQuan.DAO
                 string query = "SELECT * FROM Books " +
                     "JOIN authors ON Authors.AuthorID = Books.AuthorID " +
                     "JOIN Categories c ON c.CategoryID =Books.CategoryID" +
-                    " WHERE BookTitle =@name";
+                    " WHERE BookTitle =@name AND Status IN ('Available','OutOf')";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@name", name);
@@ -106,7 +106,7 @@ namespace QuanLyThuQuan.DAO
                             AuthorModel author = new AuthorModel(
                                 reader.GetInt32("AuthorID"),
                                 reader.GetString("AuthorName"),
-                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus),reader.GetString("AuthorStatus"))
+                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("AuthorStatus"))
                                 );
                             CategoriesModel categories = new CategoriesModel(
                                 reader.GetInt32("CategoryID"),
@@ -226,11 +226,11 @@ namespace QuanLyThuQuan.DAO
                 db.OpenConnection();
 
                 string query = @"
-            SELECT * FROM Books 
-            WHERE BookTitle LIKE @Keyword 
+                SELECT * FROM Books 
+                 WHERE BookTitle LIKE @Keyword 
                 OR AuthorID IN (
                     SELECT AuthorID FROM Authors WHERE AuthorName LIKE @Keyword
-                 )";
+                 ) AND Status IN ('Available','OutOf') ";
 
                 bool isNumber = int.TryParse(keyword, out int bookID);
                 if (isNumber)
@@ -271,6 +271,27 @@ namespace QuanLyThuQuan.DAO
 
             db.CloseConnection();
             return books;
+        }
+
+        public int GetTotalBookQuantity()
+        {
+            int cnt = 0;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT SUM(Quantity) FROM Books";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cnt = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi đếm sách: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return cnt;
         }
 
 

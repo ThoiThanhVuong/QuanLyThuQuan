@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheLoaiSach));
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvTheLoai = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.PictureBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheLoai)).BeginInit();
             this.panel4.SuspendLayout();
@@ -75,8 +77,9 @@
             this.dgvTheLoai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTheLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
+            this.CategoryID,
+            this.CategoryName,
+            this.CategoryStatus,
             this.Activity});
             this.dgvTheLoai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTheLoai.Location = new System.Drawing.Point(0, 0);
@@ -87,19 +90,31 @@
             this.dgvTheLoai.Size = new System.Drawing.Size(456, 509);
             this.dgvTheLoai.TabIndex = 0;
             // 
-            // Column1
+            // CategoryID
             // 
-            this.Column1.FillWeight = 132.9545F;
-            this.Column1.HeaderText = "Mã Thể Loại";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
+            this.CategoryID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CategoryID.FillWeight = 132.9545F;
+            this.CategoryID.HeaderText = "Mã Thể Loại";
+            this.CategoryID.MinimumWidth = 8;
+            this.CategoryID.Name = "CategoryID";
+            this.CategoryID.Width = 150;
             // 
-            // Column2
+            // CategoryName
             // 
-            this.Column2.FillWeight = 132.9545F;
-            this.Column2.HeaderText = "Tên Thể Loại";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
+            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CategoryName.FillWeight = 132.9545F;
+            this.CategoryName.HeaderText = "Tên Thể Loại";
+            this.CategoryName.MinimumWidth = 8;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.Width = 210;
+            // 
+            // CategoryStatus
+            // 
+            this.CategoryStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CategoryStatus.HeaderText = "Trạng thái";
+            this.CategoryStatus.MinimumWidth = 8;
+            this.CategoryStatus.Name = "CategoryStatus";
+            this.CategoryStatus.Width = 80;
             // 
             // Activity
             // 
@@ -130,11 +145,12 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnAdd.Location = new System.Drawing.Point(55, 228);
+            this.btnAdd.Location = new System.Drawing.Point(18, 228);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(115, 38);
             this.btnAdd.TabIndex = 7;
@@ -153,11 +169,12 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnEdit.Location = new System.Drawing.Point(245, 228);
+            this.btnEdit.Location = new System.Drawing.Point(146, 228);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(115, 38);
             this.btnEdit.TabIndex = 5;
@@ -185,6 +202,7 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -236,6 +254,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.btnRemove);
             this.panel6.Controls.Add(this.btnAdd);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.btnEdit);
@@ -294,6 +313,7 @@
             // 
             // btnReturn
             // 
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.Location = new System.Drawing.Point(8, 9);
             this.btnReturn.Name = "btnReturn";
@@ -302,6 +322,21 @@
             this.btnReturn.TabIndex = 4;
             this.btnReturn.TabStop = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemove.Location = new System.Drawing.Point(273, 228);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(115, 38);
+            this.btnRemove.TabIndex = 8;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.UseVisualStyleBackColor = false;
             // 
             // frmTheLoaiSach
             // 
@@ -349,9 +384,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Activity;
         private System.Windows.Forms.PictureBox btnReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activity;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

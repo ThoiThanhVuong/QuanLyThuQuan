@@ -39,5 +39,10 @@ namespace QuanLyThuQuan.BUS
         {
             return bookDAO.SearchBooks(keyword);
         }
+
+        public int GetTotalBookQuantity()
+        {
+            return bookDAO.GetTotalBookQuantity();
+        }
     }
 }

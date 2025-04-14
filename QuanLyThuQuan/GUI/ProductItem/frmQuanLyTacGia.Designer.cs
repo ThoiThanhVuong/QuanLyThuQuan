@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTacGia));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReturn = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,16 +49,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvTacGia = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReturn = new System.Windows.Forms.PictureBox();
+            this.AuthorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,6 +72,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(960, 50);
             this.panel1.TabIndex = 0;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.Location = new System.Drawing.Point(8, 9);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(30, 30);
+            this.btnReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnReturn.TabIndex = 4;
+            this.btnReturn.TabStop = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // label1
             // 
@@ -95,6 +109,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.btnRemove);
             this.panel6.Controls.Add(this.btnAdd);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.btnEdit);
@@ -111,11 +126,12 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnAdd.Location = new System.Drawing.Point(55, 228);
+            this.btnAdd.Location = new System.Drawing.Point(12, 228);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(115, 38);
             this.btnAdd.TabIndex = 7;
@@ -134,11 +150,12 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnEdit.Location = new System.Drawing.Point(245, 228);
+            this.btnEdit.Location = new System.Drawing.Point(139, 228);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(115, 38);
             this.btnEdit.TabIndex = 5;
@@ -203,6 +220,7 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,8 +276,9 @@
             this.dgvTacGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.AuthorID,
+            this.AuthorName,
+            this.status});
             this.dgvTacGia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTacGia.Location = new System.Drawing.Point(0, 0);
             this.dgvTacGia.Name = "dgvTacGia";
@@ -269,28 +288,47 @@
             this.dgvTacGia.Size = new System.Drawing.Size(456, 509);
             this.dgvTacGia.TabIndex = 0;
             // 
-            // Column1
+            // AuthorID
             // 
-            this.Column1.HeaderText = "Mã Tác Giả";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
+            this.AuthorID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AuthorID.FillWeight = 14.73117F;
+            this.AuthorID.HeaderText = "Mã Tác Giả";
+            this.AuthorID.MinimumWidth = 8;
+            this.AuthorID.Name = "AuthorID";
+            this.AuthorID.Width = 150;
             // 
-            // Column2
+            // AuthorName
             // 
-            this.Column2.HeaderText = "Tên Tác Giả";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
+            this.AuthorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AuthorName.FillWeight = 230.5785F;
+            this.AuthorName.HeaderText = "Tên Tác Giả";
+            this.AuthorName.MinimumWidth = 8;
+            this.AuthorName.Name = "AuthorName";
+            this.AuthorName.Width = 205;
             // 
-            // btnReturn
+            // status
             // 
-            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
-            this.btnReturn.Location = new System.Drawing.Point(8, 9);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(30, 30);
-            this.btnReturn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.TabStop = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status.FillWeight = 8.326675F;
+            this.status.HeaderText = "Trạng thái";
+            this.status.MinimumWidth = 8;
+            this.status.Name = "status";
+            this.status.Width = 90;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemove.Location = new System.Drawing.Point(270, 228);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(115, 38);
+            this.btnRemove.TabIndex = 8;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.UseVisualStyleBackColor = false;
             // 
             // frmQuanLyTacGia
             // 
@@ -306,6 +344,7 @@
             this.Text = "frmQuanLyTacGia";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -313,7 +352,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,8 +363,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvTacGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnSearch;
@@ -342,5 +378,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox btnReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuthorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

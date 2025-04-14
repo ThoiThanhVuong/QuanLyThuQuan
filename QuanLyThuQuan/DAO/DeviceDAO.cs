@@ -16,7 +16,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Devices";
+                string query = "SELECT * FROM Devices WHERE Status IN ('Available','OutOf')";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -48,7 +48,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Devices WHERE DeviceID = @Id";
+                string query = "SELECT * FROM Devices WHERE DeviceID = @Id AND Status IN ('Available','OutOf')";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
@@ -171,7 +171,7 @@ namespace QuanLyThuQuan.DAO
 
                 string query = @"
                     SELECT * FROM Devices 
-                    WHERE DeviceName LIKE @Keyword";
+                    WHERE DeviceName LIKE @Keyword AND Status IN ('Available','OutOf')";
 
                 bool isNumber = int.TryParse(keyword, out int deviceID);
                 if (isNumber)
@@ -210,5 +210,31 @@ namespace QuanLyThuQuan.DAO
             return devices;
         }
 
+
+        public int GetTotalDeviceQuantity()
+        {
+            int total = 0;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT SUM(Quantity) FROM Devices";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                object result = cmd.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    total = Convert.ToInt32(result);
+                }
+                db.CloseConnection();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy tổng số lượng thiết bị " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return total;
+        }
     }
 }

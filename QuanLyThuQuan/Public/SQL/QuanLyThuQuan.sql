@@ -75,7 +75,7 @@ INSERT INTO `Books` (`BookTitle`,`Author`,`BookImage`,`Category`,`PublishYear`,`
 			('Hai Vạn Dặm Dưới Đáy Biển','Jules Verne','HaiVanDamDuoiDayBien.jpg','Khoa Học - Viễn Tưởng',1870,10),
 			('Hành trình vào tâm Trái Đất','Jules Verne','HanhTrinhVaoTamTraiDat.jpg','Khoa Học - Viễn Tưởng',1864,10),
 			('Bí kíp quá giang vào Ngân Hà','Douglas Adams','BiKipQuaGiangVaoNganHa.jpg','Khoa Học - Viễn Tưởng',1979,10),
-			('Cỗ máy thời gian','H. G. Wells','CoMayThoiGian.jpg','Khoa Học - Viễn Tưởng',1895,10),
+			('Cỗ máy thời gian','H. G. Wells','CoMayThoiGian .jpg','Khoa Học - Viễn Tưởng',1895,10),
 			('451 Độ F','Ray Bradbury','451DoF.jpg','Khoa Học - Viễn Tưởng',2021,10);
 			
 -- Bảng Devices
