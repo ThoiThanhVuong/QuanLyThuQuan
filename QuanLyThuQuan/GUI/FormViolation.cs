@@ -46,7 +46,7 @@ namespace QuanLyThuQuan.GUI
                     row.Cells["FineAmount"].Value = violation.FineAmount;
                     row.Cells["Reason"].Value = violation.Reason;
                     row.Cells["ViolationDate"].Value = violation.ViolationDate.ToString("yyyy-MM-dd");
-                    row.Cells["PaidStatus"].Value = violation.PaidStatus.ToString();
+                    row.Cells["IsCompensationRequired"].Value = violation.IsCompensationRequired;
                 }
             }
             textBox1.Text = violationBus.maxViolationID().ToString();
@@ -99,8 +99,7 @@ namespace QuanLyThuQuan.GUI
             textBox5.Text = "";
             textBox6.Text = "";
             dateTimePicker1.Value = DateTime.Now;
-            radioButton1.Checked = true;
-            radioButton2.Checked = false;
+            radioButton1.Checked = false;
             button1.Enabled = true;
             button2.Enabled = false;
             button3.Enabled = false;
@@ -116,11 +115,11 @@ namespace QuanLyThuQuan.GUI
             textBox3.Text = dataGridView1.CurrentRow.Cells["TransactionID"].Value.ToString();
             textBox4.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
             textBox5.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();
-            textBox6.Text = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells["IsCompensationRequired"].Value.ToString();
             dateTimePicker1.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["ViolationDate"].Value.ToString());
             // CheckBox status
-            radioButton1.Checked = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString() == "Paid";
-            radioButton2.Checked = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString() == "Unpaid";
+            radioButton1.Checked = Convert.ToBoolean(dataGridView1.CurrentRow.Cells["IsCompensationRequired"].Value);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -146,8 +145,7 @@ namespace QuanLyThuQuan.GUI
                 decimal.Parse(textBox5.Text),
                 textBox6.Text, 
                 dateTimePicker1.Value, 
-                radioButton1.Checked ? QuanLyThuQuan.Model.PaidStatus.Paid
-                : QuanLyThuQuan.Model.PaidStatus.Unpaid
+                radioButton1.Checked 
              ));
             refresh();
             loadTable();
@@ -185,8 +183,7 @@ namespace QuanLyThuQuan.GUI
                 decimal.Parse(textBox5.Text),
                 textBox6.Text,
                 dateTimePicker1.Value,
-                radioButton1.Checked ? QuanLyThuQuan.Model.PaidStatus.Paid
-                : QuanLyThuQuan.Model.PaidStatus.Unpaid
+                radioButton1.Checked
              ));
 
             button2.Enabled = false;
