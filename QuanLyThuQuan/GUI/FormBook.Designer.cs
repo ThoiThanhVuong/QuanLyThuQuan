@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
             this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 29);
+            this.label1.Size = new System.Drawing.Size(128, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ SÁCH";
             // 
@@ -233,11 +233,11 @@
             // 
             this.ListBook.AutoScroll = true;
             this.ListBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListBook.Location = new System.Drawing.Point(10, 54);
+            this.ListBook.Location = new System.Drawing.Point(10, 45);
             this.ListBook.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.ListBook.Name = "ListBook";
             this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.ListBook.Size = new System.Drawing.Size(940, 346);
+            this.ListBook.Size = new System.Drawing.Size(940, 355);
             this.ListBook.TabIndex = 1;
             // 
             // label2
@@ -250,7 +250,7 @@
             this.label2.Location = new System.Drawing.Point(10, 25);
             this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 29);
+            this.label2.Size = new System.Drawing.Size(58, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "SÁCH";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

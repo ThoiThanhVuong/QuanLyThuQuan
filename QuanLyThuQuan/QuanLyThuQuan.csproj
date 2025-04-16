@@ -111,6 +111,7 @@
     <Compile Include="BUS\LoginHistoryBUS.cs" />
     <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
+    <Compile Include="BUS\SessionStudyBUS.cs" />
     <Compile Include="BUS\ViolationBUS.cs" />
     <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="DAO\LoginHistoryDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
+    <Compile Include="DAO\SessionStudyDAO.cs" />
     <Compile Include="DAO\ViolationDAO.cs" />
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
       <SubType>UserControl</SubType>
@@ -237,8 +239,20 @@
     <Compile Include="GUI\TransactionFormChilds\FormReservation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\TransactionFormChilds\FormReservation.Designer.cs">
-      <DependentUpon>FormReservation.cs</DependentUpon>
+	  <Compile Include="GUI\TransactionFormChilds\FormReservation.Designer.cs">
+		  <DependentUpon>FormReservation.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="GUI\User\AddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\User\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\User\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBUS.cs" />
     <Compile Include="Interfaces\IDBConnection.cs" />
@@ -252,6 +266,7 @@
     <Compile Include="Model\MemberModel.cs" />
     <Compile Include="Model\ReviewModel.cs" />
     <Compile Include="Model\RuleModel.cs" />
+    <Compile Include="Model\SessionStudy.cs" />
     <Compile Include="Model\TransactionItemModel.cs" />
     <Compile Include="Model\TransactionListItemTable.cs" />
     <Compile Include="Model\TransactionModel.cs" />
@@ -314,8 +329,14 @@
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormReturnBook.resx">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\TransactionFormChilds\FormReservation.resx">
-      <DependentUpon>FormReservation.cs</DependentUpon>
+	  <EmbeddedResource Include="GUI\TransactionFormChilds\FormReservation.resx">
+		  <DependentUpon>FormReservation.cs</DependentUpon>
+	  </EmbeddedResource>
+    <EmbeddedResource Include="GUI\User\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\User\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

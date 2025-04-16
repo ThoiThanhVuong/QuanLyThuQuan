@@ -30,7 +30,7 @@ namespace QuanLyThuQuan.DAO
                     reader.GetInt32("FineAmount"),
                     reader.GetString("Reason"),
                     reader.GetDateTime("ViolationDate"),
-                    (PaidStatus)Enum.Parse(typeof(PaidStatus), reader.GetString("PaidStatus"))
+                    reader.GetBoolean("IsCompensationRequired")
                 ));
             }
             reader.Close();
@@ -41,7 +41,9 @@ namespace QuanLyThuQuan.DAO
         public bool AddViolation(ViolationModel violation)
         {
             db.OpenConnection();
-            string query = "INSERT INTO Violation (MemberId, TransactionId, RuleId, FineAmount, Reason, ViolationDate, PaidStatus) VALUES (@MemberId, @TransactionId, @RuleId, @FineAmount, @Reason, @ViolationDate, @PaidStatus)";
+            string query = "INSERT INTO Violation (MemberId, TransactionId, RuleId," +
+                " FineAmount, Reason, ViolationDate, IsCompensationRequired)" +
+                " VALUES (@MemberId, @TransactionId, @RuleId, @FineAmount, @Reason, @ViolationDate, @IsCompensationRequired)";
             using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
             {
                 cmd.Parameters.AddWithValue("@MemberId", violation.MemberID);
@@ -50,7 +52,7 @@ namespace QuanLyThuQuan.DAO
                 cmd.Parameters.AddWithValue("@FineAmount", violation.FineAmount);
                 cmd.Parameters.AddWithValue("@Reason", violation.Reason);
                 cmd.Parameters.AddWithValue("@ViolationDate", violation.ViolationDate);
-                cmd.Parameters.AddWithValue("@PaidStatus", violation.PaidStatus.ToString());
+                cmd.Parameters.AddWithValue("@IsCompensationRequired", violation.IsCompensationRequired);
                 bool result = cmd.ExecuteNonQuery() > 0;
                 db.CloseConnection();
                 return result;
@@ -60,7 +62,9 @@ namespace QuanLyThuQuan.DAO
         public bool UpdateViolation(ViolationModel violation)
         {
             db.OpenConnection();
-            string query = "UPDATE Violation SET MemberId = @MemberId, TransactionId = @TransactionId, RuleId = @RuleId, FineAmount = @FineAmount, Reason = @Reason, ViolationDate = @ViolationDate, PaidStatus = @PaidStatus WHERE ViolationID = @ViolationID";
+            string query = "UPDATE Violation SET MemberId = @MemberId, TransactionId = @TransactionId," +
+                " RuleId = @RuleId, FineAmount = @FineAmount, Reason = @Reason, ViolationDate = @ViolationDate," +
+                " IsCompensationRequired = @IsCompensationRequired WHERE ViolationID = @ViolationID";
             using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
             {
                 cmd.Parameters.AddWithValue("@MemberId", violation.MemberID);
@@ -69,7 +73,7 @@ namespace QuanLyThuQuan.DAO
                 cmd.Parameters.AddWithValue("@FineAmount", violation.FineAmount);
                 cmd.Parameters.AddWithValue("@Reason", violation.Reason);
                 cmd.Parameters.AddWithValue("@ViolationDate", violation.ViolationDate);
-                cmd.Parameters.AddWithValue("@PaidStatus", violation.PaidStatus.ToString());
+                cmd.Parameters.AddWithValue("@PaidStatus", violation.IsCompensationRequired);
                 cmd.Parameters.AddWithValue("@ViolationID", violation.ViolationID);
                 bool result = cmd.ExecuteNonQuery() > 0;
                 db.CloseConnection();
