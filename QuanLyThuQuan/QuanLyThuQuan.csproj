@@ -234,6 +234,12 @@
     <Compile Include="GUI\TransactionFormChilds\FormReturnBook.Designer.cs">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TransactionFormChilds\FormReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TransactionFormChilds\FormReservation.Designer.cs">
+      <DependentUpon>FormReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBUS.cs" />
     <Compile Include="Interfaces\IDBConnection.cs" />
     <Compile Include="Model\AuthorModel.cs" />
@@ -247,10 +253,13 @@
     <Compile Include="Model\ReviewModel.cs" />
     <Compile Include="Model\RuleModel.cs" />
     <Compile Include="Model\TransactionItemModel.cs" />
+    <Compile Include="Model\TransactionListItemTable.cs" />
     <Compile Include="Model\TransactionModel.cs" />
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ValidateConditionServices.cs" />
+    <Compile Include="Services\ValidateParseToOtherType.cs" />
     <EmbeddedResource Include="GUI\ProductItem\BookItemControl.resx">
       <DependentUpon>BookItemControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +314,9 @@
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormReturnBook.resx">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TransactionFormChilds\FormReservation.resx">
+      <DependentUpon>FormReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -329,9 +341,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <None Include="Public\icons\login_4661334.png" />

@@ -1,5 +1,5 @@
 
-﻿using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System;
 
@@ -68,7 +68,7 @@ namespace QuanLyThuQuan.BUS
             {
                 //find 
                 //  Compare Return Date or DueDate with Borrow Date
-                
+
             }
 
 
@@ -117,6 +117,18 @@ namespace QuanLyThuQuan.BUS
         private bool checkMemberHistoryBorrow(string memberID)
         {
             return false;
+        }
+
+        // get full detail 
+        public List<TransactionItemModel> getFullTransaction()
+        {
+            List<TransactionItemModel> list = new TransactionItemBUS().GetAllLocal();
+            if (list.Count == 0)
+            {
+                new TransactionItemBUS().GetAll();
+                list = new TransactionItemBUS().GetAllLocal();
+            }
+            return list;
         }
     }
 }

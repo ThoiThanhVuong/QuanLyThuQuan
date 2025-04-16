@@ -41,4 +41,9 @@
         Failed
     }
 
+    public enum TransactionValidFields
+    {
+        TransactionID,
+        MemberID
+    }
 }

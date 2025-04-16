@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
-using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Services;
 using System;
 using System.Collections.Generic;
 
@@ -20,7 +20,7 @@ namespace QuanLyThuQuan.DAO
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)
             {
-          
+
                 string query = "SELECT * FROM Transactions";
                 try
                 {
@@ -61,13 +61,17 @@ namespace QuanLyThuQuan.DAO
             using (MySqlConnection connection = db.Connection)
             {
                 Console.WriteLine("Success");
-                string query = "SELECT * FROM Transactions WHERE @Condition = @ID";
+                if (!ValidateConditionServices.GetInstance().IsValidForTransaction(condition))
+                {
+                    Console.WriteLine("Error");
+                    return null;
+                }
+                string query = $"SELECT * FROM Transactions WHERE {condition} = @ID";
                 try
                 {
                     using (MySqlCommand myCmd = new MySqlCommand(query, connection))
                     {
                         myCmd.Parameters.AddWithValue("@ID", id);
-                        myCmd.Parameters.AddWithValue("@Condition", condition);
                         using (MySqlDataReader dtReader = myCmd.ExecuteReader())
                         {
                             if (dtReader.Read())
@@ -113,7 +117,7 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate);
                         myCmd.Parameters.AddWithValue("@Status", transaction.Status);
 
-                        db.CloseConnection();                        
+                        db.CloseConnection();
 
                         bool result = myCmd.ExecuteNonQuery() > 0;
                         return result;
@@ -177,7 +181,7 @@ namespace QuanLyThuQuan.DAO
                     {
                         myCmd.Parameters.AddWithValue("@TransactionID", transactionID);
 
-                        bool result =  myCmd.ExecuteNonQuery() > 0;
+                        bool result = myCmd.ExecuteNonQuery() > 0;
                         db.CloseConnection();
                         return result;
                     }

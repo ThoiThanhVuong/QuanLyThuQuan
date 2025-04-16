@@ -32,14 +32,14 @@
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnBookReservation = new System.Windows.Forms.Button();
             this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.tbBody = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
             this.tbHeaderButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.tbBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBorrow
@@ -111,18 +111,6 @@
             this.tbHeaderButtons.Size = new System.Drawing.Size(960, 106);
             this.tbHeaderButtons.TabIndex = 4;
             // 
-            // dgvDataTransactions
-            // 
-            this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
-            this.dgvDataTransactions.Name = "dgvDataTransactions";
-            this.dgvDataTransactions.RowHeadersWidth = 62;
-            this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
-            this.dgvDataTransactions.TabIndex = 1;
-            this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
-            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Snow;
@@ -166,7 +154,18 @@
             this.tbBody.Size = new System.Drawing.Size(960, 544);
             this.tbBody.TabIndex = 7;
             // 
-
+            // dgvDataTransactions
+            // 
+            this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
+            this.dgvDataTransactions.Name = "dgvDataTransactions";
+            this.dgvDataTransactions.RowHeadersWidth = 62;
+            this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
+            this.dgvDataTransactions.TabIndex = 1;
+            this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
+            // 
             // FormTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -183,10 +182,10 @@
             this.Text = "cccccffffddeeeeewwwwwhhhhhhhhbbbnnmmmmmmvbvvvvvvv                   ";
             this.Load += new System.EventHandler(this.FormTransaction_Load);
             this.tbHeaderButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.tbBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,9 +196,9 @@
         private System.Windows.Forms.Button btnReturnBook;
         private System.Windows.Forms.Button btnBookReservation;
         private System.Windows.Forms.TableLayoutPanel tbHeaderButtons;
-        private System.Windows.Forms.DataGridView dgvDataTransactions;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.TableLayoutPanel tbBody;
+        private System.Windows.Forms.DataGridView dgvDataTransactions;
     }
 }

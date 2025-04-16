@@ -88,8 +88,8 @@ namespace QuanLyThuQuan.GUI
 
         private void btnBookReservation_Click(object sender, EventArgs e)
         {
-            FormBorrowBook borrowForm = new FormBorrowBook();
-            borrowForm.ShowDialog();
+            FormReservation reservation= new FormReservation();
+            reservation.ShowDialog();
         }
 
         private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,9 +98,6 @@ namespace QuanLyThuQuan.GUI
             {
                 FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
                 informationForm.ShowDialog();
-                TransactionBUS bus = new TransactionBUS();
-                bus.GetAll();
-                bus.CheckOverdue(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
             }
         }
 
@@ -139,5 +136,7 @@ namespace QuanLyThuQuan.GUI
             while (list.MoveNext())
                 dgv.Columns[list.Current].AutoSizeMode = mode;
         }
+
+        // Relative with other classes
     }
 }

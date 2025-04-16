@@ -34,30 +34,44 @@
             this.tbBlockInfoOne = new System.Windows.Forms.TableLayoutPanel();
             this.lbTransID = new System.Windows.Forms.Label();
             this.lbMemID = new System.Windows.Forms.Label();
+            this.lbValueTransactionID = new System.Windows.Forms.Label();
+            this.lbValueMemberID = new System.Windows.Forms.Label();
             this.tbBlockInfoTwo = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueMemberUserName = new System.Windows.Forms.Label();
+            this.lbValueMemberFullName = new System.Windows.Forms.Label();
             this.lbMemFullName = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
             this.tbBlockInfoThree = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueTransactionStatus = new System.Windows.Forms.Label();
             this.lbTransStatus = new System.Windows.Forms.Label();
             this.lbTransType = new System.Windows.Forms.Label();
+            this.lbValueTransactionType = new System.Windows.Forms.Label();
             this.tbBlockInfoFour = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueUserStatus = new System.Windows.Forms.Label();
+            this.lbValueUserType = new System.Windows.Forms.Label();
             this.lbUserType = new System.Windows.Forms.Label();
             this.lbUserStatus = new System.Windows.Forms.Label();
             this.tbBlockInfoFive = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueDueDate = new System.Windows.Forms.Label();
+            this.lbValueTransactionDate = new System.Windows.Forms.Label();
             this.lbTransDate = new System.Windows.Forms.Label();
             this.lbDueDate = new System.Windows.Forms.Label();
             this.tbBlockInfoSix = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValuePhoneNumber = new System.Windows.Forms.Label();
+            this.lbValueUserEmail = new System.Windows.Forms.Label();
             this.lbUserEmail = new System.Windows.Forms.Label();
             this.lbUserPhoneNumber = new System.Windows.Forms.Label();
             this.tbBlockInfoSeven = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueReturnDate = new System.Windows.Forms.Label();
             this.lbReturnDate = new System.Windows.Forms.Label();
             this.lbListTransItems = new System.Windows.Forms.Label();
+            this.lbValueTransactionItemList = new System.Windows.Forms.Label();
             this.tbBlockInfoEight = new System.Windows.Forms.TableLayoutPanel();
+            this.lbValueViolationList = new System.Windows.Forms.Label();
+            this.lbValueViolationStatus = new System.Windows.Forms.Label();
             this.lbViolationStatus = new System.Windows.Forms.Label();
             this.lbViolationList = new System.Windows.Forms.Label();
             this.dgvDataItemList = new System.Windows.Forms.DataGridView();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDataViolationHandle = new System.Windows.Forms.DataGridView();
             this.colRuleTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPenaty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,6 +163,8 @@
             this.tbBlockInfoOne.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
             this.tbBlockInfoOne.Controls.Add(this.lbTransID, 0, 0);
             this.tbBlockInfoOne.Controls.Add(this.lbMemID, 0, 1);
+            this.tbBlockInfoOne.Controls.Add(this.lbValueTransactionID, 1, 0);
+            this.tbBlockInfoOne.Controls.Add(this.lbValueMemberID, 1, 1);
             this.tbBlockInfoOne.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBlockInfoOne.Location = new System.Drawing.Point(3, 3);
             this.tbBlockInfoOne.Name = "tbBlockInfoOne";
@@ -188,6 +204,28 @@
             this.lbMemID.Text = "Member ID :";
             this.lbMemID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbValueTransactionID
+            // 
+            this.lbValueTransactionID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueTransactionID.AutoSize = true;
+            this.lbValueTransactionID.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueTransactionID.Location = new System.Drawing.Point(166, 6);
+            this.lbValueTransactionID.Name = "lbValueTransactionID";
+            this.lbValueTransactionID.Size = new System.Drawing.Size(0, 19);
+            this.lbValueTransactionID.TabIndex = 2;
+            this.lbValueTransactionID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueMemberID
+            // 
+            this.lbValueMemberID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueMemberID.AutoSize = true;
+            this.lbValueMemberID.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueMemberID.Location = new System.Drawing.Point(166, 37);
+            this.lbValueMemberID.Name = "lbValueMemberID";
+            this.lbValueMemberID.Size = new System.Drawing.Size(0, 19);
+            this.lbValueMemberID.TabIndex = 3;
+            this.lbValueMemberID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbBlockInfoTwo
             // 
             this.tbBlockInfoTwo.ColumnCount = 2;
@@ -195,6 +233,8 @@
             this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
+            this.tbBlockInfoTwo.Controls.Add(this.lbValueMemberUserName, 1, 1);
+            this.tbBlockInfoTwo.Controls.Add(this.lbValueMemberFullName, 1, 0);
             this.tbBlockInfoTwo.Controls.Add(this.lbMemFullName, 0, 0);
             this.tbBlockInfoTwo.Controls.Add(this.lbUserName, 0, 1);
             this.tbBlockInfoTwo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,6 +247,28 @@
             this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoTwo.Size = new System.Drawing.Size(547, 63);
             this.tbBlockInfoTwo.TabIndex = 1;
+            // 
+            // lbValueMemberUserName
+            // 
+            this.lbValueMemberUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueMemberUserName.AutoSize = true;
+            this.lbValueMemberUserName.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueMemberUserName.Location = new System.Drawing.Point(230, 37);
+            this.lbValueMemberUserName.Name = "lbValueMemberUserName";
+            this.lbValueMemberUserName.Size = new System.Drawing.Size(0, 19);
+            this.lbValueMemberUserName.TabIndex = 4;
+            this.lbValueMemberUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueMemberFullName
+            // 
+            this.lbValueMemberFullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueMemberFullName.AutoSize = true;
+            this.lbValueMemberFullName.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueMemberFullName.Location = new System.Drawing.Point(230, 6);
+            this.lbValueMemberFullName.Name = "lbValueMemberFullName";
+            this.lbValueMemberFullName.Size = new System.Drawing.Size(0, 19);
+            this.lbValueMemberFullName.TabIndex = 3;
+            this.lbValueMemberFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbMemFullName
             // 
@@ -243,8 +305,10 @@
             this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
             this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
             this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
+            this.tbBlockInfoThree.Controls.Add(this.lbValueTransactionStatus, 1, 1);
             this.tbBlockInfoThree.Controls.Add(this.lbTransStatus, 0, 1);
             this.tbBlockInfoThree.Controls.Add(this.lbTransType, 0, 0);
+            this.tbBlockInfoThree.Controls.Add(this.lbValueTransactionType, 1, 0);
             this.tbBlockInfoThree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBlockInfoThree.Location = new System.Drawing.Point(3, 72);
             this.tbBlockInfoThree.Name = "tbBlockInfoThree";
@@ -255,6 +319,17 @@
             this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoThree.Size = new System.Drawing.Size(377, 63);
             this.tbBlockInfoThree.TabIndex = 2;
+            // 
+            // lbValueTransactionStatus
+            // 
+            this.lbValueTransactionStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueTransactionStatus.AutoSize = true;
+            this.lbValueTransactionStatus.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueTransactionStatus.Location = new System.Drawing.Point(165, 37);
+            this.lbValueTransactionStatus.Name = "lbValueTransactionStatus";
+            this.lbValueTransactionStatus.Size = new System.Drawing.Size(0, 19);
+            this.lbValueTransactionStatus.TabIndex = 4;
+            this.lbValueTransactionStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbTransStatus
             // 
@@ -284,6 +359,17 @@
             this.lbTransType.Text = "Transaction Type :";
             this.lbTransType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbValueTransactionType
+            // 
+            this.lbValueTransactionType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueTransactionType.AutoSize = true;
+            this.lbValueTransactionType.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueTransactionType.Location = new System.Drawing.Point(165, 6);
+            this.lbValueTransactionType.Name = "lbValueTransactionType";
+            this.lbValueTransactionType.Size = new System.Drawing.Size(0, 19);
+            this.lbValueTransactionType.TabIndex = 3;
+            this.lbValueTransactionType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbBlockInfoFour
             // 
             this.tbBlockInfoFour.ColumnCount = 2;
@@ -291,6 +377,8 @@
             this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
+            this.tbBlockInfoFour.Controls.Add(this.lbValueUserStatus, 1, 1);
+            this.tbBlockInfoFour.Controls.Add(this.lbValueUserType, 1, 0);
             this.tbBlockInfoFour.Controls.Add(this.lbUserType, 0, 0);
             this.tbBlockInfoFour.Controls.Add(this.lbUserStatus, 0, 1);
             this.tbBlockInfoFour.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -303,6 +391,28 @@
             this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoFour.Size = new System.Drawing.Size(547, 63);
             this.tbBlockInfoFour.TabIndex = 3;
+            // 
+            // lbValueUserStatus
+            // 
+            this.lbValueUserStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueUserStatus.AutoSize = true;
+            this.lbValueUserStatus.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueUserStatus.Location = new System.Drawing.Point(230, 37);
+            this.lbValueUserStatus.Name = "lbValueUserStatus";
+            this.lbValueUserStatus.Size = new System.Drawing.Size(0, 19);
+            this.lbValueUserStatus.TabIndex = 4;
+            this.lbValueUserStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueUserType
+            // 
+            this.lbValueUserType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueUserType.AutoSize = true;
+            this.lbValueUserType.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueUserType.Location = new System.Drawing.Point(230, 6);
+            this.lbValueUserType.Name = "lbValueUserType";
+            this.lbValueUserType.Size = new System.Drawing.Size(0, 19);
+            this.lbValueUserType.TabIndex = 3;
+            this.lbValueUserType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbUserType
             // 
@@ -339,6 +449,8 @@
             this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
             this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
             this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
+            this.tbBlockInfoFive.Controls.Add(this.lbValueDueDate, 1, 1);
+            this.tbBlockInfoFive.Controls.Add(this.lbValueTransactionDate, 1, 0);
             this.tbBlockInfoFive.Controls.Add(this.lbTransDate, 0, 0);
             this.tbBlockInfoFive.Controls.Add(this.lbDueDate, 0, 1);
             this.tbBlockInfoFive.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -351,6 +463,28 @@
             this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoFive.Size = new System.Drawing.Size(377, 63);
             this.tbBlockInfoFive.TabIndex = 4;
+            // 
+            // lbValueDueDate
+            // 
+            this.lbValueDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueDueDate.AutoSize = true;
+            this.lbValueDueDate.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueDueDate.Location = new System.Drawing.Point(165, 37);
+            this.lbValueDueDate.Name = "lbValueDueDate";
+            this.lbValueDueDate.Size = new System.Drawing.Size(0, 19);
+            this.lbValueDueDate.TabIndex = 4;
+            this.lbValueDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueTransactionDate
+            // 
+            this.lbValueTransactionDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueTransactionDate.AutoSize = true;
+            this.lbValueTransactionDate.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueTransactionDate.Location = new System.Drawing.Point(165, 6);
+            this.lbValueTransactionDate.Name = "lbValueTransactionDate";
+            this.lbValueTransactionDate.Size = new System.Drawing.Size(0, 19);
+            this.lbValueTransactionDate.TabIndex = 3;
+            this.lbValueTransactionDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbTransDate
             // 
@@ -387,6 +521,8 @@
             this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
+            this.tbBlockInfoSix.Controls.Add(this.lbValuePhoneNumber, 1, 1);
+            this.tbBlockInfoSix.Controls.Add(this.lbValueUserEmail, 1, 0);
             this.tbBlockInfoSix.Controls.Add(this.lbUserEmail, 0, 0);
             this.tbBlockInfoSix.Controls.Add(this.lbUserPhoneNumber, 0, 1);
             this.tbBlockInfoSix.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -399,6 +535,28 @@
             this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoSix.Size = new System.Drawing.Size(547, 63);
             this.tbBlockInfoSix.TabIndex = 5;
+            // 
+            // lbValuePhoneNumber
+            // 
+            this.lbValuePhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValuePhoneNumber.AutoSize = true;
+            this.lbValuePhoneNumber.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValuePhoneNumber.Location = new System.Drawing.Point(230, 37);
+            this.lbValuePhoneNumber.Name = "lbValuePhoneNumber";
+            this.lbValuePhoneNumber.Size = new System.Drawing.Size(0, 19);
+            this.lbValuePhoneNumber.TabIndex = 4;
+            this.lbValuePhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueUserEmail
+            // 
+            this.lbValueUserEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueUserEmail.AutoSize = true;
+            this.lbValueUserEmail.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueUserEmail.Location = new System.Drawing.Point(230, 6);
+            this.lbValueUserEmail.Name = "lbValueUserEmail";
+            this.lbValueUserEmail.Size = new System.Drawing.Size(0, 19);
+            this.lbValueUserEmail.TabIndex = 3;
+            this.lbValueUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbUserEmail
             // 
@@ -435,8 +593,10 @@
             this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
             this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.35106F));
             this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
+            this.tbBlockInfoSeven.Controls.Add(this.lbValueReturnDate, 1, 0);
             this.tbBlockInfoSeven.Controls.Add(this.lbReturnDate, 0, 0);
             this.tbBlockInfoSeven.Controls.Add(this.lbListTransItems, 0, 1);
+            this.tbBlockInfoSeven.Controls.Add(this.lbValueTransactionItemList, 1, 1);
             this.tbBlockInfoSeven.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBlockInfoSeven.Location = new System.Drawing.Point(3, 210);
             this.tbBlockInfoSeven.Name = "tbBlockInfoSeven";
@@ -447,6 +607,17 @@
             this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoSeven.Size = new System.Drawing.Size(377, 63);
             this.tbBlockInfoSeven.TabIndex = 6;
+            // 
+            // lbValueReturnDate
+            // 
+            this.lbValueReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueReturnDate.AutoSize = true;
+            this.lbValueReturnDate.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueReturnDate.Location = new System.Drawing.Point(166, 6);
+            this.lbValueReturnDate.Name = "lbValueReturnDate";
+            this.lbValueReturnDate.Size = new System.Drawing.Size(0, 19);
+            this.lbValueReturnDate.TabIndex = 3;
+            this.lbValueReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbReturnDate
             // 
@@ -476,6 +647,17 @@
             this.lbListTransItems.Text = "Transaction Item List :";
             this.lbListTransItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbValueTransactionItemList
+            // 
+            this.lbValueTransactionItemList.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueTransactionItemList.AutoSize = true;
+            this.lbValueTransactionItemList.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueTransactionItemList.Location = new System.Drawing.Point(166, 37);
+            this.lbValueTransactionItemList.Name = "lbValueTransactionItemList";
+            this.lbValueTransactionItemList.Size = new System.Drawing.Size(0, 19);
+            this.lbValueTransactionItemList.TabIndex = 4;
+            this.lbValueTransactionItemList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbBlockInfoEight
             // 
             this.tbBlockInfoEight.BackColor = System.Drawing.Color.Transparent;
@@ -484,6 +666,8 @@
             this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
+            this.tbBlockInfoEight.Controls.Add(this.lbValueViolationList, 1, 1);
+            this.tbBlockInfoEight.Controls.Add(this.lbValueViolationStatus, 1, 0);
             this.tbBlockInfoEight.Controls.Add(this.lbViolationStatus, 0, 0);
             this.tbBlockInfoEight.Controls.Add(this.lbViolationList, 0, 1);
             this.tbBlockInfoEight.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -496,6 +680,28 @@
             this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBlockInfoEight.Size = new System.Drawing.Size(547, 63);
             this.tbBlockInfoEight.TabIndex = 7;
+            // 
+            // lbValueViolationList
+            // 
+            this.lbValueViolationList.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueViolationList.AutoSize = true;
+            this.lbValueViolationList.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueViolationList.Location = new System.Drawing.Point(230, 37);
+            this.lbValueViolationList.Name = "lbValueViolationList";
+            this.lbValueViolationList.Size = new System.Drawing.Size(0, 19);
+            this.lbValueViolationList.TabIndex = 4;
+            this.lbValueViolationList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbValueViolationStatus
+            // 
+            this.lbValueViolationStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbValueViolationStatus.AutoSize = true;
+            this.lbValueViolationStatus.Font = new System.Drawing.Font("Open Sans SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValueViolationStatus.Location = new System.Drawing.Point(230, 6);
+            this.lbValueViolationStatus.Name = "lbValueViolationStatus";
+            this.lbValueViolationStatus.Size = new System.Drawing.Size(0, 19);
+            this.lbValueViolationStatus.TabIndex = 3;
+            this.lbValueViolationStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbViolationStatus
             // 
@@ -529,31 +735,12 @@
             // 
             this.dgvDataItemList.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvDataItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colItem,
-            this.colItemQuantity});
+            this.dgvDataItemList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataItemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataItemList.Location = new System.Drawing.Point(3, 279);
             this.dgvDataItemList.Name = "dgvDataItemList";
             this.dgvDataItemList.Size = new System.Drawing.Size(377, 294);
             this.dgvDataItemList.TabIndex = 10;
-            // 
-            // colItem
-            // 
-            this.colItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colItem.HeaderText = "Item";
-            this.colItem.Name = "colItem";
-            this.colItem.ReadOnly = true;
-            this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colItemQuantity
-            // 
-            this.colItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colItemQuantity.HeaderText = "Quantity";
-            this.colItemQuantity.Name = "colItemQuantity";
-            this.colItemQuantity.ReadOnly = true;
-            this.colItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colItemQuantity.Width = 71;
             // 
             // dgvDataViolationHandle
             // 
@@ -717,8 +904,6 @@
         private System.Windows.Forms.Label lbViolationStatus;
         private System.Windows.Forms.Label lbViolationList;
         private System.Windows.Forms.DataGridView dgvDataItemList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemQuantity;
         private System.Windows.Forms.DataGridView dgvDataViolationHandle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRuleTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPenaty;
@@ -728,5 +913,21 @@
         private System.Windows.Forms.Panel pnlHeaderTransInfoDetail;
         private System.Windows.Forms.Button btnExitChildPanel;
         private System.Windows.Forms.Label lbTransInfo;
+        private System.Windows.Forms.Label lbValueTransactionID;
+        private System.Windows.Forms.Label lbValueMemberID;
+        private System.Windows.Forms.Label lbValueMemberUserName;
+        private System.Windows.Forms.Label lbValueMemberFullName;
+        private System.Windows.Forms.Label lbValueTransactionStatus;
+        private System.Windows.Forms.Label lbValueTransactionType;
+        private System.Windows.Forms.Label lbValueUserStatus;
+        private System.Windows.Forms.Label lbValueUserType;
+        private System.Windows.Forms.Label lbValueDueDate;
+        private System.Windows.Forms.Label lbValueTransactionDate;
+        private System.Windows.Forms.Label lbValuePhoneNumber;
+        private System.Windows.Forms.Label lbValueUserEmail;
+        private System.Windows.Forms.Label lbValueReturnDate;
+        private System.Windows.Forms.Label lbValueTransactionItemList;
+        private System.Windows.Forms.Label lbValueViolationList;
+        private System.Windows.Forms.Label lbValueViolationStatus;
     }
 }
