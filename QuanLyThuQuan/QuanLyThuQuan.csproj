@@ -109,6 +109,7 @@
     <Compile Include="BUS\CategoryBUS.cs" />
     <Compile Include="BUS\DeviceBUS.cs" />
     <Compile Include="BUS\LoginHistoryBUS.cs" />
+    <Compile Include="BUS\MemberBUS.cs" />
     <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\SessionStudyBUS.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DeviceDAO.cs" />
     <Compile Include="DAO\LoginHistoryDAO.cs" />
+    <Compile Include="DAO\MemberDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
     <Compile Include="DAO\SessionStudyDAO.cs" />
@@ -236,11 +238,11 @@
     <Compile Include="GUI\TransactionFormChilds\FormReturnBook.Designer.cs">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\User\AddUser.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="GUI\User\DialogUser.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\User\AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="GUI\User\DialogUser.Designer.cs">
+      <DependentUpon>DialogUser.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\User\FormUser.cs">
       <SubType>Form</SubType>
@@ -320,8 +322,8 @@
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormReturnBook.resx">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\User\AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\User\DialogUser.resx">
+      <DependentUpon>DialogUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>

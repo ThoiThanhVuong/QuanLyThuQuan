@@ -306,3 +306,4 @@ C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.G
 C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyTh.BD2212A7.Up2Date
 C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.User.FormUser.resources
 C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.User.AddUser.resources
+C:\Users\ASUS\source\repos\quanlithuquan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.User.DialogUser.resources

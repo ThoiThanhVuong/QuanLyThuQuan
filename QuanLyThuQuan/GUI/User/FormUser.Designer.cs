@@ -40,6 +40,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MemberId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -52,7 +60,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(167, 91);
+            this.panel1.Location = new System.Drawing.Point(114, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(319, 120);
             this.panel1.TabIndex = 0;
@@ -92,7 +100,7 @@
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(167, 234);
+            this.panel2.Location = new System.Drawing.Point(483, 48);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(319, 120);
             this.panel2.TabIndex = 1;
@@ -104,7 +112,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(123, 46);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Xóa nhiều thành vien";
+            this.button5.Text = "Xóa nhiều thành viên";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -116,6 +124,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Xóa 1 thành viên";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
@@ -131,7 +140,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(167, 386);
+            this.panel3.Location = new System.Drawing.Point(821, 48);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(319, 120);
             this.panel3.TabIndex = 1;
@@ -158,18 +167,82 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(543, 91);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MemberId,
+            this.FullName,
+            this.Email,
+            this.PhoneNumber,
+            this.UserName,
+            this.Password,
+            this.RegistrationDate,
+            this.UserType});
+            this.dataGridView1.Location = new System.Drawing.Point(108, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(543, 415);
+            this.dataGridView1.Size = new System.Drawing.Size(1032, 311);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // MemberId
+            // 
+            this.MemberId.HeaderText = "MemberId";
+            this.MemberId.MinimumWidth = 6;
+            this.MemberId.Name = "MemberId";
+            // 
+            // FullName
+            // 
+            this.FullName.HeaderText = "FullName";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.HeaderText = "PhoneNumber";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Width = 125;
+            // 
+            // UserName
+            // 
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 125;
+            // 
+            // Password
+            // 
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.Width = 125;
+            // 
+            // RegistrationDate
+            // 
+            this.RegistrationDate.HeaderText = "RegistrationDate";
+            this.RegistrationDate.MinimumWidth = 6;
+            this.RegistrationDate.Name = "RegistrationDate";
+            this.RegistrationDate.Width = 125;
+            // 
+            // UserType
+            // 
+            this.UserType.HeaderText = "UserType";
+            this.UserType.MinimumWidth = 6;
+            this.UserType.Name = "UserType";
             // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 529);
+            this.ClientSize = new System.Drawing.Size(1158, 529);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -202,5 +275,13 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserType;
     }
 }

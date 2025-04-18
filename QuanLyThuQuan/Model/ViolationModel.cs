@@ -6,7 +6,7 @@ namespace QuanLyThuQuan.Model
     {
         public int ViolationID { get; set; }
         public int MemberID { get; set; }
-        public int TransactionID { get; set; }
+        public int? TransactionID { get; set; }
         public int RuleID { get; set; }
         public decimal FineAmount { get; set; }
         public string Reason { get; set; }
@@ -23,7 +23,7 @@ namespace QuanLyThuQuan.Model
 
         }
 
-        public ViolationModel(int violationID, int memberID, int transactionID, int ruleID,
+        public ViolationModel(int violationID, int memberID, int? transactionID, int ruleID,
             decimal fineAmount, string reason, DateTime violationDate, bool isCompensationRequired)
         {
             ViolationID = violationID;
@@ -36,7 +36,7 @@ namespace QuanLyThuQuan.Model
             IsCompensationRequired = isCompensationRequired;
         }
 
-        public ViolationModel(int violationID, int memberID, int transactionID,
+        public ViolationModel(int violationID, int memberID, int? transactionID,
             int ruleID, decimal fineAmount, string reason, DateTime violationDate, bool isCompensationRequired
             , MemberModel member, TransactionModel transaction, RuleModel rule) :
             this(violationID, memberID, transactionID, ruleID, fineAmount, reason, violationDate, isCompensationRequired)

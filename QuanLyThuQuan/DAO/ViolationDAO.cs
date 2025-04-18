@@ -22,17 +22,32 @@ namespace QuanLyThuQuan.DAO
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
+                int violationId = reader.GetInt32("ViolationID");
+                int memberId = reader.GetInt32("MemberID");
+
+                int? transactionId = reader.IsDBNull(reader.GetOrdinal("TransactionID"))
+                                        ? (int?)null
+                                        : reader.GetInt32(reader.GetOrdinal("TransactionID"));
+
+
+                int ruleId = reader.GetInt32("RuleID");
+                int fineAmount = reader.GetInt32("FineAmount");
+                string reason = reader.GetString("Reason");
+                DateTime violationDate = reader.GetDateTime("ViolationDate");
+                bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
+
                 violations.Add(new ViolationModel(
-                    reader.GetInt32("ViolationID"),
-                    reader.GetInt32("MemberId"),
-                    reader.GetInt32("TransactionId"),
-                    reader.GetInt32("RuleId"),
-                    reader.GetInt32("FineAmount"),
-                    reader.GetString("Reason"),
-                    reader.GetDateTime("ViolationDate"),
-                    reader.GetBoolean("IsCompensationRequired")
+                    violationId,
+                    memberId,
+                    transactionId,
+                    ruleId,
+                    fineAmount,
+                    reason,
+                    violationDate,
+                    isCompRequired
                 ));
             }
+
             reader.Close();
             db.CloseConnection();
             return violations;

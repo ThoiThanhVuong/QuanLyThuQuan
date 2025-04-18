@@ -3,52 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\dao\\violationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\violationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\user\\adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\productitem\\frmcontrolbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmcontrolbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\productitem\\frmquanlytacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmquanlytacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\productitem\\frmquanlysach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmquanlysach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\productitem\\bookitemcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\bookitemcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\model\\sessionstudy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\sessionstudy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanlithuquan\\quanlythuquan\\model\\violationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\violationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,152 +42,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormUser.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACIAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ViolationDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\DAO\\ViolationDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\ViolationDAO.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\DAO\\ViolationDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\ViolationDAO.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAewB0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:10:35.42Z",
+              "WhenOpened": "2025-04-18T01:49:43.551Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmQuanLyTacGia.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "ViolationModel.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwCYAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:10:14.612Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmControlBook.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmControlBook.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmControlBook.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmControlBook.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmControlBook.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:10:07.34Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-18T01:57:31.239Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AddUser.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\AddUser.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\AddUser.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\AddUser.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\AddUser.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:09:44.152Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormUser.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T08:16:45.43Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmQuanLySach.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:10:12.192Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookItemControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\BookItemControl.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\BookItemControl.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\ProductItem\\BookItemControl.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\BookItemControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:10:03.996Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SessionStudy.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\Model\\SessionStudy.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\SessionStudy.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\Model\\SessionStudy.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\Model\\SessionStudy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T02:53:43.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormDashBoard.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormDashBoard.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDashBoard.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T02:49:46.418Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FormViolation.cs",
+              "Title": "FormViolation.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormViolation.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormViolation.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormViolation.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormViolation.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwCYAAAARAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormViolation.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormViolation.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T02:42:21.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SessionStudyDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAUwBcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:04:14.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormDashBoard.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanlithuquan\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAswDAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T02:46:39.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-18T01:50:28.904Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
