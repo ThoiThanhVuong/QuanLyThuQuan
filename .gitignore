@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.bak
+*.backup
+*.tmp
+*.obj
+*.log
+*.tlog
+*.ilk
+*.htm
+packages/
+
+# Bin/Obj
+[Bb]in/
+[Oo]bj/
+
+# Build results
+*.exe
+*.dll
+*.pdb
+
+# Layout & designer autosaves
+*.csproj.user
+*.layout.*
+*.local.json
+
+# Others
+*.json
+*.cache
+*.config
+*.csproj.FileListAbsolute.txt
