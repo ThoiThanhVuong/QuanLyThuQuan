@@ -159,15 +159,11 @@ namespace QuanLyThuQuan.GUI
             this.Close();
         }
 
-        private async void btnMinimize_Click(object sender, EventArgs e)
+        private void btnMinimize_Click(object sender, EventArgs e)
         {
-            for (double i = 1.0; i >= 0.1; i -= 0.1)
-            {
-                this.Opacity = i;
-                await Task.Delay(30);
-            }
+            
             this.WindowState = FormWindowState.Minimized;
-            this.Opacity = 1.0;
+            //this.Opacity = 1.0;
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)

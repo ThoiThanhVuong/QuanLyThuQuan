@@ -50,6 +50,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.cbbBookType = new System.Windows.Forms.ComboBox();
             this.txtTheLoai = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -212,6 +213,7 @@
             this.btnUpLoadImg.TabIndex = 6;
             this.btnUpLoadImg.Text = "UpLoad Image";
             this.btnUpLoadImg.UseVisualStyleBackColor = false;
+            this.btnUpLoadImg.Click += new System.EventHandler(this.btnUpLoadImg_Click);
             // 
             // panel8
             // 
@@ -306,6 +308,7 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.cbbBookType);
             this.panel12.Controls.Add(this.txtTheLoai);
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Controls.Add(this.label4);
@@ -316,6 +319,14 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(307, 37);
             this.panel12.TabIndex = 8;
+            // 
+            // cbbBookType
+            // 
+            this.cbbBookType.FormattingEnabled = true;
+            this.cbbBookType.Location = new System.Drawing.Point(71, 1);
+            this.cbbBookType.Name = "cbbBookType";
+            this.cbbBookType.Size = new System.Drawing.Size(210, 30);
+            this.cbbBookType.TabIndex = 6;
             // 
             // txtTheLoai
             // 
@@ -515,6 +526,7 @@
             this.btnBookControl.TabIndex = 13;
             this.btnBookControl.Text = "button2";
             this.btnBookControl.UseVisualStyleBackColor = false;
+            this.btnBookControl.Click += new System.EventHandler(this.btnBookControl_Click);
             // 
             // frmControlBook
             // 
@@ -600,5 +612,6 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label txtBookControl;
         private System.Windows.Forms.Button btnBookControl;
+        private System.Windows.Forms.ComboBox cbbBookType;
     }
 }

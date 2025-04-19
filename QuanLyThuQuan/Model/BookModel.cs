@@ -19,6 +19,18 @@
 
         }
 
+        public BookModel(string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, int feePerDay)
+        {
+            BookTitle = bookTitle;
+            AuthorID = authorID;
+            BookImage = bookImage;
+            CategoryID = categoryID;
+            PublisYear = publisYear;
+            BookQuantity = bookQuantity;
+            BookStatus = bookStatus;
+            FeePerDay = feePerDay;
+        }
+
         public BookModel(int bookID, string bookTitle, int authorID, string bookImage, int categoryID, int publisYear, int bookQuantity, ProductStatus bookStatus, int feePerDay)
         {
             BookID = bookID;

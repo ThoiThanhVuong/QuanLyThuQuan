@@ -20,6 +20,10 @@ namespace QuanLyThuQuan.BUS
         {
             return bookDAO.GetBookByName(name);
         }
+        public List<BookModel> GetBooksByCategory(string category)
+        {
+            return bookDAO.GetBooksByCategory(category);
+        }
         public bool AddBook(BookModel book)
         {
             return bookDAO.AddBook(book);
@@ -44,5 +48,6 @@ namespace QuanLyThuQuan.BUS
         {
             return bookDAO.GetTotalBookQuantity();
         }
+       
     }
 }

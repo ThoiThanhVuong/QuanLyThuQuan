@@ -138,13 +138,67 @@ namespace QuanLyThuQuan.DAO
 
             return book;
         }
+        public List<BookModel> GetBooksByCategory(string categoryName)
+        {
+            List<BookModel> books = new List<BookModel>();
+            try
+            {
+                string query = "SELECT * FROM Books " +
+                    "JOIN authors ON Authors.AuthorID = Books.AuthorID " +
+                    "JOIN Categories c ON c.CategoryID =Books.CategoryID" +
+                    " WHERE c.CategoryName =@categoryName AND Books.Status IN ('Available','OutOf')";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+                    db.OpenConnection();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AuthorModel author = new AuthorModel(
+                                 reader.GetInt32("AuthorID"),
+                                 reader.GetString("AuthorName"),
+                                 (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("AuthorStatus"))
+                                 );
+                            CategoriesModel categories = new CategoriesModel(
+                                reader.GetInt32("CategoryID"),
+                                reader.GetString("CategoryName"),
+                                 (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("CategoryStatus"))
+                                );
+                            books.Add(
+
+                                new BookModel(
+                                reader.GetInt32("BookID"),
+                                reader.GetString("BookTitle"),
+                                reader.GetInt32("AuthorID"),
+                                reader.GetString("BookImage"),
+                                reader.GetInt32("CategoryID"),
+                                reader.GetInt32("PublishYear"),
+                                reader.GetInt32("Quantity"),
+                                (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
+                                reader.GetInt32("fee_per_day"),
+                                categories,
+                                 author
+                            ) ); 
+                        }
+                    }
+                    db.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu theo thể loại: " + ex.Message);
+            }
+            return books;
+        }
+
         public bool AddBook(BookModel book)
         {
 
             try
             {
                 db.OpenConnection();
-                string query = "INSERT INTO Books (BookTitle, AuthorID, BookImage, CategoryID, PublishYear, Quantity, Status, fee_per_day) VALUES (@BookTitle, @AuthorID, @BookImage, @CategoryID, @PublishYear, @Quantity, @Status, @fee_per_day)";
+                string query = "INSERT INTO Books (BookTitle, AuthorID, BookImage, CategoryID, PublishYear, Quantity, fee_per_day, Status) VALUES (@BookTitle, @AuthorID, @BookImage, @CategoryID, @PublishYear, @Quantity, @fee_per_day , @Status)";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@BookTitle", book.BookTitle);
@@ -153,8 +207,8 @@ namespace QuanLyThuQuan.DAO
                     cmd.Parameters.AddWithValue("@CategoryID", book.CategoryID);
                     cmd.Parameters.AddWithValue("@PublishYear", book.PublisYear);
                     cmd.Parameters.AddWithValue("@Quantity", book.BookQuantity);
-                    cmd.Parameters.AddWithValue("@Status", book.BookStatus.ToString());
                     cmd.Parameters.AddWithValue("@fee_per_day", book.FeePerDay);
+                    cmd.Parameters.AddWithValue("@Status", book.BookStatus.ToString());
                     bool result = cmd.ExecuteNonQuery() > 0;
                     db.CloseConnection();
                     return result;

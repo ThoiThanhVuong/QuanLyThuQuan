@@ -16,6 +16,14 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.GetDeviceByID(Id);
         }
+        public List<string> GetDeviceType()
+        {
+            return deviceDAO.GetDeviceType();
+        }
+        public List<DeviceModel> GetDeviceByType(string type)
+        {
+            return deviceDAO.GetDeviceByType(type);
+        }
         public bool AddDevice(DeviceModel device)
         {
             // Có thể thêm kiểm tra nghiệp vụ tại đây nếu cần

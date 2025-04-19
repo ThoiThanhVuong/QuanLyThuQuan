@@ -3,6 +3,7 @@ using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -66,6 +67,29 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return category;
         }
+        public int GetCategoryIDByName(string name)
+        {
+            int categoryID = -1;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT CategoryID FROM Categories WHERE CategoryName=@name AND CategoryStatus='Active'";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("name", name);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    categoryID = reader.GetInt32("CategoryID");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("lỗi khi lấy dữ liệu " + ex.Message);
+            }
+            db.CloseConnection();
+            return categoryID;
+        }
         public bool AddCategory(CategoriesModel category)
         {
             try
@@ -118,7 +142,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "DELETE FROM Categories WHERE CategoryID = @id";
+                string query = "UPDATE Categories SET AuthorStatus='Inactive' WHERE CategoryID = @id";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@id", categoryId);
 
@@ -173,6 +197,31 @@ namespace QuanLyThuQuan.DAO
             }
 
             return list;
+        }
+        public int GenerateNewCategoryCode()
+        {
+            int lastID = 0;
+            db.OpenConnection();
+            string query = "SELECT MAX(CategoryID) FROM Categories";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            var result = cmd.ExecuteScalar();
+            lastID = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+            return lastID;
+        }
+        public bool CheckAuthorExists(string categoryName)
+        {
+            bool exists = false;
+            db.OpenConnection();
+            string query = "SELECT COUNT(*) FROM Categories WHERE CategoryName like @CategoryName";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            cmd.Parameters.AddWithValue("@CategoryName", "%"+categoryName+"%");
+            var result = cmd.ExecuteScalar();
+            if (result != DBNull.Value)
+            {
+                exists = Convert.ToInt32(result) > 0;
+            }
+            db.CloseConnection();
+            return exists;
         }
     }
 }

@@ -25,17 +25,22 @@ namespace QuanLyThuQuan.GUI
         }
         private void SideBar_Paint(object sender, PaintEventArgs e)
         {
-            Color color1 = ColorTranslator.FromHtml("#320643");
-            Color color2 = ColorTranslator.FromHtml("#140534");
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                SideBar.ClientRectangle,
-                color1, color2,
-                LinearGradientMode.Vertical))
+            // Kiểm tra nếu kích thước của SideBar hợp lệ
+            if (SideBar.ClientRectangle.Width > 0 && SideBar.ClientRectangle.Height > 0)
             {
-                e.Graphics.FillRectangle(brush, SideBar.ClientRectangle);
+                Color color1 = ColorTranslator.FromHtml("#320643");
+                Color color2 = ColorTranslator.FromHtml("#140534");
+
+                using (LinearGradientBrush brush = new LinearGradientBrush(
+                    SideBar.ClientRectangle,
+                    color1, color2,
+                    LinearGradientMode.Vertical))
+                {
+                    e.Graphics.FillRectangle(brush, SideBar.ClientRectangle);
+                }
             }
         }
+
         #region Windows Form Designer generated code
 
         /// <summary>

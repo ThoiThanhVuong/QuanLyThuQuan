@@ -18,6 +18,10 @@ namespace QuanLyThuQuan.BUS
         {
             return AuthorDAO.GetAuthorByID(ID);
         }
+        public int GetAuthorByName(string name)
+        {
+            return AuthorDAO.GetAuthorIDByName(name);
+        }
         public bool AddAuthor(AuthorModel author)
         {
             return AuthorDAO.AddAuthor(author);
@@ -33,6 +37,14 @@ namespace QuanLyThuQuan.BUS
         public List<AuthorModel> SearchAuthor(string keyword)
         {
             return AuthorDAO.SearchAuthor(keyword);
+        }
+        public int GenerateNewAuthorCode()
+        {
+            return AuthorDAO.GenerateNewAuthorCode() + 1;
+        }
+        public bool CheckAuthorExists(string authorName)
+        {
+            return AuthorDAO.CheckAuthorExists(authorName);
         }
     }
 }

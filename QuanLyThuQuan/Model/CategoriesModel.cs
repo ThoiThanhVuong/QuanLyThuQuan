@@ -10,6 +10,12 @@
 
         }
 
+        public CategoriesModel(string categoryName, ActivityStatus categoryStatus)
+        {
+            CategoryName = categoryName;
+            CategoryStatus = categoryStatus;
+        }
+
         public CategoriesModel(int categoryID, string categoryName, ActivityStatus categoryStatus)
         {
             CategoryID = categoryID;

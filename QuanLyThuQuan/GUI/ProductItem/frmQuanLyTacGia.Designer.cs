@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTacGia));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnCreateNew = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -41,9 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTenTacGia = new System.Windows.Forms.TextBox();
             this.txtMaTacGia = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.AuthorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.searchTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
@@ -109,6 +110,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.btnCreateNew);
             this.panel6.Controls.Add(this.btnRemove);
             this.panel6.Controls.Add(this.btnAdd);
             this.panel6.Controls.Add(this.panel7);
@@ -117,11 +119,42 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.txtTenTacGia);
             this.panel6.Controls.Add(this.txtMaTacGia);
-            this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(22, 194);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 296);
             this.panel6.TabIndex = 1;
+            // 
+            // btnCreateNew
+            // 
+            this.btnCreateNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnCreateNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnCreateNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnCreateNew.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateNew.Name = "btnCreateNew";
+            this.btnCreateNew.Size = new System.Drawing.Size(111, 36);
+            this.btnCreateNew.TabIndex = 9;
+            this.btnCreateNew.Text = "Tạo mới";
+            this.btnCreateNew.UseVisualStyleBackColor = false;
+            this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemove.Location = new System.Drawing.Point(270, 228);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(115, 38);
+            this.btnRemove.TabIndex = 8;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
@@ -137,6 +170,7 @@
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel7
             // 
@@ -161,6 +195,7 @@
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label5
             // 
@@ -194,60 +229,33 @@
             this.txtMaTacGia.Size = new System.Drawing.Size(231, 26);
             this.txtMaTacGia.TabIndex = 1;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(2, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Thêm mới";
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.textSearch);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(22, 19);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(397, 150);
+            this.panel4.Size = new System.Drawing.Size(397, 116);
             this.panel4.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnSearch.Location = new System.Drawing.Point(254, 74);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(116, 40);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // textSearch
             // 
             this.textSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textSearch.Location = new System.Drawing.Point(24, 74);
+            this.textSearch.Location = new System.Drawing.Point(24, 48);
             this.textSearch.Margin = new System.Windows.Forms.Padding(0);
             this.textSearch.Multiline = true;
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(230, 40);
+            this.textSearch.Size = new System.Drawing.Size(346, 40);
             this.textSearch.TabIndex = 2;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 147);
+            this.panel5.Location = new System.Drawing.Point(0, 113);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 3);
             this.panel5.TabIndex = 1;
@@ -287,6 +295,7 @@
             this.dgvTacGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTacGia.Size = new System.Drawing.Size(456, 509);
             this.dgvTacGia.TabIndex = 0;
+            this.dgvTacGia.SelectionChanged += new System.EventHandler(this.dgvTacGia_SelectionChanged);
             // 
             // AuthorID
             // 
@@ -295,7 +304,7 @@
             this.AuthorID.HeaderText = "Mã Tác Giả";
             this.AuthorID.MinimumWidth = 8;
             this.AuthorID.Name = "AuthorID";
-            this.AuthorID.Width = 150;
+            this.AuthorID.Width = 110;
             // 
             // AuthorName
             // 
@@ -315,20 +324,9 @@
             this.status.Name = "status";
             this.status.Width = 90;
             // 
-            // btnRemove
+            // searchTimer
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnRemove.Location = new System.Drawing.Point(270, 228);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(115, 38);
-            this.btnRemove.TabIndex = 8;
-            this.btnRemove.Text = "Xóa";
-            this.btnRemove.UseVisualStyleBackColor = false;
+            this.searchTimer.Tick += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // frmQuanLyTacGia
             // 
@@ -342,6 +340,7 @@
             this.Name = "frmQuanLyTacGia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmQuanLyTacGia";
+            this.Load += new System.EventHandler(this.frmQuanLyTacGia_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
@@ -365,11 +364,9 @@
         private System.Windows.Forms.DataGridView dgvTacGia;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -378,9 +375,11 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox btnReturn;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DataGridViewTextBoxColumn AuthorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnCreateNew;
+        private System.Windows.Forms.Timer searchTimer;
     }
 }

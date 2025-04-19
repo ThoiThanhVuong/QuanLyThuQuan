@@ -10,6 +10,12 @@
 
         }
 
+        public AuthorModel(string authorName, ActivityStatus authorStatus)
+        {
+            AuthorName = authorName;
+            AuthorStatus = authorStatus;
+        }
+
         public AuthorModel(int authorID, string authorName, ActivityStatus authorStatus)
         {
             AuthorID = authorID;

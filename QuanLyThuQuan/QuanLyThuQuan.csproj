@@ -186,6 +186,12 @@
     <Compile Include="GUI\ProductItem\frmControlBook.Designer.cs">
       <DependentUpon>frmControlBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProductItem\frmControlDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ProductItem\frmControlDevice.Designer.cs">
+      <DependentUpon>frmControlDevice.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProductItem\frmQuanLySach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductItem\frmControlBook.resx">
       <DependentUpon>frmControlBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProductItem\frmControlDevice.resx">
+      <DependentUpon>frmControlDevice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductItem\frmQuanLySach.resx">
       <DependentUpon>frmQuanLySach.cs</DependentUpon>

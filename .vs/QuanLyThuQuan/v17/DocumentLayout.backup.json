@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\C#\\QuanLyThuQuan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\productitem\\frmtheloaisach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmtheloaisach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\dao\\devicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\devicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\productitem\\frmquanlytacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmquanlytacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\bus\\devicebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\devicebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\productitem\\frmquanlysach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\productitem\\frmquanlysach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeviceDAO.cs",
+              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\DeviceDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\DeviceDAO.cs",
+              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\DeviceDAO.cs*",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\DeviceDAO.cs*",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAqwHUAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T11:15:22.584Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -38,26 +63,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmTheLoaiSach.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmTheLoaiSach.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmTheLoaiSach.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmTheLoaiSach.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmTheLoaiSach.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "DeviceBUS.cs",
+              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\DeviceBUS.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\DeviceBUS.cs",
+              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\DeviceBUS.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\BUS\\DeviceBUS.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T14:01:40.674Z",
+              "WhenOpened": "2025-04-19T11:12:02.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmQuanLySach.cs",
+              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
+              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLySach.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAAAOQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T11:02:02.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormDevice.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDevice.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T13:38:36.227Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmQuanLyTacGia.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs [Design]",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\ProductItem\\frmQuanLyTacGia.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2025-04-11T14:01:16.34Z"
+              "DocumentIndex": 2,
+              "Title": "FormDevice.cs",
+              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAUwMEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T13:38:47.052Z",
+              "EditorCaption": ""
             }
           ]
         }

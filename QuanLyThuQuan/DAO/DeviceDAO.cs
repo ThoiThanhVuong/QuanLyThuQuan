@@ -82,7 +82,63 @@ namespace QuanLyThuQuan.DAO
 
             return device;
         }
+        public List<string> GetDeviceType()
+        {
+            List<string> deviceTypes = new List<string>();
+            try {
+                db.OpenConnection();
+                string query = "SELECT DISTINCT DeviceType FROM Devices ";
+                using(MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            deviceTypes.Add(reader.GetString("DeviceType"));
+                        }
+                    };
+                }
+            
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Loi khi lay the loai thiet bi " + ex.Message);
+                
+            }
+            db.CloseConnection();
+            return deviceTypes;
+        }
+        public List<DeviceModel> GetDeviceByType(string type)
+        {
+            List<DeviceModel> devices = new List<DeviceModel>();
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT * FROM Devices WHERE DeviceType =@DeviceType AND Status IN ('Available','OutOf')";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@DeviceType", type);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    devices.Add(new DeviceModel(
+                            reader.GetInt32("DeviceID"),
+                            reader.GetString("DeviceName"),
+                            reader.GetString("DeviceImage"),
+                            reader.GetString("DeviceType"),
+                            reader.GetInt32("Quantity"),
+                            (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
+                            reader.GetInt32("fee_per_hour")
+                     ));
+                }
+                reader.Close();
+                db.OpenConnection();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy sách " + ex.Message);
+            }
 
+            return devices;
+        }
         public bool AddDevice(DeviceModel device)
         {
             try
@@ -117,7 +173,7 @@ namespace QuanLyThuQuan.DAO
             {
                 db.OpenConnection();
                 string query = ("UPDATE Devices " +
-                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,Status=@Status,fee_per_hour=@fee_per_hour" +
+                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,Status=@Status,fee_per_hour=@fee_per_hour " +
                     "WHERE DeviceID =@DeviceID");
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {

@@ -1,4 +1,5 @@
 ﻿using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.GUI.ProductItem;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,13 @@ namespace QuanLyThuQuan.GUI
     public partial class FormDevice : Form
     {
         private DeviceBUS deviceBUS = new DeviceBUS();
+        private string lastSearchTerm = "";
         public FormDevice()
         {
             InitializeComponent();
+            searchTimer = new Timer();
+            searchTimer.Interval = 500;
+            searchTimer.Tick += SearchTimer_Tick;
         }
 
         private void FormDevice_Load(object sender, EventArgs e)
@@ -44,6 +49,15 @@ namespace QuanLyThuQuan.GUI
                         );
                     }
                 }
+                List<string> deviceTypes = deviceBUS.GetDeviceType();
+
+                cbbTypeDevice.Items.Clear();
+                cbbTypeDevice.Items.Add("Thể Loại");
+                foreach (string deviceType in deviceTypes)
+                {
+                    cbbTypeDevice.Items.Add(deviceType);
+                }
+                cbbTypeDevice.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -66,18 +80,162 @@ namespace QuanLyThuQuan.GUI
         {
             if (selectedRowIndex >= 0)
             {
-                string deviceID = dgvDevices.Rows[selectedRowIndex].Cells["DeviceID"].Value.ToString();
-                string deviceName = dgvDevices.Rows[selectedRowIndex].Cells["DeviceName"].Value.ToString();
-                string deviceType = dgvDevices.Rows[selectedRowIndex].Cells["DeviceType"].Value.ToString();
-                string feePerHour = dgvDevices.Rows[selectedRowIndex].Cells["FeePerHour"].Value.ToString();
-                string deviceQuantity = dgvDevices.Rows[selectedRowIndex].Cells["DeviceQuantity"].Value.ToString();
-                string status = dgvDevices.Rows[selectedRowIndex].Cells["Status"].Value.ToString();
-                DeviceModel device = deviceBUS.GetDeviceByID(int.Parse(deviceID));
-                Console.WriteLine(device);
+                DataGridViewRow row = dgvDevices.Rows[selectedRowIndex];
+                DeviceModel device = deviceBUS.GetDeviceByID(int.Parse(row.Cells[0].Value?.ToString()));
+                frmControlDevice controlDevice = new frmControlDevice();
+                controlDevice.SetValue(device);
+                controlDevice.SetLabelAndButtonText("Xem chi tiết", "");
+                controlDevice.Height = 400;
+                controlDevice.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một thiết bị trước khi xem!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmControlDevice controlDevice = new frmControlDevice();
+            controlDevice.SetLabelAndButtonText("Thêm mới", "Thêm");
+            controlDevice.ShowDialog();
+            LoadData();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDevices.Rows[selectedRowIndex];
+                DeviceModel device = deviceBUS.GetDeviceByID(int.Parse(row.Cells[0].Value?.ToString()));
+
+                frmControlDevice controlDevice = new frmControlDevice();
+                controlDevice.SetValue(device);
+                controlDevice.SetLabelAndButtonText("Chỉnh sửa", "Cập nhật");
+                controlDevice.ShowDialog();
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn thiết bị cần chỉnh sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDevices.Rows[selectedRowIndex];
+                int deviceID = Convert.ToInt32(row.Cells[0].Value);
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa thiết bị này?", "Xóa thiết bị", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool success = deviceBUS.DeleteDevice(deviceID);
+                    if (success)
+                    {
+                        MessageBox.Show("Thiết bị đã được xóa thành công.");
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi khi xóa thiết bị.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một thiết bị để xóa.");
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.Trim();
+
+            if (searchTerm != lastSearchTerm)
+            {
+                lastSearchTerm = searchTerm;
+                searchTimer.Stop();
+                searchTimer.Start();
+            }
+        }
+        private void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            string keyword = txtSearch.Text.Trim();
+            List<DeviceModel> devices = deviceBUS.SearchDevices(keyword);
+            dgvDevices.Rows.Clear();
+            if (devices.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy thiết bị nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                foreach (var device in devices)
+                {
+                    dgvDevices.Rows.Add(
+                            device.DeviceID,
+                            device.DeviceName,
+                            device.DeviceType,
+                            device.FeePerHour,
+                            device.DeviceQuantity,
+                            device.DeviceStatus
+                    );
+                }
+            }
+        }
+
+        private void cbbTypeDevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbTypeDevice.SelectedItem != null)
+            {
+                string selectedCategory = cbbTypeDevice.SelectedItem.ToString();
+                Console.WriteLine(selectedCategory);
+
+                if (selectedCategory == "Thể Loại")
+                {
+                    List<DeviceModel> devices = deviceBUS.GetAllDevices();
+                    dgvDevices.Rows.Clear();
+                    foreach (var device in devices)
+                    {
+                        dgvDevices.Rows.Add(
+                             device.DeviceID,
+                            device.DeviceName,
+                            device.DeviceType,
+                            device.FeePerHour,
+                            device.DeviceQuantity,
+                            device.DeviceStatus
+                        );
+                    }
+                }
+                else
+                {
+                    List<DeviceModel> devices = deviceBUS.GetDeviceByType(selectedCategory);
+                    dgvDevices.Rows.Clear();
+                    if (devices.Count > 0)
+                    {
+                        foreach (var device in devices)
+                        {
+                            dgvDevices.Rows.Add(
+                                 device.DeviceID,
+                                device.DeviceName,
+                                device.DeviceType,
+                                device.FeePerHour,
+                                device.DeviceQuantity,
+                                device.DeviceStatus
+                            );
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy thiết bị trong thể loại này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn thể loại để tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Panel();
@@ -37,7 +38,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbTypeDevice = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             this.FeePerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeviceQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.btnView.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -118,6 +120,7 @@
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "Xóa";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnEdit
             // 
@@ -132,6 +135,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // panel3
             // 
@@ -155,10 +159,11 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.comboBox1);
+            this.panel4.Controls.Add(this.cbbTypeDevice);
             this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -168,13 +173,14 @@
             this.panel4.Size = new System.Drawing.Size(821, 52);
             this.panel4.TabIndex = 3;
             // 
-            // comboBox1
+            // cbbTypeDevice
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(611, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(138, 28);
-            this.comboBox1.TabIndex = 2;
+            this.cbbTypeDevice.FormattingEnabled = true;
+            this.cbbTypeDevice.Location = new System.Drawing.Point(611, 10);
+            this.cbbTypeDevice.Name = "cbbTypeDevice";
+            this.cbbTypeDevice.Size = new System.Drawing.Size(138, 28);
+            this.cbbTypeDevice.TabIndex = 2;
+            this.cbbTypeDevice.SelectedIndexChanged += new System.EventHandler(this.cbbTypeDevice_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -182,6 +188,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(237, 26);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // panel5
             // 
@@ -258,6 +265,10 @@
             this.Status.MinimumWidth = 8;
             this.Status.Name = "Status";
             // 
+            // searchTimer
+            // 
+            this.searchTimer.Tick += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // FormDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -292,7 +303,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbTypeDevice;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
@@ -304,5 +315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DeviceQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridView dgvDevices;
+        private System.Windows.Forms.Timer searchTimer;
     }
 }

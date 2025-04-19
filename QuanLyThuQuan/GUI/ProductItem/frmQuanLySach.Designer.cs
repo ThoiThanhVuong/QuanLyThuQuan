@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLySach));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.PictureBox();
@@ -50,6 +51,7 @@
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
@@ -115,6 +117,7 @@
             this.cbbTypeBook.Size = new System.Drawing.Size(146, 28);
             this.cbbTypeBook.TabIndex = 1;
             this.cbbTypeBook.Text = "Thể Loại";
+            this.cbbTypeBook.SelectedIndexChanged += new System.EventHandler(this.cbbTypeBook_SelectedIndexChanged);
             // 
             // txtSearchBook
             // 
@@ -122,6 +125,7 @@
             this.txtSearchBook.Name = "txtSearchBook";
             this.txtSearchBook.Size = new System.Drawing.Size(269, 26);
             this.txtSearchBook.TabIndex = 0;
+            this.txtSearchBook.TextChanged += new System.EventHandler(this.txtSearchBook_TextChanged);
             // 
             // panel3
             // 
@@ -165,6 +169,7 @@
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Xóa";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnEdit
             // 
@@ -277,6 +282,10 @@
             this.TrangThai.MinimumWidth = 8;
             this.TrangThai.Name = "TrangThai";
             // 
+            // searchTimer
+            // 
+            this.searchTimer.Tick += new System.EventHandler(this.txtSearchBook_TextChanged);
+            // 
             // frmQuanLySach
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -324,5 +333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaThue;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.Timer searchTimer;
     }
 }

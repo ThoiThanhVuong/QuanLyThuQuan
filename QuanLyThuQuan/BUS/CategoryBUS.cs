@@ -19,6 +19,10 @@ namespace QuanLyThuQuan.BUS
         {
             return categoriesDAO.GetCategoryByID(ID);
         }
+        public int GetCategoryIDByName(string name)
+        {
+            return categoriesDAO.GetCategoryIDByName(name);
+        }
         public bool AddCategory(CategoriesModel category)
         {
             return categoriesDAO.AddCategory(category);
@@ -34,6 +38,14 @@ namespace QuanLyThuQuan.BUS
         public List<CategoriesModel> SearchCategories(string keyword)
         {
             return categoriesDAO.SearchCategories(keyword);
+        }
+        public int GenerateNewCategoryCode()
+        {
+            return categoriesDAO.GenerateNewCategoryCode() + 1;
+        }
+        public bool CheckAuthorExists(string categoryName)
+        {
+            return categoriesDAO.CheckAuthorExists(categoryName);
         }
     }
 }

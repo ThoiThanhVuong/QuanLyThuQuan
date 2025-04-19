@@ -76,6 +76,36 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return author;
         }
+        public int GetAuthorIDByName(string name)
+        {
+            int authorID = -1; 
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT AuthorID FROM Authors WHERE AuthorName=@AuthorName AND AuthorStatus='Active' ";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@AuthorName", name);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read()) 
+                        {
+                            authorID = reader.GetInt32("AuthorID"); 
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy dữ liệu " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return authorID;
+        }
+
         public bool AddAuthor(AuthorModel author)
         {
             try
@@ -130,7 +160,7 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "DELETE Authors SET Status='Inactive' WHERE AuthorID =@AuthorID ";
+                string query = "UPDATE Authors SET AuthorStatus='Inactive' WHERE AuthorID =@AuthorID ";
                    
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
@@ -185,6 +215,33 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return authors;
         }
+        public int GenerateNewAuthorCode()
+        {
+            int lastID = 0;
+            db.OpenConnection();
+            string query = "SELECT MAX(AuthorID) FROM Authors";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            var result = cmd.ExecuteScalar();
+            lastID =result!=DBNull.Value? Convert.ToInt32(result) : 0;
+            return lastID;
+        }
+        public bool CheckAuthorExists(string authorName)
+        {
+            bool exists = false;
+            db.OpenConnection();
+            string query = "SELECT COUNT(*) FROM Authors WHERE AuthorName = @AuthorName";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            cmd.Parameters.AddWithValue("@AuthorName", authorName);
+
+            var result = cmd.ExecuteScalar();
+            if (result != DBNull.Value)
+            {
+                exists = Convert.ToInt32(result) > 0;
+            }
+            db.CloseConnection();
+            return exists;
+        }
+
 
     }
 }
