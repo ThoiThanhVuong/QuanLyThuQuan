@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ViolationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RuleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FineAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsCompensationRequired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -38,7 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -51,14 +58,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.ViolationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RuleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FineAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsCompensationRequired = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,8 +85,87 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
+            // ViolationID
+            // 
+            this.ViolationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ViolationID.FillWeight = 50F;
+            this.ViolationID.Frozen = true;
+            this.ViolationID.HeaderText = "ViolationID";
+            this.ViolationID.MinimumWidth = 6;
+            this.ViolationID.Name = "ViolationID";
+            this.ViolationID.Width = 75;
+            // 
+            // MemberID
+            // 
+            this.MemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MemberID.FillWeight = 50F;
+            this.MemberID.Frozen = true;
+            this.MemberID.HeaderText = "MemberID";
+            this.MemberID.MinimumWidth = 6;
+            this.MemberID.Name = "MemberID";
+            this.MemberID.Width = 75;
+            // 
+            // TransactionID
+            // 
+            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TransactionID.FillWeight = 50F;
+            this.TransactionID.Frozen = true;
+            this.TransactionID.HeaderText = "TransactionID";
+            this.TransactionID.MinimumWidth = 6;
+            this.TransactionID.Name = "TransactionID";
+            this.TransactionID.Width = 125;
+            // 
+            // RuleID
+            // 
+            this.RuleID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RuleID.FillWeight = 50F;
+            this.RuleID.Frozen = true;
+            this.RuleID.HeaderText = "RuleID";
+            this.RuleID.MinimumWidth = 6;
+            this.RuleID.Name = "RuleID";
+            this.RuleID.Width = 75;
+            // 
+            // FineAmount
+            // 
+            this.FineAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FineAmount.FillWeight = 125F;
+            this.FineAmount.Frozen = true;
+            this.FineAmount.HeaderText = "FineAmount";
+            this.FineAmount.MinimumWidth = 6;
+            this.FineAmount.Name = "FineAmount";
+            this.FineAmount.Width = 125;
+            // 
+            // Reason
+            // 
+            this.Reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Reason.FillWeight = 125F;
+            this.Reason.Frozen = true;
+            this.Reason.HeaderText = "Reason";
+            this.Reason.MinimumWidth = 6;
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 150;
+            // 
+            // ViolationDate
+            // 
+            this.ViolationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ViolationDate.FillWeight = 125F;
+            this.ViolationDate.Frozen = true;
+            this.ViolationDate.HeaderText = "ViolationDate";
+            this.ViolationDate.MinimumWidth = 6;
+            this.ViolationDate.Name = "ViolationDate";
+            this.ViolationDate.Width = 125;
+            // 
+            // IsCompensationRequired
+            // 
+            this.IsCompensationRequired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IsCompensationRequired.FillWeight = 125F;
+            this.IsCompensationRequired.HeaderText = "IsCompensationRequired";
+            this.IsCompensationRequired.MinimumWidth = 6;
+            this.IsCompensationRequired.Name = "IsCompensationRequired";
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.textBox6);
@@ -95,7 +174,6 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
@@ -173,13 +251,6 @@
             this.label5.Size = new System.Drawing.Size(90, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "FineAmount:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(149, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(158, 22);
-            this.textBox4.TabIndex = 7;
             // 
             // label4
             // 
@@ -288,83 +359,13 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // ViolationID
+            // comboBox1
             // 
-            this.ViolationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ViolationID.FillWeight = 50F;
-            this.ViolationID.Frozen = true;
-            this.ViolationID.HeaderText = "ViolationID";
-            this.ViolationID.MinimumWidth = 6;
-            this.ViolationID.Name = "ViolationID";
-            this.ViolationID.Width = 75;
-            // 
-            // MemberID
-            // 
-            this.MemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MemberID.FillWeight = 50F;
-            this.MemberID.Frozen = true;
-            this.MemberID.HeaderText = "MemberID";
-            this.MemberID.MinimumWidth = 6;
-            this.MemberID.Name = "MemberID";
-            this.MemberID.Width = 75;
-            // 
-            // TransactionID
-            // 
-            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TransactionID.FillWeight = 50F;
-            this.TransactionID.Frozen = true;
-            this.TransactionID.HeaderText = "TransactionID";
-            this.TransactionID.MinimumWidth = 6;
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.Width = 125;
-            // 
-            // RuleID
-            // 
-            this.RuleID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.RuleID.FillWeight = 50F;
-            this.RuleID.Frozen = true;
-            this.RuleID.HeaderText = "RuleID";
-            this.RuleID.MinimumWidth = 6;
-            this.RuleID.Name = "RuleID";
-            this.RuleID.Width = 75;
-            // 
-            // FineAmount
-            // 
-            this.FineAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FineAmount.FillWeight = 125F;
-            this.FineAmount.Frozen = true;
-            this.FineAmount.HeaderText = "FineAmount";
-            this.FineAmount.MinimumWidth = 6;
-            this.FineAmount.Name = "FineAmount";
-            this.FineAmount.Width = 125;
-            // 
-            // Reason
-            // 
-            this.Reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Reason.FillWeight = 125F;
-            this.Reason.Frozen = true;
-            this.Reason.HeaderText = "Reason";
-            this.Reason.MinimumWidth = 6;
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 150;
-            // 
-            // ViolationDate
-            // 
-            this.ViolationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ViolationDate.FillWeight = 125F;
-            this.ViolationDate.Frozen = true;
-            this.ViolationDate.HeaderText = "ViolationDate";
-            this.ViolationDate.MinimumWidth = 6;
-            this.ViolationDate.Name = "ViolationDate";
-            this.ViolationDate.Width = 125;
-            // 
-            // IsCompensationRequired
-            // 
-            this.IsCompensationRequired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IsCompensationRequired.FillWeight = 125F;
-            this.IsCompensationRequired.HeaderText = "IsCompensationRequired";
-            this.IsCompensationRequired.MinimumWidth = 6;
-            this.IsCompensationRequired.Name = "IsCompensationRequired";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(149, 160);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(158, 24);
+            this.comboBox1.TabIndex = 18;
             // 
             // FormViolation
             // 
@@ -400,7 +401,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -423,5 +423,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewTextBoxColumn ViolationDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsCompensationRequired;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

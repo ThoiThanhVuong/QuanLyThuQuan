@@ -18,6 +18,10 @@ namespace QuanLyThuQuan.GUI
             InitializeComponent();
             button2.Enabled = false;
             button3.Enabled = false;
+            comboBox1.DataSource = ruleBus.GetAllRules();
+            comboBox1.DisplayMember = "RuleTitle";
+            comboBox1.ValueMember = "RuleId";
+
         }
 
         private void FormViolation_Load(object sender, EventArgs e)
@@ -73,11 +77,6 @@ namespace QuanLyThuQuan.GUI
                 DialogResult result = MessageBox.Show("Vui lòng nhập Transaction ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return result.ToString();
             }
-            if (textBox4.Text == "")
-            {
-                DialogResult result = MessageBox.Show("Vui lòng nhập Fine Amount", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return result.ToString();
-            }
             if (textBox5.Text == "")
             {
                 DialogResult result = MessageBox.Show("Vui lòng nhập Reason", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -95,7 +94,6 @@ namespace QuanLyThuQuan.GUI
             textBox1.Text = violationBus.maxViolationID().ToString();
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
             dateTimePicker1.Value = DateTime.Now;
@@ -113,9 +111,9 @@ namespace QuanLyThuQuan.GUI
             textBox1.Text = dataGridView1.CurrentRow.Cells["ViolationID"].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells["MemberID"].Value.ToString();
             textBox3.Text = dataGridView1.CurrentRow.Cells["TransactionID"].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
-            textBox5.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();
-            textBox6.Text = dataGridView1.CurrentRow.Cells["IsCompensationRequired"].Value.ToString();
+            comboBox1.SelectedValue = Convert.ToInt32(dataGridView1.CurrentRow.Cells["RuleID"].Value);
+            textBox5.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();
             dateTimePicker1.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["ViolationDate"].Value.ToString());
             // CheckBox status
             radioButton1.Checked = Convert.ToBoolean(dataGridView1.CurrentRow.Cells["IsCompensationRequired"].Value);
@@ -130,18 +128,12 @@ namespace QuanLyThuQuan.GUI
                 return;
             }
 
-            
-            if (ruleBus.GetRuleById(int.Parse(textBox4.Text)) == false)
-            {
-                DialogResult result = MessageBox.Show("Lỗi: Không tìm thấy Rule ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             violationBus.AddViolation(new ViolationModel(
                 int.Parse(textBox1.Text),
                 int.Parse(textBox2.Text),
                 int.Parse(textBox3.Text),
-                int.Parse(textBox4.Text), 
+                Convert.ToInt32(comboBox1.SelectedValue), 
                 decimal.Parse(textBox5.Text),
                 textBox6.Text, 
                 dateTimePicker1.Value, 
@@ -169,17 +161,12 @@ namespace QuanLyThuQuan.GUI
                 return;
             }
 
-            if (ruleBus.GetRuleById(int.Parse(textBox4.Text)) == false)
-            {
-                DialogResult result = MessageBox.Show("Lỗi: Không tìm thấy Rule ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             violationBus.UpdateViolation(new ViolationModel(
                 int.Parse(textBox1.Text),
                 int.Parse(textBox2.Text),
                 int.Parse(textBox3.Text),
-                int.Parse(textBox4.Text),
+                Convert.ToInt32(comboBox1.SelectedValue),
                 decimal.Parse(textBox5.Text),
                 textBox6.Text,
                 dateTimePicker1.Value,
