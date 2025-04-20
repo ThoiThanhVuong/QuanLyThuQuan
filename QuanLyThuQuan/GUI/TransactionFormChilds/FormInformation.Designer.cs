@@ -73,11 +73,6 @@
             this.lbViolationList = new System.Windows.Forms.Label();
             this.dgvDataItemList = new System.Windows.Forms.DataGridView();
             this.dgvDataViolationHandle = new System.Windows.Forms.DataGridView();
-            this.colRuleTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPenaty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaidStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExcuseViolation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeaderTransInfoDetail = new System.Windows.Forms.Panel();
             this.btnExitChildPanel = new System.Windows.Forms.Button();
             this.lbTransInfo = new System.Windows.Forms.Label();
@@ -746,58 +741,11 @@
             // 
             this.dgvDataViolationHandle.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvDataViolationHandle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataViolationHandle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colRuleTitle,
-            this.colPenaty,
-            this.colViolationDate,
-            this.colPaidStatus,
-            this.colExcuseViolation});
             this.dgvDataViolationHandle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDataViolationHandle.Location = new System.Drawing.Point(386, 279);
             this.dgvDataViolationHandle.Name = "dgvDataViolationHandle";
             this.dgvDataViolationHandle.Size = new System.Drawing.Size(547, 294);
             this.dgvDataViolationHandle.TabIndex = 11;
-            // 
-            // colRuleTitle
-            // 
-            this.colRuleTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRuleTitle.HeaderText = "Rule";
-            this.colRuleTitle.Name = "colRuleTitle";
-            this.colRuleTitle.ReadOnly = true;
-            this.colRuleTitle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colPenaty
-            // 
-            this.colPenaty.HeaderText = "Penaty";
-            this.colPenaty.Name = "colPenaty";
-            this.colPenaty.ReadOnly = true;
-            this.colPenaty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colViolationDate
-            // 
-            this.colViolationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colViolationDate.HeaderText = "Violation Date";
-            this.colViolationDate.Name = "colViolationDate";
-            this.colViolationDate.ReadOnly = true;
-            this.colViolationDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colViolationDate.Width = 98;
-            // 
-            // colPaidStatus
-            // 
-            this.colPaidStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPaidStatus.HeaderText = "Paid Status";
-            this.colPaidStatus.Name = "colPaidStatus";
-            this.colPaidStatus.ReadOnly = true;
-            this.colPaidStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colPaidStatus.Width = 86;
-            // 
-            // colExcuseViolation
-            // 
-            this.colExcuseViolation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colExcuseViolation.HeaderText = "";
-            this.colExcuseViolation.Name = "colExcuseViolation";
-            this.colExcuseViolation.ReadOnly = true;
-            this.colExcuseViolation.Width = 20;
             // 
             // pnlHeaderTransInfoDetail
             // 
@@ -905,11 +853,6 @@
         private System.Windows.Forms.Label lbViolationList;
         private System.Windows.Forms.DataGridView dgvDataItemList;
         private System.Windows.Forms.DataGridView dgvDataViolationHandle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRuleTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPenaty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colViolationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPaidStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExcuseViolation;
         private System.Windows.Forms.Panel pnlHeaderTransInfoDetail;
         private System.Windows.Forms.Button btnExitChildPanel;
         private System.Windows.Forms.Label lbTransInfo;

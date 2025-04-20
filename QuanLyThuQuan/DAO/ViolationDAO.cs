@@ -33,7 +33,7 @@ namespace QuanLyThuQuan.DAO
                 int ruleId = reader.GetInt32("RuleID");
                 int fineAmount = reader.GetInt32("FineAmount");
                 string reason = reader.GetString("Reason");
-                DateTime violationDate = reader.GetDateTime("ViolationDate");
+                DateTime violationDate = reader.GetDateTime("ViolationDateviolation");
                 bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
 
                 violations.Add(new ViolationModel(

@@ -1,5 +1,4 @@
-﻿using QuanLyThuQuan.GUI.User;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -7,7 +6,7 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormMain : Form
     {
-     
+
         Login formLogin;
         private Form currentForm = null;
         public FormMain()
@@ -206,7 +205,7 @@ namespace QuanLyThuQuan.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ShowFormInPanel(new FormUser());
+            //ShowFormInPanel(new FormUser());
         }
     }
 }

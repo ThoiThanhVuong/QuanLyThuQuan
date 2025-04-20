@@ -20,7 +20,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             InitializeComponent();
             ShowTransactionDetail(id);
             ShowTransactionItemDetail(id);
-
+            ShowMemberInfo(id);
+            ShowViolationInfo(id);
         }
 
         private void FormInformation_Load(object sender, EventArgs e)
@@ -84,6 +85,22 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             RenderTableProduct(books, devices, bookAmount, deviceAmount);
         }
 
+        private void ShowMemberInfo(string id)
+        {
+            TransactionModel transaction = GetTransaction(id);
+            if (transaction == null)
+                return;
+            RenderMemberInfoDetail(GetMemberForForm(transaction.MemberID.ToString()));
+        }
+
+        private void ShowViolationInfo(string id)
+        {
+            TransactionModel transaction = GetTransaction(id);
+            if (transaction == null)
+                return;
+            RenderMemberViolation(GetViolationForForm(transaction.MemberID.ToString()));
+        }
+
         // get transaction
         private TransactionModel GetTransaction(string id)
         {
@@ -99,7 +116,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // get book by id on transaction item
         private List<(int, int)> GetBook(TransactionItemModel transactionItem)
         {
-            int bookID = ValidateParseToOtherType.GetInstance().CanParseToInt(transactionItem.BookID.ToString());
+            int bookID = ValidateParseToOtherType.GetInstance().CanParseToInt(transactionItem.BookID.ToString().Trim());
             if (bookID.Equals(-1))
                 return null;
             //return new BookBUS().GetBookByID(bookID);
@@ -109,7 +126,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // get device by id on transaction item
         private List<(int, int)> GetDevice(TransactionItemModel transactionItem)
         {
-            int deviceID = ValidateParseToOtherType.GetInstance().CanParseToInt(transactionItem.DeviceID.ToString());
+            int deviceID = ValidateParseToOtherType.GetInstance().CanParseToInt(transactionItem.DeviceID.ToString().Trim());
             if (deviceID.Equals(-1))
                 return null;
             //return new DeviceBUS().GetDeviceByID(deviceID);
@@ -119,6 +136,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // render it to view
         private void RenderTransactionDetail(TransactionModel transaction)
         {
+            if (transaction == null) return;
             lbValueTransactionID.Text = transaction.TransactionID.ToString();
             lbValueMemberID.Text = transaction.MemberID.ToString();
             lbValueTransactionType.Text = transaction.TransactionType.ToString();
@@ -126,6 +144,28 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             lbValueDueDate.Text = transaction.DueDate.ToString();
             lbValueReturnDate.Text = transaction.ReturnDate.ToString();
             lbValueTransactionStatus.Text = transaction.Status.ToString();
+        }
+
+        private void RenderMemberInfoDetail(MemberModel member)
+        {
+            if (member == null) return;
+            lbValueMemberFullName.Text = member.FullName;
+            lbValueMemberUserName.Text = member.Username;
+            lbValueUserType.Text = member.UserType.ToString();
+            lbValueUserStatus.Text = member.MemberStatus.ToString();
+            lbValueUserEmail.Text = member.Email;
+            lbValuePhoneNumber.Text = member.PhoneNumber;
+        }
+
+        private void RenderMemberViolation(List<ViolationModel> violations)
+        {
+            if (violations == null || violations.Count == 0)
+            {
+                lbViolationStatus.Text = "NO";
+                return;
+            }
+            lbValueViolationStatus.Text = "YES";
+            SerViewForViolations(violations);
         }
 
         // render table product
@@ -157,6 +197,27 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             SetViewForTable(list);
         }
 
+        private void SerViewForViolations(List<ViolationModel> violations)
+        {
+            if (violations == null || violations.Count == 0)
+            {
+                dgvDataViolationHandle.Rows.Clear();
+                dgvDataViolationHandle.Columns.Clear();
+            }
+
+            List<ViolationsListItemTable> list = new List<ViolationsListItemTable>();
+            list.AddRange(GetListViolationsForTable(violations));
+            ViolationsListItemTable temp = new ViolationsListItemTable();
+            Console.WriteLine(list.Count);
+            Console.WriteLine(temp.GetDataSet(list).Tables[0]);
+            dgvDataViolationHandle.DataSource = (temp.GetDataSet(list)).Tables[0];
+            dgvDataViolationHandle.Columns[0].Width = 50;
+            dgvDataViolationHandle.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDataViolationHandle.Columns[2].Width = 50;
+            dgvDataViolationHandle.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDataViolationHandle.ReadOnly = true;
+        }
+
         private List<TransactionListItemTable> GetListForBook(List<BookModel> books, List<int> bookAmount)
         {
             List<TransactionListItemTable> list = new List<TransactionListItemTable>();
@@ -173,6 +234,51 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             for (int i = 0; i < length; i++)
                 list.Add(new TransactionListItemTable(devices[i].DeviceName, deviceAmount[i]));
             return list;
+        }
+
+        private List<ViolationsListItemTable> GetListViolationsForTable(List<ViolationModel> violations)
+        {
+            List<ViolationsListItemTable> list = new List<ViolationsListItemTable>();
+            int length = violations.Count;
+            Console.WriteLine(length);
+            for (int i = 0; i < length; i++)
+            {
+                list.Add(new ViolationsListItemTable(GetRulesForForm(violations[i].RuleID.ToString()).RuleTitle, violations[i].FineAmount, violations[i].ViolationDate, violations[i].IsCompensationRequired.ToString()));
+            }
+            return list;
+        }
+
+        private MemberModel GetMemberForForm(string memberID)
+        {
+            MemberBUS temp = new MemberBUS();
+            List<MemberModel> list = temp.GetAllMembers();
+            foreach (MemberModel member in list)
+                if (member.MemberID.Equals(Int16.Parse(memberID)))
+                    return member;
+            return null;
+        }
+
+        private List<ViolationModel> GetViolationForForm(string memberID)
+        {
+            ViolationBUS temp = new ViolationBUS();
+            List<ViolationModel> listFilter = new List<ViolationModel>();
+            List<ViolationModel> list = temp.GetViolations();
+            foreach (ViolationModel violation in list)
+                if (violation.MemberID.Equals(Int16.Parse(memberID)))
+                    listFilter.Add(violation);
+            return listFilter;
+        }
+
+        private RuleModel GetRulesForForm(string ruleID)
+        {
+            if (ruleID == null)
+                return null;
+            RuleBUS ruleBus = new RuleBUS();
+            List<RuleModel> list = ruleBus.GetActiveRules();
+            foreach (RuleModel rule in list)
+                if (rule.RuleID.Equals(Int16.Parse(ruleID)))
+                    return rule;
+            return null;
         }
 
         private void SetViewForTable(List<TransactionListItemTable> list)

@@ -17,11 +17,13 @@ namespace QuanLyThuQuan.Services
         {
             try
             {
+                if (input == null)
+                    return -1;
                 return int.Parse(input);
             }
             catch (Exception ex)
             {
-                Debug.Print(ex.StackTrace);
+                Debug.Print(ex.Message);
                 return -1;
             }
         }
