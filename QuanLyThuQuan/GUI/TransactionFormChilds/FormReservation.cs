@@ -23,7 +23,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private void dgvReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvReservation.Columns[e.ColumnIndex].Name.Equals("colMoreOptions"))
-                LoadReservationDetail(dgvReservation.Rows[e.RowIndex].Cells[1].Value.ToString());
+                LoadReservationDetail(dgvReservation.Rows[e.RowIndex].Cells["ReservationID"].Value.ToString());
             if (dgvReservation.Columns[e.ColumnIndex].Name.Equals("colSubmitOptions"))
                 SubmitReservation(dgvReservation.Rows[e.RowIndex].DataBoundItem as TempDataReservationModel);
 
@@ -36,7 +36,6 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             {
                 DataGridViewButtonColumn column = new DataGridViewButtonColumn();
                 column.Name = "col" + colName + "Options";
-                Console.WriteLine(column.Name);
                 column.HeaderText = colHeaderText;
                 column.Text = colContentText;
                 column.UseColumnTextForButtonValue = true;
@@ -68,7 +67,6 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         {
             TempDataItemReservationBUS temp = new TempDataItemReservationBUS();
             List<TempDataItemReservationModel> list = temp.getByReservationID(reservationID);
-            Console.WriteLine(list);
             ClearTable(dgvDetailReservation);
             dgvDetailReservation.DataSource = null;
             dgvDetailReservation.DataSource = list;

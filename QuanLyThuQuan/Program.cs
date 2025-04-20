@@ -1,6 +1,5 @@
 
 using QuanLyThuQuan.GUI;
-using System;
 using System.Windows.Forms;
 namespace QuanLyThuQuan
 {
@@ -12,9 +11,6 @@ namespace QuanLyThuQuan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
-
-
-
         }
     }
 }
