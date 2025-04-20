@@ -33,3 +33,4 @@ packages/
 *.cache
 *.config
 *.csproj.FileListAbsolute.txt
+.claudiaideconfig
