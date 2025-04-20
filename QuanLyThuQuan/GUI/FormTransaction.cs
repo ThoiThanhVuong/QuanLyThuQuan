@@ -101,16 +101,10 @@ namespace QuanLyThuQuan.GUI
             }
         }
 
-        private void LoadAllTransaction()
+        // NOTE: CREATE COLUMNS
+        private void CreateColumn(DataGridView dgv)
         {
-
-            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
-            List<TransactionModel> transactions = new TransactionBUS().GetAll();
-
-            dgvDataTransactions.DataSource = null;
-            dgvDataTransactions.DataSource = transactions;
-            Console.WriteLine("transactions" + transactions);
-            if (!dgvDataTransactions.Columns.Contains("More"))
+            if (!dgv.Columns.Contains("More"))
             {
                 DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
                 moreColumn.Name = "colMoreOptions";
@@ -118,8 +112,22 @@ namespace QuanLyThuQuan.GUI
                 moreColumn.Text = "...";
                 moreColumn.UseColumnTextForButtonValue = true;
                 moreColumn.Width = 10;
-                dgvDataTransactions.Columns.Add(moreColumn);
+                dgv.Columns.Add(moreColumn);
             }
+        }
+
+        private void LoadAllTransaction()
+        {
+
+            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAllLocal();
+            TransactionBUS trans = new TransactionBUS();
+            trans.LoadLocal();
+            List<TransactionModel> transactions = trans.GetAllLocal();
+            ClearTable(dgvDataTransactions);
+            dgvDataTransactions.DataSource = null;
+            dgvDataTransactions.DataSource = transactions;
+            Console.WriteLine("transactions" + transactions);
+            CreateColumn(dgvDataTransactions);
             dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDataTransactions.ReadOnly = true;
             dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
@@ -137,7 +145,14 @@ namespace QuanLyThuQuan.GUI
             while (list.MoveNext())
                 dgv.Columns[list.Current].AutoSizeMode = mode;
         }
-
+        // clear tables
+        private void ClearTable(DataGridView dgv)
+        {
+            if (dgv == null) return;
+            dgv.DataSource = null;
+            dgv.Columns.Clear();
+            dgv.Rows.Clear();
+        }
         // Relative with other classes
     }
 }

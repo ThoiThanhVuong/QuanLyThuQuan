@@ -1,10 +1,8 @@
-﻿using Org.BouncyCastle.Asn1.Cmp;
-using QuanLyThuQuan.BUS;
+﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace QuanLyThuQuan.GUI
 {
@@ -130,7 +128,7 @@ namespace QuanLyThuQuan.GUI
                 return;
             }
 
-            
+
             if (ruleBus.GetRuleById(int.Parse(textBox4.Text)) == false)
             {
                 DialogResult result = MessageBox.Show("Lỗi: Không tìm thấy Rule ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -141,11 +139,11 @@ namespace QuanLyThuQuan.GUI
                 int.Parse(textBox1.Text),
                 int.Parse(textBox2.Text),
                 int.Parse(textBox3.Text),
-                int.Parse(textBox4.Text), 
+                int.Parse(textBox4.Text),
                 decimal.Parse(textBox5.Text),
-                textBox6.Text, 
-                dateTimePicker1.Value, 
-                radioButton1.Checked 
+                textBox6.Text,
+                dateTimePicker1.Value,
+                radioButton1.Checked
              ));
             refresh();
             loadTable();

@@ -1,5 +1,5 @@
 
-﻿using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 
 using System.Collections.Generic;
@@ -47,10 +47,10 @@ namespace QuanLyThuQuan.BUS
             new TransactionItemDAO(GetConnectDB()).Update(transaction);
         }
 
-        public void Delete(string id)
+        public void Delete(string transactionID, string itemID)
         {
             //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            new TransactionItemDAO(GetConnectDB()).Delete(id);
+            new TransactionItemDAO(GetConnectDB()).Delete(transactionID, itemID );
         }
     }
 }

@@ -157,7 +157,7 @@
             // dgvDataTransactions
             // 
             this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
             this.dgvDataTransactions.Name = "dgvDataTransactions";

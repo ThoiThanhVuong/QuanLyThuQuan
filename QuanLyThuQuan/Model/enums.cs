@@ -46,4 +46,16 @@
         TransactionID,
         MemberID
     }
+
+    public enum ReservationStatus
+    {
+        Confirmed,
+        Pending,
+        Cancelled
+    }
+    public enum ReservationValidFields
+    {
+        ReservationID,
+        MemberID
+    }
 }

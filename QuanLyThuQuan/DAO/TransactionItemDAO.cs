@@ -10,7 +10,7 @@ namespace QuanLyThuQuan.DAO
     class TransactionItemDAO
     {
         private readonly IDBConnection db;
-        private readonly ConnectDB dbConnect;
+        private ConnectDB dbConnect;
         public TransactionItemDAO(IDBConnection dbConnection)
         {
             this.db = dbConnection;
@@ -21,10 +21,17 @@ namespace QuanLyThuQuan.DAO
             this.dbConnect = dbConnect;
         }
 
+        public TransactionItemDAO()
+        {
+            if (dbConnect == null)
+                dbConnect = new ConnectDB();
+        }
+
         // READ
         public List<TransactionItemModel> GetAll()
         {
             List<TransactionItemModel> transactionItemList = new List<TransactionItemModel>();
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
@@ -64,6 +71,7 @@ namespace QuanLyThuQuan.DAO
         public List<TransactionItemModel> GetByTransactionID(string transactionID)
         {
             List<TransactionItemModel> transactionItemList = new List<TransactionItemModel>();
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
@@ -106,6 +114,7 @@ namespace QuanLyThuQuan.DAO
         public TransactionItemModel GetByID(string id)
         {
             TransactionItemModel transactionItem = new TransactionItemModel();
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
@@ -144,7 +153,8 @@ namespace QuanLyThuQuan.DAO
         // CREATE
         public bool Insert(TransactionItemModel transactionItem)
         {
-            string query = "INSERT INTO Transactionitems (ItemID, BookID, DeviceID, Amount)\n VALUES (@ItemID, @BookID, @DeviceID, @Amount)";
+            string query = "INSERT INTO Transactionitems (ItemID, transactionID, BookID, DeviceID, Amount)\n VALUES (@ItemID, @TransactionID, @BookID, @DeviceID, @Amount)";
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
@@ -154,6 +164,7 @@ namespace QuanLyThuQuan.DAO
                     using (MySqlCommand myCmd = new MySqlCommand(query, connection))
                     {
                         myCmd.Parameters.AddWithValue("@ItemID", transactionItem.ItemID);
+                        myCmd.Parameters.AddWithValue("@TransactionID", transactionItem.TransactionID);
                         myCmd.Parameters.AddWithValue("@BookID", transactionItem.BookID);
                         myCmd.Parameters.AddWithValue("@DeviceID", transactionItem.DeviceID);
                         myCmd.Parameters.AddWithValue("@Amount", transactionItem.Amount);
@@ -172,61 +183,71 @@ namespace QuanLyThuQuan.DAO
         }
 
         // UPDATE 
-        public bool Update(TransactionItemModel newTranSactionItem)
+        public bool Update(TransactionItemModel newItem)
         {
-            string query = "UPDATE TABLE Transactionitems\n" +
-                "SET ItemID = @ItemID, BookID = @BookID, DeviceID = @DeviceID, Amount = @Amount\n" +
-                "WHERE TransactionID = @TransacionID";
+            string query = @"
+                UPDATE TransactionItems
+                SET BookID = @BookID, DeviceID = @DeviceID, Amount = @Amount
+                WHERE TransactionID = @TransactionID AND ItemID = @ItemID";
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
             {
                 try
                 {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        myCmd.Parameters.AddWithValue("@TransactionID", newTranSactionItem.TransactionID);
-                        myCmd.Parameters.AddWithValue("@ItemID", newTranSactionItem.ItemID);
-                        myCmd.Parameters.AddWithValue("@BookID", newTranSactionItem.BookID);
-                        myCmd.Parameters.AddWithValue("@DeviceID", newTranSactionItem.DeviceID);
-                        myCmd.Parameters.AddWithValue("@Amount", newTranSactionItem.Amount);
-                        bool result = myCmd.ExecuteNonQuery() > 0;
-                        dbConnect.CloseConnection();
-                        return result;
+                        cmd.Parameters.AddWithValue("@TransactionID", newItem.TransactionID);
+                        cmd.Parameters.AddWithValue("@ItemID", newItem.ItemID);
+                        cmd.Parameters.AddWithValue("@BookID", newItem.BookID);
+                        cmd.Parameters.AddWithValue("@DeviceID", newItem.DeviceID);
+                        cmd.Parameters.AddWithValue("@Amount", newItem.Amount);
+
+                        return cmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    Console.WriteLine("Update Error: " + ex.Message);
                     return false;
+                }
+                finally
+                {
+                    dbConnect.CloseConnection();
                 }
             }
         }
 
+
         // DELETE
-        public bool Delete(string transactionID)
+        public bool Delete(string transactionID, string itemID)
         {
-            string query = "DELETE FROM Transactionitems WHERE TransactionID = @TransactionID";
+            string query = @"
+                DELETE FROM TransactionItems
+                WHERE TransactionID = @TransactionID AND ItemID = @ItemID";
+            if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
             {
                 try
                 {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        myCmd.Parameters.AddWithValue("@TransacionID", transactionID);
-                        bool result = myCmd.ExecuteNonQuery() > 0;
-                        dbConnect.CloseConnection();
-                        return result;
+                        cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                        cmd.Parameters.AddWithValue("@ItemID", itemID);
+
+                        return cmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine(ex.StackTrace);
-                    dbConnect.CloseConnection();
+                    Console.WriteLine("Delete Error: " + ex.Message);
                     return false;
+                }
+                finally
+                {
+                    dbConnect.CloseConnection();
                 }
             }
         }

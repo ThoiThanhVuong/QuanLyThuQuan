@@ -119,7 +119,7 @@ namespace QuanLyThuQuan.BUS
             return false;
         }
 
-        // get full detail 
+        //get full detail 
         public List<TransactionItemModel> getFullTransaction()
         {
             List<TransactionItemModel> list = new TransactionItemBUS().GetAllLocal();

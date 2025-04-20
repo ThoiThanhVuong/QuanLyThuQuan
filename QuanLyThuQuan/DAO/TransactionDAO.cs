@@ -11,11 +11,17 @@ namespace QuanLyThuQuan.DAO
     {
         private ConnectDB db = new ConnectDB();
 
+        public TransactionDAO()
+        {
+            if (db == null)
+                db = new ConnectDB();
+        }
 
         // get all value on DB (READ)
         public List<TransactionModel> GetAll()
         {
             List<TransactionModel> transactionList = new List<TransactionModel>();
+            if (db == null) db = new ConnectDB();
             db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)
@@ -56,6 +62,7 @@ namespace QuanLyThuQuan.DAO
         public TransactionModel GetByID(string id, string condition)
         {
             TransactionModel transaction = new TransactionModel();
+            if (db == null) db = new ConnectDB();
             db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)
@@ -101,7 +108,8 @@ namespace QuanLyThuQuan.DAO
         // Insert data (CREATE)
         public bool Insert(TransactionModel transaction)
         {
-            string query = "INSERT INTO Transactions (MemberID, TransactionType, TransactionDate, DueDate, ReturnDate, Status) \n VALUES (@MemberID, @TransactionType, @TransactionDate, @DueDate, @ReturnDate, @Status)";
+            string query = "INSERT INTO Transactions (TransactionType, TransactionDate, DueDate, ReturnDate, Status) \n VALUES (@TransactionType, @TransactionDate, @DueDate, @ReturnDate, @Status)";
+            if (db == null) db = new ConnectDB();
             db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)
@@ -110,16 +118,14 @@ namespace QuanLyThuQuan.DAO
                 {
                     using (MySqlCommand myCmd = new MySqlCommand(query, connection))
                     {
-                        myCmd.Parameters.AddWithValue("@MemberID", transaction.MemberID);
                         myCmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType);
                         myCmd.Parameters.AddWithValue("@TransactionDate", transaction.TransactionDate);
                         myCmd.Parameters.AddWithValue("@DueDate", transaction.DueDate);
                         myCmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate);
                         myCmd.Parameters.AddWithValue("@Status", transaction.Status);
 
-                        db.CloseConnection();
-
                         bool result = myCmd.ExecuteNonQuery() > 0;
+                        db.CloseConnection();
                         return result;
                     }
                 }
@@ -135,9 +141,10 @@ namespace QuanLyThuQuan.DAO
         // Update value of specific TransactionID (UPDATE)
         public bool Update(TransactionModel newTransaction)
         {
-            string query = "UPDATE TABLE Transactions\n" +
+            string query = "UPDATE Transactions\n" +
                 "SET MemberID = @MemberID, TransactionType = @TransactionType, TransactionDate = @TransactionDate, DueDate = @DueDate, ReturnDate = @ReturnDate, Status = @Status\n" +
                 "WHERE TransactionID = @TransactionID";
+            if (db == null) db = new ConnectDB();
             db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)
@@ -171,6 +178,7 @@ namespace QuanLyThuQuan.DAO
         public bool Delete(string transactionID)
         {
             string query = "DELETE FROM Transactions WHERE TransactionID = @TransactionID";
+            if (db == null) db = new ConnectDB();
             db.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = db.Connection)

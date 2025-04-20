@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -45,7 +41,7 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return result > 0;
         }
-        
+
 
 
 

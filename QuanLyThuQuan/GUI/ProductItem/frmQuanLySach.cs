@@ -2,8 +2,8 @@
 using QuanLyThuQuan.GUI.ProductItem;
 using QuanLyThuQuan.Model;
 using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {
@@ -19,7 +19,8 @@ namespace QuanLyThuQuan.GUI
         }
         private void LoadData()
         {
-            try {
+            try
+            {
                 List<BookModel> books = bookBUS.GetAllBooks();
                 if (books == null || books.Count == 0)
                 {
@@ -43,13 +44,13 @@ namespace QuanLyThuQuan.GUI
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy dữ liệu: " + ex.Message);
             }
-           
+
         }
-   
+
         private void btnReturn_Click(object sender, EventArgs e)
         {
             mainForm.ShowFormInPanel(new FormBook(mainForm));
@@ -61,21 +62,21 @@ namespace QuanLyThuQuan.GUI
             // Gọi phương thức để đặt text cho label và button
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
 
-           
-            formAddBook.ShowDialog();  
+
+            formAddBook.ShowDialog();
 
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvQuanLySach.Rows[selectedRowIndex];
-            frmControlBook formEditBook = new frmControlBook();  
+            frmControlBook formEditBook = new frmControlBook();
             BookModel book = bookBUS.GetBookByName(row.Cells[1].Value?.ToString());
-            formEditBook.SetLabelAndButtonText("Chỉnh sửa", "Cập nhật"); 
+            formEditBook.SetLabelAndButtonText("Chỉnh sửa", "Cập nhật");
             formEditBook.SetValue(book);
             formEditBook.Height = 450;
             formEditBook.ShowDialog();
-           
+
         }
         private int selectedRowIndex = -1;
         private void dgvQuanLySach_CellClick(object sender, DataGridViewCellEventArgs e)

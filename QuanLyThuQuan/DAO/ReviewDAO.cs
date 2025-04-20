@@ -1,4 +1,3 @@
-using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;

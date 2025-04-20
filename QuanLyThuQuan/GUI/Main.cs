@@ -7,7 +7,7 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormMain : Form
     {
-     
+
         Login formLogin;
         private Form currentForm = null;
         public FormMain()

@@ -112,6 +112,8 @@
     <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\SessionStudyBUS.cs" />
+    <Compile Include="BUS\TempDataItemReservationBUS.cs" />
+    <Compile Include="BUS\TempDataReservationBUS.cs" />
     <Compile Include="BUS\ViolationBUS.cs" />
     <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
@@ -121,6 +123,8 @@
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
     <Compile Include="DAO\SessionStudyDAO.cs" />
+    <Compile Include="DAO\TempDataReservationDAO.cs" />
+    <Compile Include="DAO\TempDataReservationItemDAO.cs" />
     <Compile Include="DAO\ViolationDAO.cs" />
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
       <SubType>UserControl</SubType>
@@ -239,9 +243,9 @@
     <Compile Include="GUI\TransactionFormChilds\FormReservation.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="GUI\TransactionFormChilds\FormReservation.Designer.cs">
-		  <DependentUpon>FormReservation.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="GUI\TransactionFormChilds\FormReservation.Designer.cs">
+      <DependentUpon>FormReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\User\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,12 +271,15 @@
     <Compile Include="Model\ReviewModel.cs" />
     <Compile Include="Model\RuleModel.cs" />
     <Compile Include="Model\SessionStudy.cs" />
+    <Compile Include="Model\TempDataItemReservationModel.cs" />
+    <Compile Include="Model\TempDataReservationModel.cs" />
     <Compile Include="Model\TransactionItemModel.cs" />
     <Compile Include="Model\TransactionListItemTable.cs" />
     <Compile Include="Model\TransactionModel.cs" />
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ConvertToTransaction.cs" />
     <Compile Include="Services\ValidateConditionServices.cs" />
     <Compile Include="Services\ValidateParseToOtherType.cs" />
     <EmbeddedResource Include="GUI\ProductItem\BookItemControl.resx">
@@ -329,9 +336,9 @@
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormReturnBook.resx">
       <DependentUpon>FormReturnBook.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="GUI\TransactionFormChilds\FormReservation.resx">
-		  <DependentUpon>FormReservation.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TransactionFormChilds\FormReservation.resx">
+      <DependentUpon>FormReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>

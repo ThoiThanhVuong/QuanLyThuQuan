@@ -18,9 +18,18 @@ namespace QuanLyThuQuan.Services
         {
             List<string> allowFields = new List<string>();
             foreach (TransactionValidFields validField in Enum.GetValues(typeof(TransactionValidFields)))
-            {
                 allowFields.Add(validField.ToString());
-            }
+
+            if (allowFields.Count.Equals(0))
+                return false;
+            return allowFields.Contains(condition);
+        }
+
+        public bool IsValidForReservation(string condition)
+        {
+            List<string> allowFields = new List<string>();
+            foreach (ReservationValidFields validField in Enum.GetValues(typeof(ReservationValidFields)))
+                allowFields.Add(validField.ToString());
 
             if (allowFields.Count.Equals(0))
                 return false;

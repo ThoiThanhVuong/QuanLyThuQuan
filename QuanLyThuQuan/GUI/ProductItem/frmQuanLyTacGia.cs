@@ -19,7 +19,7 @@ namespace QuanLyThuQuan.GUI
         public void LoadData()
         {
             List<AuthorModel> authors = authorBUS.GetAllAuthor();
-           foreach(var author in authors)
+            foreach (var author in authors)
             {
                 dgvTacGia.Rows.Add(
                     author.AuthorID,
