@@ -26,6 +26,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
         public void SetLabelAndButtonText(string labelText, string buttonText)
         {
