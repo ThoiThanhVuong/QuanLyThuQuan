@@ -39,7 +39,8 @@ namespace QuanLyThuQuan.DAO
         public bool AddRule(RuleModel rule)
         {
             db.OpenConnection();
-            string query = "INSERT INTO Rules (RuleTitle, RuleDescription, Penalty, EffectiveDate, Status) VALUES (@RuleTitle, @RuleDescription, @Penalty, @EffectiveDate, @Status)";
+            string query = "INSERT INTO Rules (RuleTitle, RuleDescription, Penalty, EffectiveDate, Status)" +
+                " VALUES (@RuleTitle, @RuleDescription, @Penalty, @EffectiveDate, @Status)";
             using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
             {
                 cmd.Parameters.AddWithValue("@RuleTitle", rule.RuleTitle);

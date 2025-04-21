@@ -312,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `Violation` (
   `RuleID` INT NOT NULL,
   `FineAmount` DECIMAL(10, 0) NOT NULL CHECK (`FineAmount` >=0),
   `Reason` VARCHAR(255) NOT NULL,
-  `ViolationDateviolation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ViolationDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCompensationRequired` BOOLEAN DEFAULT FALSE, -- xác định có bồi thường thiết bị/sách không?
   PRIMARY KEY (`ViolationID`),
   FOREIGN KEY (`MemberID`) REFERENCES `Member`(`MemberID`) 
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `Violation` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 	
 -- Values Violation
-INSERT INTO `Violation`(`MemberID`, `TransactionID`,`RuleID`,`FineAmount`,`Reason`,`ViolationDateviolation`)
+INSERT INTO `Violation`(`MemberID`, `TransactionID`,`RuleID`,`FineAmount`,`Reason`,`ViolationDate`)
 		VALUES (4,6,3,10000,'Trả sách quá hạn 1 ngày','2025-03-11 08:00:00'),
 				(3,null, 1, 0, 'Không giữ yên lặng trong thư viện', '2025-02-20 07:30:00'),
 				(4,null, 1, 0, 'Gây ồn ào trong thư viện', '2025-03-02 10:00:00'),

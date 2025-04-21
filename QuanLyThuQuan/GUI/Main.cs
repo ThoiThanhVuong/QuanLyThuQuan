@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuQuan.GUI.User;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -197,6 +198,11 @@ namespace QuanLyThuQuan.GUI
                 formLogin.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new FormUser());
         }
     }
 }

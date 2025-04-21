@@ -18,6 +18,10 @@ namespace QuanLyThuQuan.GUI
             InitializeComponent();
             button2.Enabled = false;
             button3.Enabled = false;
+            comboBox1.DataSource = ruleBus.GetAllRules();
+            comboBox1.DisplayMember = "RuleTitle";
+            comboBox1.ValueMember = "RuleId";
+
         }
 
         private void FormViolation_Load(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace QuanLyThuQuan.GUI
                     row.Cells["FineAmount"].Value = violation.FineAmount;
                     row.Cells["Reason"].Value = violation.Reason;
                     row.Cells["ViolationDate"].Value = violation.ViolationDate.ToString("yyyy-MM-dd");
-                    row.Cells["PaidStatus"].Value = violation.PaidStatus.ToString();
+                    row.Cells["IsCompensationRequired"].Value = violation.IsCompensationRequired;
                 }
             }
             textBox1.Text = violationBus.maxViolationID().ToString();
@@ -73,11 +77,6 @@ namespace QuanLyThuQuan.GUI
                 DialogResult result = MessageBox.Show("Vui lòng nhập Transaction ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return result.ToString();
             }
-            if (textBox4.Text == "")
-            {
-                DialogResult result = MessageBox.Show("Vui lòng nhập Fine Amount", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return result.ToString();
-            }
             if (textBox5.Text == "")
             {
                 DialogResult result = MessageBox.Show("Vui lòng nhập Reason", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -95,12 +94,10 @@ namespace QuanLyThuQuan.GUI
             textBox1.Text = violationBus.maxViolationID().ToString();
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
             dateTimePicker1.Value = DateTime.Now;
-            radioButton1.Checked = true;
-            radioButton2.Checked = false;
+            radioButton1.Checked = false;
             button1.Enabled = true;
             button2.Enabled = false;
             button3.Enabled = false;
@@ -113,14 +110,14 @@ namespace QuanLyThuQuan.GUI
 
             textBox1.Text = dataGridView1.CurrentRow.Cells["ViolationID"].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells["MemberID"].Value.ToString();
-            textBox3.Text = dataGridView1.CurrentRow.Cells["TransactionID"].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
-            textBox5.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();
-            textBox6.Text = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells["TransactionID"].Value?.ToString() ?? "";
+            comboBox1.SelectedValue = Convert.ToInt32(dataGridView1.CurrentRow.Cells["RuleID"].Value);
+            textBox5.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();
             dateTimePicker1.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["ViolationDate"].Value.ToString());
             // CheckBox status
-            radioButton1.Checked = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString() == "Paid";
-            radioButton2.Checked = dataGridView1.CurrentRow.Cells["PaidStatus"].Value.ToString() == "Unpaid";
+            radioButton1.Checked = Convert.ToBoolean(dataGridView1.CurrentRow.Cells["IsCompensationRequired"].Value);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,23 +128,16 @@ namespace QuanLyThuQuan.GUI
                 return;
             }
 
-            
-            if (ruleBus.GetRuleById(int.Parse(textBox4.Text)) == false)
-            {
-                DialogResult result = MessageBox.Show("Lỗi: Không tìm thấy Rule ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             violationBus.AddViolation(new ViolationModel(
                 int.Parse(textBox1.Text),
                 int.Parse(textBox2.Text),
                 int.Parse(textBox3.Text),
-                int.Parse(textBox4.Text), 
+                Convert.ToInt32(comboBox1.SelectedValue), 
                 decimal.Parse(textBox5.Text),
                 textBox6.Text, 
                 dateTimePicker1.Value, 
-                radioButton1.Checked ? QuanLyThuQuan.Model.PaidStatus.Paid
-                : QuanLyThuQuan.Model.PaidStatus.Unpaid
+                radioButton1.Checked 
              ));
             refresh();
             loadTable();
@@ -171,22 +161,16 @@ namespace QuanLyThuQuan.GUI
                 return;
             }
 
-            if (ruleBus.GetRuleById(int.Parse(textBox4.Text)) == false)
-            {
-                DialogResult result = MessageBox.Show("Lỗi: Không tìm thấy Rule ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             violationBus.UpdateViolation(new ViolationModel(
                 int.Parse(textBox1.Text),
                 int.Parse(textBox2.Text),
                 int.Parse(textBox3.Text),
-                int.Parse(textBox4.Text),
+                Convert.ToInt32(comboBox1.SelectedValue),
                 decimal.Parse(textBox5.Text),
                 textBox6.Text,
                 dateTimePicker1.Value,
-                radioButton1.Checked ? QuanLyThuQuan.Model.PaidStatus.Paid
-                : QuanLyThuQuan.Model.PaidStatus.Unpaid
+                radioButton1.Checked
              ));
 
             button2.Enabled = false;
