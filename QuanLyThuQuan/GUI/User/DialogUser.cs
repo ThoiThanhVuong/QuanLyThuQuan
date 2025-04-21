@@ -4,18 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThuQuan.GUI.User
 {
     public partial class DialogUser: Form
     {
+
         MemberBUS bus = new MemberBUS();
         private FormUser parentForm; // dùng để gọi lại loadTable
         public DialogUser(FormUser parent)
@@ -30,7 +29,8 @@ namespace QuanLyThuQuan.GUI.User
             {
                 MessageBox.Show("Vui lòng nhập Họ tên.");
                 return false;
-            }else if (textBox2.Text.Length < 6)
+            }
+            else if (textBox2.Text.Length < 6)
             {
                 MessageBox.Show("Họ tên phải có ít nhất 6 ký tự.");
                 return false;
@@ -52,7 +52,8 @@ namespace QuanLyThuQuan.GUI.User
             {
                 MessageBox.Show("Vui lòng nhập tên đăng nhập.");
                 return false;
-            } else if (textBox5.Text.Length < 6)
+            }
+            else if (textBox5.Text.Length < 6)
             {
                 MessageBox.Show("Tên đăng nhập phải có ít nhất 6 ký tự.");
                 return false;
@@ -102,12 +103,12 @@ namespace QuanLyThuQuan.GUI.User
                 UserType = userType,
             };
 
-            if (button2.Text == "Thêm thành viên")
+            if (button1.Text == "Thêm thành viên")
             {
                 bus.AddMember(member);
                 MessageBox.Show("Đã thêm thành viên!");
             }
-            else if (button2.Text == "Sửa thành viên")
+            else if (button1.Text == "Sửa thành viên")
             {
                 bus.UpdateMember(member);
                 MessageBox.Show("Đã cập nhật thông tin thành viên!");
