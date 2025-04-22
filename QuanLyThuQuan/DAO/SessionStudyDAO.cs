@@ -17,7 +17,7 @@ namespace QuanLyThuQuan.DAO
         {
             db.OpenConnection();
             List<SessionStudy> sessionStudys = new List<SessionStudy>();
-            string query = "SELECT * FROM studysession";
+            string query = "SELECT * FROM studysession WHERE DATE(CheckInTime) = CURDATE()";
             MySqlCommand cmd = new MySqlCommand(query, db.Connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
