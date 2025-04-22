@@ -792,7 +792,7 @@
             this.ClientSize = new System.Drawing.Size(936, 610);
             this.ControlBox = false;
             this.Controls.Add(this.pnlChildDetailInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlChildDetailInfo.ResumeLayout(false);

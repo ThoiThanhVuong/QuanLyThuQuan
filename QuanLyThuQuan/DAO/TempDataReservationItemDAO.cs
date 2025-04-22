@@ -150,6 +150,7 @@ namespace QuanLyThuQuan.DAO
             if (db == null) db = new ConnectDB();
             db.OpenConnection();
             using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
@@ -160,12 +161,53 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@BookID", item.bookID);
                         myCmd.Parameters.AddWithValue("@DeviceID", item.deviceID);
                         myCmd.Parameters.AddWithValue("@Amount", item.amount);
+
+                        transaction.Commit();
                         return myCmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
+                    return false;
+                }
+                finally
+                {
+                    db.CloseConnection();
+                }
+            }
+        }
+
+        // CREATE WITH PARAMS IS LIST
+        public bool Insert(List<TempDataItemReservationModel> items)
+        {
+            string query = "INSERT INTO ReservationItems (ItemID, ReservationID, BookID, DeviceID, Amount)\nVALUES (@ItemID, @ReservationID, @BookID, @DeviceID, @Amount)";
+            if (db == null) db = new ConnectDB();
+            db.OpenConnection();
+            using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
+            {
+                try
+                {
+
+                    foreach (TempDataItemReservationModel item in items)
+                        using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+                        {
+                            myCmd.Parameters.AddWithValue("@ItemID", item.itemID);
+                            myCmd.Parameters.AddWithValue("@ReservationID", item.reservationID);
+                            myCmd.Parameters.AddWithValue("@BookID", item.bookID);
+                            myCmd.Parameters.AddWithValue("@DeviceID", item.deviceID);
+                            myCmd.Parameters.AddWithValue("@Amount", item.amount);
+                            myCmd.ExecuteNonQuery();
+                        }
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
                     return false;
                 }
                 finally
@@ -184,6 +226,7 @@ namespace QuanLyThuQuan.DAO
             if (db == null) db = new ConnectDB();
             db.OpenConnection();
             using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
@@ -194,12 +237,54 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@amount", item.amount);
                         myCmd.Parameters.AddWithValue("@reservationID", item.reservationID);
                         myCmd.Parameters.AddWithValue("@itemID", item.itemID);
+
+                        transaction.Commit();
                         return myCmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
+                    return false;
+                }
+                finally
+                {
+                    db.CloseConnection();
+                }
+            }
+        }
+
+        // UPDATE WITH PARAMS IS LIST
+        public bool Update(List<TempDataItemReservationModel> items)
+        {
+            string query = "UPDATE reservationitem\n " +
+                "SET BookID = @bookID, DeviceID = @deviceID, Amount = @amount\n" +
+                "WHERE ReservationID = @reservationID AND ItemID = @itemID";
+            if (db == null) db = new ConnectDB();
+            db.OpenConnection();
+            using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    foreach (TempDataItemReservationModel item in items)
+                        using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+                        {
+                            myCmd.Parameters.AddWithValue("@bookID", item.bookID);
+                            myCmd.Parameters.AddWithValue("@deviceID", item.deviceID);
+                            myCmd.Parameters.AddWithValue("@amount", item.amount);
+                            myCmd.Parameters.AddWithValue("@reservationID", item.reservationID);
+                            myCmd.Parameters.AddWithValue("@itemID", item.itemID);
+                            myCmd.ExecuteNonQuery();
+                        }
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
                     return false;
                 }
                 finally
@@ -228,6 +313,41 @@ namespace QuanLyThuQuan.DAO
 
                         return cmd.ExecuteNonQuery() > 0;
                     }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Delete Error: " + ex.Message);
+                    return false;
+                }
+                finally
+                {
+                    db.CloseConnection();
+                }
+            }
+        }
+
+        // OPTIMIZE: DELETE WITH PARAMS IS DICTIONARY<reservationID, itemID>
+        public bool Delete(Dictionary<string, string> listKeyValues)
+        {
+            string query = @"
+                DELETE FROM ReservationItems
+                WHERE ReservationID = @reservationID AND ItemID = @itemID";
+            if (db == null) db = new ConnectDB();
+            db.OpenConnection();
+            using (MySqlConnection connection = db.Connection)
+            {
+                try
+                {
+                    // Corrected the type of the enumerator
+                    Dictionary<string, string>.Enumerator isEnum = listKeyValues.GetEnumerator();
+                    while(isEnum.MoveNext())
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@reservationID", isEnum.Current.Key);
+                            cmd.Parameters.AddWithValue("@itemID", isEnum.Current.Value);
+                            cmd.ExecuteNonQuery();
+                        }
+                    return true;
                 }
                 catch (Exception ex)
                 {

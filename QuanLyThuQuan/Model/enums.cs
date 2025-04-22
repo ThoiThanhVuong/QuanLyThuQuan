@@ -58,4 +58,11 @@
         ReservationID,
         MemberID
     }
+
+    public enum ProductType
+    {
+        All,
+        Books,
+        Devices,
+    }
 }

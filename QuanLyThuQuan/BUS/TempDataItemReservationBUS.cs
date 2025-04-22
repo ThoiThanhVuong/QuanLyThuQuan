@@ -43,16 +43,31 @@ namespace QuanLyThuQuan.BUS
             new TempDataReservationItemDAO(GetConnectDB()).Insert(reservation);
         }
 
+        public void AddList(List<TempDataItemReservationModel> reservations)
+        {
+            new TempDataReservationItemDAO(GetConnectDB()).Insert(reservations);
+        }
+
         public void Update(TempDataItemReservationModel reservation)
         {
             //new reservationItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(reservation);
             new TempDataReservationItemDAO(GetConnectDB()).Update(reservation);
         }
 
+        public void UpdateList(List<TempDataItemReservationModel> reservations)
+        {
+            new TempDataReservationItemDAO(GetConnectDB()).Update(reservations);
+        }
+
         public void Delete(string reservationID, string itemID)
         {
             //new reservationItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
             new TempDataReservationItemDAO(GetConnectDB()).Delete(reservationID, itemID);
+        }
+
+        public void DeleteList(Dictionary<string, string> KeyReservationIDWithValueItemID)
+        {
+            new TempDataReservationItemDAO(GetConnectDB()).Delete(KeyReservationIDWithValueItemID);
         }
     }
 }

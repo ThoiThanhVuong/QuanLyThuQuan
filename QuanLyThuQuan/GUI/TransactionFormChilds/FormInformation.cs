@@ -18,6 +18,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         public FormInformation(string id)
         {
             InitializeComponent();
+            SetDefaultForForm();
             ShowTransactionDetail(id);
             ShowTransactionItemDetail(id);
             ShowMemberInfo(id);
@@ -28,11 +29,17 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         {
             this.ControlBox = false;
             this.DoubleBuffered = true;
+
         }
 
-        private void btnExitChildPanel_Click(object sender, EventArgs e)
+        // NOTE: FOR OTHER LOGIC
+
+        private void SetDefaultForForm()
         {
-            this.Close();
+            dgvDataViolationHandle.AllowUserToAddRows = false;
+            dgvDataItemList.AllowUserToAddRows = false;
+            dgvDataViolationHandle.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDataItemList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         // get id and show detail of this transaction id
@@ -104,13 +111,13 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // get transaction
         private TransactionModel GetTransaction(string id)
         {
-            return new TransactionBUS().GetByID(id, "TransactionID");
+            return new TransactionBUS().GetByID(id, "TransactionID")[0];
         }
 
         // get detail item of this transaction 
         private List<TransactionItemModel> GetTransacionItemDetail(string id)
         {
-            return new TransactionItemBUS().getByTransactionID(id);
+            return new TransactionItemBUS().GetByTransactionID(id);
         }
 
         // get book by id on transaction item
@@ -165,13 +172,13 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 return;
             }
             lbValueViolationStatus.Text = "YES";
-            SerViewForViolations(violations);
+            RenderViewForViolations(violations);
         }
 
         // render table product
         private void RenderTableProduct(List<BookModel> books, List<DeviceModel> devices, List<int> bookAmount, List<int> deviceAmount)
         {
-            List<TransactionListItemTable> list = new List<TransactionListItemTable>();
+            List<TransactionListItemTableModel> list = new List<TransactionListItemTableModel>();
             if (books == null && devices == null && bookAmount == null && deviceAmount == null)
             {
                 Debug.WriteLine("books and devices is undefined!" + "   FormInformation Line 120");
@@ -197,7 +204,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             SetViewForTable(list);
         }
 
-        private void SerViewForViolations(List<ViolationModel> violations)
+        private void RenderViewForViolations(List<ViolationModel> violations)
         {
             if (violations == null || violations.Count == 0)
             {
@@ -218,21 +225,21 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             dgvDataViolationHandle.ReadOnly = true;
         }
 
-        private List<TransactionListItemTable> GetListForBook(List<BookModel> books, List<int> bookAmount)
+        private List<TransactionListItemTableModel> GetListForBook(List<BookModel> books, List<int> bookAmount)
         {
-            List<TransactionListItemTable> list = new List<TransactionListItemTable>();
+            List<TransactionListItemTableModel> list = new List<TransactionListItemTableModel>();
             int length = books.Count;
             for (int i = 0; i < length; i++)
-                list.Add(new TransactionListItemTable(books[i].BookTitle, bookAmount[i]));
+                list.Add(new TransactionListItemTableModel(books[i].BookTitle, bookAmount[i]));
             return list;
         }
 
-        private List<TransactionListItemTable> GetListForDevice(List<DeviceModel> devices, List<int> deviceAmount)
+        private List<TransactionListItemTableModel> GetListForDevice(List<DeviceModel> devices, List<int> deviceAmount)
         {
-            List<TransactionListItemTable> list = new List<TransactionListItemTable>();
+            List<TransactionListItemTableModel> list = new List<TransactionListItemTableModel>();
             int length = devices.Count;
             for (int i = 0; i < length; i++)
-                list.Add(new TransactionListItemTable(devices[i].DeviceName, deviceAmount[i]));
+                list.Add(new TransactionListItemTableModel(devices[i].DeviceName, deviceAmount[i]));
             return list;
         }
 
@@ -281,14 +288,20 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             return null;
         }
 
-        private void SetViewForTable(List<TransactionListItemTable> list)
+        private void SetViewForTable(List<TransactionListItemTableModel> list)
         {
-            TransactionListItemTable temp = new TransactionListItemTable();
-            dgvDataItemList.DataSource = (temp.GetDataSet(list)).Tables[0];
+            dgvDataItemList.DataSource = (TransactionListItemTableBUS.GetInstance().GetDataSet(list)).Tables[0];
             dgvDataItemList.Columns[0].Width = 50;
             dgvDataItemList.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvDataItemList.Columns[2].Width = 50;
             dgvDataItemList.ReadOnly = true;
+        }
+        // NOTE: FOR VALIDATION
+
+        // NOTE: FOR EVENT
+        private void btnExitChildPanel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

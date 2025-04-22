@@ -5,13 +5,13 @@ using System;
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
     class TransactionBUS : BaseBUS<TransactionModel, int>
     {
         private static readonly TransactionBUS _Instance = new TransactionBUS();
-        private TransactionDAO TDAO = new TransactionDAO();
 
         //prevent new TransactionBUS
         public TransactionBUS() { }
@@ -25,30 +25,38 @@ namespace QuanLyThuQuan.BUS
         public override List<TransactionModel> GetAll()
         {
             //return new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return TDAO.GetAll();
+            return new TransactionDAO().GetAll().ToList();
         }
 
-        public TransactionModel GetByID(string id, string condition)
+        public List<TransactionModel> GetByID(string id, string condition)
         {
-            return new TransactionDAO().GetByID(id, condition);
+            return new TransactionDAO().GetByID(id, condition).ToList();
+        }
+
+        public TransactionModel GetByTwoID(string transactionID, string memberID)
+        {
+            TransactionModel item = new TransactionDAO().GetByTwoID(transactionID, memberID);
+            if (item == null)
+                return null;
+            return new TransactionModel(item.TransactionID, item.MemberID, item.TransactionType, item.TransactionDate, item?.DueDate, item?.ReturnDate, item.Status);
         }
 
         public void Add(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
-            TDAO.Insert(transaction);
+            new TransactionDAO().Insert(transaction);
         }
 
         public void Update(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
-            TDAO.Update(transaction);
+            new TransactionDAO().Update(transaction);
         }
 
         public void Delete(string id)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            TDAO.Delete(id);
+            new TransactionDAO().Delete(id);
         }
 
         // check if this transaction is overdue
@@ -120,15 +128,16 @@ namespace QuanLyThuQuan.BUS
         }
 
         //get full detail 
-        public List<TransactionItemModel> getFullTransaction()
+        public List<TransactionItemModel> getFullDetailTransaction()
         {
             List<TransactionItemModel> list = new TransactionItemBUS().GetAllLocal();
             if (list.Count == 0)
             {
-                new TransactionItemBUS().GetAll();
+                new TransactionItemBUS().GetAll().ToList();
                 list = new TransactionItemBUS().GetAllLocal();
             }
             return list;
         }
+
     }
 }

@@ -3,6 +3,7 @@ using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -22,23 +23,32 @@ namespace QuanLyThuQuan.BUS
         public override List<TransactionItemModel> GetAll()
         {
             //return new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return new TransactionItemDAO(GetConnectDB()).GetAll();
+            return new TransactionItemDAO(GetConnectDB()).GetAll().ToList();
         }
 
         public TransactionItemModel GetByID(string id)
         {
-            return new TransactionItemDAO(GetConnectDB()).GetByID(id);
+            TransactionItemModel item = new TransactionItemDAO(GetConnectDB()).GetByID(id);
+            if (item == null)
+                return null;
+            return new TransactionItemModel(item.ItemID, item.TransactionID, item?.BookID, item?.DeviceID, item.Amount);
         }
 
-        public List<TransactionItemModel> getByTransactionID(string id)
+        public List<TransactionItemModel> GetByTransactionID(string id)
         {
-            return new TransactionItemDAO(GetConnectDB()).GetByTransactionID(id);
+            return new TransactionItemDAO(GetConnectDB()).GetByTransactionID(id).ToList();
         }
+
 
         public void Add(TransactionItemModel transaction)
         {
             //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
             new TransactionItemDAO(GetConnectDB()).Insert(transaction);
+        }
+
+        public void AddList(List<TransactionItemModel> transactions)
+        {
+            new TransactionItemDAO(GetConnectDB()).Insert(transactions);
         }
 
         public void Update(TransactionItemModel transaction)
@@ -47,10 +57,20 @@ namespace QuanLyThuQuan.BUS
             new TransactionItemDAO(GetConnectDB()).Update(transaction);
         }
 
+        public void UpdateList(List<TransactionItemModel> transactions)
+        {
+            new TransactionItemDAO(GetConnectDB()).Update(transactions);
+        }
+
         public void Delete(string transactionID, string itemID)
         {
             //new TransactionItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            new TransactionItemDAO(GetConnectDB()).Delete(transactionID, itemID );
+            new TransactionItemDAO(GetConnectDB()).Delete(transactionID, itemID);
+        }
+
+        public void DeleteList(Dictionary<string, string>KeyTransIDWithValueItemID)
+        {
+            new TransactionItemDAO(GetConnectDB()).Delete(KeyTransIDWithValueItemID);
         }
     }
 }

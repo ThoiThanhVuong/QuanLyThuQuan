@@ -30,6 +30,62 @@ namespace QuanLyThuQuan.GUI
 
         }
 
+        // NOTE: FOR OTHER LOGIGS
+        private void CreateColumn(DataGridView dgv)
+        {
+            if (!dgv.Columns.Contains("More"))
+            {
+                DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
+                moreColumn.Name = "colMoreOptions";
+                moreColumn.HeaderText = "";
+                moreColumn.Text = "...";
+                moreColumn.UseColumnTextForButtonValue = true;
+                moreColumn.Width = 10;
+                dgv.Columns.Add(moreColumn);
+            }
+        }
+
+        private void LoadAllTransaction()
+        {
+
+            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAllLocal();
+            TransactionBUS trans = new TransactionBUS();
+            trans.LoadLocal();
+            List<TransactionModel> transactions = trans.GetAllLocal();
+            ClearTable(dgvDataTransactions);
+            dgvDataTransactions.DataSource = null;
+            dgvDataTransactions.DataSource = transactions;
+            Console.WriteLine("transactions" + transactions);
+            CreateColumn(dgvDataTransactions);
+            dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDataTransactions.ReadOnly = true;
+            dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
+            dgvDataTransactions.DefaultCellStyle.ForeColor = Color.Blue;
+            List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
+                                                    "ReturnDate", "MemberID"};
+            ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
+
+        }
+
+        // Resize columns
+        private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
+        {
+            IEnumerator<string> list = colList.GetEnumerator();
+            while (list.MoveNext())
+                dgv.Columns[list.Current].AutoSizeMode = mode;
+        }
+        // clear tables
+        private void ClearTable(DataGridView dgv)
+        {
+            if (dgv == null) return;
+            dgv.DataSource = null;
+            dgv.Columns.Clear();
+            dgv.Rows.Clear();
+        }
+        // NOTE: FOR VALIDATION
+
+        // NOTE: FOR EVENTS
+
         private void btnBorrow_MouseEnter(object sender, EventArgs e)
         {
             ChangeColorHoverBtn(btnBorrow, Color.LightCyan);
@@ -101,58 +157,7 @@ namespace QuanLyThuQuan.GUI
             }
         }
 
-        // NOTE: CREATE COLUMNS
-        private void CreateColumn(DataGridView dgv)
-        {
-            if (!dgv.Columns.Contains("More"))
-            {
-                DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
-                moreColumn.Name = "colMoreOptions";
-                moreColumn.HeaderText = "";
-                moreColumn.Text = "...";
-                moreColumn.UseColumnTextForButtonValue = true;
-                moreColumn.Width = 10;
-                dgv.Columns.Add(moreColumn);
-            }
-        }
 
-        private void LoadAllTransaction()
-        {
-
-            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAllLocal();
-            TransactionBUS trans = new TransactionBUS();
-            trans.LoadLocal();
-            List<TransactionModel> transactions = trans.GetAllLocal();
-            ClearTable(dgvDataTransactions);
-            dgvDataTransactions.DataSource = null;
-            dgvDataTransactions.DataSource = transactions;
-            Console.WriteLine("transactions" + transactions);
-            CreateColumn(dgvDataTransactions);
-            dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDataTransactions.ReadOnly = true;
-            dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
-            dgvDataTransactions.DefaultCellStyle.ForeColor = Color.Blue;
-            List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
-                                                    "ReturnDate", "MemberID"};
-            ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
-
-        }
-
-        // Resize columns
-        private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
-        {
-            IEnumerator<string> list = colList.GetEnumerator();
-            while (list.MoveNext())
-                dgv.Columns[list.Current].AutoSizeMode = mode;
-        }
-        // clear tables
-        private void ClearTable(DataGridView dgv)
-        {
-            if (dgv == null) return;
-            dgv.DataSource = null;
-            dgv.Columns.Clear();
-            dgv.Rows.Clear();
-        }
         // Relative with other classes
     }
 }

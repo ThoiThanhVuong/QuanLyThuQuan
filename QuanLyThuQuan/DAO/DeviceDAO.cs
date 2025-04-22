@@ -82,7 +82,43 @@ namespace QuanLyThuQuan.DAO
 
             return device;
         }
-
+        public DeviceModel GetDeviceByName(string deviceName)
+        {
+            DeviceModel device = null;
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT * FROM Devices WHERE DeviceName = @DeviceName AND Status IN ('Available','OutOf')";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@DeviceName", deviceName);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            device = (new DeviceModel(
+                            reader.GetInt32("DeviceID"),
+                            reader.GetString("DeviceName"),
+                            reader.GetString("DeviceImage"),
+                            reader.GetString("DeviceType"),
+                            reader.GetInt32("Quantity"),
+                            (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
+                            reader.GetInt32("fee_per_hour")
+                         ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy thiết bị: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return device;
+        }
         public bool AddDevice(DeviceModel device)
         {
             try

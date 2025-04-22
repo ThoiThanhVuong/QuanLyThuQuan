@@ -114,6 +114,7 @@ namespace QuanLyThuQuan.DAO
             if (db == null) db = new ConnectDB();
             db.OpenConnection();
             using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
@@ -124,13 +125,15 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@StartTime", reservation.startTime);
                         myCmd.Parameters.AddWithValue("@EndTime", reservation.endTime);
                         myCmd.Parameters.AddWithValue("@Status", reservation.status.ToString());
-
-                        return myCmd.ExecuteNonQuery() > 0;
+                        myCmd.ExecuteNonQuery();
                     }
+                    transaction.Commit();
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
                     return false;
                 }
                 finally
@@ -150,6 +153,7 @@ namespace QuanLyThuQuan.DAO
             if (db == null) db = new ConnectDB();
             db.OpenConnection();
             using (MySqlConnection connection = db.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
@@ -161,13 +165,15 @@ namespace QuanLyThuQuan.DAO
                         myCmd.Parameters.AddWithValue("@StartTime", reservation.startTime);
                         myCmd.Parameters.AddWithValue("@EndTime", reservation.endTime);
                         myCmd.Parameters.AddWithValue("@Status", reservation.status.ToString());
-
-                        return myCmd.ExecuteNonQuery() > 0;
+                        myCmd.ExecuteNonQuery();
                     }
+                    transaction.Commit();
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
                     return false;
                 }
                 finally

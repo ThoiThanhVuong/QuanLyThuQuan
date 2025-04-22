@@ -1,6 +1,7 @@
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -10,11 +11,22 @@ namespace QuanLyThuQuan.BUS
 
         public List<DeviceModel> GetAllDevices()
         {
-            return deviceDAO.GetAllDevices();
+            return deviceDAO.GetAllDevices().ToList();
         }
         public DeviceModel GetDeviceByID(int Id)
         {
-            return deviceDAO.GetDeviceByID(Id);
+            DeviceModel device = deviceDAO.GetDeviceByID(Id);
+            if (device == null)
+                return null;
+            return new DeviceModel(device.DeviceID, device.DeviceName, device.DeviceImage, device.DeviceType, device.DeviceQuantity, device.DeviceStatus, device.FeePerHour);
+        }
+
+        public DeviceModel GetDeviceByName(string name)
+        {
+            DeviceModel device = deviceDAO.GetDeviceByName(name);
+            if (device == null)
+                return null;
+            return new DeviceModel(device.DeviceID, device.DeviceName, device.DeviceImage, device.DeviceType, device.DeviceQuantity, device.DeviceStatus, device.FeePerHour);
         }
         public bool AddDevice(DeviceModel device)
         {
@@ -35,7 +47,9 @@ namespace QuanLyThuQuan.BUS
 
         public List<DeviceModel> SearchDevices(string keyword)
         {
-            return deviceDAO.SearchDevices(keyword);
+            if (string.IsNullOrEmpty(keyword.Trim()))
+                return (deviceDAO.GetAllDevices()).ToList();
+            return (deviceDAO.SearchDevices(keyword)).ToList();
         }
 
         public int GetTotalDeviceQuantity()

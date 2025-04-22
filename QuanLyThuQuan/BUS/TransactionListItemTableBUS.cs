@@ -1,22 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using QuanLyThuQuan.Model;
+using System.Collections.Generic;
 using System.Data;
 
-namespace QuanLyThuQuan.Model
+namespace QuanLyThuQuan.BUS
 {
-    // JUST TEMP DTO FOR GENE TABLE ON TRANSACTION INFORMATION
-    internal class TransactionListItemTable
+    internal class TransactionListItemTableBUS
     {
-        public string productName { get; set; }
-        public int amount { get; set; }
+        private static TransactionListItemTableBUS _INSTANCE = new TransactionListItemTableBUS();
+        private TransactionListItemTableBUS() { }
 
-        public TransactionListItemTable() { }
-
-        public TransactionListItemTable(string productName, int amount)
+        public static TransactionListItemTableBUS GetInstance()
         {
-            this.productName = productName;
-            this.amount = amount;
+            if (_INSTANCE == null)
+                return new TransactionListItemTableBUS();
+            return _INSTANCE;
         }
-
         private DataTable GeneDataTable()
         {
             DataTable table = new DataTable("dtbListProductView");
@@ -26,18 +24,18 @@ namespace QuanLyThuQuan.Model
             return table;
         }
 
-        private DataTable SetDataForDataTable(List<TransactionListItemTable> listItem)
+        private DataTable SetDataForDataTable(List<TransactionListItemTableModel> listItem)
         {
             DataTable table = GeneDataTable();
             int autoId = 1;
-            foreach (TransactionListItemTable item in listItem)
+            foreach (TransactionListItemTableModel item in listItem)
             {
                 table.Rows.Add(autoId++, item.productName, item.amount);
             }
             return table;
         }
 
-        public DataSet GetDataSet(List<TransactionListItemTable> list)
+        public DataSet GetDataSet(List<TransactionListItemTableModel> list)
         {
             DataSet dataSet = new DataSet();
             dataSet.Tables.Add(SetDataForDataTable(list));

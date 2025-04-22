@@ -15,7 +15,7 @@ namespace QuanLyThuQuan.BUS
 
         public List<T> GetAllLocal()
         {
-            return new List<T>(listLocal);
+            return new List<T>(listLocal).ToList();
         }
 
         public bool isLocalEmpty()

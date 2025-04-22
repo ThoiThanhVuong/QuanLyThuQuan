@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.Transactions;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -153,34 +155,79 @@ namespace QuanLyThuQuan.DAO
         // CREATE
         public bool Insert(TransactionItemModel transactionItem)
         {
-            string query = "INSERT INTO Transactionitems (ItemID, transactionID, BookID, DeviceID, Amount)\n VALUES (@ItemID, @TransactionID, @BookID, @DeviceID, @Amount)";
+            string query = "INSERT INTO Transactionitems (transactionID, BookID, DeviceID, Amount)\n VALUES (@TransactionID, @BookID, @DeviceID, @Amount)";
             if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             //using (MySqlConnection connection = db.GetConnection())
             using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
+                    bool result = false;
                     using (MySqlCommand myCmd = new MySqlCommand(query, connection))
                     {
-                        myCmd.Parameters.AddWithValue("@ItemID", transactionItem.ItemID);
+                        //myCmd.Parameters.AddWithValue("@ItemID", transactionItem.ItemID);
                         myCmd.Parameters.AddWithValue("@TransactionID", transactionItem.TransactionID);
                         myCmd.Parameters.AddWithValue("@BookID", transactionItem.BookID);
                         myCmd.Parameters.AddWithValue("@DeviceID", transactionItem.DeviceID);
                         myCmd.Parameters.AddWithValue("@Amount", transactionItem.Amount);
-                        bool result = myCmd.ExecuteNonQuery() > 0;
-                        dbConnect.CloseConnection();
-                        return result;
+                        result = myCmd.ExecuteNonQuery() > 0;
                     }
+                    transaction.Commit();
+                    dbConnect.CloseConnection();
+                    return result;
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.StackTrace);
+                    transaction.Rollback();
                     dbConnect.CloseConnection();
                     return false;
                 }
             }
         }
+
+        // CREATE WITH PARAMS IS LIST<>
+        public bool Insert(List<TransactionItemModel> transactionItems)
+        {
+            string query = "INSERT INTO TransactionItems (transactionID, BookID, DeviceID, Amount) VALUES (@TransactionID, @BookID, @DeviceID, @Amount)";
+
+            if (dbConnect == null) dbConnect = new ConnectDB();
+            dbConnect.OpenConnection();
+
+            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    foreach (TransactionItemModel item in transactionItems)
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@TransactionID", item.TransactionID);
+                            cmd.Parameters.AddWithValue("@BookID", item.BookID);
+                            cmd.Parameters.AddWithValue("@DeviceID", item.DeviceID);
+                            cmd.Parameters.AddWithValue("@Amount", item.Amount);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    // Nếu insert hết không lỗi => commit
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Insert list failed: " + ex.Message);
+                    transaction.Rollback(); // hoàn tác nếu có lỗi
+                    return false;
+                }
+                finally
+                {
+                    dbConnect.CloseConnection();
+                }
+            }
+        }
+
 
         // UPDATE 
         public bool Update(TransactionItemModel newItem)
@@ -192,6 +239,7 @@ namespace QuanLyThuQuan.DAO
             if (dbConnect == null) dbConnect = new ConnectDB();
             dbConnect.OpenConnection();
             using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
             {
                 try
                 {
@@ -204,12 +252,54 @@ namespace QuanLyThuQuan.DAO
                         cmd.Parameters.AddWithValue("@DeviceID", newItem.DeviceID);
                         cmd.Parameters.AddWithValue("@Amount", newItem.Amount);
 
+                        transaction.Commit();
                         return cmd.ExecuteNonQuery() > 0;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("Update Error: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
+                finally
+                {
+                    dbConnect.CloseConnection();
+                }
+            }
+        }
+
+        // UPDATE WITH PARAMS IS LIST
+        public bool Update(List<TransactionItemModel> newItems)
+        {
+            string query = @"
+                UPDATE TransactionItems
+                SET BookID = @BookID, DeviceID = @DeviceID, Amount = @Amount
+                WHERE TransactionID = @TransactionID AND ItemID = @ItemID";
+            if (dbConnect == null) dbConnect = new ConnectDB();
+            dbConnect.OpenConnection();
+            using (MySqlConnection connection = dbConnect.Connection)
+            using (MySqlTransaction transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    foreach (TransactionItemModel newItem in newItems)
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@TransactionID", newItem.TransactionID);
+                            cmd.Parameters.AddWithValue("@ItemID", newItem.ItemID);
+                            cmd.Parameters.AddWithValue("@BookID", newItem.BookID);
+                            cmd.Parameters.AddWithValue("@DeviceID", newItem.DeviceID);
+                            cmd.Parameters.AddWithValue("@Amount", newItem.Amount);
+                            cmd.ExecuteNonQuery();
+                        }
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Update Error: " + ex.Message);
+                    transaction.Rollback();
                     return false;
                 }
                 finally
@@ -239,6 +329,40 @@ namespace QuanLyThuQuan.DAO
 
                         return cmd.ExecuteNonQuery() > 0;
                     }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Delete Error: " + ex.Message);
+                    return false;
+                }
+                finally
+                {
+                    dbConnect.CloseConnection();
+                }
+            }
+        }
+         
+        // OPTIMIZE: DELETE WITH PARAMS IS DICTIONARY<transacionID,itemID>
+        public bool Delete(Dictionary<string, string> listKeyValues)
+        {
+            string query = @"
+                DELETE FROM TransactionItems
+                WHERE TransactionID = @TransactionID AND ItemID = @ItemID";
+            if (dbConnect == null) dbConnect = new ConnectDB();
+            dbConnect.OpenConnection();
+            using (MySqlConnection connection = dbConnect.Connection)
+            {
+                try
+                {
+                    Dictionary<string, string>.Enumerator isEnum = listKeyValues.GetEnumerator();
+                    while(isEnum.MoveNext())
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@TransactionID", isEnum.Current.Key);
+                            cmd.Parameters.AddWithValue("@ItemID", isEnum.Current.Value);
+                            cmd.ExecuteNonQuery();
+                        }
+                    return true;
                 }
                 catch (Exception ex)
                 {
