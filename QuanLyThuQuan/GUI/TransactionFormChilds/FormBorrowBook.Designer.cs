@@ -238,7 +238,6 @@
             // dtpGetGBorrowTransDate
             // 
             this.dtpGetGBorrowTransDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtpGetGBorrowTransDate.Enabled = false;
             this.dtpGetGBorrowTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpGetGBorrowTransDate.Location = new System.Drawing.Point(108, 60);
             this.dtpGetGBorrowTransDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

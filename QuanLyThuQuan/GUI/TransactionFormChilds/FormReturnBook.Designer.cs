@@ -128,8 +128,7 @@
             // dtpRealReturnDate
             // 
             this.dtpRealReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtpRealReturnDate.Enabled = false;
-            this.dtpRealReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRealReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpRealReturnDate.Location = new System.Drawing.Point(110, 56);
             this.dtpRealReturnDate.Name = "dtpRealReturnDate";
             this.dtpRealReturnDate.Size = new System.Drawing.Size(121, 20);

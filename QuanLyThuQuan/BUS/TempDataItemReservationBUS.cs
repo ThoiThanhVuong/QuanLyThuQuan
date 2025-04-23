@@ -24,17 +24,20 @@ namespace QuanLyThuQuan.BUS
         public override List<TempDataItemReservationModel> GetAll()
         {
             //return new reservationItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return new TempDataReservationItemDAO(GetConnectDB()).GetAll();
+            return new TempDataReservationItemDAO(GetConnectDB()).GetAll().ToList();
         }
 
         public TempDataItemReservationModel GetByID(string id)
         {
-            return new TempDataReservationItemDAO(GetConnectDB()).GetByID(id);
+            TempDataItemReservationModel reservation = new TempDataReservationItemDAO(GetConnectDB()).GetByID(id);
+            if(reservation == null)
+                return null;
+            return new TempDataItemReservationModel(reservation.itemID, reservation.reservationID, reservation?.bookID, reservation?.deviceID, reservation.amount);
         }
 
         public List<TempDataItemReservationModel> getByReservationID(string id)
         {
-            return new TempDataReservationItemDAO(GetConnectDB()).GetByReservationID(id);
+            return new TempDataReservationItemDAO(GetConnectDB()).GetByReservationID(id).ToList();
         }
 
         public void Add(TempDataItemReservationModel reservation)

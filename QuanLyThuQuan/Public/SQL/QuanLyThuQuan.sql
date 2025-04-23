@@ -312,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `Violation` (
   `RuleID` INT NOT NULL,
   `FineAmount` DECIMAL(10, 0) NOT NULL CHECK (`FineAmount` >=0),
   `Reason` VARCHAR(255) NOT NULL,
-  `ViolationDateviolation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ViolationDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCompensationRequired` BOOLEAN DEFAULT FALSE, -- xác định có bồi thường thiết bị/sách không?
   PRIMARY KEY (`ViolationID`),
   FOREIGN KEY (`MemberID`) REFERENCES `Member`(`MemberID`) 
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `Violation` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 	
 -- Values Violation
-INSERT INTO `Violation`(`MemberID`, `TransactionID`,`RuleID`,`FineAmount`,`Reason`,`ViolationDateviolation`)
+INSERT INTO `Violation`(`MemberID`, `TransactionID`,`RuleID`,`FineAmount`,`Reason`,`ViolationDate`)
 		VALUES (4,6,3,10000,'Trả sách quá hạn 1 ngày','2025-03-11 08:00:00'),
 				(3,null, 1, 0, 'Không giữ yên lặng trong thư viện', '2025-02-20 07:30:00'),
 				(4,null, 1, 0, 'Gây ồn ào trong thư viện', '2025-03-02 10:00:00'),
@@ -587,20 +587,37 @@ DELIMITER $$
 	END$$
 DELIMITER ;
 
+DELIMITER $$ 
+CREATE PROCEDURE UpdateBookQuantityOnBorrow(IN p_BookID INT, IN p_Amount INT)
+BEGIN
+  UPDATE `Books`
+  SET `Quantity` = `Quantity` - p_Amount
+  WHERE `BookID` = p_BookID;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE PROCEDURE UpDateDeviceQuantityOnBorrow(IN p_DeviceID INT,IN p_Amount INT)
+BEGIN
+	UPDATE `Devices`
+	SET `Quantity`=`Quantity` - p_Amount
+	WHERE `DeviceID` =p_DeviceID;
+END$$
+DELIMITER ;
 -- ==================================================TRIGGER===============================================
 -- Giảm Quantity sách khi mượn thành công
-DELIMITER $$
+DELIMITER $$ 
 	CREATE TRIGGER `trg_Update_BookQuantity_On_Borrow`
 	AFTER INSERT ON `TransactionItems`
 	FOR EACH ROW
 	BEGIN
 	  IF NEW.`BookID` IS NOT NULL THEN
-	    UPDATE `Books`
-	    SET `Quantity` = `Quantity` - NEW.`Amount`
-	    WHERE `BookID` = NEW.`BookID`;
+	    CALL UpdateBookQuantityOnBorrow(NEW.`BookID`, NEW.`Amount`);
 	  END IF;
-	END$$
+	END$$ 
 DELIMITER ;
+
 
 -- Tăng lại Quantity nếu Status = 'Completed' (khi trả)
 DELIMITER $$
@@ -642,7 +659,7 @@ DELIMITER $$
 	    FROM `Books`
 	    WHERE `BookID` = NEW.`BookID`;
 	
-	    IF available < NEW.`Amount` THEN
+	    IF available < NEW.`Amount` AND NEW.`Amount` > 0 THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng sách không đủ để mượn.';
 	    END IF;
@@ -685,6 +702,8 @@ BEGIN
 END$$
 DELIMITER ;
 
+
+	
 -- Giảm Quantity thiết bị khi mượn thành công
 DELIMITER $$
 	CREATE TRIGGER `trg_Update_DeviceQuantity_On_Borrow`
@@ -692,9 +711,7 @@ DELIMITER $$
 	FOR EACH ROW
 	BEGIN
 	  IF NEW.`DeviceID` IS NOT NULL THEN
-	    UPDATE `Devices`
-	    SET `Quantity` = `Quantity` - NEW.`Amount`
-	    WHERE `DeviceID` = NEW.`DeviceID`;
+	   	CALL UpDateDeviceQuantityOnBorrow(NEW.`DeviceID`,NEW.`Amount`);
 	   END IF;
 	END$$
 DELIMITER;
@@ -762,7 +779,7 @@ DELIMITER $$
 	    FROM `Devices`
 	    WHERE `DeviceID` = NEW.`DeviceID`;
 	
-	    IF available < NEW.`Amount` THEN
+	    IF available < NEW.`Amount` AND NEW.`Amount` THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng thiết bị không đủ để mượn.';
 	    END IF;

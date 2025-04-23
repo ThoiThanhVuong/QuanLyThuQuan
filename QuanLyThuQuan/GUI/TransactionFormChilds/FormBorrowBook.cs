@@ -16,13 +16,14 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         public FormBorrowBook()
         {
             InitializeComponent();
+            SetDefaultForDateTimePicker();
+            SetDefaultForFields();
         }
 
         private void FormBorrowBook_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            SetDefaultForFields();
             CreateTypeForComboBox(new List<ProductType> { ProductType.All, ProductType.Books, ProductType.Devices });
         }
 
@@ -40,6 +41,16 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             dgvListProducts.AllowUserToAddRows = false;
         }
 
+        private void SetDefaultForDateTimePicker()
+        {
+            dtpGetBorrowDueDate.Format = DateTimePickerFormat.Custom;
+            dtpGetGBorrowTransDate.Format = DateTimePickerFormat.Custom;
+            dtpGetBorrowDueDate.CustomFormat = "HH:mm:ss dd-MM-yyyy";
+            dtpGetGBorrowTransDate.CustomFormat = "HH:mm:ss dd-MM-yyyy";
+            dtpGetBorrowDueDate.ShowUpDown = true;
+            dtpGetGBorrowTransDate.ShowUpDown = true;
+        }
+
         // create items for combobox
         private void CreateTypeForComboBox(List<ProductType> types)
         {
@@ -48,21 +59,25 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         }
 
         // Create Transaction
-        private void CreateValidTransaction(string memberID, DateTime dueDate)
+        private bool CreateValidTransaction(string memberID, DateTime dueDate)
         {
             if (!CheckValidValueForTransaction(memberID, dueDate))
-                return;
+                return false;
             TransactionModel transaction = new TransactionModel(0, int.Parse(memberID), TransactionType.Borrow, DateTime.Now, dueDate, null, TransactionStatus.Active);
             TransactionBUS transactions = new TransactionBUS();
-            transactions.Add(transaction);
+            if (!transactions.Add(transaction))
+            {
+                NotificationServices.GetInstance().ShowError("Error when insert Product", "Error Insert");
+                return false;
+            }
             transactions.LoadLocal();
             List<TransactionModel> list = transactions.GetAllLocal();
             TransactionItemBUS details = new TransactionItemBUS();
             details.AddList(CreateDetailTransaction((list[list.Count - 1].TransactionID).ToString()));
-            UpdateAmountOfProducts();
+            //UpdateAmountOfProducts();
             // show alert
             NotificationServices.GetInstance().ShowSuccess("Create new transaction Done!", "Done");
-
+            return true;
         }
 
         // Create transaction items 
@@ -78,6 +93,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
             foreach (TransactionListItemTableModel item in tables)
             {
+                Debug.WriteLine("Item : " + item.productName);
+                Debug.WriteLine("Item : " + item.amount);
                 TransactionItemModel detail = CreateValidTransactionItem(item, id);
                 if (detail == null) continue;
                 list.Add(detail);
@@ -126,22 +143,27 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
                 // validate 
                 if (book == null && device == null) continue;
-                else if (book == null)
+                else if (book != null && device == null)
                 {
-                    Debug.WriteLine("Devices: " + device.DeviceQuantity);
-                    device.DeviceQuantity -= item.amount;
-                    Debug.WriteLine("Devices: " + device.DeviceQuantity);
-                    devices.UpdateDevice(device);
-                }
-                else if (device == null)
-                {
+                    Debug.WriteLine("Books: " + book.BookTitle);
                     Debug.WriteLine("Books: " + book.BookQuantity);
                     book.BookQuantity -= item.amount;
+                    Debug.WriteLine("Books: " + book.BookTitle);
                     Debug.WriteLine("Books: " + book.BookQuantity);
                     books.UpdateBook(book);
                 }
+                else if (device != null && book == null)
+                {
+                    Debug.WriteLine("Devices: " + device.DeviceName);
+                    Debug.WriteLine("Devices: " + device.DeviceQuantity);
+                    device.DeviceQuantity -= item.amount;
+                    Debug.WriteLine("Devices: " + device.DeviceName);
+                    Debug.WriteLine("Devices: " + device.DeviceQuantity);
+                    devices.UpdateDevice(device);
+                }
                 else
-                    continue;
+                    Debug.WriteLine("❗ Lỗi: Cả sách và thiết bị cùng tồn tại cho: " + item.productName);
+
             }
         }
         private void SetViewForTable(List<TransactionListItemTableModel> list)
@@ -231,7 +253,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 dgvListProducts.EndEdit();
                 dgvListProducts.Columns["Amount"].ReadOnly = true;
                 SetViewForTable(GetNewTable());
-                CreateValidTransaction(memberID, dueDate);
+                if (!CreateValidTransaction(memberID, dueDate)) return;
                 this.Close();
             }
         }

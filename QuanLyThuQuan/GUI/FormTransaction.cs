@@ -26,6 +26,7 @@ namespace QuanLyThuQuan.GUI
             this.ControlBox = false;
             this.DoubleBuffered = true;
             LoadAllTransaction();
+            SetDefaultForForm();
             //dgvDataTransactions.CellContentClick += dgvDataTransactions_CellContentClick;
 
         }
@@ -45,17 +46,23 @@ namespace QuanLyThuQuan.GUI
             }
         }
 
+        private void SetDefaultForForm()
+        {
+            dgvDataTransactions.AllowUserToAddRows = false;
+            dgvDataTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void LoadAllTransaction()
         {
 
             //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAllLocal();
             TransactionBUS trans = new TransactionBUS();
             trans.LoadLocal();
-            List<TransactionModel> transactions = trans.GetAllLocal();
+            List<TransactionModel> transactions = trans.GetAll();
             ClearTable(dgvDataTransactions);
             dgvDataTransactions.DataSource = null;
             dgvDataTransactions.DataSource = transactions;
-            Console.WriteLine("transactions" + transactions);
+            Console.WriteLine("transactions" + transactions.Count);
             CreateColumn(dgvDataTransactions);
             dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDataTransactions.ReadOnly = true;
@@ -134,29 +141,31 @@ namespace QuanLyThuQuan.GUI
         {
             FormBorrowBook borrowForm = new FormBorrowBook();
             borrowForm.ShowDialog();
+            LoadAllTransaction();
         }
 
         private void btnReturnBook_Click(object sender, EventArgs e)
         {
             FormReturnBook returnForm = new FormReturnBook();
             returnForm.ShowDialog();
+            LoadAllTransaction();
         }
 
         private void btnBookReservation_Click(object sender, EventArgs e)
         {
             FormReservation reservation = new FormReservation();
             reservation.ShowDialog();
+            LoadAllTransaction();
         }
 
         private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvDataTransactions.Columns[e.ColumnIndex].Name.Equals("colMoreOptions"))
             {
-                FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
+                FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells["TransactionID"].Value.ToString());
                 informationForm.ShowDialog();
             }
         }
-
 
         // Relative with other classes
     }

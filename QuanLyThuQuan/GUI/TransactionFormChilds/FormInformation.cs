@@ -196,8 +196,6 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             }
             else
             {
-                Debug.WriteLine(devices.Count);
-                Debug.WriteLine(books.Count);
                 list.AddRange(GetListForDevice(devices, deviceAmount));
                 list.AddRange(GetListForBook(books, bookAmount));
             }

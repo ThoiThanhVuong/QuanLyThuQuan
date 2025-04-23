@@ -23,7 +23,7 @@ namespace QuanLyThuQuan.Services
             }
             catch (Exception ex)
             {
-                Debug.Print(ex.Message);
+                Debug.WriteLine("ERROR VALIDATE : " + input + " : " + ex.Message);
                 return -1;
             }
         }

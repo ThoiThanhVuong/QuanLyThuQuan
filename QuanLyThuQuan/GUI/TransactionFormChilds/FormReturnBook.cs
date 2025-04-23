@@ -14,14 +14,32 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         public FormReturnBook()
         {
             InitializeComponent();
+            SetDefaultForFields();
+            SetDefaultForTable();
+            SetDefaultForDateTimePicker();
         }
         private void FormReturnBook_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
             this.DoubleBuffered = true;
+
         }
 
         // NOTE: FOR OTHER LOGICS
+
+        private void SetDefaultForFields()
+        {
+            dtpRealReturnDate.Enabled = false;
+            dtpRealReturnDate.Text = DateTime.Now.ToString();
+        }
+
+        private void SetDefaultForDateTimePicker()
+        {
+            dtpRealReturnDate.Value = DateTime.Now;
+            dtpRealReturnDate.Format = DateTimePickerFormat.Custom;
+            dtpRealReturnDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            dtpRealReturnDate.ShowUpDown = true;
+        }
 
         // default settings for data grid view 
         private void SetDefaultForTable()
@@ -106,9 +124,10 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private void UpdateTransaction(TransactionType transactionType, TransactionStatus status)
         {
             transaction.TransactionType = TransactionType.Return;
+            transaction.ReturnDate = dtpRealReturnDate.Value;
             transaction.Status = TransactionStatus.Completed;
             TransactionBUS transactions = new TransactionBUS();
-            //transactions.Update(transaction);
+            transactions.Update(transaction);
             NotificationServices.GetInstance().ShowSuccess("Upadate Done!", "Done");
         }
 
@@ -167,7 +186,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             DialogResult result = NotificationServices.GetInstance().ShowConfirm("Are you sure ?", "Confirm");
             if (result == DialogResult.OK)
             {
-                //UpdateTransaction(TransactionType.Return, TransactionStatus.Completed);
+                UpdateTransaction(TransactionType.Return, TransactionStatus.Completed);
+                this.Close();
             }
 
         }

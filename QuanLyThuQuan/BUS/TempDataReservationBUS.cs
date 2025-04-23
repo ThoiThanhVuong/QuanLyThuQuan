@@ -2,6 +2,7 @@
 using QuanLyThuQuan.Model;
 using QuanLyThuQuan.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -21,12 +22,20 @@ namespace QuanLyThuQuan.BUS
         public override List<TempDataReservationModel> GetAll()
         {
             //return new reservationItemDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return new TempDataReservationDAO().GetAll();
+            return new TempDataReservationDAO().GetAll().ToList();
         }
 
         public TempDataReservationModel GetByID(string id, string condition)
         {
-            return new TempDataReservationDAO().GetByID(id, condition);
+            TempDataReservationModel reservation = new TempDataReservationDAO().GetByID(id, condition);
+            if (reservation == null)
+                return null;
+            return new TempDataReservationModel(reservation.reservationID, reservation.memberID, reservation.startTime, reservation.endTime, reservation.status);
+        }
+
+        public List<TempDataReservationModel> FilterByProduct(ReservationStatus status)
+        {
+            return new TempDataReservationDAO().GetByStatus(status).ToList();
         }
 
         public void Add(TempDataReservationModel transaction)

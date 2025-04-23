@@ -128,6 +128,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             DataGridViewSelectedRowCollection list = dgvListProducts.SelectedRows;
             foreach (DataGridViewRow selected in list)
                 this.listItems.Add(new TransactionListItemTableModel(selected.Cells["Product Name"]?.Value.ToString(), 1));
+            this.listItems.Reverse();
             this.Close();
         }
 

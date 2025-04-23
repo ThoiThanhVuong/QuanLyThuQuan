@@ -3,9 +3,6 @@ using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -33,7 +30,7 @@ namespace QuanLyThuQuan.DAO
                 int ruleId = reader.GetInt32("RuleID");
                 int fineAmount = reader.GetInt32("FineAmount");
                 string reason = reader.GetString("Reason");
-                DateTime violationDate = reader.GetDateTime("ViolationDateviolation");
+                DateTime violationDate = reader.GetDateTime("ViolationDate");
                 bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
 
                 violations.Add(new ViolationModel(

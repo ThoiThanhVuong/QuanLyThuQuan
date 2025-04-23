@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -41,22 +42,22 @@ namespace QuanLyThuQuan.BUS
             return new TransactionModel(item.TransactionID, item.MemberID, item.TransactionType, item.TransactionDate, item?.DueDate, item?.ReturnDate, item.Status);
         }
 
-        public void Add(TransactionModel transaction)
+        public bool Add(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
-            new TransactionDAO().Insert(transaction);
+            return new TransactionDAO().Insert(transaction);
         }
 
-        public void Update(TransactionModel transaction)
+        public bool Update(TransactionModel transaction)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
-            new TransactionDAO().Update(transaction);
+            return new TransactionDAO().Update(transaction);
         }
 
-        public void Delete(string id)
+        public bool Delete(string id)
         {
             //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            new TransactionDAO().Delete(id);
+            return new TransactionDAO().Delete(id);
         }
 
         // check if this transaction is overdue
