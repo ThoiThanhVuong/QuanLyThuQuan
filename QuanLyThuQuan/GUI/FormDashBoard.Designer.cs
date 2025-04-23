@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.SessionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MemberId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckInTIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblClock = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelClock = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +75,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SessionId,
@@ -79,20 +88,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(569, 333);
             this.dataGridView1.TabIndex = 3;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(587, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(2, 534);
-            this.label2.TabIndex = 4;
-            // 
             // SessionId
             // 
             this.SessionId.FillWeight = 50F;
             this.SessionId.HeaderText = "SessionId";
             this.SessionId.MinimumWidth = 6;
             this.SessionId.Name = "SessionId";
+            this.SessionId.Width = 125;
             // 
             // MemberId
             // 
@@ -108,11 +110,68 @@
             this.CheckInTIme.MinimumWidth = 6;
             this.CheckInTIme.Name = "CheckInTIme";
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(587, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(2, 534);
+            this.label2.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1285, 71);
+            this.panel1.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(19, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "DashBoard";
+            // 
+            // lblClock
+            // 
+            this.lblClock.AutoSize = true;
+            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClock.Location = new System.Drawing.Point(791, 129);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(91, 32);
+            this.lblClock.TabIndex = 6;
+            this.lblClock.Text = "00:00";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panelClock
+            // 
+            this.panelClock.Location = new System.Drawing.Point(699, 195);
+            this.panelClock.Name = "panelClock";
+            this.panelClock.Size = new System.Drawing.Size(499, 330);
+            this.panelClock.TabIndex = 7;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // FormDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 595);
+            this.ClientSize = new System.Drawing.Size(1287, 595);
+            this.Controls.Add(this.panelClock);
+            this.Controls.Add(this.lblClock);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -124,6 +183,8 @@
             this.Text = "FormDashBoard";
             this.Load += new System.EventHandler(this.FormDashBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +200,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SessionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MemberId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckInTIme;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblClock;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panelClock;
+        private System.Windows.Forms.Timer timer2;
     }
 }

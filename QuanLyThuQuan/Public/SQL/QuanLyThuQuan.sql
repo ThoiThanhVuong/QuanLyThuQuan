@@ -587,20 +587,37 @@ DELIMITER $$
 	END$$
 DELIMITER ;
 
+DELIMITER $$ 
+CREATE PROCEDURE UpdateBookQuantityOnBorrow(IN p_BookID INT, IN p_Amount INT)
+BEGIN
+  UPDATE `Books`
+  SET `Quantity` = `Quantity` - p_Amount
+  WHERE `BookID` = p_BookID;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE PROCEDURE UpDateDeviceQuantityOnBorrow(IN p_DeviceID INT,IN p_Amount INT)
+BEGIN
+	UPDATE `Devices`
+	SET `Quantity`=`Quantity` - p_Amount
+	WHERE `DeviceID` =p_DeviceID;
+END$$
+DELIMITER ;
 -- ==================================================TRIGGER===============================================
 -- Giảm Quantity sách khi mượn thành công
-DELIMITER $$
+DELIMITER $$ 
 	CREATE TRIGGER `trg_Update_BookQuantity_On_Borrow`
 	AFTER INSERT ON `TransactionItems`
 	FOR EACH ROW
 	BEGIN
 	  IF NEW.`BookID` IS NOT NULL THEN
-	    UPDATE `Books`
-	    SET `Quantity` = `Quantity` - NEW.`Amount`
-	    WHERE `BookID` = NEW.`BookID`;
+	    CALL UpdateBookQuantityOnBorrow(NEW.`BookID`, NEW.`Amount`);
 	  END IF;
-	END$$
+	END$$ 
 DELIMITER ;
+
 
 -- Tăng lại Quantity nếu Status = 'Completed' (khi trả)
 DELIMITER $$
@@ -642,7 +659,7 @@ DELIMITER $$
 	    FROM `Books`
 	    WHERE `BookID` = NEW.`BookID`;
 	
-	    IF available < NEW.`Amount` THEN
+	    IF available < NEW.`Amount` AND NEW.`Amount` > 0 THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng sách không đủ để mượn.';
 	    END IF;
@@ -686,6 +703,7 @@ END$$
 DELIMITER ;
 
 
+	
 -- Giảm Quantity thiết bị khi mượn thành công
 DELIMITER $$
 	CREATE TRIGGER `trg_Update_DeviceQuantity_On_Borrow`
@@ -693,9 +711,7 @@ DELIMITER $$
 	FOR EACH ROW
 	BEGIN
 	  IF NEW.`DeviceID` IS NOT NULL THEN
-	    UPDATE `Devices`
-	    SET `Quantity` = `Quantity` - NEW.`Amount`
-	    WHERE `DeviceID` = NEW.`DeviceID`;
+	   	CALL UpDateDeviceQuantityOnBorrow(NEW.`DeviceID`,NEW.`Amount`);
 	   END IF;
 	END$$
 DELIMITER;
@@ -763,7 +779,7 @@ DELIMITER $$
 	    FROM `Devices`
 	    WHERE `DeviceID` = NEW.`DeviceID`;
 	
-	    IF available < NEW.`Amount` THEN
+	    IF available < NEW.`Amount` AND NEW.`Amount` THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng thiết bị không đủ để mượn.';
 	    END IF;
