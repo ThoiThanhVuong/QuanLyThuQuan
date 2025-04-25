@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuQuan.Model
 {
-    class TransactionItemModel
+    public class TransactionItemModel
     {
         public int ItemID { get; set; }
         public int TransactionID { get; set; }

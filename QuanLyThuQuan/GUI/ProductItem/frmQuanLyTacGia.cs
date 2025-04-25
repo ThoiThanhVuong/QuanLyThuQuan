@@ -26,6 +26,7 @@ namespace QuanLyThuQuan.GUI
         {
             List<AuthorModel> authors = authorBUS.GetAllAuthor();
             if(authors == null || authors.Count == 0)
+
             {
                 Console.WriteLine("Không có dữ liệu!");
             }

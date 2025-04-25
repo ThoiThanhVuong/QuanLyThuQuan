@@ -1,3 +1,4 @@
+
 ﻿namespace QuanLyThuQuan.GUI.User
 {
     partial class FormUser
@@ -316,4 +317,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
     }
+
 }

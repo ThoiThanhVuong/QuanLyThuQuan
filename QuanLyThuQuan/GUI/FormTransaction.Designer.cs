@@ -29,177 +29,236 @@
         private void InitializeComponent()
         {
             this.btnBorrow = new System.Windows.Forms.Button();
-            this.btnReturnBook = new System.Windows.Forms.Button();
             this.btnBookReservation = new System.Windows.Forms.Button();
-            this.tbHeaderButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvDataTransactions = new System.Windows.Forms.DataGridView();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.tbBody = new System.Windows.Forms.TableLayoutPanel();
-            this.tbHeaderButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).BeginInit();
-            this.pnlHeader.SuspendLayout();
-            this.tbBody.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvTransactions = new System.Windows.Forms.DataGridView();
+            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBorrow
             // 
+            this.btnBorrow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnBorrow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBorrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrow.ForeColor = System.Drawing.Color.Black;
-            this.btnBorrow.Location = new System.Drawing.Point(4, 4);
+            this.btnBorrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnBorrow.Location = new System.Drawing.Point(17, 0);
             this.btnBorrow.Margin = new System.Windows.Forms.Padding(4);
             this.btnBorrow.Name = "btnBorrow";
             this.btnBorrow.Size = new System.Drawing.Size(312, 98);
             this.btnBorrow.TabIndex = 1;
-            this.btnBorrow.Text = "Borrow Book";
-            this.btnBorrow.UseVisualStyleBackColor = true;
+            this.btnBorrow.Text = "Borrow Product";
+            this.btnBorrow.UseVisualStyleBackColor = false;
             this.btnBorrow.Click += new System.EventHandler(this.btnBorrow_Click);
-            this.btnBorrow.MouseEnter += new System.EventHandler(this.btnBorrow_MouseEnter);
-            this.btnBorrow.MouseLeave += new System.EventHandler(this.btnBorrow_MouseLeave);
-            // 
-            // btnReturnBook
-            // 
-            this.btnReturnBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnBook.ForeColor = System.Drawing.Color.Black;
-            this.btnReturnBook.Location = new System.Drawing.Point(324, 4);
-            this.btnReturnBook.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReturnBook.Name = "btnReturnBook";
-            this.btnReturnBook.Size = new System.Drawing.Size(312, 98);
-            this.btnReturnBook.TabIndex = 2;
-            this.btnReturnBook.Text = "Return Book";
-            this.btnReturnBook.UseVisualStyleBackColor = true;
-            this.btnReturnBook.Click += new System.EventHandler(this.btnReturnBook_Click);
-            this.btnReturnBook.MouseEnter += new System.EventHandler(this.btnReturnBook_MouseEnter);
-            this.btnReturnBook.MouseLeave += new System.EventHandler(this.btnReturnBook_MouseLeave);
             // 
             // btnBookReservation
             // 
+            this.btnBookReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.btnBookReservation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBookReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookReservation.ForeColor = System.Drawing.Color.Black;
-            this.btnBookReservation.Location = new System.Drawing.Point(644, 4);
+            this.btnBookReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnBookReservation.Location = new System.Drawing.Point(602, 0);
             this.btnBookReservation.Margin = new System.Windows.Forms.Padding(4);
             this.btnBookReservation.Name = "btnBookReservation";
             this.btnBookReservation.Size = new System.Drawing.Size(312, 98);
             this.btnBookReservation.TabIndex = 3;
-            this.btnBookReservation.Text = "Book Reservation";
-            this.btnBookReservation.UseVisualStyleBackColor = true;
+            this.btnBookReservation.Text = "Product Reservation";
+            this.btnBookReservation.UseVisualStyleBackColor = false;
             this.btnBookReservation.Click += new System.EventHandler(this.btnBookReservation_Click);
-            this.btnBookReservation.MouseEnter += new System.EventHandler(this.btnBookReservation_MouseEnter);
-            this.btnBookReservation.MouseLeave += new System.EventHandler(this.btnBookReservation_MouseLeave);
             // 
-            // tbHeaderButtons
+            // panel1
             // 
-            this.tbHeaderButtons.BackColor = System.Drawing.Color.Snow;
-            this.tbHeaderButtons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.tbHeaderButtons.ColumnCount = 3;
-            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbHeaderButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbHeaderButtons.Controls.Add(this.btnReturnBook, 1, 0);
-            this.tbHeaderButtons.Controls.Add(this.btnBookReservation, 2, 0);
-            this.tbHeaderButtons.Controls.Add(this.btnBorrow, 0, 0);
-            this.tbHeaderButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbHeaderButtons.Location = new System.Drawing.Point(0, 0);
-            this.tbHeaderButtons.Margin = new System.Windows.Forms.Padding(4);
-            this.tbHeaderButtons.Name = "tbHeaderButtons";
-            this.tbHeaderButtons.RowCount = 1;
-            this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbHeaderButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tbHeaderButtons.Size = new System.Drawing.Size(960, 106);
-            this.tbHeaderButtons.TabIndex = 4;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(960, 50);
+            this.panel1.TabIndex = 1;
             // 
-            // dgvDataTransactions
+            // label1
             // 
-            this.dgvDataTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvDataTransactions.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvDataTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataTransactions.Location = new System.Drawing.Point(3, 72);
-            this.dgvDataTransactions.Name = "dgvDataTransactions";
-            this.dgvDataTransactions.RowHeadersWidth = 62;
-            this.dgvDataTransactions.Size = new System.Drawing.Size(954, 409);
-            this.dgvDataTransactions.TabIndex = 1;
-            this.dgvDataTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataTransactions_CellContentClick);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "QUẢN LÝ GIAO DỊCH";
             // 
-            // pnlHeader
+            // panel3
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.Snow;
-            this.pnlHeader.Controls.Add(this.lbTitle);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHeader.Location = new System.Drawing.Point(3, 3);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(954, 48);
-            this.pnlHeader.TabIndex = 0;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.btnBookReservation);
+            this.panel3.Controls.Add(this.btnBorrow);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 50);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(960, 104);
+            this.panel3.TabIndex = 6;
             // 
-            // lbTitle
+            // label2
             // 
-            this.lbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.Black;
-            this.lbTitle.Location = new System.Drawing.Point(417, 1);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(178, 31);
-            this.lbTitle.TabIndex = 0;
-            this.lbTitle.Text = "Transactions List";
-            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Location = new System.Drawing.Point(0, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(960, 3);
+            this.label2.TabIndex = 7;
             // 
-            // tbBody
+            // panel2
             // 
-            this.tbBody.AutoSize = true;
-            this.tbBody.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tbBody.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbBody.ColumnCount = 1;
-            this.tbBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbBody.Controls.Add(this.pnlHeader, 0, 0);
-            this.tbBody.Controls.Add(this.dgvDataTransactions, 0, 1);
-            this.tbBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBody.Location = new System.Drawing.Point(0, 106);
-            this.tbBody.Margin = new System.Windows.Forms.Padding(0);
-            this.tbBody.Name = "tbBody";
-            this.tbBody.RowCount = 3;
-            this.tbBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tbBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.98529F));
-            this.tbBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.088235F));
-            this.tbBody.Size = new System.Drawing.Size(960, 544);
-            this.tbBody.TabIndex = 7;
+            this.panel2.Controls.Add(this.dgvTransactions);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 154);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(960, 496);
+            this.panel2.TabIndex = 7;
             // 
-
+            // dgvTransactions
+            // 
+            this.dgvTransactions.AllowUserToAddRows = false;
+            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TransactionID,
+            this.MemberID,
+            this.TransactionType,
+            this.TransactionDate,
+            this.DueDate,
+            this.ReturnDate,
+            this.Status,
+            this.detail});
+            this.dgvTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTransactions.Location = new System.Drawing.Point(0, 0);
+            this.dgvTransactions.Name = "dgvTransactions";
+            this.dgvTransactions.RowHeadersWidth = 62;
+            this.dgvTransactions.RowTemplate.Height = 28;
+            this.dgvTransactions.Size = new System.Drawing.Size(960, 496);
+            this.dgvTransactions.TabIndex = 0;
+            this.dgvTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactions_CellContentClick);
+            // 
+            // TransactionID
+            // 
+            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TransactionID.HeaderText = "Mã Giao dịch";
+            this.TransactionID.MinimumWidth = 8;
+            this.TransactionID.Name = "TransactionID";
+            this.TransactionID.Width = 85;
+            // 
+            // MemberID
+            // 
+            this.MemberID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MemberID.HeaderText = "Mã thành viên";
+            this.MemberID.MinimumWidth = 8;
+            this.MemberID.Name = "MemberID";
+            this.MemberID.Width = 110;
+            // 
+            // TransactionType
+            // 
+            this.TransactionType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TransactionType.HeaderText = "Loại giao dịch";
+            this.TransactionType.MinimumWidth = 8;
+            this.TransactionType.Name = "TransactionType";
+            this.TransactionType.Width = 110;
+            // 
+            // TransactionDate
+            // 
+            this.TransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TransactionDate.HeaderText = "Ngày giao dịch";
+            this.TransactionDate.MinimumWidth = 8;
+            this.TransactionDate.Name = "TransactionDate";
+            this.TransactionDate.Width = 150;
+            // 
+            // DueDate
+            // 
+            this.DueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DueDate.HeaderText = "Hạn trả";
+            this.DueDate.MinimumWidth = 8;
+            this.DueDate.Name = "DueDate";
+            this.DueDate.Width = 150;
+            // 
+            // ReturnDate
+            // 
+            this.ReturnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ReturnDate.HeaderText = "Ngày trả";
+            this.ReturnDate.MinimumWidth = 8;
+            this.ReturnDate.Name = "ReturnDate";
+            this.ReturnDate.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.HeaderText = "Trạng thái";
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
+            this.Status.Width = 90;
+            // 
+            // detail
+            // 
+            this.detail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.detail.HeaderText = "";
+            this.detail.MinimumWidth = 8;
+            this.detail.Name = "detail";
+            this.detail.Width = 60;
+            // 
             // FormTransaction
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(960, 650);
-            this.Controls.Add(this.tbBody);
-            this.Controls.Add(this.tbHeaderButtons);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Transparent;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormTransaction";
             this.Text = "cccccffffddeeeeewwwwwhhhhhhhhbbbnnmmmmmmvbvvvvvvv                   ";
             this.Load += new System.EventHandler(this.FormTransaction_Load);
-            this.tbHeaderButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataTransactions)).EndInit();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.tbBody.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
         private System.Windows.Forms.Button btnBorrow;
-        private System.Windows.Forms.Button btnReturnBook;
         private System.Windows.Forms.Button btnBookReservation;
-        private System.Windows.Forms.TableLayoutPanel tbHeaderButtons;
-        private System.Windows.Forms.DataGridView dgvDataTransactions;
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.TableLayoutPanel tbBody;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvTransactions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detail;
     }
 }

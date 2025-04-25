@@ -2,7 +2,7 @@
 
 namespace QuanLyThuQuan.Model
 {
-    class ViolationModel
+    public class ViolationModel
     {
         public int ViolationID { get; set; }
         public int MemberID { get; set; }

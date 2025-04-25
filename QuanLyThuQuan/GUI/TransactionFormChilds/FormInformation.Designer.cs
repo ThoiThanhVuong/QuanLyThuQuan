@@ -28,705 +28,947 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlChildDetailInfo = new System.Windows.Forms.Panel();
-            this.pnlTransInfoContainer = new System.Windows.Forms.Panel();
-            this.tbTransInfoWraper = new System.Windows.Forms.TableLayoutPanel();
-            this.tbBlockInfoOne = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransID = new System.Windows.Forms.Label();
-            this.lbMemID = new System.Windows.Forms.Label();
-            this.tbBlockInfoTwo = new System.Windows.Forms.TableLayoutPanel();
-            this.lbMemFullName = new System.Windows.Forms.Label();
-            this.lbUserName = new System.Windows.Forms.Label();
-            this.tbBlockInfoThree = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransStatus = new System.Windows.Forms.Label();
-            this.lbTransType = new System.Windows.Forms.Label();
-            this.tbBlockInfoFour = new System.Windows.Forms.TableLayoutPanel();
-            this.lbUserType = new System.Windows.Forms.Label();
-            this.lbUserStatus = new System.Windows.Forms.Label();
-            this.tbBlockInfoFive = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTransDate = new System.Windows.Forms.Label();
-            this.lbDueDate = new System.Windows.Forms.Label();
-            this.tbBlockInfoSix = new System.Windows.Forms.TableLayoutPanel();
-            this.lbUserEmail = new System.Windows.Forms.Label();
-            this.lbUserPhoneNumber = new System.Windows.Forms.Label();
-            this.tbBlockInfoSeven = new System.Windows.Forms.TableLayoutPanel();
-            this.lbReturnDate = new System.Windows.Forms.Label();
-            this.lbListTransItems = new System.Windows.Forms.Label();
-            this.tbBlockInfoEight = new System.Windows.Forms.TableLayoutPanel();
-            this.lbViolationStatus = new System.Windows.Forms.Label();
-            this.lbViolationList = new System.Windows.Forms.Label();
-            this.dgvDataItemList = new System.Windows.Forms.DataGridView();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDataViolationHandle = new System.Windows.Forms.DataGridView();
-            this.colRuleTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPenaty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPaidStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExcuseViolation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHeaderTransInfoDetail = new System.Windows.Forms.Panel();
-            this.btnExitChildPanel = new System.Windows.Forms.Button();
-            this.lbTransInfo = new System.Windows.Forms.Label();
-            this.pnlChildDetailInfo.SuspendLayout();
-            this.pnlTransInfoContainer.SuspendLayout();
-            this.tbTransInfoWraper.SuspendLayout();
-            this.tbBlockInfoOne.SuspendLayout();
-            this.tbBlockInfoTwo.SuspendLayout();
-            this.tbBlockInfoThree.SuspendLayout();
-            this.tbBlockInfoFour.SuspendLayout();
-            this.tbBlockInfoFive.SuspendLayout();
-            this.tbBlockInfoSix.SuspendLayout();
-            this.tbBlockInfoSeven.SuspendLayout();
-            this.tbBlockInfoEight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).BeginInit();
-            this.pnlHeaderTransInfoDetail.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInformation));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnViolation = new System.Windows.Forms.Button();
+            this.txtViolation = new System.Windows.Forms.TextBox();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.txtReturnDate = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.txtDueDate = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtTransType = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTransactionID = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.btnConfirmReturn = new System.Windows.Forms.Button();
+            this.dgvTransactionItem = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.dgvPayments = new System.Windows.Forms.DataGridView();
+            this.LoaiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sotien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.txtStatusPayment = new System.Windows.Forms.TextBox();
+            this.txtTotalPayment = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionItem)).BeginInit();
+            this.panel24.SuspendLayout();
+            this.panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlChildDetailInfo
-            // 
-            this.pnlChildDetailInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlChildDetailInfo.BackColor = System.Drawing.Color.AliceBlue;
-            this.pnlChildDetailInfo.Controls.Add(this.pnlTransInfoContainer);
-            this.pnlChildDetailInfo.Controls.Add(this.pnlHeaderTransInfoDetail);
-            this.pnlChildDetailInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlChildDetailInfo.Name = "pnlChildDetailInfo";
-            this.pnlChildDetailInfo.Size = new System.Drawing.Size(936, 610);
-            this.pnlChildDetailInfo.TabIndex = 12;
-            // 
-            // pnlTransInfoContainer
-            // 
-            this.pnlTransInfoContainer.Controls.Add(this.tbTransInfoWraper);
-            this.pnlTransInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTransInfoContainer.Location = new System.Drawing.Point(0, 34);
-            this.pnlTransInfoContainer.Name = "pnlTransInfoContainer";
-            this.pnlTransInfoContainer.Size = new System.Drawing.Size(936, 576);
-            this.pnlTransInfoContainer.TabIndex = 4;
-            // 
-            // tbTransInfoWraper
-            // 
-            this.tbTransInfoWraper.BackColor = System.Drawing.Color.Transparent;
-            this.tbTransInfoWraper.ColumnCount = 2;
-            this.tbTransInfoWraper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.98713F));
-            this.tbTransInfoWraper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.01287F));
-            this.tbTransInfoWraper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.98713F));
-            this.tbTransInfoWraper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.01287F));
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoOne, 0, 0);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoTwo, 1, 0);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoThree, 0, 1);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoFour, 1, 1);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoFive, 0, 2);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoSix, 1, 2);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoSeven, 0, 3);
-            this.tbTransInfoWraper.Controls.Add(this.tbBlockInfoEight, 1, 3);
-            this.tbTransInfoWraper.Controls.Add(this.dgvDataItemList, 0, 4);
-            this.tbTransInfoWraper.Controls.Add(this.dgvDataViolationHandle, 1, 4);
-            this.tbTransInfoWraper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTransInfoWraper.Location = new System.Drawing.Point(0, 0);
-            this.tbTransInfoWraper.Name = "tbTransInfoWraper";
-            this.tbTransInfoWraper.RowCount = 5;
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 298F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 298F));
-            this.tbTransInfoWraper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbTransInfoWraper.Size = new System.Drawing.Size(936, 576);
-            this.tbTransInfoWraper.TabIndex = 0;
-            // 
-            // tbBlockInfoOne
-            // 
-            this.tbBlockInfoOne.ColumnCount = 2;
-            this.tbBlockInfoOne.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.35106F));
-            this.tbBlockInfoOne.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
-            this.tbBlockInfoOne.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.35106F));
-            this.tbBlockInfoOne.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
-            this.tbBlockInfoOne.Controls.Add(this.lbTransID, 0, 0);
-            this.tbBlockInfoOne.Controls.Add(this.lbMemID, 0, 1);
-            this.tbBlockInfoOne.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoOne.Location = new System.Drawing.Point(3, 3);
-            this.tbBlockInfoOne.Name = "tbBlockInfoOne";
-            this.tbBlockInfoOne.RowCount = 2;
-            this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoOne.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoOne.Size = new System.Drawing.Size(377, 63);
-            this.tbBlockInfoOne.TabIndex = 0;
-            // 
-            // lbTransID
-            // 
-            this.lbTransID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbTransID.AutoSize = true;
-            this.lbTransID.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransID.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTransID.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbTransID.Location = new System.Drawing.Point(3, 6);
-            this.lbTransID.Name = "lbTransID";
-            this.lbTransID.Size = new System.Drawing.Size(115, 19);
-            this.lbTransID.TabIndex = 0;
-            this.lbTransID.Text = "Transaction ID : ";
-            this.lbTransID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMemID
-            // 
-            this.lbMemID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbMemID.AutoSize = true;
-            this.lbMemID.BackColor = System.Drawing.Color.Transparent;
-            this.lbMemID.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMemID.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbMemID.Location = new System.Drawing.Point(3, 37);
-            this.lbMemID.Name = "lbMemID";
-            this.lbMemID.Size = new System.Drawing.Size(88, 19);
-            this.lbMemID.TabIndex = 1;
-            this.lbMemID.Text = "Member ID :";
-            this.lbMemID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoTwo
-            // 
-            this.tbBlockInfoTwo.ColumnCount = 2;
-            this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoTwo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoTwo.Controls.Add(this.lbMemFullName, 0, 0);
-            this.tbBlockInfoTwo.Controls.Add(this.lbUserName, 0, 1);
-            this.tbBlockInfoTwo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoTwo.Location = new System.Drawing.Point(386, 3);
-            this.tbBlockInfoTwo.Name = "tbBlockInfoTwo";
-            this.tbBlockInfoTwo.RowCount = 2;
-            this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoTwo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoTwo.Size = new System.Drawing.Size(547, 63);
-            this.tbBlockInfoTwo.TabIndex = 1;
-            // 
-            // lbMemFullName
-            // 
-            this.lbMemFullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbMemFullName.AutoSize = true;
-            this.lbMemFullName.BackColor = System.Drawing.Color.Transparent;
-            this.lbMemFullName.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMemFullName.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbMemFullName.Location = new System.Drawing.Point(3, 6);
-            this.lbMemFullName.Name = "lbMemFullName";
-            this.lbMemFullName.Size = new System.Drawing.Size(141, 19);
-            this.lbMemFullName.TabIndex = 0;
-            this.lbMemFullName.Text = "Member Full Name :";
-            this.lbMemFullName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbUserName
-            // 
-            this.lbUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUserName.AutoSize = true;
-            this.lbUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserName.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserName.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbUserName.Location = new System.Drawing.Point(3, 37);
-            this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(147, 19);
-            this.lbUserName.TabIndex = 1;
-            this.lbUserName.Text = "Member User Name :";
-            this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoThree
-            // 
-            this.tbBlockInfoThree.ColumnCount = 2;
-            this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
-            this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
-            this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
-            this.tbBlockInfoThree.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
-            this.tbBlockInfoThree.Controls.Add(this.lbTransStatus, 0, 1);
-            this.tbBlockInfoThree.Controls.Add(this.lbTransType, 0, 0);
-            this.tbBlockInfoThree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoThree.Location = new System.Drawing.Point(3, 72);
-            this.tbBlockInfoThree.Name = "tbBlockInfoThree";
-            this.tbBlockInfoThree.RowCount = 2;
-            this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoThree.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoThree.Size = new System.Drawing.Size(377, 63);
-            this.tbBlockInfoThree.TabIndex = 2;
-            // 
-            // lbTransStatus
-            // 
-            this.lbTransStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbTransStatus.AutoSize = true;
-            this.lbTransStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTransStatus.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbTransStatus.Location = new System.Drawing.Point(3, 37);
-            this.lbTransStatus.Name = "lbTransStatus";
-            this.lbTransStatus.Size = new System.Drawing.Size(140, 19);
-            this.lbTransStatus.TabIndex = 0;
-            this.lbTransStatus.Text = "Transaction Status :";
-            this.lbTransStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTransType
-            // 
-            this.lbTransType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbTransType.AutoSize = true;
-            this.lbTransType.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransType.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTransType.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbTransType.Location = new System.Drawing.Point(3, 6);
-            this.lbTransType.Name = "lbTransType";
-            this.lbTransType.Size = new System.Drawing.Size(129, 19);
-            this.lbTransType.TabIndex = 0;
-            this.lbTransType.Text = "Transaction Type :";
-            this.lbTransType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoFour
-            // 
-            this.tbBlockInfoFour.ColumnCount = 2;
-            this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoFour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoFour.Controls.Add(this.lbUserType, 0, 0);
-            this.tbBlockInfoFour.Controls.Add(this.lbUserStatus, 0, 1);
-            this.tbBlockInfoFour.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoFour.Location = new System.Drawing.Point(386, 72);
-            this.tbBlockInfoFour.Name = "tbBlockInfoFour";
-            this.tbBlockInfoFour.RowCount = 2;
-            this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFour.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFour.Size = new System.Drawing.Size(547, 63);
-            this.tbBlockInfoFour.TabIndex = 3;
-            // 
-            // lbUserType
-            // 
-            this.lbUserType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUserType.AutoSize = true;
-            this.lbUserType.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserType.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserType.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbUserType.Location = new System.Drawing.Point(3, 6);
-            this.lbUserType.Name = "lbUserType";
-            this.lbUserType.Size = new System.Drawing.Size(80, 19);
-            this.lbUserType.TabIndex = 1;
-            this.lbUserType.Text = "User Type :";
-            this.lbUserType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbUserStatus
-            // 
-            this.lbUserStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUserStatus.AutoSize = true;
-            this.lbUserStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserStatus.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbUserStatus.Location = new System.Drawing.Point(3, 37);
-            this.lbUserStatus.Name = "lbUserStatus";
-            this.lbUserStatus.Size = new System.Drawing.Size(91, 19);
-            this.lbUserStatus.TabIndex = 2;
-            this.lbUserStatus.Text = "User Status :";
-            this.lbUserStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoFive
-            // 
-            this.tbBlockInfoFive.ColumnCount = 2;
-            this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
-            this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
-            this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.08511F));
-            this.tbBlockInfoFive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.91489F));
-            this.tbBlockInfoFive.Controls.Add(this.lbTransDate, 0, 0);
-            this.tbBlockInfoFive.Controls.Add(this.lbDueDate, 0, 1);
-            this.tbBlockInfoFive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoFive.Location = new System.Drawing.Point(3, 141);
-            this.tbBlockInfoFive.Name = "tbBlockInfoFive";
-            this.tbBlockInfoFive.RowCount = 2;
-            this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoFive.Size = new System.Drawing.Size(377, 63);
-            this.tbBlockInfoFive.TabIndex = 4;
-            // 
-            // lbTransDate
-            // 
-            this.lbTransDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbTransDate.AutoSize = true;
-            this.lbTransDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbTransDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTransDate.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbTransDate.Location = new System.Drawing.Point(3, 6);
-            this.lbTransDate.Name = "lbTransDate";
-            this.lbTransDate.Size = new System.Drawing.Size(130, 19);
-            this.lbTransDate.TabIndex = 0;
-            this.lbTransDate.Text = "Transaction Date :";
-            this.lbTransDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbDueDate
-            // 
-            this.lbDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbDueDate.AutoSize = true;
-            this.lbDueDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbDueDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDueDate.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbDueDate.Location = new System.Drawing.Point(3, 37);
-            this.lbDueDate.Name = "lbDueDate";
-            this.lbDueDate.Size = new System.Drawing.Size(78, 19);
-            this.lbDueDate.TabIndex = 1;
-            this.lbDueDate.Text = "Due Date :";
-            this.lbDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoSix
-            // 
-            this.tbBlockInfoSix.ColumnCount = 2;
-            this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoSix.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoSix.Controls.Add(this.lbUserEmail, 0, 0);
-            this.tbBlockInfoSix.Controls.Add(this.lbUserPhoneNumber, 0, 1);
-            this.tbBlockInfoSix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoSix.Location = new System.Drawing.Point(386, 141);
-            this.tbBlockInfoSix.Name = "tbBlockInfoSix";
-            this.tbBlockInfoSix.RowCount = 2;
-            this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSix.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSix.Size = new System.Drawing.Size(547, 63);
-            this.tbBlockInfoSix.TabIndex = 5;
-            // 
-            // lbUserEmail
-            // 
-            this.lbUserEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUserEmail.AutoSize = true;
-            this.lbUserEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserEmail.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserEmail.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbUserEmail.Location = new System.Drawing.Point(3, 6);
-            this.lbUserEmail.Name = "lbUserEmail";
-            this.lbUserEmail.Size = new System.Drawing.Size(85, 19);
-            this.lbUserEmail.TabIndex = 0;
-            this.lbUserEmail.Text = "User Email :";
-            this.lbUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbUserPhoneNumber
-            // 
-            this.lbUserPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUserPhoneNumber.AutoSize = true;
-            this.lbUserPhoneNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserPhoneNumber.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserPhoneNumber.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbUserPhoneNumber.Location = new System.Drawing.Point(3, 37);
-            this.lbUserPhoneNumber.Name = "lbUserPhoneNumber";
-            this.lbUserPhoneNumber.Size = new System.Drawing.Size(116, 19);
-            this.lbUserPhoneNumber.TabIndex = 1;
-            this.lbUserPhoneNumber.Text = "Phone Number :";
-            this.lbUserPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoSeven
-            // 
-            this.tbBlockInfoSeven.ColumnCount = 2;
-            this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.35106F));
-            this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
-            this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.35106F));
-            this.tbBlockInfoSeven.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.64894F));
-            this.tbBlockInfoSeven.Controls.Add(this.lbReturnDate, 0, 0);
-            this.tbBlockInfoSeven.Controls.Add(this.lbListTransItems, 0, 1);
-            this.tbBlockInfoSeven.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoSeven.Location = new System.Drawing.Point(3, 210);
-            this.tbBlockInfoSeven.Name = "tbBlockInfoSeven";
-            this.tbBlockInfoSeven.RowCount = 2;
-            this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSeven.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoSeven.Size = new System.Drawing.Size(377, 63);
-            this.tbBlockInfoSeven.TabIndex = 6;
-            // 
-            // lbReturnDate
-            // 
-            this.lbReturnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbReturnDate.AutoSize = true;
-            this.lbReturnDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbReturnDate.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReturnDate.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbReturnDate.Location = new System.Drawing.Point(3, 6);
-            this.lbReturnDate.Name = "lbReturnDate";
-            this.lbReturnDate.Size = new System.Drawing.Size(98, 19);
-            this.lbReturnDate.TabIndex = 0;
-            this.lbReturnDate.Text = "Return Date :";
-            this.lbReturnDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbListTransItems
-            // 
-            this.lbListTransItems.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbListTransItems.AutoSize = true;
-            this.lbListTransItems.BackColor = System.Drawing.Color.Transparent;
-            this.lbListTransItems.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbListTransItems.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbListTransItems.Location = new System.Drawing.Point(3, 37);
-            this.lbListTransItems.Name = "lbListTransItems";
-            this.lbListTransItems.Size = new System.Drawing.Size(155, 19);
-            this.lbListTransItems.TabIndex = 1;
-            this.lbListTransItems.Text = "Transaction Item List :";
-            this.lbListTransItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbBlockInfoEight
-            // 
-            this.tbBlockInfoEight.BackColor = System.Drawing.Color.Transparent;
-            this.tbBlockInfoEight.ColumnCount = 2;
-            this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tbBlockInfoEight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbBlockInfoEight.Controls.Add(this.lbViolationStatus, 0, 0);
-            this.tbBlockInfoEight.Controls.Add(this.lbViolationList, 0, 1);
-            this.tbBlockInfoEight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBlockInfoEight.Location = new System.Drawing.Point(386, 210);
-            this.tbBlockInfoEight.Name = "tbBlockInfoEight";
-            this.tbBlockInfoEight.RowCount = 2;
-            this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoEight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBlockInfoEight.Size = new System.Drawing.Size(547, 63);
-            this.tbBlockInfoEight.TabIndex = 7;
-            // 
-            // lbViolationStatus
-            // 
-            this.lbViolationStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbViolationStatus.AutoSize = true;
-            this.lbViolationStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbViolationStatus.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbViolationStatus.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbViolationStatus.Location = new System.Drawing.Point(3, 6);
-            this.lbViolationStatus.Name = "lbViolationStatus";
-            this.lbViolationStatus.Size = new System.Drawing.Size(120, 19);
-            this.lbViolationStatus.TabIndex = 0;
-            this.lbViolationStatus.Text = "Violation Status :";
-            this.lbViolationStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbViolationList
-            // 
-            this.lbViolationList.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbViolationList.AutoSize = true;
-            this.lbViolationList.BackColor = System.Drawing.Color.Transparent;
-            this.lbViolationList.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbViolationList.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbViolationList.Location = new System.Drawing.Point(3, 37);
-            this.lbViolationList.Name = "lbViolationList";
-            this.lbViolationList.Size = new System.Drawing.Size(101, 19);
-            this.lbViolationList.TabIndex = 1;
-            this.lbViolationList.Text = "Violation List :";
-            this.lbViolationList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgvDataItemList
-            // 
-            this.dgvDataItemList.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgvDataItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colItem,
-            this.colItemQuantity});
-            this.dgvDataItemList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDataItemList.Location = new System.Drawing.Point(3, 279);
-            this.dgvDataItemList.Name = "dgvDataItemList";
-            this.dgvDataItemList.Size = new System.Drawing.Size(377, 294);
-            this.dgvDataItemList.TabIndex = 10;
-            // 
-            // colItem
-            // 
-            this.colItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colItem.HeaderText = "Item";
-            this.colItem.Name = "colItem";
-            this.colItem.ReadOnly = true;
-            this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colItemQuantity
-            // 
-            this.colItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colItemQuantity.HeaderText = "Quantity";
-            this.colItemQuantity.Name = "colItemQuantity";
-            this.colItemQuantity.ReadOnly = true;
-            this.colItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colItemQuantity.Width = 71;
-            // 
-            // dgvDataViolationHandle
-            // 
-            this.dgvDataViolationHandle.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgvDataViolationHandle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataViolationHandle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colRuleTitle,
-            this.colPenaty,
-            this.colViolationDate,
-            this.colPaidStatus,
-            this.colExcuseViolation});
-            this.dgvDataViolationHandle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDataViolationHandle.Location = new System.Drawing.Point(386, 279);
-            this.dgvDataViolationHandle.Name = "dgvDataViolationHandle";
-            this.dgvDataViolationHandle.Size = new System.Drawing.Size(547, 294);
-            this.dgvDataViolationHandle.TabIndex = 11;
-            // 
-            // colRuleTitle
-            // 
-            this.colRuleTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRuleTitle.HeaderText = "Rule";
-            this.colRuleTitle.Name = "colRuleTitle";
-            this.colRuleTitle.ReadOnly = true;
-            this.colRuleTitle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colPenaty
-            // 
-            this.colPenaty.HeaderText = "Penaty";
-            this.colPenaty.Name = "colPenaty";
-            this.colPenaty.ReadOnly = true;
-            this.colPenaty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colViolationDate
-            // 
-            this.colViolationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colViolationDate.HeaderText = "Violation Date";
-            this.colViolationDate.Name = "colViolationDate";
-            this.colViolationDate.ReadOnly = true;
-            this.colViolationDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colViolationDate.Width = 98;
-            // 
-            // colPaidStatus
-            // 
-            this.colPaidStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPaidStatus.HeaderText = "Paid Status";
-            this.colPaidStatus.Name = "colPaidStatus";
-            this.colPaidStatus.ReadOnly = true;
-            this.colPaidStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colPaidStatus.Width = 86;
-            // 
-            // colExcuseViolation
-            // 
-            this.colExcuseViolation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colExcuseViolation.HeaderText = "";
-            this.colExcuseViolation.Name = "colExcuseViolation";
-            this.colExcuseViolation.ReadOnly = true;
-            this.colExcuseViolation.Width = 20;
-            // 
-            // pnlHeaderTransInfoDetail
-            // 
-            this.pnlHeaderTransInfoDetail.BackColor = System.Drawing.Color.Azure;
-            this.pnlHeaderTransInfoDetail.Controls.Add(this.btnExitChildPanel);
-            this.pnlHeaderTransInfoDetail.Controls.Add(this.lbTransInfo);
-            this.pnlHeaderTransInfoDetail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeaderTransInfoDetail.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeaderTransInfoDetail.Name = "pnlHeaderTransInfoDetail";
-            this.pnlHeaderTransInfoDetail.Size = new System.Drawing.Size(936, 34);
-            this.pnlHeaderTransInfoDetail.TabIndex = 1;
-            // 
-            // btnExitChildPanel
-            // 
-            this.btnExitChildPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExitChildPanel.BackColor = System.Drawing.Color.Transparent;
-            this.btnExitChildPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExitChildPanel.ForeColor = System.Drawing.Color.Red;
-            this.btnExitChildPanel.Location = new System.Drawing.Point(901, 1);
-            this.btnExitChildPanel.Name = "btnExitChildPanel";
-            this.btnExitChildPanel.Size = new System.Drawing.Size(30, 30);
-            this.btnExitChildPanel.TabIndex = 1;
-            this.btnExitChildPanel.Text = "X";
-            this.btnExitChildPanel.UseVisualStyleBackColor = false;
-            this.btnExitChildPanel.Click += new System.EventHandler(this.btnExitChildPanel_Click);
-            // 
-            // lbTransInfo
-            // 
-            this.lbTransInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbTransInfo.AutoSize = true;
-            this.lbTransInfo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTransInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
-            this.lbTransInfo.Location = new System.Drawing.Point(383, 3);
-            this.lbTransInfo.Name = "lbTransInfo";
-            this.lbTransInfo.Size = new System.Drawing.Size(208, 23);
-            this.lbTransInfo.TabIndex = 0;
-            this.lbTransInfo.Text = "Transaction Information";
-            this.lbTransInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(900, 50);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(852, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(45, 40);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.label1.Location = new System.Drawing.Point(276, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(361, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TRANSACTION INFORMATION";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(900, 600);
+            this.panel2.TabIndex = 3;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel22, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel20, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel18, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel16, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel24, 1, 5);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 600);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.White;
+            this.panel22.Controls.Add(this.btnViolation);
+            this.panel22.Controls.Add(this.txtViolation);
+            this.panel22.Controls.Add(this.panel23);
+            this.panel22.Controls.Add(this.label11);
+            this.panel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel22.ForeColor = System.Drawing.Color.Black;
+            this.panel22.Location = new System.Drawing.Point(450, 200);
+            this.panel22.Margin = new System.Windows.Forms.Padding(0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(448, 50);
+            this.panel22.TabIndex = 15;
+            // 
+            // btnViolation
+            // 
+            this.btnViolation.Location = new System.Drawing.Point(339, 4);
+            this.btnViolation.Name = "btnViolation";
+            this.btnViolation.Size = new System.Drawing.Size(55, 34);
+            this.btnViolation.TabIndex = 6;
+            this.btnViolation.Text = "xem";
+            this.btnViolation.UseVisualStyleBackColor = true;
+            this.btnViolation.Click += new System.EventHandler(this.btnViolation_Click);
+            // 
+            // txtViolation
+            // 
+            this.txtViolation.BackColor = System.Drawing.SystemColors.Window;
+            this.txtViolation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtViolation.Location = new System.Drawing.Point(84, 17);
+            this.txtViolation.Margin = new System.Windows.Forms.Padding(0);
+            this.txtViolation.Name = "txtViolation";
+            this.txtViolation.Size = new System.Drawing.Size(252, 21);
+            this.txtViolation.TabIndex = 1;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.Black;
+            this.panel23.Location = new System.Drawing.Point(16, 38);
+            this.panel23.Margin = new System.Windows.Forms.Padding(0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(420, 1);
+            this.panel23.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Location = new System.Drawing.Point(18, 15);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 22);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Violation : ";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.White;
+            this.panel20.Controls.Add(this.txtPhoneNumber);
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Controls.Add(this.label10);
+            this.panel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel20.ForeColor = System.Drawing.Color.Black;
+            this.panel20.Location = new System.Drawing.Point(450, 150);
+            this.panel20.Margin = new System.Windows.Forms.Padding(0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(448, 50);
+            this.panel20.TabIndex = 14;
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(112, 14);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(312, 21);
+            this.txtPhoneNumber.TabIndex = 1;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.Black;
+            this.panel21.Location = new System.Drawing.Point(16, 38);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(420, 1);
+            this.panel21.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Location = new System.Drawing.Point(18, 15);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 22);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Phone Number:";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.White;
+            this.panel18.Controls.Add(this.txtEmail);
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Controls.Add(this.label9);
+            this.panel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel18.ForeColor = System.Drawing.Color.Black;
+            this.panel18.Location = new System.Drawing.Point(450, 100);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(448, 50);
+            this.panel18.TabIndex = 13;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Location = new System.Drawing.Point(62, 13);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(0);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(357, 21);
+            this.txtEmail.TabIndex = 1;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.Black;
+            this.panel19.Location = new System.Drawing.Point(16, 38);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(420, 1);
+            this.panel19.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.Location = new System.Drawing.Point(18, 15);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 22);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Email :";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.White;
+            this.panel16.Controls.Add(this.txtFullName);
+            this.panel16.Controls.Add(this.panel17);
+            this.panel16.Controls.Add(this.label8);
+            this.panel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel16.ForeColor = System.Drawing.Color.Black;
+            this.panel16.Location = new System.Drawing.Point(450, 50);
+            this.panel16.Margin = new System.Windows.Forms.Padding(0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(448, 50);
+            this.panel16.TabIndex = 12;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFullName.Location = new System.Drawing.Point(82, 12);
+            this.txtFullName.Margin = new System.Windows.Forms.Padding(0);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(312, 21);
+            this.txtFullName.TabIndex = 1;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Black;
+            this.panel17.Location = new System.Drawing.Point(16, 38);
+            this.panel17.Margin = new System.Windows.Forms.Padding(0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(420, 1);
+            this.panel17.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(18, 15);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 22);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Full Name:";
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.Controls.Add(this.txtMemberID);
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Controls.Add(this.label7);
+            this.panel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel14.ForeColor = System.Drawing.Color.Black;
+            this.panel14.Location = new System.Drawing.Point(450, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(448, 50);
+            this.panel14.TabIndex = 11;
+            // 
+            // txtMemberID
+            // 
+            this.txtMemberID.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMemberID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMemberID.Location = new System.Drawing.Point(86, 16);
+            this.txtMemberID.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(312, 21);
+            this.txtMemberID.TabIndex = 1;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Black;
+            this.panel15.Location = new System.Drawing.Point(16, 38);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(420, 1);
+            this.panel15.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(18, 15);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 22);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Member ID:";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.txtReturnDate);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel11.ForeColor = System.Drawing.Color.Black;
+            this.panel11.Location = new System.Drawing.Point(0, 200);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(448, 50);
+            this.panel11.TabIndex = 9;
+            // 
+            // txtReturnDate
+            // 
+            this.txtReturnDate.BackColor = System.Drawing.SystemColors.Window;
+            this.txtReturnDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReturnDate.Location = new System.Drawing.Point(161, 15);
+            this.txtReturnDate.Margin = new System.Windows.Forms.Padding(0);
+            this.txtReturnDate.Name = "txtReturnDate";
+            this.txtReturnDate.Size = new System.Drawing.Size(275, 21);
+            this.txtReturnDate.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Black;
+            this.panel12.Location = new System.Drawing.Point(17, 38);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(420, 1);
+            this.panel12.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(18, 15);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(212, 22);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Transaction Return Date:";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.txtDueDate);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel9.ForeColor = System.Drawing.Color.Black;
+            this.panel9.Location = new System.Drawing.Point(0, 150);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(448, 50);
+            this.panel9.TabIndex = 8;
+            // 
+            // txtDueDate
+            // 
+            this.txtDueDate.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDueDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDueDate.Location = new System.Drawing.Point(152, 15);
+            this.txtDueDate.Margin = new System.Windows.Forms.Padding(0);
+            this.txtDueDate.Name = "txtDueDate";
+            this.txtDueDate.Size = new System.Drawing.Size(283, 21);
+            this.txtDueDate.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Location = new System.Drawing.Point(17, 38);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(420, 1);
+            this.panel10.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(18, 15);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 22);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Transaction Due Date:";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.txtDate);
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.ForeColor = System.Drawing.Color.Black;
+            this.panel7.Location = new System.Drawing.Point(0, 100);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(448, 50);
+            this.panel7.TabIndex = 7;
+            // 
+            // txtDate
+            // 
+            this.txtDate.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDate.Location = new System.Drawing.Point(123, 15);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(0);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(312, 21);
+            this.txtDate.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(17, 38);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(420, 1);
+            this.panel8.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(18, 15);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 22);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Transaction Date :";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.txtTransType);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.ForeColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(0, 50);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(448, 50);
+            this.panel5.TabIndex = 6;
+            // 
+            // txtTransType
+            // 
+            this.txtTransType.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTransType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTransType.Location = new System.Drawing.Point(123, 16);
+            this.txtTransType.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTransType.Name = "txtTransType";
+            this.txtTransType.Size = new System.Drawing.Size(312, 21);
+            this.txtTransType.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Black;
+            this.panel6.Location = new System.Drawing.Point(16, 38);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(420, 1);
+            this.panel6.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(18, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(161, 22);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Transaction Type :";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.txtTransactionID);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.ForeColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(448, 50);
+            this.panel3.TabIndex = 3;
+            // 
+            // txtTransactionID
+            // 
+            this.txtTransactionID.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTransactionID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTransactionID.Location = new System.Drawing.Point(110, 16);
+            this.txtTransactionID.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTransactionID.Name = "txtTransactionID";
+            this.txtTransactionID.Size = new System.Drawing.Size(312, 21);
+            this.txtTransactionID.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(16, 38);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(420, 1);
+            this.panel4.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(18, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 22);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Transaction ID :";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.btnConfirmReturn);
+            this.panel13.Controls.Add(this.dgvTransactionItem);
+            this.panel13.Controls.Add(this.label12);
+            this.panel13.Location = new System.Drawing.Point(3, 253);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(444, 347);
+            this.panel13.TabIndex = 10;
+            // 
+            // btnConfirmReturn
+            // 
+            this.btnConfirmReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnConfirmReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnConfirmReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmReturn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnConfirmReturn.Location = new System.Drawing.Point(0, 307);
+            this.btnConfirmReturn.Name = "btnConfirmReturn";
+            this.btnConfirmReturn.Size = new System.Drawing.Size(444, 40);
+            this.btnConfirmReturn.TabIndex = 2;
+            this.btnConfirmReturn.Text = "Xác nhận trả";
+            this.btnConfirmReturn.UseVisualStyleBackColor = false;
+            this.btnConfirmReturn.Click += new System.EventHandler(this.btnConfirmReturn_Click);
+            // 
+            // dgvTransactionItem
+            // 
+            this.dgvTransactionItem.AllowUserToAddRows = false;
+            this.dgvTransactionItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactionItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.BookID,
+            this.DeviceID,
+            this.Amount,
+            this.action});
+            this.dgvTransactionItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvTransactionItem.Location = new System.Drawing.Point(0, 28);
+            this.dgvTransactionItem.Name = "dgvTransactionItem";
+            this.dgvTransactionItem.RowHeadersVisible = false;
+            this.dgvTransactionItem.RowHeadersWidth = 62;
+            this.dgvTransactionItem.RowTemplate.Height = 28;
+            this.dgvTransactionItem.Size = new System.Drawing.Size(444, 273);
+            this.dgvTransactionItem.TabIndex = 1;
+            this.dgvTransactionItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactionItem_CellContentClick);
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            this.STT.Width = 60;
+            // 
+            // BookID
+            // 
+            this.BookID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BookID.HeaderText = "BookID";
+            this.BookID.MinimumWidth = 8;
+            this.BookID.Name = "BookID";
+            this.BookID.Width = 150;
+            // 
+            // DeviceID
+            // 
+            this.DeviceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DeviceID.HeaderText = "DeviceID";
+            this.DeviceID.MinimumWidth = 8;
+            this.DeviceID.Name = "DeviceID";
+            this.DeviceID.Width = 150;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 8;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 150;
+            // 
+            // action
+            // 
+            this.action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.action.HeaderText = "";
+            this.action.MinimumWidth = 8;
+            this.action.Name = "action";
+            this.action.Width = 82;
+            // 
+            // label12
+            // 
+            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(444, 28);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Transaction Items";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.panel26);
+            this.panel24.Controls.Add(this.panel25);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(453, 253);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(444, 347);
+            this.panel24.TabIndex = 16;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.dgvPayments);
+            this.panel26.Controls.Add(this.label15);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(0, 64);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(444, 283);
+            this.panel26.TabIndex = 1;
+            // 
+            // dgvPayments
+            // 
+            this.dgvPayments.AllowUserToAddRows = false;
+            this.dgvPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LoaiPhi,
+            this.Sotien,
+            this.MoTa});
+            this.dgvPayments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPayments.Location = new System.Drawing.Point(0, 23);
+            this.dgvPayments.Name = "dgvPayments";
+            this.dgvPayments.RowHeadersVisible = false;
+            this.dgvPayments.RowHeadersWidth = 62;
+            this.dgvPayments.RowTemplate.Height = 28;
+            this.dgvPayments.Size = new System.Drawing.Size(444, 260);
+            this.dgvPayments.TabIndex = 1;
+            // 
+            // LoaiPhi
+            // 
+            this.LoaiPhi.HeaderText = "Loại Phí";
+            this.LoaiPhi.MinimumWidth = 8;
+            this.LoaiPhi.Name = "LoaiPhi";
+            this.LoaiPhi.Width = 150;
+            // 
+            // Sotien
+            // 
+            this.Sotien.HeaderText = "Số tiền";
+            this.Sotien.MinimumWidth = 8;
+            this.Sotien.Name = "Sotien";
+            this.Sotien.Width = 150;
+            // 
+            // MoTa
+            // 
+            this.MoTa.HeaderText = "Mô tả";
+            this.MoTa.MinimumWidth = 8;
+            this.MoTa.Name = "MoTa";
+            this.MoTa.Width = 150;
+            // 
+            // label15
+            // 
+            this.label15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(0, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(444, 23);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Chi tiết Payment";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.txtStatusPayment);
+            this.panel25.Controls.Add(this.txtTotalPayment);
+            this.panel25.Controls.Add(this.label14);
+            this.panel25.Controls.Add(this.label13);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(444, 64);
+            this.panel25.TabIndex = 0;
+            // 
+            // txtStatusPayment
+            // 
+            this.txtStatusPayment.Location = new System.Drawing.Point(81, 35);
+            this.txtStatusPayment.Name = "txtStatusPayment";
+            this.txtStatusPayment.Size = new System.Drawing.Size(138, 26);
+            this.txtStatusPayment.TabIndex = 3;
+            // 
+            // txtTotalPayment
+            // 
+            this.txtTotalPayment.Location = new System.Drawing.Point(137, 5);
+            this.txtTotalPayment.Name = "txtTotalPayment";
+            this.txtTotalPayment.Size = new System.Drawing.Size(169, 26);
+            this.txtTotalPayment.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(17, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(66, 22);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Status:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(9, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(131, 22);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Total Payment:";
             // 
             // FormInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 610);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(900, 650);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlChildDetailInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.pnlChildDetailInfo.ResumeLayout(false);
-            this.pnlTransInfoContainer.ResumeLayout(false);
-            this.tbTransInfoWraper.ResumeLayout(false);
-            this.tbBlockInfoOne.ResumeLayout(false);
-            this.tbBlockInfoOne.PerformLayout();
-            this.tbBlockInfoTwo.ResumeLayout(false);
-            this.tbBlockInfoTwo.PerformLayout();
-            this.tbBlockInfoThree.ResumeLayout(false);
-            this.tbBlockInfoThree.PerformLayout();
-            this.tbBlockInfoFour.ResumeLayout(false);
-            this.tbBlockInfoFour.PerformLayout();
-            this.tbBlockInfoFive.ResumeLayout(false);
-            this.tbBlockInfoFive.PerformLayout();
-            this.tbBlockInfoSix.ResumeLayout(false);
-            this.tbBlockInfoSix.PerformLayout();
-            this.tbBlockInfoSeven.ResumeLayout(false);
-            this.tbBlockInfoSeven.PerformLayout();
-            this.tbBlockInfoEight.ResumeLayout(false);
-            this.tbBlockInfoEight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataItemList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataViolationHandle)).EndInit();
-            this.pnlHeaderTransInfoDetail.ResumeLayout(false);
-            this.pnlHeaderTransInfoDetail.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionItem)).EndInit();
+            this.panel24.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).EndInit();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlChildDetailInfo;
-        private System.Windows.Forms.Panel pnlTransInfoContainer;
-        private System.Windows.Forms.TableLayoutPanel tbTransInfoWraper;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoOne;
-        private System.Windows.Forms.Label lbTransID;
-        private System.Windows.Forms.Label lbMemID;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoTwo;
-        private System.Windows.Forms.Label lbMemFullName;
-        private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoThree;
-        private System.Windows.Forms.Label lbTransStatus;
-        private System.Windows.Forms.Label lbTransType;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoFour;
-        private System.Windows.Forms.Label lbUserType;
-        private System.Windows.Forms.Label lbUserStatus;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoFive;
-        private System.Windows.Forms.Label lbTransDate;
-        private System.Windows.Forms.Label lbDueDate;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoSix;
-        private System.Windows.Forms.Label lbUserEmail;
-        private System.Windows.Forms.Label lbUserPhoneNumber;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoSeven;
-        private System.Windows.Forms.Label lbReturnDate;
-        private System.Windows.Forms.Label lbListTransItems;
-        private System.Windows.Forms.TableLayoutPanel tbBlockInfoEight;
-        private System.Windows.Forms.Label lbViolationStatus;
-        private System.Windows.Forms.Label lbViolationList;
-        private System.Windows.Forms.DataGridView dgvDataItemList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemQuantity;
-        private System.Windows.Forms.DataGridView dgvDataViolationHandle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRuleTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPenaty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colViolationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPaidStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExcuseViolation;
-        private System.Windows.Forms.Panel pnlHeaderTransInfoDetail;
-        private System.Windows.Forms.Button btnExitChildPanel;
-        private System.Windows.Forms.Label lbTransInfo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btnClose;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtTransactionID;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txtTransType;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox txtReturnDate;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox txtDueDate;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox txtViolation;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TextBox txtMemberID;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvTransactionItem;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtStatusPayment;
+        private System.Windows.Forms.TextBox txtTotalPayment;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dgvPayments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiPhi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sotien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
+        private System.Windows.Forms.Button btnViolation;
+        private System.Windows.Forms.Button btnConfirmReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn action;
     }
 }

@@ -111,6 +111,7 @@ namespace QuanLyThuQuan.GUI
             textBox1.Text = dataGridView1.CurrentRow.Cells["ViolationID"].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells["MemberID"].Value.ToString();
             textBox3.Text = dataGridView1.CurrentRow.Cells["TransactionID"].Value?.ToString() ?? "";
+
             comboBox1.SelectedValue = Convert.ToInt32(dataGridView1.CurrentRow.Cells["RuleID"].Value);
             textBox5.Text = dataGridView1.CurrentRow.Cells["FineAmount"].Value.ToString();
             textBox6.Text = dataGridView1.CurrentRow.Cells["Reason"].Value.ToString();

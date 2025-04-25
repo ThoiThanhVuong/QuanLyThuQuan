@@ -2,21 +2,14 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\BouncyCastle.Cryptography.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\Google.Protobuf.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Compression.LZ4.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Compression.LZ4.Streams.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Hash.xxHash.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\MySql.Data.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Buffers.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Configuration.ConfigurationManager.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.IO.Pipelines.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Memory.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Numerics.Vectors.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Threading.Tasks.Extensions.dll
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\ZstdSharp.dll
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\BouncyCastle.Cryptography.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\Google.Protobuf.pdb
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\Google.Protobuf.xml
@@ -52,7 +45,6 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormMain.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.Login.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormBorrowBook.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormInformation.resources
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormReturnBook.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Properties.Resources.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.cache
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.CoreCompileInputs.cache
@@ -359,3 +351,7 @@ C:\Users\ASUS\source\repos\Quanli\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.C
 C:\Users\ASUS\source\repos\Quanli\QuanLyThuQuan\obj\Debug\QuanLyTh.BD2212A7.Up2Date
 C:\Users\ASUS\source\repos\Quanli\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe
 C:\Users\ASUS\source\repos\Quanli\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.pdb
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindingRedirects.cache
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormReservation.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormShowProductItem.resources

@@ -10,15 +10,14 @@ namespace QuanLyThuQuan.GUI
 {
     public partial class FormTransaction : Form
     {
-        // private methods
-        private void ChangeColorHoverBtn(Button button, Color color)
-        {
-            button.BackColor = color;
-        }
+        private TransactionBUS trans = new TransactionBUS();
+       
+      
 
         public FormTransaction()
         {
             InitializeComponent();
+          
         }
 
         private void FormTransaction_Load(object sender, EventArgs e)
@@ -26,118 +25,68 @@ namespace QuanLyThuQuan.GUI
             this.ControlBox = false;
             this.DoubleBuffered = true;
             LoadAllTransaction();
-            //dgvDataTransactions.CellContentClick += dgvDataTransactions_CellContentClick;
 
-        }
+            dgvTransactions.CellContentClick -= dgvTransactions_CellContentClick; 
+            dgvTransactions.CellContentClick += dgvTransactions_CellContentClick;
 
-        private void btnBorrow_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnBorrow, Color.LightCyan);
-        }
-
-        private void btnReturnBook_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnReturnBook, Color.LightCyan);
-        }
-
-        private void btnBookReservation_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnBookReservation, Color.LightCyan);
-        }
-
-        private void btnBorrow_MouseLeave(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnBorrow, Color.Transparent);
-        }
-
-        private void btnReturnBook_MouseLeave(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnReturnBook, Color.Transparent);
-        }
-
-        private void btnBookReservation_MouseLeave(object sender, EventArgs e)
-        {
-            ChangeColorHoverBtn(btnBookReservation, Color.Transparent);
-        }
-
-        private void pnlChildDetailInfo_Paint(object sender, PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            int borderSize = 10;
-            Color borderColor = Color.Red;
-            Control panel = sender as Control;
-            using (Pen pen = new Pen(borderColor, borderSize))
-            {
-                e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, panel.Width - 1, panel.Height - 1));
-            }
-            //ControlPaint.DrawBorder(e.Graphics, pnlChildDetailInfo.ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
-        }
-
-        //Borrow button click
-        private void btnBorrow_Click(object sender, EventArgs e)
-        {
-            FormBorrowBook borrowForm = new FormBorrowBook();
-            borrowForm.ShowDialog();
-        }
-
-        private void btnReturnBook_Click(object sender, EventArgs e)
-        {
-            FormReturnBook returnForm = new FormReturnBook();
-            returnForm.ShowDialog();
-        }
-
-        private void btnBookReservation_Click(object sender, EventArgs e)
-        {
-            FormBorrowBook borrowForm = new FormBorrowBook();
-            borrowForm.ShowDialog();
-        }
-
-        private void dgvDataTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvDataTransactions.Columns[e.ColumnIndex].Name.Equals("colMoreOptions"))
-            {
-                FormInformation informationForm = new FormInformation(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
-                informationForm.ShowDialog();
-                TransactionBUS bus = new TransactionBUS();
-                bus.GetAll();
-                bus.CheckOverdue(dgvDataTransactions.Rows[e.RowIndex].Cells[1].Value.ToString());
-            }
         }
 
         private void LoadAllTransaction()
         {
 
-            //List<TransactionModel> transactions = TransactionBUS.GetInstance().GetAll();
-            List<TransactionModel> transactions = new TransactionBUS().GetAll();
-
-            dgvDataTransactions.DataSource = null;
-            dgvDataTransactions.DataSource = transactions;
-            Console.WriteLine("transactions" + transactions);
-            if (!dgvDataTransactions.Columns.Contains("More"))
+            List<TransactionModel> transactions = trans.GetAllTransactionsWithItems();
+            if(transactions == null || transactions.Count == 0)
             {
-                DataGridViewButtonColumn moreColumn = new DataGridViewButtonColumn();
-                moreColumn.Name = "colMoreOptions";
-                moreColumn.HeaderText = "";
-                moreColumn.Text = "...";
-                moreColumn.UseColumnTextForButtonValue = true;
-                moreColumn.Width = 10;
-                dgvDataTransactions.Columns.Add(moreColumn);
+                Console.WriteLine("Không có dữ liệu !");
             }
-            dgvDataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDataTransactions.Columns["Status"].MinimumWidth = 50;
-            dgvDataTransactions.DefaultCellStyle.ForeColor = Color.Blue;
-            List<string> colList = new List<string>{"TransactionType", "TransactionDate", "TransactionID", "DueDate",
-                                                    "ReturnDate", "MemberID"};
-            ResizeSpecificCols(colList, dgvDataTransactions, DataGridViewAutoSizeColumnMode.AllCells);
-
+            else
+            {
+                dgvTransactions.Rows.Clear();
+                dgvTransactions.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvTransactions.Columns[7].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+                foreach (var transaction in transactions)
+                {
+                    dgvTransactions.Rows.Add(
+                        transaction.TransactionID,
+                        transaction.MemberID,
+                        transaction.TransactionType,
+                        transaction.TransactionDate,
+                        transaction.DueDate,
+                        transaction.ReturnDate,
+                        transaction.Status,
+                        "..."                      
+                        );
+                }
+            }
+                
+        }
+     
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            FormBorrowBook borrowForm = new FormBorrowBook();
+            borrowForm.ShowDialog();
+            LoadAllTransaction();
         }
 
-        // Resize columns
-        private void ResizeSpecificCols(List<string> colList, DataGridView dgv, DataGridViewAutoSizeColumnMode mode)
+
+        private void btnBookReservation_Click(object sender, EventArgs e)
         {
-            IEnumerator<string> list = colList.GetEnumerator();
-            while (list.MoveNext())
-                dgv.Columns[list.Current].AutoSizeMode = mode;
+            FormReservation reservation = new FormReservation();
+            reservation.ShowDialog();
+            LoadAllTransaction();
+        }
+
+        private void dgvTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 7 && e.RowIndex >= 0)
+            {
+                int transactionID = Convert.ToInt32(dgvTransactions.Rows[e.RowIndex].Cells[0].Value);
+                TransactionModel transaction = trans.GetTransactionByID(transactionID);
+                trans.LoadExtraDetails(transaction); 
+                FormInformation transactionInfo = new FormInformation();
+                transactionInfo.SetValue(transaction);
+                transactionInfo.ShowDialog();
+            }
         }
     }
 }

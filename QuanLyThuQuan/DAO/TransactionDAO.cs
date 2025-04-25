@@ -1,9 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
-using QuanLyThuQuan.Interfaces;
 using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -12,183 +13,411 @@ namespace QuanLyThuQuan.DAO
         private ConnectDB db = new ConnectDB();
 
 
-        // get all value on DB (READ)
-        public List<TransactionModel> GetAll()
+        public List<TransactionModel> GetAllTransactionsWithItems()
         {
-            List<TransactionModel> transactionList = new List<TransactionModel>();
-            db.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = db.Connection)
+            List<TransactionModel> transactions = new List<TransactionModel>();
+            Dictionary<int, TransactionModel> transactionMap = new Dictionary<int, TransactionModel>();
+
+            try
             {
-          
-                string query = "SELECT * FROM Transactions";
-                try
+                db.OpenConnection();
+                string query = @"
+                SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount
+                FROM Transactions t
+                LEFT JOIN TransactionItems ti ON t.TransactionID = ti.TransactionID
+                ";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
-                    using (MySqlDataReader dtReader = myCmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (dtReader.Read())
+                        int transactionID = reader.GetInt32("TransactionID");
+
+                        if (!transactionMap.ContainsKey(transactionID))
                         {
-                            TransactionModel transaction = new TransactionModel();
-                            transaction.TransactionID = dtReader.GetInt32("TransactionID");
-                            transaction.MemberID = dtReader.GetInt32("MemberID");
-                            transaction.TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), dtReader.GetString("TransactionType"));
-                            transaction.TransactionDate = dtReader.GetDateTime("TransactionDate");
-                            transaction.DueDate = dtReader.IsDBNull(dtReader.GetOrdinal("DueDate")) ? (DateTime?)null : dtReader.GetDateTime("DueDate");
-                            transaction.ReturnDate = dtReader.IsDBNull(dtReader.GetOrdinal("ReturnDate")) ? (DateTime?)null : dtReader.GetDateTime("ReturnDate");
-                            transaction.Status = (TransactionStatus)Enum.Parse(typeof(TransactionStatus), dtReader.GetString("Status"));
-                            transactionList.Add(transaction);
+                            var transaction = new TransactionModel(
+                                transactionID,
+                                reader.GetInt32("MemberID"),
+                                (TransactionType)Enum.Parse(typeof(TransactionType), reader.GetString("TransactionType")),
+                                reader.GetDateTime("TransactionDate"),
+                                reader.IsDBNull(reader.GetOrdinal("DueDate")) ? (DateTime?)null : reader.GetDateTime("DueDate"),
+                                reader.IsDBNull(reader.GetOrdinal("ReturnDate")) ? (DateTime?)null : reader.GetDateTime("ReturnDate"),
+                                (TransactionStatus)Enum.Parse(typeof(TransactionStatus), reader.GetString("Status"))
+                            );
+                            transactionMap[transactionID] = transaction;
+                        }
+
+                        if (!reader.IsDBNull(reader.GetOrdinal("ItemID")))
+                        {
+                            var item = new TransactionItemModel(
+                                reader.GetInt32("ItemID"),
+                                transactionID,
+                                reader.IsDBNull(reader.GetOrdinal("BookID")) ? (int?)null : reader.GetInt32("BookID"),
+                                reader.IsDBNull(reader.GetOrdinal("DeviceID")) ? (int?)null : reader.GetInt32("DeviceID"),
+                                reader.GetInt32("Amount")
+                            );
+
+                            // Kiểm tra nếu TransactionItems chưa được khởi tạo, khởi tạo nó
+                            if (transactionMap[transactionID].TransactionItems == null)
+                            {
+                                transactionMap[transactionID].TransactionItems = new List<TransactionItemModel>();
+                            }
+
+                            transactionMap[transactionID].TransactionItems.Add(item);
                         }
                     }
-                    db.CloseConnection();
-                    return transactionList;
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.StackTrace);
-                    db.CloseConnection();
-                    return null;
                 }
             }
-        }
-
-        // Get by specific id (READ)
-        public TransactionModel GetByID(string id, string condition)
-        {
-            TransactionModel transaction = new TransactionModel();
-            db.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = db.Connection)
+            catch (Exception ex)
             {
-                Console.WriteLine("Success");
-                string query = "SELECT * FROM Transactions WHERE @Condition = @ID";
-                try
+                Console.WriteLine("Lỗi GetAllTransactionsWithItems: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            transactions.AddRange(transactionMap.Values);
+            return transactions;
+        }
+        public TransactionModel GetTransactionByID(int ID)
+        {
+            TransactionModel transaction = null;
+            Dictionary<int, TransactionModel> transactionMap = new Dictionary<int, TransactionModel>();
+            try
+            {
+                db.OpenConnection();
+                string query = @"
+            SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount,
+                   m.MemberID, m.FullName, m.Email, m.PhoneNumber -- Các cột từ bảng Member
+            FROM Transactions t
+            LEFT JOIN TransactionItems ti ON ti.TransactionID = t.TransactionID
+            JOIN Member m ON m.MemberID = t.MemberID
+            WHERE t.TransactionID = @ID";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        myCmd.Parameters.AddWithValue("@ID", id);
-                        myCmd.Parameters.AddWithValue("@Condition", condition);
-                        using (MySqlDataReader dtReader = myCmd.ExecuteReader())
+                        while (reader.Read())
                         {
-                            if (dtReader.Read())
+                            int transactionID = reader.GetInt32("TransactionID");
+
+                            // Kiểm tra nếu Transaction chưa được tạo
+                            if (!transactionMap.ContainsKey(transactionID))
                             {
-                                transaction.TransactionID = dtReader.GetInt32("TransactionID");
-                                transaction.MemberID = dtReader.GetInt32("MemberID");
-                                transaction.TransactionType = (TransactionType)Enum.Parse(typeof(TransactionType), dtReader.GetString("TransactionType"));
-                                transaction.TransactionDate = dtReader.GetDateTime("TransactionDate");
-                                transaction.DueDate = dtReader.IsDBNull(dtReader.GetOrdinal("DueDate")) ? (DateTime?)null : dtReader.GetDateTime("DueDate");
-                                transaction.ReturnDate = dtReader.IsDBNull(dtReader.GetOrdinal("ReturnDate")) ? (DateTime?)null : dtReader.GetDateTime("ReturnDate");
-                                transaction.Status = (TransactionStatus)Enum.Parse(typeof(TransactionStatus), dtReader.GetString("Status"));
+                                var member = new MemberModel(
+                                    reader.GetInt32("MemberID"),
+                                    reader.GetString("FullName"),
+                                    reader.GetString("Email"),
+                                    reader.GetString("PhoneNumber")
+                                );
+
+                                transaction = new TransactionModel(
+                                    transactionID,
+                                    reader.GetInt32("MemberID"),
+                                    (TransactionType)Enum.Parse(typeof(TransactionType), reader.GetString("TransactionType")),
+                                    reader.GetDateTime("TransactionDate"),
+                                    reader.IsDBNull(reader.GetOrdinal("DueDate")) ? (DateTime?)null : reader.GetDateTime("DueDate"),
+                                    reader.IsDBNull(reader.GetOrdinal("ReturnDate")) ? (DateTime?)null : reader.GetDateTime("ReturnDate"),
+                                    (TransactionStatus)Enum.Parse(typeof(TransactionStatus), reader.GetString("Status")),
+                                    member 
+                                );
+
+                                transactionMap[transactionID] = transaction;
+                            }
+
+                            // Thêm TransactionItems
+                            if (!reader.IsDBNull(reader.GetOrdinal("ItemID")))
+                            {
+                                var item = new TransactionItemModel(
+                                    reader.GetInt32("ItemID"),
+                                    transactionID,
+                                    reader.IsDBNull(reader.GetOrdinal("BookID")) ? (int?)null : reader.GetInt32("BookID"),
+                                    reader.IsDBNull(reader.GetOrdinal("DeviceID")) ? (int?)null : reader.GetInt32("DeviceID"),
+                                    reader.GetInt32("Amount")
+                                );
+
+                                // Kiểm tra nếu TransactionItems chưa được khởi tạo
+                                if (transactionMap[transactionID].TransactionItems == null)
+                                {
+                                    transactionMap[transactionID].TransactionItems = new List<TransactionItemModel>();
+                                }
+
+                                transactionMap[transactionID].TransactionItems.Add(item);
                             }
                         }
-                        db.CloseConnection();
-                        return transaction;
                     }
                 }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.StackTrace);
-                    db.CloseConnection();
-                    return null;
-                }
             }
-        }
-
-        // Insert data (CREATE)
-        public bool Insert(TransactionModel transaction)
-        {
-            string query = "INSERT INTO Transactions (MemberID, TransactionType, TransactionDate, DueDate, ReturnDate, Status) \n VALUES (@MemberID, @TransactionType, @TransactionDate, @DueDate, @ReturnDate, @Status)";
-            db.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = db.Connection)
+            catch (Exception ex)
             {
-                try
-                {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
-                    {
-                        myCmd.Parameters.AddWithValue("@MemberID", transaction.MemberID);
-                        myCmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType);
-                        myCmd.Parameters.AddWithValue("@TransactionDate", transaction.TransactionDate);
-                        myCmd.Parameters.AddWithValue("@DueDate", transaction.DueDate);
-                        myCmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate);
-                        myCmd.Parameters.AddWithValue("@Status", transaction.Status);
-
-                        db.CloseConnection();                        
-
-                        bool result = myCmd.ExecuteNonQuery() > 0;
-                        return result;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.StackTrace);
-                    db.CloseConnection();
-                    return false;
-                }
+                Console.WriteLine("Lỗi khi lấy dữ liệu bằng ID " + ex.Message);
             }
-        }
-
-        // Update value of specific TransactionID (UPDATE)
-        public bool Update(TransactionModel newTransaction)
-        {
-            string query = "UPDATE TABLE Transactions\n" +
-                "SET MemberID = @MemberID, TransactionType = @TransactionType, TransactionDate = @TransactionDate, DueDate = @DueDate, ReturnDate = @ReturnDate, Status = @Status\n" +
-                "WHERE TransactionID = @TransactionID";
-            db.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = db.Connection)
+            finally
             {
-                try
-                {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
-                    {
-                        myCmd.Parameters.AddWithValue("@TransactionID", newTransaction.TransactionID);
-                        myCmd.Parameters.AddWithValue("@MemberID", newTransaction.MemberID);
-                        myCmd.Parameters.AddWithValue("@TransactionType", newTransaction.TransactionType);
-                        myCmd.Parameters.AddWithValue("@TransactionDate", newTransaction.TransactionDate);
-                        myCmd.Parameters.AddWithValue("@DueDate", newTransaction.DueDate);
-                        myCmd.Parameters.AddWithValue("@ReturnDate", newTransaction.ReturnDate);
-                        myCmd.Parameters.AddWithValue("@Status", newTransaction.Status);
-                        bool result = myCmd.ExecuteNonQuery() > 0;
-                        db.CloseConnection();
-                        return result;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.StackTrace);
-                    db.CloseConnection();
-                    return false;
-                }
+                db.CloseConnection();
             }
+
+            
+            return transaction; 
         }
 
-        // Delete (DELETE)
-        public bool Delete(string transactionID)
+        public bool AddTransactionWithItems(TransactionModel transaction)
         {
-            string query = "DELETE FROM Transactions WHERE TransactionID = @TransactionID";
-            db.OpenConnection();
-            //using (MySqlConnection connection = db.GetConnection())
-            using (MySqlConnection connection = db.Connection)
+            try
             {
-                try
-                {
-                    using (MySqlCommand myCmd = new MySqlCommand(query, connection))
-                    {
-                        myCmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                db.OpenConnection();
+                
+                string transactionQuery = @"
+            INSERT INTO Transactions (MemberID, TransactionType, TransactionDate, DueDate, ReturnDate, Status)
+            VALUES (@MemberID, @TransactionType, @TransactionDate, @DueDate, @ReturnDate, @Status);
+            SELECT LAST_INSERT_ID();"; 
 
-                        bool result =  myCmd.ExecuteNonQuery() > 0;
-                        db.CloseConnection();
-                        return result;
+                using (MySqlCommand cmd = new MySqlCommand(transactionQuery, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@MemberID", transaction.MemberID);
+                    cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType.ToString());
+                    cmd.Parameters.AddWithValue("@TransactionDate", transaction.TransactionDate);
+                    cmd.Parameters.AddWithValue("@DueDate", transaction.DueDate ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Status", transaction.Status.ToString());
+
+                    // Lấy TransactionID vừa được thêm vào
+                    int transactionID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    // Thêm các mục giao dịch liên quan
+                    foreach (var item in transaction.TransactionItems)
+                    {
+                        string itemQuery = @"
+                    INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount)
+                    VALUES (@TransactionID, @BookID, @DeviceID, @Amount);";
+
+                        using (MySqlCommand itemCmd = new MySqlCommand(itemQuery, db.Connection))
+                        {
+                            itemCmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                            itemCmd.Parameters.AddWithValue("@BookID", item.BookID ?? (object)DBNull.Value);
+                            itemCmd.Parameters.AddWithValue("@DeviceID", item.DeviceID ?? (object)DBNull.Value);
+                            itemCmd.Parameters.AddWithValue("@Amount", item.Amount);
+
+                            itemCmd.ExecuteNonQuery(); 
+                        }
                     }
                 }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex.StackTrace);
-                    db.CloseConnection();
-                    return false;
-                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm giao dịch: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
             }
         }
+        public bool UpdateTransactionWithItems(TransactionModel transaction)
+        {
+            try
+            {
+                db.OpenConnection();
+             
+                string transactionQuery = @"
+                UPDATE Transactions
+                SET MemberID = @MemberID, TransactionType = @TransactionType, TransactionDate = @TransactionDate, 
+                    DueDate = @DueDate, ReturnDate = @ReturnDate, Status = @Status
+                WHERE TransactionID = @TransactionID;";
+
+                using (MySqlCommand cmd = new MySqlCommand(transactionQuery, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@TransactionID", transaction.TransactionID);
+                    cmd.Parameters.AddWithValue("@MemberID", transaction.MemberID);
+                    cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType.ToString());
+                    cmd.Parameters.AddWithValue("@TransactionDate", transaction.TransactionDate);
+                    cmd.Parameters.AddWithValue("@DueDate", transaction.DueDate ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ReturnDate", transaction.ReturnDate ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Status", transaction.Status.ToString());
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Xóa các mục giao dịch cũ (nếu có) và thêm các mục giao dịch mới
+                string deleteItemsQuery = "DELETE FROM TransactionItems WHERE TransactionID = @TransactionID;";
+                using (MySqlCommand deleteCmd = new MySqlCommand(deleteItemsQuery, db.Connection))
+                {
+                    deleteCmd.Parameters.AddWithValue("@TransactionID", transaction.TransactionID);
+                    deleteCmd.ExecuteNonQuery();
+                }
+
+                // Thêm các mục giao dịch mới
+                foreach (var item in transaction.TransactionItems)
+                {
+                    string itemQuery = @"
+                INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount)
+                VALUES (@TransactionID, @BookID, @DeviceID, @Amount);";
+
+                    using (MySqlCommand itemCmd = new MySqlCommand(itemQuery, db.Connection))
+                    {
+                        itemCmd.Parameters.AddWithValue("@TransactionID", transaction.TransactionID);
+                        itemCmd.Parameters.AddWithValue("@BookID", item.BookID ?? (object)DBNull.Value);
+                        itemCmd.Parameters.AddWithValue("@DeviceID", item.DeviceID ?? (object)DBNull.Value);
+                        itemCmd.Parameters.AddWithValue("@Amount", item.Amount);
+
+                        itemCmd.ExecuteNonQuery(); 
+                    }
+                }
+
+                return true; 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi cập nhật giao dịch: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+        public bool DeleteTransactionWithItems(int transactionID)
+        {
+            try
+            {
+                db.OpenConnection();
+               
+                string deleteItemsQuery = "DELETE FROM TransactionItems WHERE TransactionID = @TransactionID;";
+                using (MySqlCommand deleteItemsCmd = new MySqlCommand(deleteItemsQuery, db.Connection))
+                {
+                    deleteItemsCmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                    deleteItemsCmd.ExecuteNonQuery();
+                }
+
+                // Xóa giao dịch
+                string deleteTransactionQuery = "DELETE FROM Transactions WHERE TransactionID = @TransactionID;";
+                using (MySqlCommand deleteTransactionCmd = new MySqlCommand(deleteTransactionQuery, db.Connection))
+                {
+                    deleteTransactionCmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                    deleteTransactionCmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa giao dịch: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+      
+        public List<PaymentModel> GetPaymentsByTransactionID(int transactionID)
+        {
+            List<PaymentModel> list = new List<PaymentModel>();
+            
+            string query = "SELECT * FROM Payment WHERE TransactionID = @TransactionID";
+            try
+            {
+                db.OpenConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var model = new PaymentModel
+                            {
+                                PaymentID = reader.GetInt32(reader.GetOrdinal("PaymentID")),
+                                MemberID = reader.GetInt32(reader.GetOrdinal("MemberID")),
+                                ViolationID = reader.IsDBNull(reader.GetOrdinal("ViolationID"))
+                                ? null : (int?)reader.GetInt32(reader.GetOrdinal("ViolationID")),
+                                            TransactionID = reader.IsDBNull(reader.GetOrdinal("TransactionID"))
+                                ? null : (int?)reader.GetInt32(reader.GetOrdinal("TransactionID")),
+                                Amount = reader.GetDecimal(reader.GetOrdinal("Amount")),
+                                Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? "" : reader.GetString("Description"),
+                                PaymentDate = reader.IsDBNull(reader.GetOrdinal("PaymentDate")) ? DateTime.MinValue : reader.GetDateTime("PaymentDate"),
+                                Status = (PaidStatus)Enum.Parse(typeof(PaidStatus), reader.GetString(reader.GetOrdinal("Status")))
+                            };
+                            list.Add(model);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { Console.WriteLine("Lỗi GetPayments: " + ex.Message); }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return list;
+        }
+
+        public List<ViolationModel> GetViolationsByTransactionID(int transactionID)
+        {
+            List<ViolationModel> list = new List<ViolationModel>();
+            string query = "SELECT * FROM Violation WHERE TransactionID = @TransactionID";
+            try
+            {
+                db.OpenConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ViolationModel(
+                                reader.GetInt32(reader.GetOrdinal("ViolationID")),
+                                reader.GetInt32(reader.GetOrdinal("MemberID")),
+                                reader.IsDBNull(reader.GetOrdinal("TransactionID")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("TransactionID")),
+                                reader.GetInt32(reader.GetOrdinal("RuleID")),
+                                reader.GetDecimal(reader.GetOrdinal("FineAmount")),
+                                reader.GetString(reader.GetOrdinal("Reason")),
+                                reader.GetDateTime(reader.GetOrdinal("ViolationDate")),
+                                reader.GetBoolean(reader.GetOrdinal("IsCompensationRequired"))
+                            ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { Console.WriteLine("Lỗi GetViolations: " + ex.Message); }
+            finally
+            {
+                db.CloseConnection();
+            }
+            return list;
+        }
+
+        public bool ConfirmReturnAndCalculatePayment(int transactionID)
+        {
+            try
+            {
+                db.OpenConnection();
+                using (MySqlCommand cmd = new MySqlCommand("ConfirmReturnAndCalculatePayment", db.Connection))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_TransactionID", transactionID);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xác nhận trả sách và tính tiền thanh toán: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+
     }
 }

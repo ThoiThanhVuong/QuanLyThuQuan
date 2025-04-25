@@ -1,10 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
-using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Net;
 
 
 namespace QuanLyThuQuan.DAO
@@ -51,13 +49,14 @@ namespace QuanLyThuQuan.DAO
         public AuthorModel GetAuthorByID(int ID)
         {
             AuthorModel author = null;
-            try {
+            try
+            {
                 db.OpenConnection();
                 string query = "SELECT * FROM Authors WHERE AuthorID=@AuthorID AND AuthorStatus='Active' ";
-                using(MySqlCommand cmd =new MySqlCommand(query, db.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@AuthorID", ID);
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -69,7 +68,8 @@ namespace QuanLyThuQuan.DAO
                         }
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi lấy dữ liệu " + ex.Message);
             }
@@ -137,7 +137,7 @@ namespace QuanLyThuQuan.DAO
                 db.OpenConnection();
                 string query = "UPDATE Authors SET AuthorName=@AuthorName,AuthorStatus=@AuthorStatus" +
                     " WHERE AuthorID = @AuthorID ";
-                using(MySqlCommand cmd= new MySqlCommand(query, db.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@AuthorName", author.AuthorName);
                     cmd.Parameters.AddWithValue("@AuthorStatus", author.AuthorStatus.ToString());
@@ -148,7 +148,7 @@ namespace QuanLyThuQuan.DAO
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("lỗi khi sửa dữ liệu" + ex.Message);
                 return false;
@@ -191,12 +191,12 @@ namespace QuanLyThuQuan.DAO
                 {
                     query += "OR AuthorID=@AuthorID";
                 }
-                using(MySqlCommand cmd =new MySqlCommand(query, db.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
                     if (isNumber)
                         cmd.Parameters.AddWithValue("@AuthorID", authorID);
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -208,7 +208,8 @@ namespace QuanLyThuQuan.DAO
                         }
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Lỗi khi tìm kiếm tác giả " + ex.Message);
             }

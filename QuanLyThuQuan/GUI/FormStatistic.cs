@@ -1,9 +1,7 @@
-﻿using System.Windows.Forms;
-using QuanLyThuQuan.BUS;
+﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
-using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
 {

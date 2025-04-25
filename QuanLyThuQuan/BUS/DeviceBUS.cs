@@ -1,6 +1,7 @@
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -15,7 +16,10 @@ namespace QuanLyThuQuan.BUS
         public DeviceModel GetDeviceByID(int Id)
         {
             return deviceDAO.GetDeviceByID(Id);
+            
         }
+
+       
         public List<string> GetDeviceType()
         {
             return deviceDAO.GetDeviceType();
@@ -26,13 +30,13 @@ namespace QuanLyThuQuan.BUS
         }
         public bool AddDevice(DeviceModel device)
         {
-            // Có thể thêm kiểm tra nghiệp vụ tại đây nếu cần
+           
             return deviceDAO.AddDevice(device);
         }
 
         public bool UpdateDevice(DeviceModel device)
         {
-            // Kiểm tra nghiệp vụ trước khi cập nhật nếu cần
+            
             return deviceDAO.UpdateDevice(device);
         }
 
@@ -43,7 +47,9 @@ namespace QuanLyThuQuan.BUS
 
         public List<DeviceModel> SearchDevices(string keyword)
         {
-            return deviceDAO.SearchDevices(keyword);
+            if (string.IsNullOrEmpty(keyword.Trim()))
+                return (deviceDAO.GetAllDevices()).ToList();
+            return (deviceDAO.SearchDevices(keyword)).ToList();
         }
 
         public int GetTotalDeviceQuantity()

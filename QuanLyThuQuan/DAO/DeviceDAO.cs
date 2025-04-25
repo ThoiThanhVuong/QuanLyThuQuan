@@ -120,6 +120,7 @@ namespace QuanLyThuQuan.DAO
                 while (reader.Read())
                 {
                     devices.Add(new DeviceModel(
+
                             reader.GetInt32("DeviceID"),
                             reader.GetString("DeviceName"),
                             reader.GetString("DeviceImage"),
@@ -127,6 +128,7 @@ namespace QuanLyThuQuan.DAO
                             reader.GetInt32("Quantity"),
                             (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
                             reader.GetInt32("fee_per_hour")
+
                      ));
                 }
                 reader.Close();
@@ -138,6 +140,7 @@ namespace QuanLyThuQuan.DAO
             }
 
             return devices;
+
         }
         public bool AddDevice(DeviceModel device)
         {

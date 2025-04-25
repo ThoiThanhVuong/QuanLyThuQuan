@@ -1,39 +1,36 @@
-.vs
-/QuanLyThuQuan/.vs
-.vscode
-# Visual Studio
 # Visual Studio
 .vs/
 *.user
 *.suo
+*.cache
+*.dbmdl
+*.bak
+*.backup
+*.tmp
+*.obj
+*.log
+*.tlog
+*.ilk
+*.htm
+packages/
+
+# Bin/Obj
+[Bb]in/
+[Oo]bj/
 
 # Build results
-bin/
-obj/
 *.exe
 *.dll
 *.pdb
-*.cache
-*.log
-*.csproj.FileListAbsolute.txt
-*.dbmdl
 
-# Auto-generated
-*.Designer.cs
-*.Generated.*
-*.g.*
-*.g.cs
-*.g.i.cs
-*.resources
-
-# NuGet
-packages/
-*.nupkg
-project.lock.json
+# Layout & designer autosaves
+*.csproj.user
+*.layout.*
+*.local.json
 
 # Others
+*.json
+*.cache
 *.config
-*.xml
-*.tmp
-
-
+*.csproj.FileListAbsolute.txt
+.claudiaideconfig

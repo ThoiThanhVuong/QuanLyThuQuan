@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `Transactions` (
    `TransactionType` ENUM('Borrow', 'Return') NOT NULL,
   `TransactionDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `DueDate` DATETIME NULL CHECK (`DueDate` IS NULL OR `DueDate` >= `TransactionDate`),
-  `ReturnDate` DATETIME NULL CHECK(`ReturnDate`>= `TransactionDate`),
+  `ReturnDate` DATETIME NULL CHECK(`ReturnDate`>= `TransactionDate`)  ,
   `Status` ENUM('Active', 'Completed', 'Overdue') NOT NULL DEFAULT 'Active',
   PRIMARY KEY (`TransactionID`),
 	INDEX (`MemberID`),
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `Transactions` (
 -- Values Transactions 
 INSERT INTO `Transactions`(`MemberID`,`TransactionType`,`TransactionDate`,`DueDate`,`ReturnDate`,`Status`)
 		VALUES(3,'Borrow', '2025-02-03 11:00:00', '2025-02-13 11:00:00', '2025-02-12 11:00:00', 'Completed'),
-				(4,'Borrow', '2025-02-04 08:30:00', '2025-02-14 08:30:00', '2025-02-14 08:00:00', 'Completed'),
+				(4,'Borrow', '2025-02-04 08:30:00', '2025-02-14 08:30:00', '2025-02-15 08:00:00', 'Completed'),
 				(4,'Borrow', '2025-02-06 08:00:00', '2025-02-18 08:30:00', '2025-02-16 08:00:00', 'Completed'),
 				(3,'Borrow', '2025-02-20 07:00:00', '2025-02-27 15:00:00', '2025-02-27 13:00:00', 'Completed'),
 				(3,'Borrow', '2025-03-01 07:00:00', '2025-03-01 16:00:00', '2025-03-01 15:30:00', 'Completed'),
@@ -324,20 +324,16 @@ CREATE TABLE IF NOT EXISTS `Violation` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 	
 -- Values Violation
-INSERT INTO `Violation`(`MemberID`, `TransactionID`,`RuleID`,`FineAmount`,`Reason`,`ViolationDate`)
-		VALUES (4,6,3,10000,'Trả sách quá hạn 1 ngày','2025-03-11 08:00:00'),
-				(3,null, 1, 0, 'Không giữ yên lặng trong thư viện', '2025-02-20 07:30:00'),
-				(4,null, 1, 0, 'Gây ồn ào trong thư viện', '2025-03-02 10:00:00'),
-				(3,null, 2, 0, 'Ăn uống trong khu vực thư viện', '2025-03-01 14:00:00'),
-				(4, 2, 4, 200000, 'Làm hỏng sách mượn', '2025-02-04 09:00:00'),
-				(3,null, 5, 0, 'Sử dụng điện thoại trong khu vực yên tĩnh', '2025-02-20 07:30:00');
+INSERT INTO `Violation`(`MemberID`, `TransactionID`, `RuleID`, `FineAmount`, `Reason`, `ViolationDate`)
+VALUES (4, 2, 3, 10000, 'Trả sách quá hạn', '2025-02-15 08:00:00');
+            
 
 -- ===================================== Bảng Payment ===========================================
 -- dùng để ghi nhận số tiền phải thu từ thành viên (liên quan đến vi phạm / mượn phí)
 CREATE TABLE `Payment` (
   `PaymentID` INT AUTO_INCREMENT PRIMARY KEY,
   `MemberID` INT NOT NULL,
-  `ViolationID` INT NULL, -- Gắn với vi phạm cụ thể nếu có
+  `ViolationID` INT NULL, 
   `TransactionID` INT NULL,
   `Amount` DECIMAL(10,0) NOT NULL,
   `Description` VARCHAR(255) NULL,
@@ -351,9 +347,13 @@ CREATE TABLE `Payment` (
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 INSERT INTO `Payment` (`MemberID`, `ViolationID`, `TransactionID`, `Amount`, `Description`, `Status`)
-VALUES
-(4, 1, 6, 10000, 'Phạt vì trả sách trễ 1 ngày', 'Unpaid'),
-(4, 5, 2, 200000, 'Phạt vì làm hỏng sách', 'Paid');
+			VALUES(3,NULL,1,270000,'Phí mượn sách(3 cuốn,9 ngày)','Paid'),
+					(4,1,2,210000,'Trả sách quá hạn' ,'Paid'),
+					(4, NULL, 3, 300000, 'Phí mượn sách (3 cuốn, 10 ngày)', 'Paid'),
+					(3, NULL, 4, 210000, 'Phí mượn sách (3 cuốn, 7 ngày)', 'Paid'),
+					(3, NULL, 5, 280000, 'Phí mượn thiết bị (7 thiết bị, 8 giờ)', 'Paid'),
+					(4, NULL, 6, 180000, 'Phí mượn sách (2 cuốn, 9 ngày)', 'Paid');
+
 
 -- ================================ Bảng LoginHistory ================================================================
 -- dùng để lưu trữ lịch sử đăng nhập của tài khoản
@@ -465,6 +465,58 @@ DELIMITER $$
 	
 	  CLOSE `cur`;
 	END$$
+DELIMITER ;
+
+DELIMITER $$ 
+CREATE PROCEDURE ConfirmReturnAndCalculatePayment(IN p_TransactionID INT)
+BEGIN
+    DECLARE v_MemberID INT;
+    DECLARE v_TransactionDate DATETIME;
+    DECLARE v_ReturnDate DATETIME;
+    DECLARE v_Days INT;
+    DECLARE v_Hours INT;
+    DECLARE v_FineAmount DECIMAL(10, 0) DEFAULT 0;
+    
+    -- Lấy thông tin giao dịch
+    SELECT MemberID, TransactionDate, COALESCE(ReturnDate, NOW()) 
+    INTO v_MemberID, v_TransactionDate, v_ReturnDate
+    FROM Transactions
+    WHERE TransactionID = p_TransactionID;
+    
+    -- Tính số ngày và số giờ mượn
+    SET v_Days = DATEDIFF(v_ReturnDate, v_TransactionDate);
+    SET v_Hours = TIMESTAMPDIFF(HOUR, v_TransactionDate, v_ReturnDate);
+    
+    -- Cập nhật ReturnDate và Status thành 'Completed'
+    UPDATE Transactions
+    SET ReturnDate = v_ReturnDate, Status = 'Completed'
+    WHERE TransactionID = p_TransactionID;
+    
+    -- Tính tiền thanh toán từ sách
+    INSERT INTO Payment (MemberID, TransactionID, Amount, Description, Status)
+    SELECT v_MemberID, p_TransactionID, 
+           b.fee_per_day * ti.Amount * v_Days, 
+           CONCAT('Thuê sách "', b.BookTitle, '" ', v_Days, ' ngày'), 'Unpaid'
+    FROM TransactionItems ti
+    JOIN Books b ON b.BookID = ti.BookID
+    WHERE ti.TransactionID = p_TransactionID;
+    
+    -- Tính tiền thanh toán từ thiết bị
+    INSERT INTO Payment (MemberID, TransactionID, Amount, Description, Status)
+    SELECT v_MemberID, p_TransactionID, 
+           d.fee_per_hour * ti.Amount * v_Hours, 
+           CONCAT('Thuê thiết bị "', d.DeviceName, '" ', v_Hours, ' giờ'), 'Unpaid'
+    FROM TransactionItems ti
+    JOIN Devices d ON d.DeviceID = ti.DeviceID
+    WHERE ti.TransactionID = p_TransactionID;
+
+    -- Tính tiền phạt từ Violation nếu có
+    INSERT INTO Payment (MemberID, ViolationID, TransactionID, Amount, Description, Status)
+    SELECT v.MemberID, v.ViolationID, v.TransactionID, v.FineAmount, 
+           CONCAT('Phạt: ', v.Reason), 'Unpaid'
+    FROM Violation v
+    WHERE v.TransactionID = p_TransactionID AND v.FineAmount > 0;
+END$$
 DELIMITER ;
 
 -- Cập nhật ReturnDate, Status = 'Completed', hoàn trả Quantity
@@ -659,7 +711,7 @@ DELIMITER $$
 	    FROM `Books`
 	    WHERE `BookID` = NEW.`BookID`;
 	
-	    IF available < NEW.`Amount` AND NEW.`Amount` > 0 THEN
+	    IF available < NEW.`Amount` THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng sách không đủ để mượn.';
 	    END IF;
@@ -702,8 +754,6 @@ BEGIN
 END$$
 DELIMITER ;
 
-
-	
 -- Giảm Quantity thiết bị khi mượn thành công
 DELIMITER $$
 	CREATE TRIGGER `trg_Update_DeviceQuantity_On_Borrow`
@@ -779,7 +829,7 @@ DELIMITER $$
 	    FROM `Devices`
 	    WHERE `DeviceID` = NEW.`DeviceID`;
 	
-	    IF available < NEW.`Amount` AND NEW.`Amount` THEN
+	    IF available < NEW.`Amount` AND NEW.`Amount` > 0 THEN
 	      SIGNAL SQLSTATE '45000'
 	      SET MESSAGE_TEXT = 'Số lượng thiết bị không đủ để mượn.';
 	    END IF;

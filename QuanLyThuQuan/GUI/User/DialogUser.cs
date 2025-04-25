@@ -123,5 +123,6 @@ namespace QuanLyThuQuan.GUI.User
         {
             this.Close();
         }
+
     }
 }
