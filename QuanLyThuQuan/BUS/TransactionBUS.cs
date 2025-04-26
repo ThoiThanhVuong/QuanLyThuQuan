@@ -88,6 +88,10 @@ namespace QuanLyThuQuan.BUS
             }
         }
 
+        public bool ReturnSingleItem(int itemID)
+        {
+            return transactionDAO.ReturnSingleItem(itemID);
+        }
 
     }
 }

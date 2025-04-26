@@ -48,8 +48,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             txtPhoneNumber.Text = trans.Member?.PhoneNumber ?? "";
 
             dgvTransactionItem.Rows.Clear();
-            dgvTransactionItem.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvTransactionItem.Columns[4].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+            dgvTransactionItem.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTransactionItem.Columns[5].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
             int index = 1;
             foreach (var item in trans.TransactionItems)
             {
@@ -58,6 +58,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                     item.BookID?.ToString() ?? "",
                     item.DeviceID?.ToString() ?? "",
                     item.Amount,
+                    item.Status.ToString(),
                     "..."
                 );
             }
@@ -173,7 +174,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
         private void dgvTransactionItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
+            
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
             {
                 FormShowProductItem item = new FormShowProductItem();
 

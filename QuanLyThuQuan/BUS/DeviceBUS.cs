@@ -19,7 +19,10 @@ namespace QuanLyThuQuan.BUS
             
         }
 
-       
+        public DeviceModel GetDeviceByName(string name)
+        {
+            return deviceDAO.GetDeviceByName(name);
+        }
         public List<string> GetDeviceType()
         {
             return deviceDAO.GetDeviceType();

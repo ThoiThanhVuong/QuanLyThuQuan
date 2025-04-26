@@ -43,7 +43,6 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmQuanLyTacGia.re
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.frmTheLoaiSach.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormMain.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.Login.resources
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormBorrowBook.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormInformation.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.Properties.Resources.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.GenerateResource.cache
@@ -355,3 +354,4 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindin
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormReservation.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormShowProductItem.resources
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormBorrowBook.resources

@@ -32,5 +32,9 @@ namespace QuanLyThuQuan.BUS
         {
             return violationDAO.MaxViolationID();
         }
+        public int checkCountViolationByID(int ID)
+        {
+            return violationDAO.checkCountViolationByID(ID);
+        }
     }
 }

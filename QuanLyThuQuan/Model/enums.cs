@@ -53,6 +53,11 @@
         Pending,
         Cancelled
     }
+    public enum TransactionItemStatus
+    {
+        Borrowed,
+        Returned
+    }
     public enum ReservationValidFields
     {
         ReservationID,
