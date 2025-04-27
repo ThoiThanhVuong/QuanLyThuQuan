@@ -1,20 +1,18 @@
 ﻿using QuanLyThuQuan.BUS;
-using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 
 namespace QuanLyThuQuan.GUI
 {
-    
+
     public partial class FormRule : Form
     {
         RuleBUS ruleBus = new RuleBUS();
         public FormRule()
-        {   
+        {
             InitializeComponent();
             button2.Enabled = false;
             button3.Enabled = false;
@@ -27,7 +25,7 @@ namespace QuanLyThuQuan.GUI
 
         public void loadDataTable()
         {
-            
+
             List<RuleModel> rules = ruleBus.GetActiveRules();
             if (rules == null)
             {
@@ -130,7 +128,7 @@ namespace QuanLyThuQuan.GUI
                 textBox4.Text,
                 dateTimePicker1.Value,
                 radioButton1.Checked ? ActivityStatus.Active : ActivityStatus.Inactive
-            ));     
+            ));
             refresh();
             loadDataTable();
         }

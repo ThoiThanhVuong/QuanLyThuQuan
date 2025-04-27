@@ -53,12 +53,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -68,11 +72,11 @@
             this.Penalty,
             this.EffectiveDate,
             this.Status});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 308);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 346);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(879, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(879, 237);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -137,7 +141,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(29, 42);
+            this.panel1.Location = new System.Drawing.Point(29, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(880, 201);
             this.panel1.TabIndex = 1;
@@ -247,7 +251,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(76, 264);
+            this.button1.Location = new System.Drawing.Point(80, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -257,7 +261,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(183, 264);
+            this.button2.Location = new System.Drawing.Point(184, 306);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -267,7 +271,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(293, 264);
+            this.button3.Location = new System.Drawing.Point(289, 306);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -277,7 +281,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(404, 264);
+            this.button4.Location = new System.Drawing.Point(385, 306);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 5;
@@ -286,7 +290,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(498, 263);
+            this.button5.Location = new System.Drawing.Point(481, 306);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 6;
@@ -294,10 +298,31 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(1, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(946, 50);
+            this.panel2.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(23, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 25);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Rule";
+            // 
             // FormRule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(930, 579);
+            this.ClientSize = new System.Drawing.Size(952, 625);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -313,6 +338,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +371,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace QuanLyThuQuan.Model
 {
-    class RuleModel
+    public class RuleModel
     {
         public int RuleID { get; set; }
         public string RuleTitle { get; set; }

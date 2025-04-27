@@ -3,9 +3,6 @@ using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -120,6 +117,28 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return maxViolationID;
         }
+        public int checkCountViolationByID(int ID)
+        {
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT COUNT(*) FROM Violation WHERE MemberID = @ID";
 
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    object result = cmd.ExecuteScalar();
+                    db.CloseConnection();
+
+                    return Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi truy vấn: " + ex.Message);
+                db.CloseConnection();
+                return 0;
+            }
+        }
     }
 }

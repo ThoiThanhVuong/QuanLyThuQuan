@@ -82,6 +82,47 @@ namespace QuanLyThuQuan.DAO
 
             return device;
         }
+        public DeviceModel GetDeviceByName(string name)
+        {
+            DeviceModel device = null;
+
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT * FROM Devices WHERE DeviceName LIKE @Name AND Status IN ('Available','OutOf')";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", "%"+name+"%");
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            device = (new DeviceModel(
+                            reader.GetInt32("DeviceID"),
+                            reader.GetString("DeviceName"),
+                            reader.GetString("DeviceImage"),
+                            reader.GetString("DeviceType"),
+                            reader.GetInt32("Quantity"),
+                            (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
+                            reader.GetInt32("fee_per_hour")
+                         ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy thiết bị: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            return device;
+        }
         public List<string> GetDeviceType()
         {
             List<string> deviceTypes = new List<string>();
@@ -120,6 +161,7 @@ namespace QuanLyThuQuan.DAO
                 while (reader.Read())
                 {
                     devices.Add(new DeviceModel(
+
                             reader.GetInt32("DeviceID"),
                             reader.GetString("DeviceName"),
                             reader.GetString("DeviceImage"),
@@ -127,6 +169,7 @@ namespace QuanLyThuQuan.DAO
                             reader.GetInt32("Quantity"),
                             (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
                             reader.GetInt32("fee_per_hour")
+
                      ));
                 }
                 reader.Close();
@@ -138,6 +181,7 @@ namespace QuanLyThuQuan.DAO
             }
 
             return devices;
+
         }
         public bool AddDevice(DeviceModel device)
         {

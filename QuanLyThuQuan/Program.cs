@@ -1,5 +1,7 @@
+
 using QuanLyThuQuan.GUI;
 using System;
+
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan
@@ -7,6 +9,7 @@ namespace QuanLyThuQuan
     static class Program
     {
         [STAThread]
+
         static void Main()
         {
             Application.EnableVisualStyles();

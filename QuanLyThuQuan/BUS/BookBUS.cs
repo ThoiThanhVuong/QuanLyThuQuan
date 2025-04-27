@@ -1,6 +1,7 @@
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuanLyThuQuan.BUS
 {
@@ -10,14 +11,16 @@ namespace QuanLyThuQuan.BUS
 
         public List<BookModel> GetAllBooks()
         {
-            return bookDAO.GetAllBooks();
+            return bookDAO.GetAllBooks().ToList();
         }
         public BookModel GetBookByID(int Id)
         {
+           
             return bookDAO.GetBookByID(Id);
         }
         public BookModel GetBookByName(string name)
         {
+           
             return bookDAO.GetBookByName(name);
         }
         public List<BookModel> GetBooksByCategory(string category)
@@ -41,7 +44,8 @@ namespace QuanLyThuQuan.BUS
 
         public List<BookModel> SearchBooks(string keyword)
         {
-            return bookDAO.SearchBooks(keyword);
+            
+            return bookDAO.SearchBooks(keyword).ToList();
         }
 
         public int GetTotalBookQuantity()

@@ -1,7 +1,7 @@
-using System;
-using System.Collections.Generic;
 using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
+using System;
+using System.Collections.Generic;
 
 namespace QuanLyThuQuan.BUS
 {

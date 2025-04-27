@@ -41,4 +41,33 @@
         Failed
     }
 
+    public enum TransactionValidFields
+    {
+        TransactionID,
+        MemberID
+    }
+
+    public enum ReservationStatus
+    {
+        Confirmed,
+        Pending,
+        Cancelled
+    }
+    public enum TransactionItemStatus
+    {
+        Borrowed,
+        Returned
+    }
+    public enum ReservationValidFields
+    {
+        ReservationID,
+        MemberID
+    }
+
+    public enum ProductType
+    {
+        All,
+        Books,
+        Devices,
+    }
 }

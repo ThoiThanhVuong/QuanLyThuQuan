@@ -1,17 +1,14 @@
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyThuQuan.BUS
 {
     class AuthorBUS
     {
         private AuthorDAO AuthorDAO = new AuthorDAO();
-        public List<AuthorModel> GetAllAuthor() {
+        public List<AuthorModel> GetAllAuthor()
+        {
             return AuthorDAO.GetAllAuthors();
         }
         public AuthorModel GetAuthorByID(int ID)

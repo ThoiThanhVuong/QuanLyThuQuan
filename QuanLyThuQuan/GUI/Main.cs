@@ -1,13 +1,12 @@
-﻿using QuanLyThuQuan.GUI.User;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QuanLyThuQuan.GUI.User;
 namespace QuanLyThuQuan.GUI
 {
     public partial class FormMain : Form
     {
-     
+
         Login formLogin;
         private Form currentForm = null;
         public FormMain()

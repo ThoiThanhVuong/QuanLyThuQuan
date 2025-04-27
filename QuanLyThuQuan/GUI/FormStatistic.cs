@@ -1,13 +1,15 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
-using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+=======
+>>>>>>> main
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
