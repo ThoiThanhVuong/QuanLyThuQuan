@@ -195,7 +195,8 @@ INSERT INTO `Transactions`(`MemberID`,`TransactionType`,`TransactionDate`,`DueDa
 				(4,'Borrow', '2025-02-06 08:00:00', '2025-02-18 08:30:00', '2025-02-16 08:00:00', 'Completed'),
 				(3,'Borrow', '2025-02-20 07:00:00', '2025-02-27 15:00:00', '2025-02-27 13:00:00', 'Completed'),
 				(3,'Borrow', '2025-03-01 07:00:00', '2025-03-01 16:00:00', '2025-03-01 15:30:00', 'Completed'),
-				(4,'Borrow', '2025-03-02 08:00:00', '2025-03-10 08:30:00', '2025-03-11 08:00:00', 'Completed');
+				(4,'Borrow', '2025-03-02 08:00:00', '2025-03-10 08:30:00', '2025-03-11 08:00:00', 'Completed'),
+				(3,'Borrow','2025-04-25 08:00:00','2025-04-29 08:00:00',NULL,'Active');
 				
 -- ===================================== Bảng TransactionItems ================================================================
 CREATE TABLE IF NOT EXISTS `TransactionItems`(
@@ -233,8 +234,10 @@ INSERT INTO `TransactionItems`(`TransactionID`,`BookID`,`DeviceID`,`Amount`,`Sta
 				(5,NULL,9,2,'Returned'),
 				(5,NULL,11,1,'Returned'),
 				(6,2,NULL,1,'Returned'),
-				(6,40,NULL,1,'Returned');
-				
+				(6,40,NULL,1,'Returned'),
+				(7,2,NULL,1,'Borrowed'),
+				(7,3,NULL,1,'Borrowed'),
+				(7,4,NULL,1,'Borrowed');
 -- ==================================== Bảng Reservation =======================================================
 -- được lưu những đăng ký đặt chỗ thiết bị trước,ghi thời gian bắt đầu - kết thúc và trạng thái (Pending, Confirmed, Cancelled)
 CREATE TABLE IF NOT EXISTS `Reservation` (
