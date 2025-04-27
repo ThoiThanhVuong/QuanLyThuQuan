@@ -1,122 +1,97 @@
 
-ï»¿using QuanLyThuQuan.DAO;
+using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
 using System;
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace QuanLyThuQuan.BUS
 {
-    class TransactionBUS : BaseBUS<TransactionModel, int>
+    class TransactionBUS 
     {
-        private static readonly TransactionBUS _Instance = new TransactionBUS();
-        private TransactionDAO TDAO = new TransactionDAO();
+        private TransactionDAO transactionDAO = new TransactionDAO();
 
-        //prevent new TransactionBUS
+ 
         public TransactionBUS() { }
-
-        // getter
-        public static TransactionBUS GetInstance()
+        public List<TransactionModel> GetAllTransactionsWithItems()
         {
-            return _Instance;
+            return transactionDAO.GetAllTransactionsWithItems();
+        }
+        public TransactionModel GetTransactionByID(int ID)
+        {
+            return transactionDAO.GetTransactionByID(ID);
+        }
+        public bool AddTransactionWithItems(TransactionModel transaction)
+        {
+            return transactionDAO.AddTransactionWithItems(transaction);
+        }
+        public bool UpdateTransactionWithItems(TransactionModel transaction)
+        {
+            return transactionDAO.UpdateTransactionWithItems(transaction);
+        }
+        public bool DeleteTransactionWithItems(int transactionID)
+        {
+            return transactionDAO.DeleteTransactionWithItems(transactionID);
+        }
+        public List<PaymentModel> GetPaymentsByTransactionID(int transactionID)
+        {
+            return transactionDAO.GetPaymentsByTransactionID(transactionID);
+        }
+        public List<ViolationModel> GetViolationsByTransactionID(int transactionID)
+        {
+            return transactionDAO.GetViolationsByTransactionID(transactionID);
         }
 
-        public override List<TransactionModel> GetAll()
-        {
-            //return new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).GetAll();
-            return TDAO.GetAll();
-        }
 
-        public TransactionModel GetByID(string id, string condition)
+        public bool ConfirmReturnAndCalculatePayment(int transactionID)
         {
-            return new TransactionDAO().GetByID(id, condition);
+            return transactionDAO.ConfirmReturnAndCalculatePayment(transactionID);
         }
-
-        public void Add(TransactionModel transaction)
+        public void LoadExtraDetails(TransactionModel transaction)
         {
-            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Insert(transaction);
-            TDAO.Insert(transaction);
-        }
+            transaction.Payments = transactionDAO.GetPaymentsByTransactionID(transaction.TransactionID)
+                .Where(p => !p.Description.Contains("T?ng"))
+                .ToList();
 
-        public void Update(TransactionModel transaction)
-        {
-            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Update(transaction);
-            TDAO.Update(transaction);
-        }
+            transaction.Violations = transactionDAO.GetViolationsByTransactionID(transaction.TransactionID);
 
-        public void Delete(string id)
-        {
-            //new TransactionDAO(GetIDBConnection(DatabaseConfig.GetInStance())).Delete(id);
-            TDAO.Delete(id);
-        }
-
-        // check if this transaction is overdue
-        public bool CheckOverdue(string id)
-        {
-            List<int> borrowItemID = new List<int>();
-            List<TransactionItemModel> transactionItems = new TransactionItemDAO(GetConnectDB()).GetByTransactionID(id);
-            if (transactionItems == null)
-                return false;
-            //  Get list Product here and loop it
-            IEnumerator<TransactionItemModel> listEnum = transactionItems.GetEnumerator();
-            while (listEnum.MoveNext())
-                borrowItemID.Add((int)(listEnum.Current.DeviceID.Equals(null) ? listEnum.Current.BookID : listEnum.Current.DeviceID));
-            //Loop list products
-            IEnumerator<int> listID = borrowItemID.GetEnumerator();
-            while (listID.MoveNext())
+            if (transaction.Status == TransactionStatus.Active && transaction.DueDate.HasValue && transaction.ReturnDate.HasValue)
             {
-                //find 
-                //  Compare Return Date or DueDate with Borrow Date
-                
-            }
+                var due = transaction.DueDate.Value;
+                var returned = transaction.ReturnDate.Value;
 
+                if (returned > due)
+                {
+                    int daysLate = (returned - due).Days;
+                    if (!transaction.Violations.Any(v => v.Reason.Contains("tr? h?n")))
+                    {
+                        var lateViolation = new ViolationModel
+                        {
+                            MemberID = transaction.MemberID,
+                            TransactionID = transaction.TransactionID,
+                            RuleID = 3,
+                            FineAmount = daysLate * 10000,
+                            Reason = "Tr? sách tr? h?n",
+                            ViolationDate = returned,
+                            IsCompensationRequired = false
+                        };
+                        transaction.Violations.Add(lateViolation);
 
-            return false;
-        }
-
-        // check late fee if overdue
-        private Decimal CalculateLateFee(string transactionID)
-        {
-            return 0;
-        }
-
-        // change status to overdue
-        private bool ChangeStatus(string transactionID)
-        {
-            try
-            {
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                return false;
+                        var fine = new PaymentModel(transaction.MemberID, null, transaction.TransactionID, lateViolation.FineAmount, "Tr? sách quá h?n", PaidStatus.Unpaid);
+                        transaction.Payments.Add(fine);
+                    }
+                }
             }
         }
 
-        // check quantity product
-        private bool IsQuantityValiable(int quantity)
+        public bool ReturnSingleItem(int itemID)
         {
-            return false;
+            return transactionDAO.ReturnSingleItem(itemID);
         }
 
-        // check member
-        private bool CheckMember(string memberID)
-        {
-            return false;
-        }
-
-        //check member status account 
-        private bool checkAccountMember(string memberID)
-        {
-            return false;
-        }
-
-        // check overdue 
-        private bool checkMemberHistoryBorrow(string memberID)
-        {
-            return false;
-        }
     }
 }

@@ -3,7 +3,7 @@
 namespace QuanLyThuQuan.Model
 {
 
-    class MemberModel
+    public class MemberModel
     {
         public int MemberID { get; set; }
         public string FullName { get; set; }
@@ -19,6 +19,14 @@ namespace QuanLyThuQuan.Model
 
         }
 
+        public MemberModel(int memberID, string fullName, string email, string phoneNumber)
+        {
+            MemberID = memberID;
+            FullName = fullName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+
         public MemberModel(int memberID, string fullName, string email, string phoneNumber, string username, string password, DateTime registrationDate, UserType userType, ActivityStatus memberStatus)
         {
             MemberID = memberID;
@@ -30,6 +38,10 @@ namespace QuanLyThuQuan.Model
             RegistrationDate = registrationDate;
             UserType = userType;
             MemberStatus = memberStatus;
+        }
+        public override string ToString()
+        {
+            return $"MemberID:{MemberID},Fullname:{FullName},Email:{Email},PhoneNumber:{PhoneNumber}";
         }
     }
 }

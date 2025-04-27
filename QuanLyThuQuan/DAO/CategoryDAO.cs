@@ -45,7 +45,8 @@ namespace QuanLyThuQuan.DAO
         public CategoriesModel GetCategoryByID(int ID)
         {
             CategoriesModel category = null;
-            try {
+            try
+            {
                 db.OpenConnection();
                 string query = "SELECT * FROM Categories WHERE CategoryID=@ID AND CategoryStatus='Active'";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
@@ -59,8 +60,9 @@ namespace QuanLyThuQuan.DAO
                         (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("CategoryStatus"))
                         );
                 }
-            
-            }catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("lỗi khi lấy dữ liệu " + ex.Message);
             }

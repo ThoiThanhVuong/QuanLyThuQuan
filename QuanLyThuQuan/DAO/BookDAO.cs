@@ -52,7 +52,10 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "SELECT * FROM Books WHERE BookID = @Id AND Status IN ('Available','OutOf')";
+                string query = "SELECT * FROM Books " +
+                     "JOIN authors ON Authors.AuthorID = Books.AuthorID " +
+                    "JOIN Categories c ON c.CategoryID =Books.CategoryID " +
+                    "WHERE BookID = @Id AND Status IN ('Available','OutOf')";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
@@ -60,6 +63,16 @@ namespace QuanLyThuQuan.DAO
                     {
                         if (reader.Read())
                         {
+                            AuthorModel author = new AuthorModel(
+                                reader.GetInt32("AuthorID"),
+                                reader.GetString("AuthorName"),
+                                (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("AuthorStatus"))
+                                );
+                            CategoriesModel categories = new CategoriesModel(
+                                reader.GetInt32("CategoryID"),
+                                reader.GetString("CategoryName"),
+                                 (ActivityStatus)Enum.Parse(typeof(ActivityStatus), reader.GetString("CategoryStatus"))
+                                );
                             book = new BookModel(
                                 reader.GetInt32("BookID"),
                                 reader.GetString("BookTitle"),
@@ -69,7 +82,9 @@ namespace QuanLyThuQuan.DAO
                                 reader.GetInt32("PublishYear"),
                                 reader.GetInt32("Quantity"),
                                 (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
-                                reader.GetInt32("fee_per_day")
+                                reader.GetInt32("fee_per_day"),
+                                categories,
+                                 author
                             );
                         }
                     }

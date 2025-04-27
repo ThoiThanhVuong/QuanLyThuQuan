@@ -62,6 +62,7 @@ namespace QuanLyThuQuan.GUI.User
             dialogUser.StartPosition = FormStartPosition.CenterScreen; // Thêm dòng này
             dialogUser.textBox1.Text = bus.GetMaxMemberID().ToString();
             dialogUser.button1.Text = "Thêm thành viên"; 
+
             dialogUser.ShowDialog();
         }
 
@@ -92,6 +93,7 @@ namespace QuanLyThuQuan.GUI.User
             dialogUser.radioButton2.Checked = memberModel.UserType == Model.UserType.Librarian;
             dialogUser.radioButton3.Checked = memberModel.UserType == Model.UserType.Admin;
             dialogUser.button1.Text = "Sửa thành viên";     
+
             dialogUser.ShowDialog();
         }
 
@@ -106,6 +108,7 @@ namespace QuanLyThuQuan.GUI.User
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 memberModel = new MemberModel(); // Nếu chưa khởi tạo
                 memberModel.MemberID = int.Parse(row.Cells["MemberID"].Value?.ToString());
+
                 memberModel.FullName = row.Cells["FullName"].Value.ToString();
                 memberModel.Email = row.Cells["Email"].Value.ToString();
                 memberModel.PhoneNumber = row.Cells["PhoneNumber"].Value.ToString();
