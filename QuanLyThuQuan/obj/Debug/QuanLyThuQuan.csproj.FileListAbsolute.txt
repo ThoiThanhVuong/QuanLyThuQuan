@@ -361,3 +361,7 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChi
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormShowProductItem.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormBorrowBook.resources
 >>>>>>> main
+D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindingRedirects.cache
+D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config
+D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormReservation.resources
+D:\programming\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.TransactionFormChilds.FormShowProductItem.resources

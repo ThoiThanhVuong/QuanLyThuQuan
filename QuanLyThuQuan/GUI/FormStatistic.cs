@@ -1,22 +1,10 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 20a234cab496d4865bbac80378b106920f751657
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> main
->>>>>>> 20a234cab496d4865bbac80378b106920f751657
 using System.Windows.Forms;
+using System;
 
 namespace QuanLyThuQuan.GUI
 {
@@ -25,7 +13,6 @@ namespace QuanLyThuQuan.GUI
         private SessionStudyBUS sessionStudyBUS = new SessionStudyBUS();
         private MemberBUS memberBUS = new MemberBUS();
         private TransactionBUS transactionBUS = new TransactionBUS();
-        private TransactionItemBUS transactionItemBUS = new TransactionItemBUS();
         private DeviceBUS deviceBUS = new DeviceBUS();
         private BookBUS bookBUS = new BookBUS();
 
@@ -52,44 +39,51 @@ namespace QuanLyThuQuan.GUI
             dtpBookTo.Value = today;
         }
 
-        private void ReinitializeBusObjects()
-        {
-            sessionStudyBUS = new SessionStudyBUS();
-            memberBUS = new MemberBUS();
-            transactionBUS = new TransactionBUS();
-            transactionItemBUS = new TransactionItemBUS();
-            deviceBUS = new DeviceBUS();
-            bookBUS = new BookBUS();
-        }
-
         // --- Member Statistics --- 
         private void btnMemberStatistic_Click(object sender, EventArgs e)
         {
             DateTime fromDate = dtpMemberFrom.Value.Date; // Get date part only
             DateTime toDate = dtpMemberTo.Value.Date.AddDays(1).AddTicks(-1); // Include the whole end day
-            string selectedType = cmbMemberType.SelectedItem.ToString();
+            string selectedType = cmbMemberType.SelectedItem?.ToString() ?? "All";
 
             try
             {
-                var allSessions = sessionStudyBUS.GetSessionStudies() ?? new List<SessionStudy>(); // Add null check
-                var allMembers = memberBUS.GetAllMembers() ?? new List<MemberModel>(); // Add null check
+                dgvMemberStats.DataSource = null; // Clear previous data
 
-                var filteredSessions = allSessions
-                    .Where(s => s.CheckInTime >= fromDate && s.CheckInTime <= toDate)
-                    .Join(allMembers, // Join session with member details
-                          session => session.MemberId,
-                          member => member.MemberID,
-                          (session, member) => new { session, member });
-
-                // Filter by member type if "All" is not selected
-                if (selectedType != "All")
+                // Get data from business layer with null checking
+                var allSessions = sessionStudyBUS.GetSessionStudies();
+                if (allSessions == null)
                 {
-                    UserType userTypeFilter = (UserType)Enum.Parse(typeof(UserType), selectedType);
-                    filteredSessions = filteredSessions.Where(joined => joined.member.UserType == userTypeFilter);
+                    MessageBox.Show("Không thể lấy dữ liệu phiên học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var allMembers = memberBUS.GetAllMembers();
+                if (allMembers == null)
+                {
+                    MessageBox.Show("Không thể lấy dữ liệu thành viên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Filter sessions by date range
+                var filteredSessions = allSessions
+                    .Where(s => s.CheckInTime >= fromDate && s.CheckInTime <= toDate);
+
+                // Join session with member details - careful with case sensitivity
+                var joinedData = from session in filteredSessions
+                                 join member in allMembers
+                                 on session.MemberId equals member.MemberID
+                                 select new { session, member };
+
+                // Apply filter by member type if "All" is not selected
+                if (!string.IsNullOrEmpty(selectedType) && selectedType != "All")
+                {
+                    var userTypeFilter = (UserType)Enum.Parse(typeof(UserType), selectedType);
+                    joinedData = joinedData.Where(joined => joined.member.UserType == userTypeFilter);
                 }
 
                 // Group by date and count entries
-                var stats = filteredSessions
+                var stats = joinedData
                     .GroupBy(joined => joined.session.CheckInTime.Date)
                     .Select(g => new
                     {
@@ -98,6 +92,12 @@ namespace QuanLyThuQuan.GUI
                     })
                     .OrderBy(s => s.Date)
                     .ToList();
+
+                if (stats.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu thống kê phù hợp với bộ lọc đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 dgvMemberStats.DataSource = stats;
                 dgvMemberStats.Columns["Date"].HeaderText = "Ngày";
@@ -117,20 +117,18 @@ namespace QuanLyThuQuan.GUI
             DateTime toDate = dtpDeviceTo.Value.Date.AddDays(1).AddTicks(-1);
             string deviceNameFilter = txtDeviceName.Text.Trim();
 
-            ReinitializeBusObjects(); // Reinitialize BUS objects to ensure fresh data
-
 
             try
             {
-                var allTransactions = transactionBUS.GetAll() ?? new List<TransactionModel>(); // Add null check
-                var allTransactionItems = transactionItemBUS.GetAll() ?? new List<TransactionItemModel>(); // Add null check
+                var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allDevices = deviceBUS.GetAllDevices() ?? new List<DeviceModel>(); // Add null check
 
                 var borrowedDevices = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
-                    .Join(allTransactionItems, t => t.TransactionID, ti => ti.TransactionID, (t, ti) => new { t, ti })
-                    .Where(joined => joined.ti.DeviceID.HasValue) // Filter for device items
-                    .Join(allDevices, joined => joined.ti.DeviceID.Value, d => d.DeviceID, (joined, device) => new { joined.t, joined.ti, device });
+                    .SelectMany(t => t.Items?.Where(ti => ti.DeviceID.HasValue) ?? Enumerable.Empty<TransactionItemModel>(),
+                               (t, ti) => new { Transaction = t, Item = ti })
+                    .Join(allDevices, joined => joined.Item.DeviceID.Value, d => d.DeviceID,
+                          (joined, device) => new { joined.Transaction, joined.Item, device });
 
                 // Filter by device name if provided
                 if (!string.IsNullOrEmpty(deviceNameFilter))
@@ -143,7 +141,7 @@ namespace QuanLyThuQuan.GUI
                     .Select(g => new
                     {
                         DeviceName = g.Key,
-                        BorrowCount = g.Sum(item => item.ti.Amount) // Sum amounts if multiple borrowed in one transaction
+                        BorrowCount = g.Sum(item => item.Item.Amount) // Sum amounts if multiple borrowed in one transaction
                     })
                     .OrderBy(s => s.DeviceName)
                     .ToList();
@@ -161,25 +159,24 @@ namespace QuanLyThuQuan.GUI
 
         private void btnDeviceCurrentlyBorrowed_Click(object sender, EventArgs e)
         {
-            DateTime fromDate = dtpDeviceFrom.Value.Date;
-            DateTime toDate = dtpDeviceTo.Value.Date.AddDays(1).AddTicks(-1);
             string deviceNameFilter = txtDeviceName.Text.Trim();
 
-            ReinitializeBusObjects(); // Reinitialize BUS objects to ensure fresh data
 
             try
             {
-                var allTransactions = transactionBUS.GetAll() ?? new List<TransactionModel>(); // Add null check
-                var allTransactionItems = transactionItemBUS.GetAll() ?? new List<TransactionItemModel>(); // Add null check
+                var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allDevices = deviceBUS.GetAllDevices() ?? new List<DeviceModel>(); // Add null check
                 var allMembers = memberBUS.GetAllMembers() ?? new List<MemberModel>(); // Add null check
 
                 var currentlyBorrowed = allTransactions
-                    .Where(t => (t.Status == TransactionStatus.Active || t.Status == TransactionStatus.Overdue) && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
-                    .Join(allTransactionItems, t => t.TransactionID, ti => ti.TransactionID, (t, ti) => new { t, ti })
-                    .Where(joined => joined.ti.DeviceID.HasValue)
-                    .Join(allDevices, joined => joined.ti.DeviceID.Value, d => d.DeviceID, (joined, device) => new { joined.t, joined.ti, device })
-                    .Join(allMembers, joined => joined.t.MemberID, m => m.MemberID, (joined, member) => new { joined.t, joined.ti, joined.device, member });
+                    .Where(t => t.TransactionType == TransactionType.Borrow &&
+                               (t.Status == TransactionStatus.Active || t.Status == TransactionStatus.Overdue))
+                    .SelectMany(t => t.Items?.Where(ti => ti.DeviceID.HasValue) ?? Enumerable.Empty<TransactionItemModel>(),
+                               (t, ti) => new { Transaction = t, Item = ti })
+                    .Join(allDevices, joined => joined.Item.DeviceID.Value, d => d.DeviceID,
+                          (joined, device) => new { joined.Transaction, joined.Item, device })
+                    .Join(allMembers, joined => joined.Transaction.MemberID, m => m.MemberID,
+                          (joined, member) => new { joined.Transaction, joined.Item, joined.device, member });
 
                 // Filter by device name if provided
                 if (!string.IsNullOrEmpty(deviceNameFilter))
@@ -192,9 +189,9 @@ namespace QuanLyThuQuan.GUI
                     {
                         cb.device.DeviceName,
                         MemberName = cb.member.FullName,
-                        BorrowDate = cb.t.TransactionDate,
-                        cb.t.DueDate,
-                        Status = cb.t.Status.ToString()
+                        BorrowDate = cb.Transaction.TransactionDate,
+                        DueDate = cb.Transaction.DueDate,
+                        Status = cb.Transaction.Status.ToString()
                     })
                     .OrderBy(s => s.DeviceName).ThenBy(s => s.BorrowDate)
                     .ToList();
@@ -220,19 +217,18 @@ namespace QuanLyThuQuan.GUI
             DateTime toDate = dtpBookTo.Value.Date.AddDays(1).AddTicks(-1);
             string bookNameFilter = txtBookName.Text.Trim();
 
-            ReinitializeBusObjects();
 
             try
             {
-                var allTransactions = transactionBUS.GetAll() ?? new List<TransactionModel>(); // Add null check
-                var allTransactionItems = transactionItemBUS.GetAll() ?? new List<TransactionItemModel>(); // Add null check
+                var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allBooks = bookBUS.GetAllBooks() ?? new List<BookModel>(); // Add null check
 
                 var borrowedBooks = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
-                    .Join(allTransactionItems, t => t.TransactionID, ti => ti.TransactionID, (t, ti) => new { t, ti })
-                    .Where(joined => joined.ti.BookID.HasValue) // Filter for book items
-                    .Join(allBooks, joined => joined.ti.BookID.Value, b => b.BookID, (joined, book) => new { joined.t, joined.ti, book });
+                    .SelectMany(t => t.Items?.Where(ti => ti.BookID.HasValue) ?? Enumerable.Empty<TransactionItemModel>(),
+                               (t, ti) => new { Transaction = t, Item = ti })
+                    .Join(allBooks, joined => joined.Item.BookID.Value, b => b.BookID,
+                          (joined, book) => new { joined.Transaction, joined.Item, book });
 
                 // Filter by book name if provided
                 if (!string.IsNullOrEmpty(bookNameFilter))
@@ -245,7 +241,7 @@ namespace QuanLyThuQuan.GUI
                     .Select(g => new
                     {
                         BookTitle = g.Key,
-                        BorrowCount = g.Sum(item => item.ti.Amount)
+                        BorrowCount = g.Sum(item => item.Item.Amount)
                     })
                     .OrderBy(s => s.BookTitle)
                     .ToList();
@@ -263,25 +259,24 @@ namespace QuanLyThuQuan.GUI
 
         private void btnBookCurrentlyBorrowed_Click(object sender, EventArgs e)
         {
-            DateTime fromDate = dtpBookFrom.Value.Date;
-            DateTime toDate = dtpBookTo.Value.Date.AddDays(1).AddTicks(-1);
             string bookNameFilter = txtBookName.Text.Trim();
 
-            ReinitializeBusObjects(); // Reinitialize BUS objects to ensure fresh data
 
             try
             {
-                var allTransactions = transactionBUS.GetAll() ?? new List<TransactionModel>(); // Add null check
-                var allTransactionItems = transactionItemBUS.GetAll() ?? new List<TransactionItemModel>(); // Add null check
+                var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allBooks = bookBUS.GetAllBooks() ?? new List<BookModel>(); // Add null check
                 var allMembers = memberBUS.GetAllMembers() ?? new List<MemberModel>(); // Add null check
 
                 var currentlyBorrowed = allTransactions
-                    .Where(t => (t.Status == TransactionStatus.Active || t.Status == TransactionStatus.Overdue) && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
-                    .Join(allTransactionItems, t => t.TransactionID, ti => ti.TransactionID, (t, ti) => new { t, ti })
-                    .Where(joined => joined.ti.BookID.HasValue)
-                    .Join(allBooks, joined => joined.ti.BookID.Value, b => b.BookID, (joined, book) => new { joined.t, joined.ti, book })
-                    .Join(allMembers, joined => joined.t.MemberID, m => m.MemberID, (joined, member) => new { joined.t, joined.ti, joined.book, member });
+                    .Where(t => t.TransactionType == TransactionType.Borrow &&
+                               (t.Status == TransactionStatus.Active || t.Status == TransactionStatus.Overdue))
+                    .SelectMany(t => t.Items?.Where(ti => ti.BookID.HasValue) ?? Enumerable.Empty<TransactionItemModel>(),
+                               (t, ti) => new { Transaction = t, Item = ti })
+                    .Join(allBooks, joined => joined.Item.BookID.Value, b => b.BookID,
+                          (joined, book) => new { joined.Transaction, joined.Item, book })
+                    .Join(allMembers, joined => joined.Transaction.MemberID, m => m.MemberID,
+                          (joined, member) => new { joined.Transaction, joined.Item, joined.book, member });
 
                 // Filter by book name if provided
                 if (!string.IsNullOrEmpty(bookNameFilter))
@@ -294,9 +289,9 @@ namespace QuanLyThuQuan.GUI
                     {
                         BookTitle = cb.book.BookTitle,
                         MemberName = cb.member.FullName,
-                        BorrowDate = cb.t.TransactionDate,
-                        DueDate = cb.t.DueDate,
-                        Status = cb.t.Status.ToString()
+                        BorrowDate = cb.Transaction.TransactionDate,
+                        DueDate = cb.Transaction.DueDate,
+                        Status = cb.Transaction.Status.ToString()
                     })
                     .OrderBy(s => s.BookTitle).ThenBy(s => s.BorrowDate)
                     .ToList();
