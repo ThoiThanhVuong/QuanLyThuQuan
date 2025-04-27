@@ -1,12 +1,21 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 20a234cab496d4865bbac80378b106920f751657
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> main
+>>>>>>> 20a234cab496d4865bbac80378b106920f751657
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
