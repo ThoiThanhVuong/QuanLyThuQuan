@@ -142,6 +142,12 @@
     <Compile Include="DAO\RuleDAO.cs" />
     <Compile Include="DAO\SessionStudyDAO.cs" />
     <Compile Include="DAO\ViolationDAO.cs" />
+    <Compile Include="GUI\FormStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormStatistic.Designer.cs">
+      <DependentUpon>FormStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProductItem\BookItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,12 +186,6 @@
     </Compile>
     <Compile Include="GUI\FormRule.Designer.cs">
       <DependentUpon>FormRule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormStatistic.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormStatistic.Designer.cs">
-      <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormTransaction.cs">
       <SubType>Form</SubType>
@@ -282,7 +282,6 @@
     <Compile Include="Model\CategoriesModel.cs" />
     <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\enums.cs" />
-    <Compile Include="Model\LoginCountModel.cs" />
     <Compile Include="Model\LoginHistoryModel.cs" />
     <Compile Include="Model\MemberModel.cs" />
     <Compile Include="Model\PaymentModel.cs" />
@@ -296,6 +295,9 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormStatistic.resx">
+      <DependentUpon>FormStatistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductItem\BookItemControl.resx">
       <DependentUpon>BookItemControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,9 +315,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormRule.resx">
       <DependentUpon>FormRule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormStatistic.resx">
-      <DependentUpon>FormStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTransaction.resx">
       <DependentUpon>FormTransaction.cs</DependentUpon>
