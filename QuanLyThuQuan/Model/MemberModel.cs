@@ -39,6 +39,19 @@ namespace QuanLyThuQuan.Model
             UserType = userType;
             MemberStatus = memberStatus;
         }
+
+        public MemberModel(MemberModel memberModel)
+        {
+            this.MemberID = memberModel.MemberID;
+            this.FullName = memberModel.FullName;
+            this.Email = memberModel.Email;
+            this.PhoneNumber = memberModel.PhoneNumber;
+            this.Username = memberModel.Username;
+            this.Password = memberModel.Password;
+            this.RegistrationDate = memberModel.RegistrationDate;
+            this.UserType = memberModel.UserType;
+            this.MemberStatus = memberModel.MemberStatus;
+        }
         public override string ToString()
         {
             return $"MemberID:{MemberID},Fullname:{FullName},Email:{Email},PhoneNumber:{PhoneNumber}";
