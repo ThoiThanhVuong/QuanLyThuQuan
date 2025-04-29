@@ -54,9 +54,6 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return result > 0;
         }
-        
-
-
 
     }
 }

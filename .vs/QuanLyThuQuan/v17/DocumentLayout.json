@@ -1,14 +1,102 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\QuanLyThuQuan\\",
+  "WorkspaceRootPath": "D:\\programming\\QuanLyThuQuan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formbookstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formbookstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formbookstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formbookstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formdevicestatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\substatisticforms\\formmemberstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formmemberstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\substatisticforms\\formmemberstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formmemberstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\substatisticforms\\formbookstatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\substatisticforms\\formbookstatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\programming\\quanlythuquan\\quanlythuquan\\gui\\formstatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\dao\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\dao\\bookdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\bookdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\dao\\authordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\authordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\transactionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionItemModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:QuanLyThuQuan\\Model\\TransactionItemModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\transactionformchilds\\formshowproductitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\transactionformchilds\\formshowproductitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\transactionformchilds\\forminformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\transactionformchilds\\forminformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\programming\\QuanLyThuQuan\\quanlythuquan\\gui\\transactionformchilds\\formborrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\transactionformchilds\\formborrowbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,36 +118,304 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormStatistic.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAIwFgAAAAVAAAAAAAAAA==",
+              "Title": "FormDeviceStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAqwIMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:44:47.698Z",
+              "WhenOpened": "2025-04-29T19:39:27.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormDeviceStatistic.Designer.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.Designer.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.Designer.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.Designer.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.Designer.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAhwJ0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T19:28:06.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormBookStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAzwFUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T19:15:25.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "FormDeviceStatistic.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormDeviceStatistic.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T18:53:56.749Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormBookStatistic.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T18:53:40.556Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormMemberStatistic.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T18:19:24.431Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormMemberStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormMemberStatistic.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T18:23:56.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SessionStudyDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T19:37:22.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormBookStatistic.Designer.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.Designer.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.Designer.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.Designer.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\SubStatisticForms\\FormBookStatistic.Designer.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAhwKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T19:28:11.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormStatistic.Designer.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.Designer.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.Designer.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.Designer.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.Designer.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAhwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T18:49:38.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "FormStatistic.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs [Design]",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs [Design]",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:43:00.989Z",
+              "WhenOpened": "2025-04-29T18:18:22.145Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormStatistic.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormStatistic.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwBgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T20:17:44.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CategoryDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\CategoryDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\CategoryDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\CategoryDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\CategoryDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:54:33.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BookDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\BookDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:54:31.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AuthorDAO.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\AuthorDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\AuthorDAO.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\AuthorDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\AuthorDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:54:30.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FormDevice.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDevice.cs",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAqwPcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:54:37.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TransactionBUS.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\BUS\\TransactionBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T20:51:31.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FormShowProductItem.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAewB4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T07:18:20.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FormInformation.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAowMYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T10:29:54.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TransactionItemModel.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionItemModel.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\TransactionItemModel.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\TransactionItemModel.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\TransactionItemModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAzwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:24:49.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FormBorrowBook.cs",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "ViewState": "AgIAADEBAAAAAAAAAAAAACEAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T10:26:00.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FormShowProductItem.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormShowProductItem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T07:15:44.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FormInformation.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormInformation.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:38:22.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FormBorrowBook.cs [Design]",
+              "DocumentMoniker": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
+              "ToolTip": "D:\\programming\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T13:22:18.178Z"
             }
           ]
         }
