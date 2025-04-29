@@ -62,7 +62,7 @@ namespace QuanLyThuQuan.Services
             return _exceptModules.Count;
         }
 
-        public int EmployeeLoginId()
+        public int MemberLoginId()
         {
             return _loggedMember.MemberID;
         }
