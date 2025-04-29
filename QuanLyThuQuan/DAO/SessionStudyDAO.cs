@@ -14,6 +14,34 @@ namespace QuanLyThuQuan.DAO
     {
         private ConnectDB db = new ConnectDB();
 
+        public List<SessionStudy> GetAllSessionStudies()
+        {
+            List<SessionStudy> sessionStudys = new List<SessionStudy>();
+            try {
+                db.OpenConnection();
+               
+                string query = "SELECT * FROM studysession";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    sessionStudys.Add(new SessionStudy(
+                        reader.GetInt32("SessionId"),
+                        reader.GetInt32("MemberId"),
+                        reader.GetDateTime("CheckInTime"))
+                    );
+                }
+
+                reader.Close();
+               
+                
+            } catch(Exception ex)
+            {
+                Console.WriteLine("lỗi khi lấy dữ liệu " + ex.Message);
+            }
+            db.CloseConnection();
+            return sessionStudys;
+        }
         public List<SessionStudy> GetSessionStudies()
         {
             List<SessionStudy> sessionStudys = new List<SessionStudy>();

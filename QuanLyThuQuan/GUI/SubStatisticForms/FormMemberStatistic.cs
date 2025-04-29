@@ -48,7 +48,7 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
                 dgvMemberStats.DataSource = null; // Clear previous data
 
                 // Get data from business layer with null checking
-                var allSessions = sessionStudyBUS.GetSessionStudies();
+                var allSessions = sessionStudyBUS.GetAllSessionStudies();
                 if (allSessions == null)
                 {
                     MessageBox.Show("Không thể lấy dữ liệu phiên học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
