@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -433,6 +433,30 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
             }
         }
+        public bool UpdateDueDate(int transactionID, DateTime dueDate)
+        {
+            try
+            {
+                db.OpenConnection();
+                string query = "UPDATE Transactions SET DueDate = @DueDate WHERE TransactionID = @ID";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@DueDate", dueDate);
+                    cmd.Parameters.AddWithValue("@ID", transactionID);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi UpdateDueDate: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
 
     }
 }

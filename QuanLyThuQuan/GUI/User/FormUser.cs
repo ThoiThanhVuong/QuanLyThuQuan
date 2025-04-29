@@ -15,7 +15,7 @@ namespace QuanLyThuQuan.GUI.User
     public partial class FormUser: Form
     {
         MemberBUS bus = new MemberBUS();
-        private FormMain mainForm;
+        //private FormMain mainForm;
         MemberModel memberModel = new MemberModel();
 
         public FormUser()

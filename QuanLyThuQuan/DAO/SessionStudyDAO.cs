@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
+using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,29 @@ namespace QuanLyThuQuan.DAO
 
         public List<SessionStudy> GetSessionStudies()
         {
-            db.OpenConnection();
             List<SessionStudy> sessionStudys = new List<SessionStudy>();
-            string query = "SELECT * FROM studysession WHERE DATE(CheckInTime) = CURDATE()";
-            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                sessionStudys.Add(new SessionStudy(
-                    reader.GetInt32("SessionId"),
-                    reader.GetInt32("MemberId"),
-                    reader.GetDateTime("CheckInTime"))
-                );
-            }
+            try {
+                db.OpenConnection();
+               
+                string query = "SELECT * FROM studysession WHERE DATE(CheckInTime) = CURDATE()";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    sessionStudys.Add(new SessionStudy(
+                        reader.GetInt32("SessionId"),
+                        reader.GetInt32("MemberId"),
+                        reader.GetDateTime("CheckInTime"))
+                    );
+                }
 
-            reader.Close();
+                reader.Close();
+               
+                
+            } catch(Exception ex)
+            {
+                Console.WriteLine("lỗi khi lấy dữ liệu " + ex.Message);
+            }
             db.CloseConnection();
             return sessionStudys;
         }

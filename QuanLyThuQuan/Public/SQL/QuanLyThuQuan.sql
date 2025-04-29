@@ -422,54 +422,39 @@ INSERT INTO `Review` (`MemberID`,`BookID`, `DeviceID`,`Rating`,`ReviewText`,`Rev
 -- ======================================== procedure =================================================================
 -- thủ tục chuyển đổi dữ liệu từ bảng Reservations sang bảng transaction
 DELIMITER $$
-	CREATE PROCEDURE `TransferConfirmedReservations`()
-	BEGIN
-	  DECLARE `done` INT DEFAULT FALSE;
-	  DECLARE `r_ReservationID` INT;
-	  DECLARE `r_MemberID` INT;
-	  DECLARE `new_TransactionID` INT;
-	
-	  -- Cursor để duyệt các Reservation có trạng thái Confirmed
-	  DECLARE `cur` CURSOR FOR
-	    SELECT `ReservationID`, `MemberID`
-	    FROM `Reservation`
-	    WHERE `Status` = 'Confirmed';
-	
-	  -- Handler cho khi hết dữ liệu
-	  DECLARE CONTINUE HANDLER FOR NOT FOUND SET `done` = TRUE;
-	
-	  OPEN `cur`;
-	
-	  read_loop: LOOP
-	    FETCH `cur` INTO `r_ReservationID`, `r_MemberID`;
-	
-	    IF `done` THEN
-	      LEAVE read_loop;
-	    END IF;
-	
-	    -- Tạo bản ghi mới trong bảng Transactions
-	    INSERT INTO `Transactions` (`MemberID`, `TransactionType`, `TransactionDate`, `Status`)
-	    VALUES (`r_MemberID`, 'Borrow', NOW(), 'Active');
-	
-	    -- Lấy TransactionID mới tạo
-	    SET `new_TransactionID` = LAST_INSERT_ID();
-	
-	    -- Chuyển các item từ ReservationItems sang TransactionItems
-	    INSERT INTO `TransactionItems` (`TransactionID`, `BookID`, `DeviceID`, `Amount`)
-	    SELECT `new_TransactionID`, `BookID`, `DeviceID`, `Amount`
-	    FROM `ReservationItems`
-	    WHERE `ReservationID` = `r_ReservationID`;
-	
-	    -- Cập nhật trạng thái Reservation thành Completed
-	    UPDATE `Reservation`
-	    SET `Status` = 'Completed'
-	    WHERE `ReservationID` = `r_ReservationID`;
-	
-	  END LOOP;
-	
-	  CLOSE `cur`;
-	END$$
+
+CREATE PROCEDURE TransferConfirmedReservations(
+    IN p_ReservationID INT,
+    OUT p_TransactionID INT
+)
+BEGIN
+    DECLARE v_MemberID INT;
+
+    -- Lấy MemberID
+    SELECT MemberID INTO v_MemberID
+    FROM Reservation
+    WHERE ReservationID = p_ReservationID;
+
+    -- Tạo Transaction
+    INSERT INTO Transactions (MemberID, TransactionType, TransactionDate, Status)
+    VALUES (v_MemberID, 'Borrow', NOW(), 'Active');
+
+    SET p_TransactionID = LAST_INSERT_ID();
+
+    -- Chuyển các item
+    INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount, Status)
+    SELECT p_TransactionID, BookID, DeviceID, Amount, 'Borrowed'
+    FROM ReservationItems
+    WHERE ReservationID = p_ReservationID;
+
+    -- Cập nhật trạng thái reservation
+    UPDATE Reservation
+    SET Status = 'Confirmed'
+    WHERE ReservationID = p_ReservationID;
+END $$
+
 DELIMITER ;
+
 
 DELIMITER $$ 
 CREATE PROCEDURE ConfirmReturnAndCalculatePayment(IN p_TransactionID INT)
@@ -960,35 +945,9 @@ DELIMITER $$
 	    WHERE ri.`ReservationID` = NEW.`ReservationID`;
 	  END IF;
 	END
-DELIMITER;
+DELIMITER $$;
 
--- tự động cập nhật trạng thái Reservation thành 'Cancelled' khi EndTime đã quá hạn và đồng thời phục hồi lại số lượng Books hoặc Devices
-DELIMITER $$
-CREATE TRIGGER `trg_Update_Reservation_When_EndTime_Expired`
-AFTER UPDATE ON `Reservation`
-FOR EACH ROW
-BEGIN
- 
-  IF OLD.`Status` != 'Cancelled' AND NEW.`EndTime` < NOW() THEN
-    -- Cập nhật trạng thái của Reservation thành 'Cancelled'
-    UPDATE `Reservation`
-    SET `Status` = 'Cancelled'
-    WHERE `ReservationID` = NEW.`ReservationID`;
 
-    -- Phục hồi lại số lượng sách trong Books
-    	UPDATE `Books` b
-	   JOIN `ReservationItems` ri ON ri.`BookID` = b.`BookID`
-	   SET b.`Quantity` = b.`Quantity` + ri.`Amount`
-	   WHERE ri.`ReservationID` = NEW.`ReservationID`;
-    
-    -- Phục hồi lại số lượng thiết bị trong Devices
-      UPDATE `Devices` d
-	   JOIN `ReservationItems` ri ON ri.`DeviceID` = d.`DeviceID`
-	   SET d.`Quantity` = d.`Quantity` + ri.`Amount`
-	   WHERE ri.`ReservationID` = NEW.`ReservationID`;
-  
-  END IF;
-END;
 
 
 
