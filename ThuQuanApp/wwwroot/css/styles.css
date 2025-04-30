@@ -407,3 +407,136 @@ footer {
         transform: translateY(0);
     }
 }
+
+.error-message-color{
+    color: red;
+}
+
+/* CSS cho Overlay (Không bị trùng với code hiện tại của bạn) */
+.overlay {
+    display: none; /* Ban đầu ẩn overlay */
+    position: fixed; /* Cố định vị trí trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền tối mờ */
+    z-index: 1000; /* Đảm bảo nằm trên cùng */
+    justify-content: center; /* Căn giữa theo chiều ngang (khi display: flex) */
+    align-items: center; /* Căn giữa theo chiều dọc (khi display: flex) */
+}
+
+/* CSS cho Nội dung Modal (Không bị trùng với code hiện tại của bạn) */
+.modal-content {
+    background-color: #fff; /* Nền trắng cho form */
+    padding: 30px; /* Khoảng đệm bên trong */
+    border-radius: 8px; /* Góc bo tròn */
+    position: relative; /* Để định vị nút đóng */
+    max-width: 400px; /* Chiều rộng tối đa */
+    width: 90%; /* Chiều rộng trên các màn hình nhỏ */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+}
+
+/* CSS cho Nút đóng (Không bị trùng với code hiện tại của bạn) */
+.close-btn {
+    position: absolute; /* Cố định vị trí trong modal */
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer; /* Biến thành biểu tượng tay khi di chuột */
+    color: #aaa; /* Màu xám */
+    z-index: 10; /* Đảm bảo nút đóng nằm trên nội dung */
+    text-decoration: none;
+}
+
+    .close-btn:hover {
+        color: #777; /* Đổi màu khi hover */
+    }
+
+/* --- CÁC STYLE CHO FORM BÊN TRONG MODAL (Đã làm cụ thể hơn) --- */
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-label {
+    display: block; /* Mỗi label một dòng */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content .form-input {
+    width: 100%; /* Chiếm hết chiều rộng của container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
+    font-size: 1rem; /* Đảm bảo kích thước chữ không bị ảnh hưởng */
+}
+
+    .modal-content .form-input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+    }
+
+/* Nếu form modal cũng có trường password với icon */
+.modal-content .password-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.modal-content .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    padding: 0 8px;
+    z-index: 2;
+}
+
+
+.modal-content .btn {
+    display: inline-block;
+    padding: 10px 15px; /* Padding nhỏ hơn cho nút trong modal */
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Nếu form modal dùng btn-primary */
+.modal-content .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+}
+
+    .modal-content .btn-primary:hover {
+        opacity: 0.9;
+    }
+
+
+/* Nếu form modal dùng btn-block */
+.modal-content .btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+/* Style cho thông báo thành công/thất bại trong modal (nếu có) */
+#forgotPasswordMessage {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+/* Ví dụ: #forgotPasswordMessage.success { color: green; } #forgotPasswordMessage.error { color: red; } */
+
+/* --- KẾT THÚC STYLE CHO FORM BÊN TRONG MODAL --- */
