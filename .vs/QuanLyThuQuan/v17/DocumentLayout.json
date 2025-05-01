@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\services\\validateconditionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\services\\validateconditionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\packages\\EPPlus.8.0.3\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:packages\\EPPlus.8.0.3\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\dialoguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\cntt\\projects\\c#\\quanlythuquan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\quanlythuquan\\services\\sessionmanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,19 +95,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ValidateConditionServices.cs",
+              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Services\\ValidateConditionServices.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Services\\ValidateConditionServices.cs",
+              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Services\\ValidateConditionServices.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Services\\ValidateConditionServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T04:05:45.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "readme.txt",
+              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\packages\\EPPlus.8.0.3\\readme.txt",
+              "RelativeDocumentMoniker": "packages\\EPPlus.8.0.3\\readme.txt",
+              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\packages\\EPPlus.8.0.3\\readme.txt",
+              "RelativeToolTip": "packages\\EPPlus.8.0.3\\readme.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-01T04:05:13.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\packages.config",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\packages.config",
+              "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\packages.config",
+              "RelativeToolTip": "QuanLyThuQuan\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-01T04:03:08.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "FormDevice.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDevice.cs",
               "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDevice.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T03:57:47.083Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DialogUser.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\User\\DialogUser.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\DialogUser.cs",
@@ -114,23 +165,25 @@
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\DialogUser.cs",
               "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\User\\DialogUser.cs [Design]",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\DialogUser.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2025-04-29T16:16:26.69Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T16:16:26.69Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "FormUser.cs [Design]",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
               "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2025-04-29T16:15:23.94Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T16:15:23.94Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Program.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\Program.cs",
@@ -138,11 +191,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T15:48:42.753Z"
+              "WhenOpened": "2025-04-29T15:48:42.753Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SessionManagerService.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Services\\SessionManagerService.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\Services\\SessionManagerService.cs",
@@ -150,11 +204,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\Services\\SessionManagerService.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T15:12:58.316Z"
+              "WhenOpened": "2025-04-29T15:12:58.316Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Main.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Main.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\Main.cs",
@@ -162,11 +217,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\Main.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAAYwBAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T15:07:33.53Z"
+              "WhenOpened": "2025-04-29T15:07:33.53Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "enums.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Model\\enums.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\enums.cs",
@@ -174,11 +230,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\Model\\enums.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:58:21.418Z"
+              "WhenOpened": "2025-04-29T14:58:21.418Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "FormTransaction.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
@@ -186,11 +243,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormTransaction.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwFgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:52:36.743Z"
+              "WhenOpened": "2025-04-29T14:52:36.743Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "MemberBUS.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\BUS\\MemberBUS.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\MemberBUS.cs",
@@ -198,11 +256,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\BUS\\MemberBUS.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T14:21:38.146Z"
+              "WhenOpened": "2025-04-29T14:21:38.146Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "MemberDAO.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\DAO\\MemberDAO.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\MemberDAO.cs",
@@ -210,11 +269,12 @@
               "RelativeToolTip": "QuanLyThuQuan\\DAO\\MemberDAO.cs",
               "ViewState": "AgIAAGIAAAAAAAAAAAAIwJAAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T13:38:32.912Z"
+              "WhenOpened": "2025-04-29T13:38:32.912Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "NotificationServices.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\Services\\NotificationServices.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\Services\\NotificationServices.cs",
@@ -222,30 +282,33 @@
               "RelativeToolTip": "QuanLyThuQuan\\Services\\NotificationServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAACNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T12:43:52.872Z"
+              "WhenOpened": "2025-04-29T12:43:52.872Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Login.cs",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Login.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\Login.cs",
               "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Login.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\Login.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAwwBgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
-              "WhenOpened": "2025-04-29T12:36:31.28Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:36:31.28Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Login.cs",
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\Login.cs",
               "ToolTip": "D:\\CNTT\\Projects\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\Login.cs [Design]",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T12:35:05.567Z"
+              "WhenOpened": "2025-04-29T12:35:05.567Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
