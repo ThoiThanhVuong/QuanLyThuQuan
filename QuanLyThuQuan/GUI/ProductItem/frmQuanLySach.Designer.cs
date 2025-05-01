@@ -52,6 +52,7 @@
             this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnImportExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
@@ -130,6 +131,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.btnImportExcel);
             this.panel3.Controls.Add(this.btnView);
             this.panel3.Controls.Add(this.btnRemove);
             this.panel3.Controls.Add(this.btnEdit);
@@ -286,6 +288,20 @@
             // 
             this.searchTimer.Tick += new System.EventHandler(this.txtSearchBook_TextChanged);
             // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnImportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnImportExcel.Location = new System.Drawing.Point(8, 274);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(104, 73);
+            this.btnImportExcel.TabIndex = 6;
+            this.btnImportExcel.Text = "Nhập Excel";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            // 
             // frmQuanLySach
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -334,5 +350,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaThue;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.Timer searchTimer;
+        private System.Windows.Forms.Button btnImportExcel;
     }
 }
