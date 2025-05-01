@@ -1,10 +1,9 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Services;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Transactions;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.TransactionFormChilds
@@ -19,7 +18,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         public FormBorrowBook()
         {
             InitializeComponent();
-         
+
         }
 
         private void FormBorrowBook_Load(object sender, EventArgs e)
@@ -40,7 +39,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             {
                 List<BookModel> books = bookBUS.GetAllBooks();
                 cbbProductName.Items.Clear();
-                foreach(var book in books)
+                foreach (var book in books)
                 {
                     cbbProductName.Items.Add(book.BookTitle);
                 }
@@ -50,7 +49,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             {
                 List<DeviceModel> devices = deviceBUS.GetAllDevices();
                 cbbProductName.Items.Clear();
-                foreach(var device in devices)
+                foreach (var device in devices)
                 {
                     cbbProductName.Items.Add(device.DeviceName);
                 }
@@ -68,7 +67,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             cbbProductType.SelectedIndex = 0;
             LoadDataForTextProductName();
             DTDueDate.Format = DateTimePickerFormat.Custom;
-            DTDueDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";  
+            DTDueDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             DTDueDate.ShowUpDown = true;
         }
 
@@ -82,7 +81,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // hàm kiểm tra xem thành viên có lỗi vi phạm nào không
         private void btnCheckViolation_Click(object sender, EventArgs e)
         {
-            int memberID = int.Parse(txtMemberID.Text);
+            int memberID = ValidateParseToOtherType.GetInstance().CanParseToInt(txtMemberID.Text);
+            if (memberID == -1) return;
             int violationCount = new ViolationBUS().checkCountViolationByID(memberID);
 
             if (violationCount > 3)
@@ -113,7 +113,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             string productName = cbbProductName.Text;
             int availableStock = 0;
             int currentBorrowedAmount = 0;
-           
+
             if (productType == "Sách")
             {
                 BookModel book = bookBUS.GetBookByName(productName);
@@ -147,7 +147,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 }
                 if (!updated)
                 {
-                    dgvBorrowItems.Rows.Add(dgvBorrowItems.Rows.Count + 1, book.BookID, book.BookTitle, "", "", addAmount,"X");
+                    dgvBorrowItems.Rows.Add(dgvBorrowItems.Rows.Count + 1, book.BookID, book.BookTitle, "", "", addAmount, "X");
                 }
             }
             else if (productType == "Thiết bị")
@@ -183,7 +183,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 }
                 if (!updated)
                 {
-                    dgvBorrowItems.Rows.Add(dgvBorrowItems.Rows.Count + 1, "", "", device.DeviceID, device.DeviceName, addAmount,"X");
+                    dgvBorrowItems.Rows.Add(dgvBorrowItems.Rows.Count + 1, "", "", device.DeviceID, device.DeviceName, addAmount, "X");
                 }
             }
 
@@ -302,7 +302,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // hàm sự kiện xóa 1 chi tiết giao dịch
         private void dgvBorrowItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 6) 
+            if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
                 dgvBorrowItems.Rows.RemoveAt(e.RowIndex);
             }
@@ -318,14 +318,14 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 int currentTotal = 0;
                 string productType = "";
 
-                if (!string.IsNullOrEmpty(row.Cells[1].Value?.ToString())) 
+                if (!string.IsNullOrEmpty(row.Cells[1].Value?.ToString()))
                 {
                     int bookID = Convert.ToInt32(row.Cells[1].Value);
                     BookModel book = bookBUS.GetBookByID(bookID);
                     maxAvailable = book.BookQuantity;
                     productType = "Sách";
                 }
-                else if (!string.IsNullOrEmpty(row.Cells[3].Value?.ToString())) 
+                else if (!string.IsNullOrEmpty(row.Cells[3].Value?.ToString()))
                 {
                     int deviceID = Convert.ToInt32(row.Cells[3].Value);
                     DeviceModel device = deviceBUS.GetDeviceByID(deviceID);
