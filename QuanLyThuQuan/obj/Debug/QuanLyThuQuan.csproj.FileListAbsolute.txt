@@ -1,4 +1,3 @@
-
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -27,7 +26,6 @@ D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.IO.Pipelines.xm
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Memory.xml
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Threading.Tasks.Extensions.xml
-
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindingRedirects.cache
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config
@@ -337,8 +335,6 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Runtime.CompilerServices.Unsa
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Security.Cryptography.Xml.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindingRedirects.cache
-D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.BookItemControl.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormBook.resources
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.GUI.FormDashBoard.resources
@@ -377,3 +373,4 @@ D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\Google.Protobuf.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Compression.LZ4.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Compression.LZ4.Streams.xml
 D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\K4os.Hash.xxHash.xml
+D:\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\EPPlus.Interfaces.dll

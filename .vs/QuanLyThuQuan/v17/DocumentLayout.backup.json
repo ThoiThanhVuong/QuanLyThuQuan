@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
               "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\TransactionFormChilds\\FormBorrowBook.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAswGMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAGMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T04:47:09.055Z",
               "EditorCaption": ""
@@ -66,9 +66,8 @@
               "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
               "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T03:35:00.577Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2025-05-01T03:35:00.577Z"
             },
             {
               "$type": "Document",
