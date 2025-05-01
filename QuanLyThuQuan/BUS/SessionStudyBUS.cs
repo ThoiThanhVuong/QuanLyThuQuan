@@ -10,6 +10,12 @@ namespace QuanLyThuQuan.BUS
 {
     class SessionStudyBUS
     {
+        public List<SessionStudy> GetAllSessionStudies()
+        {
+            SessionStudyDAO sessionStudyDAO = new SessionStudyDAO();
+            return sessionStudyDAO.GetAllSessionStudies();
+        }
+
         public List<SessionStudy> GetSessionStudies()
         {
             SessionStudyDAO sessionStudyDAO = new SessionStudyDAO();

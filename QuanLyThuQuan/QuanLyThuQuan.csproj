@@ -244,6 +244,24 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormBookStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormBookStatistic.Designer.cs">
+      <DependentUpon>FormBookStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormDeviceStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormDeviceStatistic.Designer.cs">
+      <DependentUpon>FormDeviceStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormMemberStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubStatisticForms\FormMemberStatistic.Designer.cs">
+      <DependentUpon>FormMemberStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TransactionFormChilds\FormBorrowBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +366,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubStatisticForms\FormBookStatistic.resx">
+      <DependentUpon>FormBookStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubStatisticForms\FormDeviceStatistic.resx">
+      <DependentUpon>FormDeviceStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubStatisticForms\FormMemberStatistic.resx">
+      <DependentUpon>FormMemberStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormBorrowBook.resx">
       <DependentUpon>FormBorrowBook.cs</DependentUpon>
