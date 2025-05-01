@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe.config
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.exe
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\QuanLyThuQuan.pdb
@@ -28,7 +27,7 @@ D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.IO.Pipelines.xm
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Memory.xml
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\bin\Debug\System.Threading.Tasks.Extensions.xml
->>>>>>> 0ca099eff4bf108c2e72548cd7efaef2599f3937
+
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.AssemblyReference.cache
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.csproj.SuggestedBindingRedirects.cache
 D:\CNTT\Projects\C#\QuanLyThuQuan\QuanLyThuQuan\obj\Debug\QuanLyThuQuan.exe.config

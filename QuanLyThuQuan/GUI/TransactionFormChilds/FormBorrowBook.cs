@@ -82,17 +82,28 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         // hàm kiểm tra xem thành viên có lỗi vi phạm nào không
         private void btnCheckViolation_Click(object sender, EventArgs e)
         {
-            int memberID = int.Parse(txtMemberID.Text);
-            int violationCount = new ViolationBUS().checkCountViolationByID(memberID);
-
-            if (violationCount > 3)
+            if (int.TryParse(txtMemberID.Text, out int memberID))
             {
-                MessageBox.Show($"Thành viên đã vi phạm {violationCount} lần! Vui lòng xem xét cảnh báo.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int violationCount = new ViolationBUS().checkCountViolationByID(memberID);
+
+                if (violationCount > 3)
+                {
+                    MessageBox.Show($"Thành viên đã vi phạm {violationCount} lần! Vui lòng xem xét cảnh báo.",
+                                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show($"Thành viên chỉ vi phạm {violationCount} lần. Không vượt quá giới hạn.",
+                                    "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show($"Thành viên chỉ vi phạm {violationCount} lần. Không vượt quá giới hạn.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mã thành viên không hợp lệ. Vui lòng nhập số nguyên!",
+                                "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMemberID.Focus();
             }
+
         }
         // hàm sự kiện thêm 1 chi tiết sản phẩm vào datagridview
         private void btnThem_Click(object sender, EventArgs e)
