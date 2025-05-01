@@ -1,10 +1,10 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.TransactionFormChilds
@@ -14,6 +14,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private TransactionBUS trans = new TransactionBUS();
         private BookBUS bookBUS = new BookBUS();
         private DeviceBUS deviceBUS = new DeviceBUS();
+        private bool isFromReservation = false;
+        private int transferredTransactionID = -1;
         public FormBorrowBook()
         {
             InitializeComponent();
@@ -53,6 +55,9 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                     cbbProductName.Items.Add(device.DeviceName);
                 }
             }
+            dgvBorrowItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBorrowItems.Columns[6].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+            dgvBorrowItems.Columns[6].DefaultCellStyle.ForeColor = Color.Red;
         }
 
         public void LoadValue()
@@ -108,9 +113,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             string productName = cbbProductName.Text;
             int availableStock = 0;
             int currentBorrowedAmount = 0;
-            dgvBorrowItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBorrowItems.Columns[6].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
-            dgvBorrowItems.Columns[6].DefaultCellStyle.ForeColor = Color.Red;
+           
             if (productType == "Sách")
             {
                 BookModel book = bookBUS.GetBookByName(productName);
@@ -199,7 +202,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             }
 
             // Kiểm tra có sản phẩm nào được mượn chưa
-            if (dgvBorrowItems.Rows.Count <= 1) // chỉ có dòng mới thì không tính
+            if (dgvBorrowItems.Rows.Count <= 1)
             {
                 MessageBox.Show("Vui lòng thêm sản phẩm cần mượn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -246,7 +249,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 MemberID = memberID,
                 TransactionDate = DateTime.Now,
                 DueDate = DTDueDate.Value,
-                Status = TransactionStatus.Active,
+                Status = Model.TransactionStatus.Active,
                 TransactionType = TransactionType.Borrow,
                 TransactionItems = new List<TransactionItemModel>()
             };
@@ -268,18 +271,33 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
                 transaction.TransactionItems.Add(item);
             }
-
-            var success = trans.AddTransactionWithItems(transaction);
-            if (success)
+            if (isFromReservation && transferredTransactionID != -1)
             {
-                MessageBox.Show("Giao dịch mượn đã được tạo thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                bool updated = trans.UpdateDueDate(transferredTransactionID, DTDueDate.Value);
+                if (updated)
+                {
+                    MessageBox.Show("Đã cập nhật hạn trả cho giao dịch đã chuyển từ đặt trước.", "Thông báo");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi khi cập nhật hạn trả.", "Lỗi");
+                }
+                return;
             }
             else
             {
-                MessageBox.Show("Lỗi khi thêm giao dịch.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var success = trans.AddTransactionWithItems(transaction);
+                if (success)
+                {
+                    MessageBox.Show("Giao dịch mượn đã được tạo thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi khi thêm giao dịch.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
         }
         // hàm sự kiện xóa 1 chi tiết giao dịch
         private void dgvBorrowItems_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -340,5 +358,32 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 }
             }
         }
+        public void SetFromReservation(ReservationModel reservation, int transactionID)
+        {
+            isFromReservation = true;
+            transferredTransactionID = transactionID;
+
+            txtMemberID.Text = reservation.MemberID.ToString();
+            dgvBorrowItems.Rows.Clear();
+
+            foreach (var item in reservation.Items)
+            {
+                string bookTitle = item.BookID.HasValue ? bookBUS.GetBookByID(item.BookID.Value).BookTitle : "";
+                string deviceName = item.DeviceID.HasValue ? deviceBUS.GetDeviceByID(item.DeviceID.Value).DeviceName : "";
+
+                dgvBorrowItems.Rows.Add(
+                    dgvBorrowItems.Rows.Count + 1,
+                    item.BookID?.ToString() ?? "",
+                    bookTitle,
+                    item.DeviceID?.ToString() ?? "",
+                    deviceName,
+                    item.Amount,
+                    "X"
+                );
+            }
+
+
+        }
+
     }
 }

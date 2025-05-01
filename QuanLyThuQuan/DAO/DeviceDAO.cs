@@ -188,16 +188,17 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "INSERT INTO Devices (DeviceName,DeviceImage,DeviceType,Quantity,Status,fee_per_hour)" +
-                    "VALUES (@DeviceName,@DeviceImage,@DeviceType,@Quantity,@Status,@fee_per_hour)";
+                string query = "INSERT INTO Devices (DeviceName,DeviceImage,DeviceType,Quantity,fee_per_hour,Status)" +
+                    "VALUES (@DeviceName,@DeviceImage,@DeviceType,@Quantity,@fee_per_hour,@Status)";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@DeviceName", device.DeviceName);
                     cmd.Parameters.AddWithValue("@DeviceImage", device.DeviceImage);
                     cmd.Parameters.AddWithValue("@DeviceType", device.DeviceType);
                     cmd.Parameters.AddWithValue("@Quantity", device.DeviceQuantity);
-                    cmd.Parameters.AddWithValue("@Status", device.DeviceStatus.ToString());
                     cmd.Parameters.AddWithValue("@fee_per_hour", device.FeePerHour);
+                    cmd.Parameters.AddWithValue("@Status", device.DeviceStatus.ToString());
+                   
                     bool result = cmd.ExecuteNonQuery() > 0;
                     db.CloseConnection();
                     return result;
@@ -217,7 +218,7 @@ namespace QuanLyThuQuan.DAO
             {
                 db.OpenConnection();
                 string query = ("UPDATE Devices " +
-                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,Status=@Status,fee_per_hour=@fee_per_hour " +
+                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,fee_per_hour=@fee_per_hour,Status=@Status " +
                     "WHERE DeviceID =@DeviceID");
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {

@@ -6,7 +6,7 @@ namespace QuanLyThuQuan.Model
 {
     public class TransactionModel
     {
-       public int TransactionID { get; set; }
+        public int TransactionID { get; set; }
         public int MemberID { get; set; }
         public TransactionType TransactionType { get; set; }
         public DateTime TransactionDate { get; set; }
@@ -16,6 +16,8 @@ namespace QuanLyThuQuan.Model
 
         public MemberModel Member { get; set; }
         public List<TransactionItemModel> TransactionItems { get; set; } = new List<TransactionItemModel>();
+        // Adding Items property that forwards to TransactionItems for backward compatibility
+        public List<TransactionItemModel> Items => TransactionItems;
         public List<PaymentModel> Payments { get; set; } = new List<PaymentModel>();
         public List<ViolationModel> Violations { get; set; } = new List<ViolationModel>();
 

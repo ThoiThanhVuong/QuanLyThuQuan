@@ -92,6 +92,10 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.ReturnSingleItem(itemID);
         }
+        public bool UpdateDueDate(int transactionID, DateTime dueDate)
+        {
+            return transactionDAO.UpdateDueDate(transactionID, dueDate);
+        }
 
     }
 }
