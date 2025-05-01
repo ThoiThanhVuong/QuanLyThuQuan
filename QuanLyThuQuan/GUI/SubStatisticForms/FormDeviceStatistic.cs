@@ -31,6 +31,8 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             DateTime startOfMonth = new DateTime(today.Year, today.Month, 1);
             dtpDeviceFrom.Value = startOfMonth;
             dtpDeviceTo.Value = today;
+            // Load initial data (e.g., borrowed count by default)
+            LoadBorrowedCountData(DateTime.MinValue, DateTime.MaxValue, null);
         }
 
         private void btnDeviceBorrowedCount_Click(object sender, EventArgs e)
@@ -38,12 +40,28 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             DateTime fromDate = dtpDeviceFrom.Value.Date;
             DateTime toDate = dtpDeviceTo.Value.Date.AddDays(1).AddTicks(-1);
             string deviceNameFilter = txtDeviceName.Text.Trim();
+            LoadBorrowedCountData(fromDate, toDate, deviceNameFilter);
+        }
 
+        private void btnDeviceCurrentlyBorrowed_Click(object sender, EventArgs e)
+        {
+            LoadCurrentlyBorrowedData();
+        }
 
+        private void LoadBorrowedCountData(DateTime fromDate, DateTime toDate, string deviceNameFilter)
+        {
             try
             {
+                dgvDeviceStats.DataSource = null; // Clear previous data
                 var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allDevices = deviceBUS.GetAllDevices() ?? new List<DeviceModel>(); // Add null check
+
+                if (allTransactions.Count == 0 || allDevices.Count == 0)
+                {
+                    // Optionally show a message if base data is empty
+                    // MessageBox.Show("Không có dữ liệu giao dịch hoặc thiết bị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 var borrowedDevices = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
@@ -68,6 +86,12 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
                     .OrderBy(s => s.DeviceName)
                     .ToList();
 
+                if (stats.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu thống kê lượt mượn thiết bị phù hợp với bộ lọc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 dgvDeviceStats.DataSource = stats;
                 dgvDeviceStats.Columns["DeviceName"].HeaderText = "Tên Thiết Bị";
                 dgvDeviceStats.Columns["BorrowCount"].HeaderText = "Số Lượt Mượn";
@@ -79,16 +103,23 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             }
         }
 
-        private void btnDeviceCurrentlyBorrowed_Click(object sender, EventArgs e)
+        private void LoadCurrentlyBorrowedData()
         {
             string deviceNameFilter = txtDeviceName.Text.Trim();
 
-
             try
             {
+                dgvDeviceStats.DataSource = null; // Clear previous data
                 var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>(); // Updated method call
                 var allDevices = deviceBUS.GetAllDevices() ?? new List<DeviceModel>(); // Add null check
                 var allMembers = memberBUS.GetAllMembers() ?? new List<MemberModel>(); // Add null check
+
+                if (allTransactions.Count == 0 || allDevices.Count == 0 || allMembers.Count == 0)
+                {
+                    // Optionally show a message if base data is empty
+                    // MessageBox.Show("Không có dữ liệu giao dịch, thiết bị hoặc thành viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 var currentlyBorrowed = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow &&
@@ -117,6 +148,12 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
                     })
                     .OrderBy(s => s.DeviceName).ThenBy(s => s.BorrowDate)
                     .ToList();
+
+                if (stats.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu thiết bị đang được mượn phù hợp với bộ lọc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 dgvDeviceStats.DataSource = stats;
                 dgvDeviceStats.Columns["DeviceName"].HeaderText = "Tên Thiết Bị";

@@ -21,7 +21,7 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
         {
             InitializeComponent();
             initValue();
-            btnMemberStatistic_Click(this, EventArgs.Empty);
+            LoadData(DateTime.MinValue, DateTime.MaxValue,"All");
         }
 
         private void initValue()
@@ -42,7 +42,11 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             DateTime fromDate = dtpMemberFrom.Value.Date; // Get date part only
             DateTime toDate = dtpMemberTo.Value.Date.AddDays(1).AddTicks(-1); // Include the whole end day
             string selectedType = cmbMemberType.SelectedItem?.ToString() ?? "All";
+            LoadData(fromDate, toDate, selectedType);
+        }
 
+        private void LoadData(DateTime fromDate, DateTime toDate,String selectedType)
+        {
             try
             {
                 dgvMemberStats.DataSource = null; // Clear previous data

@@ -31,6 +31,8 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             DateTime startOfMonth = new DateTime(today.Year, today.Month, 1);
             dtpBookFrom.Value = startOfMonth;
             dtpBookTo.Value = today;
+            // Load initial data (e.g., borrowed count by default)
+            LoadBorrowedCountData(DateTime.MinValue, DateTime.MaxValue, null);
         }
 
         private void btnBookBorrowedCount_Click(object sender, EventArgs e)
@@ -38,11 +40,30 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             DateTime fromDate = dtpBookFrom.Value.Date;
             DateTime toDate = dtpBookTo.Value.Date.AddDays(1).AddTicks(-1);
             string bookNameFilter = txtBookName.Text.Trim();
+            LoadBorrowedCountData(fromDate, toDate, bookNameFilter);
+        }
+
+        private void btnBookCurrentlyBorrowed_Click(object sender, EventArgs e)
+        {
+            LoadCurrentlyBorrowedData();
+        }
+
+        private void LoadBorrowedCountData(DateTime fromDate, DateTime toDate, string bookNameFilter)
+        {
 
             try
             {
+                dgvBookStats.DataSource = null; // Clear previous data
                 var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>();
                 var allBooks = bookBUS.GetAllBooks() ?? new List<BookModel>();
+
+                if (allTransactions.Count == 0 || allBooks.Count == 0)
+                {
+                    // Optionally show a message if base data is empty
+                    // MessageBox.Show("Không có dữ liệu giao dịch hoặc sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
 
                 var borrowedBooks = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow && t.TransactionDate >= fromDate && t.TransactionDate <= toDate)
@@ -67,6 +88,13 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
                     .OrderBy(s => s.BookTitle)
                     .ToList();
 
+                if (stats.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu thống kê lượt mượn sách phù hợp với bộ lọc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
                 dgvBookStats.DataSource = stats;
                 dgvBookStats.Columns["BookTitle"].HeaderText = "Tên Sách";
                 dgvBookStats.Columns["BorrowCount"].HeaderText = "Số Lượt Mượn";
@@ -78,15 +106,23 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
             }
         }
 
-        private void btnBookCurrentlyBorrowed_Click(object sender, EventArgs e)
+        private void LoadCurrentlyBorrowedData()
         {
             string bookNameFilter = txtBookName.Text.Trim();
 
             try
             {
+                dgvBookStats.DataSource = null; // Clear previous data
                 var allTransactions = transactionBUS.GetAllTransactionsWithItems() ?? new List<TransactionModel>();
                 var allBooks = bookBUS.GetAllBooks() ?? new List<BookModel>();
                 var allMembers = memberBUS.GetAllMembers() ?? new List<MemberModel>();
+
+                if (allTransactions.Count == 0 || allBooks.Count == 0 || allMembers.Count == 0)
+                {
+                    // Optionally show a message if base data is empty
+                    // MessageBox.Show("Không có dữ liệu giao dịch, sách hoặc thành viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 var currentlyBorrowed = allTransactions
                     .Where(t => t.TransactionType == TransactionType.Borrow &&
@@ -115,6 +151,12 @@ namespace QuanLyThuQuan.GUI.SubStatisticForms
                     })
                     .OrderBy(s => s.BookTitle).ThenBy(s => s.BorrowDate)
                     .ToList();
+
+                if (stats.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu sách đang được mượn phù hợp với bộ lọc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 dgvBookStats.DataSource = stats;
                 dgvBookStats.Columns["BookTitle"].HeaderText = "Tên Sách";
