@@ -12,6 +12,16 @@
             <div class="form-group">
                 <label for="username" class="form-label">Tên Đăng Nhập</label>
                 <input type="text" id="username" name="username" class="form-input" required>
+
+                @* NOTE: Razor Code here *@
+                @if (ViewBag.ErrorUserNameOrPassword != null)
+                {
+                    <span class="text-danger error-message-color">@ViewBag.ErrorUserNameOrPassword</span>
+                }
+                else if(ViewBag.ErrorPermission != null) {
+                    <span class="text-danger error-message-color">@ViewBag.ErrorPermission</span>
+                }
+
             </div>
 
             <div class="form-group">
@@ -19,6 +29,13 @@
                 <div class="password-input-container">
                     <input type="password" id="password" name="password" class="form-input" required>
                     <i class="fas fa-eye password-toggle" onclick="togglePassword('password')"></i>
+
+                    @* NOTE: Razor Code here *@
+                    @if (ViewBag.ErrorUserNameOrPassword != null)
+                    {
+                        <span class="text-danger error-message-color">@ViewBag.ErrorUserNameOrPassword</span>
+                    }
+
                 </div>
             </div>
 
@@ -27,7 +44,7 @@
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Ghi nhớ đăng nhập</label>
                 </div>
-                <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                <a class="forgot-link" id="forgotPasswordTrigger">Quên mật khẩu?</a>
             </div>
 
             <button type="submit" class="btn btn-gradient btn-block">Đăng Nhập</button>
@@ -47,9 +64,44 @@
             </div>
         </form>
     </div>
+    <div id="forgotPasswordOverlay" class="overlay">
+        <div class="modal-content">
+            <a class="close-btn" asp-controller="Account" asp-action="ResetForm">&times;</a>
+            <h2>Quên Mật khẩu</h2>
+            <p>Vui lòng nhập địa chỉ email hoặc tên đăng nhập của bạn. Chúng tôi sẽ gửi hướng dẫn khôi phục mật khẩu cho bạn.</p>
+
+            <form id="forgotPasswordForm" asp-controller="Account" asp-action="ForgotPassword" method="post">
+                <div class="form-group">
+                    <label for="recoveryIdentifier" class="form-label">Email hoặc Tên đăng nhập</label>
+                    <input type="text" id="recoveryIdentifier" name="recoveryIdentifier" class="form-input" value="@ViewBag.RecoveryIdentifier" required>
+
+                    @* NOTE: Razor Code here *@
+                    @if (ViewBag.ForgotPasswordError != null)
+                    {
+                        <span class="text-danger error-message-color">@ViewBag.ForgotPasswordError</span>
+                    }
+                    else if (ViewBag.ForgotPasswordError == null && ViewBag.AllowChangePassword != null)
+                    {
+                        <label for="newPassword" class="form-label forgot-pass-label">Mật Khẩu Mới</label>
+                        <input type="text" id="newPassword" name="newPassword" class="form-input" required>
+                        if (ViewBag.UpdatePasswordError != null)
+                        {
+                            <span class="text-danger error-message-color">@ViewBag.UpdatePasswordError</span>
+                        }
+                    }
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Gửi yêu cầu</button>
+            </form>
+
+            <div id="forgotPasswordMessage" style="margin-top: 10px; color: green;"></div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
+    <script src="~/js/main.js"></script>
     <script>
         function togglePassword(id) {
             const input = document.getElementById(id);
@@ -63,5 +115,10 @@
                 icon.classList.replace("fa-eye-slash", "fa-eye");
             }
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+        if (@(ViewBag.KeepOverlayOpen != null ? "true" : "false"))
+            openOverlay();
+        })
     </script>
 }

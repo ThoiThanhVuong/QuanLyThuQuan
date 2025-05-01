@@ -295,9 +295,16 @@
     <Compile Include="Model\ViolationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <EmbeddedResource Include="GUI\FormStatistic.resx">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </EmbeddedResource>
+
+    <Compile Include="Services\NotificationServices.cs" />
+    <Compile Include="Services\SessionManagerService.cs" />
+    <Compile Include="Services\ValidateConditionServices.cs" />
+    <Compile Include="Services\ValidateParseToOtherType.cs" />
+
     <EmbeddedResource Include="GUI\ProductItem\BookItemControl.resx">
       <DependentUpon>BookItemControl.cs</DependentUpon>
     </EmbeddedResource>
