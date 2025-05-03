@@ -213,7 +213,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             }
 
             // Kiểm tra có sản phẩm nào được mượn chưa
-            if (dgvBorrowItems.Rows.Count <= 1)
+            if (dgvBorrowItems.Rows.Count <= 0)
             {
                 MessageBox.Show("Vui lòng thêm sản phẩm cần mượn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -277,7 +277,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 {
                     BookID = bookID,
                     DeviceID = deviceID,
-                    Amount = amount
+                    Amount = amount,
+                   
                 };
 
                 transaction.TransactionItems.Add(item);

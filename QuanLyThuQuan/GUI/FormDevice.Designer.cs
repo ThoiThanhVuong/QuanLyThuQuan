@@ -51,6 +51,7 @@
             this.DeviceQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnRemoveByCondition = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.btnView.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // btnView
             // 
+            this.btnView.Controls.Add(this.btnRemoveByCondition);
             this.btnView.Controls.Add(this.btnImportExcel);
             this.btnView.Controls.Add(this.btnViewDetail);
             this.btnView.Controls.Add(this.btnRemove);
@@ -101,7 +103,7 @@
             this.btnImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnImportExcel.Location = new System.Drawing.Point(11, 301);
+            this.btnImportExcel.Location = new System.Drawing.Point(11, 288);
             this.btnImportExcel.Name = "btnImportExcel";
             this.btnImportExcel.Size = new System.Drawing.Size(118, 73);
             this.btnImportExcel.TabIndex = 5;
@@ -116,7 +118,7 @@
             this.btnViewDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnViewDetail.Location = new System.Drawing.Point(11, 233);
+            this.btnViewDetail.Location = new System.Drawing.Point(11, 227);
             this.btnViewDetail.Name = "btnViewDetail";
             this.btnViewDetail.Size = new System.Drawing.Size(118, 46);
             this.btnViewDetail.TabIndex = 4;
@@ -286,6 +288,21 @@
             // 
             this.searchTimer.Tick += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // btnRemoveByCondition
+            // 
+            this.btnRemoveByCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemoveByCondition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnRemoveByCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveByCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveByCondition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnRemoveByCondition.Location = new System.Drawing.Point(11, 374);
+            this.btnRemoveByCondition.Name = "btnRemoveByCondition";
+            this.btnRemoveByCondition.Size = new System.Drawing.Size(118, 75);
+            this.btnRemoveByCondition.TabIndex = 6;
+            this.btnRemoveByCondition.Text = "Xóa thiết bị hỏng";
+            this.btnRemoveByCondition.UseVisualStyleBackColor = false;
+            this.btnRemoveByCondition.Click += new System.EventHandler(this.btnRemoveByCondition_Click);
+            // 
             // FormDevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -334,5 +351,6 @@
         private System.Windows.Forms.DataGridView dgvDevices;
         private System.Windows.Forms.Timer searchTimer;
         private System.Windows.Forms.Button btnImportExcel;
+        private System.Windows.Forms.Button btnRemoveByCondition;
     }
 }

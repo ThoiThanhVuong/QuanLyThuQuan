@@ -281,12 +281,11 @@ namespace QuanLyThuQuan.GUI
                 try
                 {
                     List<DeviceModel> devices = ImportDevicesFromExcel(filePath);
-                    DeviceDAO dao = new DeviceDAO();
                     int successCount = 0;
 
                     foreach (var device in devices)
                     {
-                        if (dao.AddDevice(device))
+                        if (deviceBUS.AddDevice(device))
                             successCount++;
                     }
 
@@ -298,6 +297,23 @@ namespace QuanLyThuQuan.GUI
                 {
                     MessageBox.Show("Có lỗi khi nhập Excel: " + ex.Message, "Lỗi");
                 }
+            }
+        }
+
+        private void btnRemoveByCondition_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+            "Bạn có chắc chắn muốn xóa tất cả thiết bị có trạng thái 'Unavailable'?",
+            "Xác nhận xóa theo điều kiện",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                int deletedCount = deviceBUS.DeleteDevicesByCondition();
+                MessageBox.Show($"Đã xóa {deletedCount} thiết bị không còn sử dụng.", "Thông báo");
+                LoadData();
             }
         }
     }

@@ -57,7 +57,7 @@
             this.label1.Location = new System.Drawing.Point(99, 225);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(186, 64);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 10;
             this.label1.Text = "LOGIN";
             // 
             // panel1
@@ -81,7 +81,7 @@
             this.tbxUserName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tbxUserName.Name = "tbxUserName";
             this.tbxUserName.Size = new System.Drawing.Size(290, 25);
-            this.tbxUserName.TabIndex = 1;
+            this.tbxUserName.TabIndex = 0;
             // 
             // panel2
             // 
@@ -126,7 +126,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(290, 25);
-            this.tbxPassword.TabIndex = 2;
+            this.tbxPassword.TabIndex = 1;
             // 
             // panel4
             // 
@@ -158,7 +158,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(330, 54);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

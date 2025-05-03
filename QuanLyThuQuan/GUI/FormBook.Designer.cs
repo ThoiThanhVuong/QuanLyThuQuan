@@ -225,7 +225,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 200);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10, 25, 10, 0);
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(960, 400);
             this.panel2.TabIndex = 3;
             // 
@@ -233,11 +233,11 @@
             // 
             this.ListBook.AutoScroll = true;
             this.ListBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListBook.Location = new System.Drawing.Point(10, 54);
+            this.ListBook.Location = new System.Drawing.Point(10, 39);
             this.ListBook.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.ListBook.Name = "ListBook";
-            this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.ListBook.Size = new System.Drawing.Size(940, 346);
+            this.ListBook.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.ListBook.Size = new System.Drawing.Size(940, 351);
             this.ListBook.TabIndex = 1;
             // 
             // label2
@@ -246,8 +246,8 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(10, 25);
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label2.Location = new System.Drawing.Point(10, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 29);

@@ -115,6 +115,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pbBookCover);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.Name = "BookItemControl";
             this.Size = new System.Drawing.Size(220, 320);
             ((System.ComponentModel.ISupportInitialize)(this.pbBookCover)).EndInit();

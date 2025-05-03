@@ -23,5 +23,14 @@ namespace QuanLyThuQuan.Model
             EffectiveDate = effectiveDate;
             RuleStatus = ruleStatus;
         }
+
+        public RuleModel(string ruleTitle, string ruleDescription, string penalty, DateTime effectiveDate, ActivityStatus ruleStatus)
+        {
+            RuleTitle = ruleTitle;
+            RuleDescription = ruleDescription;
+            Penalty = penalty;
+            EffectiveDate = effectiveDate;
+            RuleStatus = ruleStatus;
+        }
     }
 }

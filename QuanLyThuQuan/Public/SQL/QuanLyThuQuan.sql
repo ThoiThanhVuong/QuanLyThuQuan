@@ -456,7 +456,7 @@ END $$
 DELIMITER ;
 
 
-DELIMITER $$ 
+DELIMITER $$
 CREATE PROCEDURE ConfirmReturnAndCalculatePayment(IN p_TransactionID INT)
 BEGIN
     DECLARE v_MemberID INT;
@@ -506,8 +506,13 @@ BEGIN
            CONCAT('Phạt: ', v.Reason), 'Unpaid'
     FROM Violation v
     WHERE v.TransactionID = p_TransactionID AND v.FineAmount > 0;
+    
+    UPDATE TransactionItems
+	SET Status = 'Returned'
+	WHERE TransactionID = p_TransactionID AND Status = 'Borrowed';
 END$$
 DELIMITER ;
+
 
 -- Trả trước từng món
 DELIMITER $$
@@ -569,113 +574,70 @@ BEGIN
 END$$
 DELIMITER ;
 
--- Cập nhật ReturnDate, Status = 'Completed', hoàn trả Quantity
-DELIMITER $$
-	CREATE PROCEDURE `ReturnTransaction`(IN p_TransactionID INT)
-	BEGIN
-	  DECLARE done INT DEFAULT 0;
-	
-	  -- Cập nhật ReturnDate và Status
-	  UPDATE `Transactions`
-	  SET `ReturnDate` = NOW(), `Status` = 'Completed'
-	  WHERE `TransactionID` = p_TransactionID;
-	
-	  -- Hoàn trả lại sách
-	  UPDATE `Books` b
-	  JOIN `TransactionItems` ti ON ti.`BookID` = b.`BookID`
-	  SET b.`Quantity` = b.`Quantity` + ti.`Amount`
-	  WHERE ti.`TransactionID` = p_TransactionID;
-	
-	  -- Hoàn trả lại thiết bị
-	  UPDATE `Devices` d
-	  JOIN `TransactionItems` ti ON ti.`DeviceID` = d.`DeviceID`
-	  SET d.`Quantity` = d.`Quantity` + ti.`Amount`
-	  WHERE ti.`TransactionID` = p_TransactionID;
-	END$$
-DELIMITER ;
 
--- Tính tiền phạt dựa vào ngày trả và hạn trả
 DELIMITER $$
-	CREATE PROCEDURE `CalculateFine`(IN p_TransactionID INT)
-	BEGIN
-	  DECLARE v_DueDate DATETIME;
-	  DECLARE v_ReturnDate DATETIME;
-	  DECLARE v_DaysLate INT;
-	  DECLARE v_Fine INT;
-	
-	  SELECT `DueDate`, `ReturnDate`
-	  INTO v_DueDate, v_ReturnDate
-	  FROM `Transactions`
-	  WHERE `TransactionID` = p_TransactionID;
-	
-	  IF v_ReturnDate IS NOT NULL AND v_ReturnDate > v_DueDate THEN
-	    SET v_DaysLate = DATEDIFF(v_ReturnDate, v_DueDate);
-	    SET v_Fine = v_DaysLate * 10000;
-	  ELSE
-	    SET v_Fine = 0;
-	  END IF;
-	
-	  SELECT v_Fine AS FineAmount;
-	END$$
-DELIMITER ;
-
--- Ghi vi phạm + tạo Payment tương ứng
--- Tạo vi phạm và đồng thời thêm bản ghi thanh toán nếu có FineAmount từ Rule ID
-DELIMITER $$
-	CREATE PROCEDURE `InsertViolationAndPayment`(
-	  IN p_MemberID INT,
-	  IN p_TransactionID INT,
-	  IN p_RuleID INT
-	)
-	BEGIN
-	  DECLARE v_Fine DECIMAL(10,0);
-	  DECLARE v_Reason VARCHAR(255);
-	  DECLARE v_ViolationID INT;
-	
-	  SELECT `Penalty` INTO v_Reason
-	  FROM `Rules` WHERE `RuleID` = p_RuleID;
-	
-	  -- Ước lượng FineAmount đơn giản: nếu Penalty có số tiền thì lấy, còn lại mặc định 0
-	  IF v_Reason LIKE '%10.000%' THEN
-	    SET v_Fine = 10000;
-	  ELSEIF v_Reason LIKE '%200.000%' THEN
-	    SET v_Fine = 200000;
-	  ELSE
-	    SET v_Fine = 0;
-	  END IF;
-	
-	  -- Thêm bản ghi vi phạm
-	  INSERT INTO `Violation`(`MemberID`, `TransactionID`, `RuleID`, `FineAmount`, `Reason`)
-	  VALUES (p_MemberID, p_TransactionID, p_RuleID, v_Fine, v_Reason);
-	
-	  SET v_ViolationID = LAST_INSERT_ID();
-	
-	  -- Nếu có phạt thì tạo bản ghi thanh toán
-	  IF v_Fine > 0 THEN
-	    INSERT INTO `Payment`(`MemberID`, `ViolationID`, `TransactionID`, `Amount`, `Description`, `Status`)
-	    VALUES (p_MemberID, v_ViolationID, p_TransactionID, v_Fine, CONCAT('Phạt theo luật #', p_RuleID), 'Unpaid');
-	  END IF;
-	END$$
-DELIMITER ;
-
-DELIMITER $$ 
 CREATE PROCEDURE UpdateBookQuantityOnBorrow(IN p_BookID INT, IN p_Amount INT)
 BEGIN
-  UPDATE `Books`
-  SET `Quantity` = `Quantity` - p_Amount
-  WHERE `BookID` = p_BookID;
+    DECLARE v_NewQuantity INT;
+    DECLARE v_Status VARCHAR(20);
+
+    -- Giảm số lượng
+    UPDATE Books
+    SET Quantity = Quantity - p_Amount
+    WHERE BookID = p_BookID;
+
+    -- Lấy số lượng mới và trạng thái hiện tại
+    SELECT Quantity, Status INTO v_NewQuantity, v_Status
+    FROM Books
+    WHERE BookID = p_BookID;
+
+    -- Nếu số lượng = 0 thì đặt thành OutOf
+    IF v_NewQuantity = 0 THEN
+        UPDATE Books
+        SET Status = 'OutOf'
+        WHERE BookID = p_BookID;
+    END IF;
+
+    -- Nếu số lượng > 0 và trạng thái là OutOf → chuyển về Available
+    IF v_NewQuantity > 0 AND v_Status = 'OutOf' THEN
+        UPDATE Books
+        SET Status = 'Available'
+        WHERE BookID = p_BookID;
+    END IF;
+
 END$$
 DELIMITER ;
+
 
 
 DELIMITER $$
-CREATE PROCEDURE UpDateDeviceQuantityOnBorrow(IN p_DeviceID INT,IN p_Amount INT)
+CREATE PROCEDURE UpDateDeviceQuantityOnBorrow(IN p_DeviceID INT, IN p_Amount INT)
 BEGIN
-	UPDATE `Devices`
-	SET `Quantity`=`Quantity` - p_Amount
-	WHERE `DeviceID` =p_DeviceID;
+    DECLARE v_NewQuantity INT;
+	 DECLARE v_Status VARCHAR(20);
+    -- Giảm số lượng
+    UPDATE Devices
+    SET Quantity = Quantity - p_Amount
+    WHERE DeviceID = p_DeviceID;
+
+    -- Lấy lại số lượng mới
+    SELECT Quantity ,Status INTO v_NewQuantity,v_Status
+	 FROM Devices WHERE DeviceID = p_DeviceID;
+
+    -- Cập nhật trạng thái nếu cần
+    IF v_NewQuantity = 0 THEN
+        UPDATE Devices SET Status = 'OutOf' WHERE DeviceID = p_DeviceID;
+    END IF;
+    
+    IF v_NewQuantity > 0 AND v_Status = 'OutOf' THEN
+    	UPDATE Devices
+    	SET STATUS ='Available'
+    	WHERE DeviceID = p_DeviceID;
+   END IF;
+  
 END$$
 DELIMITER ;
+
 -- ==================================================TRIGGER===============================================
 -- Giảm Quantity sách khi mượn thành công
 DELIMITER $$ 
@@ -688,8 +650,6 @@ DELIMITER $$
 	  END IF;
 	END$$ 
 DELIMITER ;
-
-
 -- Tăng lại Quantity nếu Status = 'Completed' (khi trả)
 DELIMITER $$
 	CREATE TRIGGER `trg_Update_BookQuantity_On_Return`
@@ -702,42 +662,14 @@ DELIMITER $$
 	    JOIN `TransactionItems` ti ON ti.`BookID` = b.`BookID`
 	    SET b.`Quantity` = b.`Quantity` + ti.`Amount`
 	    WHERE ti.`TransactionID` = NEW.`TransactionID`;
+	    
+	    -- Cập nhật lại trạng thái nếu số lượng > 0 mà đang là 'OutOf'
+	    UPDATE `Books`
+	    SET `Status` = 'Available'
+	    WHERE `Quantity` > 0 AND `Status` = 'OutOf';
 	  END IF;
 	END$$
 DELIMITER;
--- Tự động chuyển trạng thái Status = 'OutOf' nếu Quantity về 0
-DELIMITER $$
-	CREATE TRIGGER `trg_Update_BookStatus_When_Quantity_Zero`
-	AFTER UPDATE ON `Books`
-	FOR EACH ROW
-	BEGIN
-	  IF NEW.Quantity = 0 AND NEW.Status != 'OutOf' THEN
-	    UPDATE `Books` SET `Status` = 'OutOf' WHERE `BookID` = NEW.`BookID`;
-	  END IF;
-	END$$
-DELIMITER;
-
--- kiểm tra tồn kho sách trước khi mượn (Books)
-DELIMITER $$
-	CREATE TRIGGER `trg_Prevent_OverBorrow_Book`
-	BEFORE INSERT ON `TransactionItems`
-	FOR EACH ROW
-	BEGIN
-	  DECLARE available INT;
-	
-	  IF NEW.`BookID` IS NOT NULL THEN
-	    SELECT `Quantity` INTO available
-	    FROM `Books`
-	    WHERE `BookID` = NEW.`BookID`;
-	
-	    IF available < NEW.`Amount` THEN
-	      SIGNAL SQLSTATE '45000'
-	      SET MESSAGE_TEXT = 'Số lượng sách không đủ để mượn.';
-	    END IF;
-	  END IF;
-	END$$
-DELIMITER;
-
 
 DELIMITER $$
 -- Ngăn xóa Book đang được mượn
@@ -796,65 +728,16 @@ DELIMITER $$
 	    JOIN `TransactionItems` ti ON ti.`DeviceID` = d.`DeviceID`
 	    SET d.`Quantity` = d.`Quantity` + ti.`Amount`
 	    WHERE ti.`TransactionID` = NEW.`TransactionID`;
+	    
+	   -- Nếu Quantity > 0 và Status là OutOf → chuyển về Available
+	    UPDATE `Devices` d
+	    SET d.`Status` = 'Available'
+	    WHERE d.`Quantity` > 0 AND d.`Status` = 'OutOf';
 	  END IF;
 	END$$
 DELIMITER ;
 
--- Tự động chuyển trạng thái Status = 'OutOf' nếu Quantity về 0
-DELIMITER $$
-	CREATE TRIGGER `trg_Update_DeviceStatus_When_Quantity_Zero`
-	AFTER UPDATE ON `Devices`
-	FOR EACH ROW
-	BEGIN
-	  IF NEW.Quantity = 0 AND NEW.Status != 'OutOf' THEN
-	    UPDATE `Devices` SET `Status` = 'OutOf' WHERE `DeviceID` = NEW.`DeviceID`;
-	  END IF;
-	END$$
-DELIMITER;
 
--- Tự động cập nhật Status = 'Available' khi số lượng > 0
-DELIMITER $$
-	CREATE TRIGGER `trg_Book_Re_Available`
-	AFTER UPDATE ON `Books`
-	FOR EACH ROW
-	BEGIN
-	  IF NEW.Quantity > 0 AND NEW.Status = 'OutOf' THEN
-	    UPDATE `Books` SET `Status` = 'Available' WHERE `BookID` = NEW.`BookID`;
-	  END IF;
-	END$$
-DELIMITER;
-
-DELIMITER $$
-	CREATE TRIGGER `trg_Device_Re_Available`
-	AFTER UPDATE ON `Devices`
-	FOR EACH ROW
-	BEGIN
-	  IF NEW.Quantity > 0 AND NEW.Status = 'OutOf' THEN
-	    UPDATE `Devices` SET `Status` = 'Available' WHERE `DeviceID` = NEW.`DeviceID`;
-	  END IF;
-	END$$
-DELIMITER;
-
--- Kiểm tra Quantity còn đủ trước khi mượn(devices)
-DELIMITER $$
-	CREATE TRIGGER `trg_Prevent_OverBorrow_Device`
-	BEFORE INSERT ON `TransactionItems`
-	FOR EACH ROW
-	BEGIN
-	  DECLARE available INT;
-	
-	  IF NEW.`DeviceID` IS NOT NULL THEN
-	    SELECT `Quantity` INTO available
-	    FROM `Devices`
-	    WHERE `DeviceID` = NEW.`DeviceID`;
-	
-	    IF available < NEW.`Amount` AND NEW.`Amount` > 0 THEN
-	      SIGNAL SQLSTATE '45000'
-	      SET MESSAGE_TEXT = 'Số lượng thiết bị không đủ để mượn.';
-	    END IF;
-	  END IF;
-	END$$
-DELIMITER;
 
 DELIMITER $$
 -- Ngăn xóa Device đang được mượn
@@ -946,10 +829,5 @@ DELIMITER $$
 	  END IF;
 	END
 DELIMITER $$;
-
-
-
-
-
 
 

@@ -51,6 +51,11 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.ConfirmReturnAndCalculatePayment(transactionID);
         }
+        //public bool ReturnTransaction(int transactionID)
+        //{
+        //    return transactionDAO.ReturnTransaction(transactionID);
+        //}
+
         public void LoadExtraDetails(TransactionModel transaction)
         {
             transaction.Payments = transactionDAO.GetPaymentsByTransactionID(transaction.TransactionID)

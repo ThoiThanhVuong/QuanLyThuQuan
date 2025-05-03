@@ -37,6 +37,7 @@
             this.cbbTypeBook = new System.Windows.Forms.ComboBox();
             this.txtSearchBook = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnImportExcel = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
-            this.btnImportExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
@@ -140,6 +140,21 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(120, 537);
             this.panel3.TabIndex = 2;
+            // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnImportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.btnImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnImportExcel.Location = new System.Drawing.Point(8, 274);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(104, 73);
+            this.btnImportExcel.TabIndex = 6;
+            this.btnImportExcel.Text = "Nhập Excel";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnView
             // 
@@ -287,20 +302,6 @@
             // searchTimer
             // 
             this.searchTimer.Tick += new System.EventHandler(this.txtSearchBook_TextChanged);
-            // 
-            // btnImportExcel
-            // 
-            this.btnImportExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnImportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.btnImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.btnImportExcel.Location = new System.Drawing.Point(8, 274);
-            this.btnImportExcel.Name = "btnImportExcel";
-            this.btnImportExcel.Size = new System.Drawing.Size(104, 73);
-            this.btnImportExcel.TabIndex = 6;
-            this.btnImportExcel.Text = "Nhập Excel";
-            this.btnImportExcel.UseVisualStyleBackColor = false;
             // 
             // frmQuanLySach
             // 

@@ -70,12 +70,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             btnViolation.Visible = trans.Violations != null && trans.Violations.Any();
             btnViolation.Enabled = btnViolation.Visible;
 
-            btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
-            btnConfirmReturn.Visible = (trans.Status == TransactionStatus.Active);
-        
-
         // Ẩn nút xác nhận nếu giao dịch đã hoàn thành
-             btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
+            btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
             btnConfirmReturn.Visible = (trans.Status == TransactionStatus.Active);
         }
 
@@ -124,11 +120,13 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 if (success)
                 {
                     isReturned = true;
-                    MessageBox.Show("Đã tính toán thanh toán cho các món còn Borrowed. Bấm xác nhận lần nữa để lưu trạng thái hoàn tất.");
+                   
 
                     transaction = bus.GetTransactionByID(transactionID);
                     bus.LoadExtraDetails(transaction);
                     SetValue(transaction);
+                    MessageBox.Show("Đã tính toán thanh toán cho các món còn Borrowed. Bấm xác nhận lần nữa để lưu trạng thái hoàn tất.");
+                    //isReturned = false;
                 }
                 else
                 {
@@ -149,6 +147,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 {
                     MessageBox.Show("Lỗi khi cập nhật trạng thái trả.");
                 }
+
             }
 
         }

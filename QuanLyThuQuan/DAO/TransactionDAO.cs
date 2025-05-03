@@ -4,6 +4,7 @@ using QuanLyThuQuan.Model;
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace QuanLyThuQuan.DAO
@@ -185,7 +186,7 @@ namespace QuanLyThuQuan.DAO
                     {
                         string itemQuery = @"
                     INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount,Status)
-                    VALUES (@TransactionID, @BookID, @DeviceID, @Amount,@Status);";
+                    VALUES (@TransactionID, @BookID, @DeviceID, @Amount,'Borrowed');";
 
                         using (MySqlCommand itemCmd = new MySqlCommand(itemQuery, db.Connection))
                         {
@@ -193,7 +194,7 @@ namespace QuanLyThuQuan.DAO
                             itemCmd.Parameters.AddWithValue("@BookID", item.BookID ?? (object)DBNull.Value);
                             itemCmd.Parameters.AddWithValue("@DeviceID", item.DeviceID ?? (object)DBNull.Value);
                             itemCmd.Parameters.AddWithValue("@Amount", item.Amount);
-                            itemCmd.Parameters.AddWithValue("@Status", item.Status.ToString());
+                           
                             itemCmd.ExecuteNonQuery(); 
                         }
                     }
@@ -457,6 +458,7 @@ namespace QuanLyThuQuan.DAO
             }
         }
 
+    
 
     }
 }

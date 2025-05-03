@@ -47,6 +47,10 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.DeleteDevice(deviceID);
         }
+        public int DeleteDevicesByCondition()
+        {
+            return deviceDAO.DeleteDevicesByCondition();
+        }
 
         public List<DeviceModel> SearchDevices(string keyword)
         {

@@ -295,17 +295,18 @@
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
             this.button4.Location = new System.Drawing.Point(385, 299);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 34);
+            this.button4.Size = new System.Drawing.Size(109, 34);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Xuất File";
+            this.button4.Text = "Nhập Excel";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button5.Location = new System.Drawing.Point(487, 299);
+            this.button5.Location = new System.Drawing.Point(513, 299);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 34);
             this.button5.TabIndex = 6;

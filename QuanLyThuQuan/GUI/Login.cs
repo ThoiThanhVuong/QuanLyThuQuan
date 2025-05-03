@@ -11,6 +11,7 @@ namespace QuanLyThuQuan.GUI
         public Login()
         {
             InitializeComponent();
+            
         }
 
         // NOTE: for other logics

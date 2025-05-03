@@ -1,4 +1,5 @@
 
+using OfficeOpenXml;
 using QuanLyThuQuan.GUI;
 using System;
 
@@ -12,9 +13,10 @@ namespace QuanLyThuQuan
 
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             Application.Run(new Login());
 
         }

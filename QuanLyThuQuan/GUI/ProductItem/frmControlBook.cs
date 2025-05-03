@@ -80,44 +80,45 @@ namespace QuanLyThuQuan.GUI.ProductItem
             string relativePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Books", book.BookImage);
             string fullPath = Path.GetFullPath(relativePath);
 
-            if (File.Exists(fullPath))
+            string defaultImagePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Books", "noimage.jpg");
+            defaultImagePath = Path.GetFullPath(defaultImagePath);
+
+            string imagePathToUse = File.Exists(fullPath) ? fullPath : defaultImagePath;
+
+            if (!File.Exists(imagePathToUse))
             {
-                try
+                ptrBook.Image = null;
+                ptrBook.BackColor = Color.LightGray;
+                ptrBook.BorderStyle = BorderStyle.FixedSingle;
+
+                using (Bitmap bmp = new Bitmap(ptrBook.Width, ptrBook.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    // Kiểm tra dung lượng file có hợp lệ không
-                    FileInfo fileInfo = new FileInfo(fullPath);
-                    if (fileInfo.Length == 0)
+                    g.Clear(Color.LightGray);
+                    using (Font font = new Font("Arial", 14))
                     {
-                        MessageBox.Show("File ảnh bị rỗng: " + fullPath);
-                        return;
+                        g.DrawString("No Image", font, Brushes.Black, new PointF(10, ptrBook.Height / 2 - 10));
                     }
-
-                    // Giải phóng bộ nhớ trước khi load ảnh mới
-                    if (ptrBook.Image != null)
-                    {
-                        ptrBook.Image.Dispose();
-                        ptrBook.Image = null;
-                    }
-
-                    // Load ảnh bằng MemoryStream để tránh lỗi
-                    byte[] imageBytes = File.ReadAllBytes(fullPath);
-                    using (MemoryStream ms = new MemoryStream(imageBytes))
-                    {
-                        ptrBook.Image = Image.FromStream(ms);
-                    }
-                    ptrBook.SizeMode = PictureBoxSizeMode.Zoom;
-                    bookImageName = Path.GetFileName(relativePath);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi load ảnh: " + ex.Message);
+                    ptrBook.Image = (Image)bmp.Clone();
                 }
             }
             else
             {
-                MessageBox.Show("Ảnh không tồn tại: " + fullPath);
+                if (ptrBook.Image != null)
+                {
+                    ptrBook.Image.Dispose();
+                    ptrBook.Image = null;
+                }
+
+                byte[] imageBytes = File.ReadAllBytes(imagePathToUse);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    ptrBook.Image = Image.FromStream(ms);
+                }
+                ptrBook.SizeMode = PictureBoxSizeMode.Zoom;
             }
+
+            bookImageName = Path.GetFileName(book.BookImage);
 
             txtMaSach.ReadOnly = true;
             txtTenSach.ReadOnly = false;

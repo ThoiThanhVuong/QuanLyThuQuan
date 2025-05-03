@@ -263,6 +263,29 @@ namespace QuanLyThuQuan.DAO
             }
 
         }
+        public int DeleteDevicesByCondition()
+        {
+            int rowsAffected = 0;
+            try
+            {               
+                db.OpenConnection();
+                string query = @"
+                    DELETE FROM Devices
+                    WHERE Status = 'Unavailable'";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                rowsAffected = cmd.ExecuteNonQuery();
+             
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("lỗi khi xóa theo điều kiện" + ex.Message);
+            }
+            db.CloseConnection();
+            return rowsAffected;
+
+        }
+
         public List<DeviceModel> SearchDevices(string keyword)
         {
             List<DeviceModel> devices = new List<DeviceModel>();
