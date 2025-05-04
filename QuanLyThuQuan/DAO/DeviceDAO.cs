@@ -360,5 +360,15 @@ namespace QuanLyThuQuan.DAO
             }
             return total;
         }
+        public int GenerateNewDeviceCode()
+        {
+            int lastID = 0;
+            db.OpenConnection();
+            string query = "SELECT MAX(DeviceID) FROM Devices";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            var result = cmd.ExecuteScalar();
+            lastID = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+            return lastID;
+        }
     }
 }

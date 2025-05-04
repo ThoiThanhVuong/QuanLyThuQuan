@@ -79,7 +79,7 @@ namespace QuanLyThuQuan.GUI
             frmControlBook formAddBook = new frmControlBook();
         
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
-           
+            
             formAddBook.ShowDialog();
             LoadData();
 

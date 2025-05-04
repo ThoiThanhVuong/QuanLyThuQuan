@@ -42,11 +42,14 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtSoLuong.ReadOnly = true;
                 txtTheLoai.Visible = true;
                 cbbDeviceType.Visible = false;
-                
 
             }
             else
             {
+                if(labelText.Equals("Thêm mới"))
+                {
+                    txtDeviceID.Text = deviceBUS.GenerateNewDeviceCode() + "";
+                }
                 btnDeviceControl.Visible = true;
                 btnDeviceControl.Text = buttonText;
                 txtDeviceID.ReadOnly = true;

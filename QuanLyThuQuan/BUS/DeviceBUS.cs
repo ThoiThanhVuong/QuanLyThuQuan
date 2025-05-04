@@ -63,5 +63,9 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.GetTotalDeviceQuantity();
         }
+        public int GenerateNewDeviceCode()
+        {
+            return deviceDAO.GenerateNewDeviceCode() + 1;
+        }
     }
 }
