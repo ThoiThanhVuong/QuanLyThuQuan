@@ -527,14 +527,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="<%= startDateTimeControl.ClientID %>">Thời gian bắt đầu mượn:</label>
+                        <label for="<%= startDateTimeControl.ClientID %>">Thời gian bắt đầu mượn (để trống sẽ dùng thời
+                            gian hiện tại):</label>
                         <asp:TextBox ID="startDateTimeControl" runat="server" CssClass="form-control"
-                            TextMode="DateTimeLocal"></asp:TextBox>
+                            TextMode="DateTimeLocal" min=""></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label>Thời gian kết thúc (sau 2 giờ):</label>
-                        <div id="endTimeDisplay" class="time-display"></div>
-                        <asp:HiddenField ID="endDateTimeHidden" runat="server" />
+                        <label for="<%= endDateTimeControl.ClientID %>">Thời gian trả (có thể gia hạn sau):</label>
+                        <asp:TextBox ID="endDateTimeControl" runat="server" CssClass="form-control"
+                            TextMode="DateTimeLocal"></asp:TextBox>
                     </div>
                     <asp:HiddenField ID="itemTypeHidden" runat="server" />
                     <asp:HiddenField ID="itemIDHidden" runat="server" />
@@ -561,32 +562,40 @@
                 const modal = document.getElementById('reservationModal');
                 const cancelBtn = document.getElementById('cancelReservation');
                 const startDateTimeControl = document.getElementById('<%= startDateTimeControl.ClientID %>');
-                const endTimeDisplay = document.getElementById('endTimeDisplay');
-                const endDateTimeHidden = document.getElementById('<%= endDateTimeHidden.ClientID %>');
+                const endDateTimeControl = document.getElementById('<%= endDateTimeControl.ClientID %>');
 
                 // Close modal when cancel button is clicked
                 cancelBtn.addEventListener('click', function () {
                     modal.classList.remove('show');
                 });
 
-                // Calculate end time when start time changes
+                // Set default end time when start time changes
                 startDateTimeControl.addEventListener('change', function () {
                     if (this.value) {
                         const startDate = new Date(this.value);
-                        const endDate = new Date(startDate.getTime() + (2 * 60 * 60 * 1000)); // Add 2 hours
+                        const suggestedEndDate = new Date(startDate.getTime() + (2 * 60 * 60 * 1000)); // Add 2 hours as suggestion
 
-                        // Format for display: e.g., "May 5, 2025 14:30"
-                        const options = {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        };
-                        endTimeDisplay.textContent = endDate.toLocaleDateString('vi-VN', options);
+                        // Format for datetime-local input (YYYY-MM-DDThh:mm)
+                        endDateTimeControl.value = suggestedEndDate.toISOString().slice(0, 16);
 
-                        // Store ISO string in hidden field for server
-                        endDateTimeHidden.value = endDate.toISOString();
+                        // Set min attribute on end date to be the start date
+                        endDateTimeControl.setAttribute('min', this.value);
+                    }
+                });
+
+                // Also validate end date when it changes
+                endDateTimeControl.addEventListener('change', function () {
+                    const startValue = startDateTimeControl.value;
+                    if (startValue && this.value) {
+                        const startDate = new Date(startValue);
+                        const endDate = new Date(this.value);
+
+                        // If end date is before start date, reset to start date + 2 hours
+                        if (endDate < startDate) {
+                            const suggestedEndDate = new Date(startDate.getTime() + (2 * 60 * 60 * 1000));
+                            this.value = suggestedEndDate.toISOString().slice(0, 16);
+                            alert("Thời gian trả không thể sớm hơn thời gian mượn.");
+                        }
                     }
                 });
 
@@ -601,12 +610,22 @@
                     const hours = String(now.getHours()).padStart(2, '0');
                     const minutes = String(now.getMinutes()).padStart(2, '0');
 
+                    // Set today as the minimum selectable date
+                    const todayMin = `${year}-${month}-${day}T00:00`;
+                    startDateTimeControl.setAttribute('min', todayMin);
+
                     const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
                     startDateTimeControl.value = formattedDateTime;
 
-                    // Trigger change event to calculate end time
-                    const event = new Event('change');
-                    startDateTimeControl.dispatchEvent(event);
+                    // Set suggested end time (2 hours from now)
+                    const suggestedEnd = new Date(now.getTime() + (2 * 60 * 60 * 1000));
+                    const endYear = suggestedEnd.getFullYear();
+                    const endMonth = String(suggestedEnd.getMonth() + 1).padStart(2, '0');
+                    const endDay = String(suggestedEnd.getDate()).padStart(2, '0');
+                    const endHours = String(suggestedEnd.getHours()).padStart(2, '0');
+                    const endMinutes = String(suggestedEnd.getMinutes()).padStart(2, '0');
+
+                    endDateTimeControl.value = `${endYear}-${endMonth}-${endDay}T${endHours}:${endMinutes}`;
                 }
 
                 // Function to show modal with item information

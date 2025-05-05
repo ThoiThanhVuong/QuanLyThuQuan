@@ -84,12 +84,22 @@ namespace ThuQuanWebForm
                 // Get form values
                 string itemType = itemTypeHidden.Value;
                 int itemID = Convert.ToInt32(itemIDHidden.Value);
-                DateTime startTime = Convert.ToDateTime(startDateTimeControl.Text);
-                DateTime endTime = DateTime.Parse(endDateTimeHidden.Value);
 
-                debugInfo += "ItemType: " + itemType + "<br/>";
-                debugInfo += "ItemID: " + itemID + "<br/>";
-                debugInfo += "StartTime: " + startTime.ToString() + "<br/>";
+                // Handle start time - use current time if field is empty
+                DateTime startTime;
+                if (string.IsNullOrEmpty(startDateTimeControl.Text))
+                {
+                    startTime = DateTime.Now;
+                    debugInfo += "StartTime: Generated current time - " + startTime.ToString() + "<br/>";
+                }
+                else
+                {
+                    startTime = Convert.ToDateTime(startDateTimeControl.Text);
+                    debugInfo += "StartTime: From form - " + startTime.ToString() + "<br/>";
+                }
+
+                // Get end time from the form
+                DateTime endTime = Convert.ToDateTime(endDateTimeControl.Text);
                 debugInfo += "EndTime: " + endTime.ToString() + "<br/>";
 
                 // Create reservation model
@@ -232,8 +242,12 @@ namespace ThuQuanWebForm
                 CurrentPage++;
             }
 
-            // Rebind data with current page
-            BindItemData(filter: _currentFilter, searchTerm: _currentSearchTerm);
+            // Get current filter and search term from ViewState
+            string currentFilter = (string)ViewState["CurrentFilter"] ?? "all";
+            string currentSearchTerm = (string)ViewState["CurrentSearchTerm"] ?? "";
+
+            // Rebind data with current page, filter, and search term
+            BindItemData(filter: currentFilter, searchTerm: currentSearchTerm);
         }
 
         // Event handler for pagination number buttons
@@ -242,7 +256,13 @@ namespace ThuQuanWebForm
             if (e.CommandName == "GoToPage")
             {
                 CurrentPage = Convert.ToInt32(e.CommandArgument);
-                BindItemData(filter: _currentFilter, searchTerm: _currentSearchTerm);
+
+                // Get current filter and search term from ViewState
+                string currentFilter = (string)ViewState["CurrentFilter"] ?? "all";
+                string currentSearchTerm = (string)ViewState["CurrentSearchTerm"] ?? "";
+
+                // Rebind data with current page, filter, and search term
+                BindItemData(filter: currentFilter, searchTerm: currentSearchTerm);
             }
         }
 
@@ -360,7 +380,7 @@ namespace ThuQuanWebForm
         }
 
         // Helper method to update UI based on results count
-        private void UpdatePaginationUI(int totalItems)
+        private void UpdatePaginationUI()
         {
             // Enable/disable pagination based on number of items
             PaginationRepeater.Visible = (_totalPages > 1);
