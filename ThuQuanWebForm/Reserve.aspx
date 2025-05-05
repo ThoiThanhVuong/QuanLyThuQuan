@@ -278,6 +278,14 @@
                 box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
             }
 
+            .pagination-btn.disabled {
+                background-color: #f5f5f5;
+                color: #999;
+                cursor: not-allowed;
+                opacity: 0.6;
+                pointer-events: none;
+            }
+
             @keyframes fadeIn {
                 from {
                     opacity: 0;
@@ -410,6 +418,12 @@
             .btn-confirm:hover {
                 box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
             }
+
+            .item-count-label {
+                font-size: 0.9rem;
+                color: #555;
+                margin-bottom: 1rem;
+            }
         </style>
     </asp:Content>
 
@@ -498,9 +512,14 @@
         </div>
 
         <!-- Updated Pagination Controls with Server-side Paging -->
+        <div class="text-center mb-3">
+            <asp:Label ID="ItemCountLabel" runat="server" CssClass="item-count-label" Visible="false"></asp:Label>
+        </div>
+
         <div class="pagination">
             <asp:LinkButton ID="PrevPageButton" runat="server" CssClass="pagination-btn"
-                OnClick="PaginationButton_Click" CommandArgument="prev" ToolTip="Trang trước">
+                OnClick="PaginationButton_Click" CommandArgument="prev" ToolTip="Trang trước"
+                OnClientClick="return validatePaginationClick(this);">
                 <i class="fas fa-chevron-left"></i>
             </asp:LinkButton>
 
@@ -514,7 +533,8 @@
             </asp:Repeater>
 
             <asp:LinkButton ID="NextPageButton" runat="server" CssClass="pagination-btn"
-                OnClick="PaginationButton_Click" CommandArgument="next" ToolTip="Trang kế">
+                OnClick="PaginationButton_Click" CommandArgument="next" ToolTip="Trang kế"
+                OnClientClick="return validatePaginationClick(this);">
                 <i class="fas fa-chevron-right"></i>
             </asp:LinkButton>
         </div>
@@ -555,6 +575,16 @@
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     event.currentTarget.classList.add('active');
                 }
+            }
+
+            // Validation function for pagination buttons
+            function validatePaginationClick(button) {
+                // If the button has the disabled class, prevent the click
+                if (button.classList.contains('disabled')) {
+                    console.log('Button is disabled, preventing click');
+                    return false;
+                }
+                return true;
             }
 
             // Add functionality for reservation modal

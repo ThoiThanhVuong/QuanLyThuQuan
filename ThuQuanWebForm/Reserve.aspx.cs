@@ -371,21 +371,39 @@ namespace ThuQuanWebForm
             PaginationRepeater.DataSource = pageNumbers;
             PaginationRepeater.DataBind();
 
-            // Update navigation buttons
-            PrevPageButton.Enabled = (CurrentPage > 1);
+            // Update navigation buttons - only set the CSS class, the click will be handled by client-side validation
             PrevPageButton.CssClass = CurrentPage > 1 ? "pagination-btn" : "pagination-btn disabled";
-
-            NextPageButton.Enabled = (CurrentPage < _totalPages);
             NextPageButton.CssClass = CurrentPage < _totalPages ? "pagination-btn" : "pagination-btn disabled";
         }
 
         // Helper method to update UI based on results count
-        private void UpdatePaginationUI()
+        private void UpdatePaginationUI(int totalItems = 0)
         {
             // Enable/disable pagination based on number of items
             PaginationRepeater.Visible = (_totalPages > 1);
             PrevPageButton.Visible = (_totalPages > 1);
             NextPageButton.Visible = (_totalPages > 1);
+
+            // Never disable the buttons completely - instead use CSS to show disabled state
+            // This keeps them clickable but with visual indication
+            PrevPageButton.CssClass = CurrentPage > 1 ? "pagination-btn" : "pagination-btn disabled";
+            NextPageButton.CssClass = CurrentPage < _totalPages ? "pagination-btn" : "pagination-btn disabled";
+
+            // Show item count information if provided
+            if (totalItems > 0)
+            {
+                int start = ((CurrentPage - 1) * ItemsPerPage) + 1;
+                int end = Math.Min(CurrentPage * ItemsPerPage, totalItems);
+                ItemCountLabel.Text = $"Hiển thị {start}-{end} trên tổng số {totalItems} mục";
+                ItemCountLabel.Visible = true;
+            }
+            else
+            {
+                ItemCountLabel.Visible = false;
+            }
+
+            // Debug information can be displayed during development
+            System.Diagnostics.Debug.WriteLine($"Page: {CurrentPage}, Total: {_totalPages}, Items: {totalItems}");
         }
 
         // Helper method to convert database data to display format
