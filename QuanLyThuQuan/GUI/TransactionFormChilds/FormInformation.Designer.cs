@@ -78,11 +78,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnConfirmReturn = new System.Windows.Forms.Button();
             this.dgvTransactionItem = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -96,6 +91,12 @@
             this.txtTotalPayment = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -677,6 +678,7 @@
             this.BookID,
             this.DeviceID,
             this.Amount,
+            this.Status,
             this.action});
             this.dgvTransactionItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvTransactionItem.Location = new System.Drawing.Point(0, 28);
@@ -687,46 +689,6 @@
             this.dgvTransactionItem.Size = new System.Drawing.Size(444, 273);
             this.dgvTransactionItem.TabIndex = 1;
             this.dgvTransactionItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactionItem_CellContentClick);
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 8;
-            this.STT.Name = "STT";
-            this.STT.Width = 60;
-            // 
-            // BookID
-            // 
-            this.BookID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BookID.HeaderText = "BookID";
-            this.BookID.MinimumWidth = 8;
-            this.BookID.Name = "BookID";
-            this.BookID.Width = 150;
-            // 
-            // DeviceID
-            // 
-            this.DeviceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DeviceID.HeaderText = "DeviceID";
-            this.DeviceID.MinimumWidth = 8;
-            this.DeviceID.Name = "DeviceID";
-            this.DeviceID.Width = 150;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 8;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 150;
-            // 
-            // action
-            // 
-            this.action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.action.HeaderText = "";
-            this.action.MinimumWidth = 8;
-            this.action.Name = "action";
-            this.action.Width = 82;
             // 
             // label12
             // 
@@ -854,6 +816,54 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Total Payment:";
             // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // BookID
+            // 
+            this.BookID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BookID.HeaderText = "BookID";
+            this.BookID.MinimumWidth = 8;
+            this.BookID.Name = "BookID";
+            this.BookID.Width = 108;
+            // 
+            // DeviceID
+            // 
+            this.DeviceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DeviceID.HeaderText = "DeviceID";
+            this.DeviceID.MinimumWidth = 8;
+            this.DeviceID.Name = "DeviceID";
+            this.DeviceID.Width = 110;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 8;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 90;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
+            this.Status.Width = 120;
+            // 
+            // action
+            // 
+            this.action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.action.HeaderText = "";
+            this.action.MinimumWidth = 8;
+            this.action.Name = "action";
+            this.action.Width = 82;
+            // 
             // FormInformation
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -969,6 +979,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeviceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
     }
 }

@@ -86,7 +86,10 @@ namespace QuanLyThuQuan.GUI
                 FormInformation transactionInfo = new FormInformation();
                 transactionInfo.SetValue(transaction);
                 transactionInfo.ShowDialog();
+                LoadAllTransaction();
             }
+            
+            
         }
     }
 }

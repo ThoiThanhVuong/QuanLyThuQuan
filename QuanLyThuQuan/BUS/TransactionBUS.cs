@@ -51,6 +51,11 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.ConfirmReturnAndCalculatePayment(transactionID);
         }
+        //public bool ReturnTransaction(int transactionID)
+        //{
+        //    return transactionDAO.ReturnTransaction(transactionID);
+        //}
+
         public void LoadExtraDetails(TransactionModel transaction)
         {
             transaction.Payments = transactionDAO.GetPaymentsByTransactionID(transaction.TransactionID)
@@ -88,6 +93,14 @@ namespace QuanLyThuQuan.BUS
             }
         }
 
+        public bool ReturnSingleItem(int itemID)
+        {
+            return transactionDAO.ReturnSingleItem(itemID);
+        }
+        public bool UpdateDueDate(int transactionID, DateTime dueDate)
+        {
+            return transactionDAO.UpdateDueDate(transactionID, dueDate);
+        }
 
     }
 }

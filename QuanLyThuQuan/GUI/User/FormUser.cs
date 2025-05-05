@@ -1,5 +1,6 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,14 @@ namespace QuanLyThuQuan.GUI.User
     public partial class FormUser: Form
     {
         MemberBUS bus = new MemberBUS();
-        private FormMain mainForm;
+        //private FormMain mainForm;
         MemberModel memberModel = new MemberModel();
 
         public FormUser()
         {
             InitializeComponent();
             loadTable();
+            DisableFuncsByRole();
         }
 
         public void loadTable()
@@ -56,6 +58,15 @@ namespace QuanLyThuQuan.GUI.User
             memberModel = null; 
         }
 
+        // BUG:
+        private void DisableFuncsByRole()
+        {
+            if(!SessionManagerService.GetInstance.CanRemoveMember())
+            {
+                button3.Enabled = false;
+                button5.Enabled = false;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             DialogUser dialogUser = new DialogUser(this);

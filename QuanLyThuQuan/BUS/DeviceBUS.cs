@@ -19,7 +19,10 @@ namespace QuanLyThuQuan.BUS
             
         }
 
-       
+        public DeviceModel GetDeviceByName(string name)
+        {
+            return deviceDAO.GetDeviceByName(name);
+        }
         public List<string> GetDeviceType()
         {
             return deviceDAO.GetDeviceType();
@@ -44,6 +47,10 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.DeleteDevice(deviceID);
         }
+        public int DeleteDevicesByCondition()
+        {
+            return deviceDAO.DeleteDevicesByCondition();
+        }
 
         public List<DeviceModel> SearchDevices(string keyword)
         {
@@ -55,6 +62,10 @@ namespace QuanLyThuQuan.BUS
         public int GetTotalDeviceQuantity()
         {
             return deviceDAO.GetTotalDeviceQuantity();
+        }
+        public int GenerateNewDeviceCode()
+        {
+            return deviceDAO.GenerateNewDeviceCode() + 1;
         }
     }
 }

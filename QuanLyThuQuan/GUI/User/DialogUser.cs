@@ -1,18 +1,13 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
+using QuanLyThuQuan.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.User
 {
-    public partial class DialogUser: Form
+    public partial class DialogUser : Form
     {
 
         MemberBUS bus = new MemberBUS();
@@ -21,8 +16,24 @@ namespace QuanLyThuQuan.GUI.User
         {
             InitializeComponent();
             this.parentForm = parent;
+            DisableByPermission();
         }
 
+        private void DisableByPermission()
+        {
+            MemberModel member = SessionManagerService.GetInstance.Currmember();
+            if (member == null)
+            {
+                NotificationServices.GetInstance().ShowError("Error Current Member!", "Error Member!");
+                this.Close();
+                return;
+            }
+            else if (!member.UserType.Equals(UserType.Admin))
+            {
+                radioButton2.Enabled = false;
+                radioButton3.Enabled = false;
+            }
+        }
         private bool IsValid()
         {
             if (string.IsNullOrWhiteSpace(textBox2.Text))

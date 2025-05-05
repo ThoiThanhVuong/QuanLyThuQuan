@@ -104,8 +104,34 @@ function openTab(evt, tabId) {
     evt.currentTarget.className += " active";
 }
 
+function SetDefaultPage() {
+    let username = sessionStorage.getItem("username");
+    if (username) {
+        let loginBtn = document.querySelector(".login-btn");
+        let registerBtn = document.querySelector(".register-btn");
+        console.log(loginBtn);
+        console.log(registerBtn);
+    }
+}
+
+function openOverlay() {
+    const overlay = document.querySelector("#forgotPasswordOverlay");
+    const textField = document.querySelector("#recoveryIdentifier");
+    if (!overlay) return;
+    overlay.style.display = "flex";
+    textField.textContent = "";
+
+}
+
+function closeOverlay() {
+    const overlay = document.querySelector("#forgotPasswordOverlay");
+    if (!overlay) return;
+    overlay.style.display = "none";
+}
+
 // Password strength checker
 document.addEventListener("DOMContentLoaded", function () {
+    SetDefaultPage();
     const newPasswordInput = document.getElementById("new-password");
     const confirmPasswordInput = document.getElementById(
         "confirm-new-password"
@@ -233,4 +259,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    const forgotBtn = document.querySelector("#forgotPasswordTrigger");
+    forgotBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        openOverlay();
+    });
 });
+
+

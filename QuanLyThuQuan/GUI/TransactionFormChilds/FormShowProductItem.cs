@@ -1,4 +1,5 @@
-﻿using QuanLyThuQuan.Model;
+﻿using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,29 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
     public partial class FormShowProductItem: Form
     {
         private string productImage = string.Empty;
-
+        private int itemID;
+        private TransactionItemStatus itemStatus;
         public FormShowProductItem()
         {
             InitializeComponent();
+        }
+        public void SetValueWithID(int itemID, TransactionItemStatus status, BookModel book, DeviceModel device)
+        {
+            this.itemID = itemID;
+            this.itemStatus = status;
+            setvalue(book, device);
+
+            // Kiểm tra trạng thái để ẩn/hiện nút nếu item đã trả rồi thì ẩn nút
+            if (itemStatus == TransactionItemStatus.Returned)
+            {
+                btnReturnItem.Visible = false; 
+                btnReturnItem.Enabled = false;
+            }
+            else
+            {
+                btnReturnItem.Visible = true; 
+                btnReturnItem.Enabled = true;
+            }
         }
         public void setvalue(BookModel book,DeviceModel device)
         {
@@ -132,6 +152,22 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnReturnItem_Click(object sender, EventArgs e)
+        {
+            var bus = new TransactionBUS();
+            bool success = bus.ReturnSingleItem(itemID);
+            if (success)
+            {
+                MessageBox.Show("Đã trả thành công món!");
+                this.DialogResult = DialogResult.OK; // để bên FormInformation biết
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi trả món!");
+            }
         }
     }
 }

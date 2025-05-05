@@ -363,6 +363,15 @@ namespace QuanLyThuQuan.DAO
             return cnt;
         }
 
-
+        public int GenerateNewBookCode()
+        {
+            int lastID = 0;
+            db.OpenConnection();
+            string query = "SELECT MAX(BookID) FROM Books";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            var result = cmd.ExecuteScalar();
+            lastID = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+            return lastID;
+        }
     }
 }

@@ -49,19 +49,7 @@ namespace QuanLyThuQuan.GUI
             }
         }
 
-        private void ShowUserControl(UserControl uc)
-        {
-            ListBook.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            ListBook.Controls.Add(uc);
-        }
-        private void FadeForm(bool fade)
-        {
-            if (fade)
-                this.Opacity = 0.5; // Làm mờ Form chính
-            else
-                this.Opacity = 1; // Khôi phục độ sáng bình thường
-        }
+      
         // sự kiện cho nút quản lý thông tin tác giả
         private void pnTacGia_Click(object sender, EventArgs e)
         {

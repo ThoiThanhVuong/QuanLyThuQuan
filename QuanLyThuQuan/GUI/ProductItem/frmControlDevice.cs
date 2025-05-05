@@ -42,11 +42,14 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtSoLuong.ReadOnly = true;
                 txtTheLoai.Visible = true;
                 cbbDeviceType.Visible = false;
-                
 
             }
             else
             {
+                if(labelText.Equals("Thêm mới"))
+                {
+                    txtDeviceID.Text = deviceBUS.GenerateNewDeviceCode() + "";
+                }
                 btnDeviceControl.Visible = true;
                 btnDeviceControl.Text = buttonText;
                 txtDeviceID.ReadOnly = true;
@@ -90,46 +93,57 @@ namespace QuanLyThuQuan.GUI.ProductItem
             txtGiaThue.Text = device.FeePerHour + "";
             txtSoLuong.Text = device.DeviceQuantity + "";
 
+            // xử lý hiển thị ảnh
            string relativePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Devices", device.DeviceImage);
             string fullPath = Path.GetFullPath(relativePath);
-            
-            if (File.Exists(fullPath))
-            {
-                try
-                {
-                    // Kiểm tra dung lượng file có hợp lệ không
-                    FileInfo fileInfo = new FileInfo(fullPath);
-                    if (fileInfo.Length == 0)
-                    {
-                        MessageBox.Show("File ảnh bị rỗng: " + fullPath);
-                        return;
-                    }
 
-                    // Giải phóng bộ nhớ trước khi load ảnh mới
+            string defaultImagePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Devices", "noimage.jpg");
+            defaultImagePath = Path.GetFullPath(defaultImagePath);
+            try
+            {
+                // Nếu file không tồn tại thì dùng ảnh mặc định
+                string imagePathToUse = File.Exists(fullPath) ? fullPath : defaultImagePath;
+
+                // Kiểm tra lần nữa nếu cả ảnh mặc định cũng không có
+                if (!File.Exists(imagePathToUse))
+                {
+                    ptrDevice.Image = null;
+                    ptrDevice.BackColor = Color.LightGray;
+
+
+                    // Hiển thị chữ "No Image"
+                    using (Bitmap bmp = new Bitmap(ptrDevice.Width, ptrDevice.Height))
+                    using (Graphics g = Graphics.FromImage(bmp))
+                    {
+                        g.Clear(Color.LightGray);
+                        using (Font font = new Font("Arial", 14))
+                        {
+                            g.DrawString("No Image", font, Brushes.Black, new PointF(10, ptrDevice.Height / 2 - 10));
+                        }
+                        ptrDevice.Image = (Image)bmp.Clone();
+                    }
+                }
+                else
+                {
                     if (ptrDevice.Image != null)
                     {
                         ptrDevice.Image.Dispose();
                         ptrDevice.Image = null;
                     }
 
-                    // Load ảnh bằng MemoryStream để tránh lỗi
-                    byte[] imageBytes = File.ReadAllBytes(fullPath);
+                    byte[] imageBytes = File.ReadAllBytes(imagePathToUse);
                     using (MemoryStream ms = new MemoryStream(imageBytes))
                     {
                         ptrDevice.Image = Image.FromStream(ms);
                     }
                     ptrDevice.SizeMode = PictureBoxSizeMode.Zoom;
-                    ControlImageName = Path.GetFileName(relativePath);
+                }
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi load ảnh: " + ex.Message);
-                }
+                ControlImageName = Path.GetFileName(device.DeviceImage);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Ảnh không tồn tại: " + fullPath);
+                MessageBox.Show("Lỗi khi load ảnh: " + ex.Message);
             }
 
             txtDeviceID.ReadOnly = true;

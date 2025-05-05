@@ -1,9 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Services;
+
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace QuanLyThuQuan.DAO
@@ -22,10 +23,10 @@ namespace QuanLyThuQuan.DAO
             {
                 db.OpenConnection();
                 string query = @"
-                SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount
-                FROM Transactions t
-                LEFT JOIN TransactionItems ti ON t.TransactionID = ti.TransactionID
-                ";
+            SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount, ti.Status AS ItemStatus
+            FROM Transactions t
+            LEFT JOIN TransactionItems ti ON t.TransactionID = ti.TransactionID
+        ";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -45,6 +46,7 @@ namespace QuanLyThuQuan.DAO
                                 reader.IsDBNull(reader.GetOrdinal("ReturnDate")) ? (DateTime?)null : reader.GetDateTime("ReturnDate"),
                                 (TransactionStatus)Enum.Parse(typeof(TransactionStatus), reader.GetString("Status"))
                             );
+                            transaction.TransactionItems = new List<TransactionItemModel>(); 
                             transactionMap[transactionID] = transaction;
                         }
 
@@ -55,14 +57,9 @@ namespace QuanLyThuQuan.DAO
                                 transactionID,
                                 reader.IsDBNull(reader.GetOrdinal("BookID")) ? (int?)null : reader.GetInt32("BookID"),
                                 reader.IsDBNull(reader.GetOrdinal("DeviceID")) ? (int?)null : reader.GetInt32("DeviceID"),
-                                reader.GetInt32("Amount")
+                                reader.GetInt32("Amount"),
+                                (TransactionItemStatus)Enum.Parse(typeof(TransactionItemStatus), reader.GetString("ItemStatus"))
                             );
-
-                            // Kiểm tra nếu TransactionItems chưa được khởi tạo, khởi tạo nó
-                            if (transactionMap[transactionID].TransactionItems == null)
-                            {
-                                transactionMap[transactionID].TransactionItems = new List<TransactionItemModel>();
-                            }
 
                             transactionMap[transactionID].TransactionItems.Add(item);
                         }
@@ -83,14 +80,14 @@ namespace QuanLyThuQuan.DAO
         }
         public TransactionModel GetTransactionByID(int ID)
         {
-            TransactionModel transaction = null;
             Dictionary<int, TransactionModel> transactionMap = new Dictionary<int, TransactionModel>();
+
             try
             {
                 db.OpenConnection();
                 string query = @"
-            SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount,
-                   m.MemberID, m.FullName, m.Email, m.PhoneNumber -- Các cột từ bảng Member
+            SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount, ti.Status AS ItemStatus,
+                   m.MemberID, m.FullName, m.Email, m.PhoneNumber
             FROM Transactions t
             LEFT JOIN TransactionItems ti ON ti.TransactionID = t.TransactionID
             JOIN Member m ON m.MemberID = t.MemberID
@@ -105,7 +102,6 @@ namespace QuanLyThuQuan.DAO
                         {
                             int transactionID = reader.GetInt32("TransactionID");
 
-                            // Kiểm tra nếu Transaction chưa được tạo
                             if (!transactionMap.ContainsKey(transactionID))
                             {
                                 var member = new MemberModel(
@@ -115,7 +111,7 @@ namespace QuanLyThuQuan.DAO
                                     reader.GetString("PhoneNumber")
                                 );
 
-                                transaction = new TransactionModel(
+                                var transaction = new TransactionModel(
                                     transactionID,
                                     reader.GetInt32("MemberID"),
                                     (TransactionType)Enum.Parse(typeof(TransactionType), reader.GetString("TransactionType")),
@@ -123,13 +119,12 @@ namespace QuanLyThuQuan.DAO
                                     reader.IsDBNull(reader.GetOrdinal("DueDate")) ? (DateTime?)null : reader.GetDateTime("DueDate"),
                                     reader.IsDBNull(reader.GetOrdinal("ReturnDate")) ? (DateTime?)null : reader.GetDateTime("ReturnDate"),
                                     (TransactionStatus)Enum.Parse(typeof(TransactionStatus), reader.GetString("Status")),
-                                    member 
+                                    member
                                 );
-
+                                transaction.TransactionItems = new List<TransactionItemModel>(); 
                                 transactionMap[transactionID] = transaction;
                             }
 
-                            // Thêm TransactionItems
                             if (!reader.IsDBNull(reader.GetOrdinal("ItemID")))
                             {
                                 var item = new TransactionItemModel(
@@ -137,14 +132,9 @@ namespace QuanLyThuQuan.DAO
                                     transactionID,
                                     reader.IsDBNull(reader.GetOrdinal("BookID")) ? (int?)null : reader.GetInt32("BookID"),
                                     reader.IsDBNull(reader.GetOrdinal("DeviceID")) ? (int?)null : reader.GetInt32("DeviceID"),
-                                    reader.GetInt32("Amount")
+                                    reader.GetInt32("Amount"),
+                                    (TransactionItemStatus)Enum.Parse(typeof(TransactionItemStatus), reader.GetString("ItemStatus"))
                                 );
-
-                                // Kiểm tra nếu TransactionItems chưa được khởi tạo
-                                if (transactionMap[transactionID].TransactionItems == null)
-                                {
-                                    transactionMap[transactionID].TransactionItems = new List<TransactionItemModel>();
-                                }
 
                                 transactionMap[transactionID].TransactionItems.Add(item);
                             }
@@ -154,15 +144,18 @@ namespace QuanLyThuQuan.DAO
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lấy dữ liệu bằng ID " + ex.Message);
+                Console.WriteLine("Lỗi GetTransactionByID: " + ex.Message);
             }
             finally
             {
                 db.CloseConnection();
             }
 
-            
-            return transaction; 
+            if (transactionMap.TryGetValue(ID, out var foundTransaction))
+            {
+                return foundTransaction;
+            }
+            return null;
         }
 
         public bool AddTransactionWithItems(TransactionModel transaction)
@@ -192,8 +185,8 @@ namespace QuanLyThuQuan.DAO
                     foreach (var item in transaction.TransactionItems)
                     {
                         string itemQuery = @"
-                    INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount)
-                    VALUES (@TransactionID, @BookID, @DeviceID, @Amount);";
+                    INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount,Status)
+                    VALUES (@TransactionID, @BookID, @DeviceID, @Amount,'Borrowed');";
 
                         using (MySqlCommand itemCmd = new MySqlCommand(itemQuery, db.Connection))
                         {
@@ -201,7 +194,7 @@ namespace QuanLyThuQuan.DAO
                             itemCmd.Parameters.AddWithValue("@BookID", item.BookID ?? (object)DBNull.Value);
                             itemCmd.Parameters.AddWithValue("@DeviceID", item.DeviceID ?? (object)DBNull.Value);
                             itemCmd.Parameters.AddWithValue("@Amount", item.Amount);
-
+                           
                             itemCmd.ExecuteNonQuery(); 
                         }
                     }
@@ -256,8 +249,8 @@ namespace QuanLyThuQuan.DAO
                 foreach (var item in transaction.TransactionItems)
                 {
                     string itemQuery = @"
-                INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount)
-                VALUES (@TransactionID, @BookID, @DeviceID, @Amount);";
+                INSERT INTO TransactionItems (TransactionID, BookID, DeviceID, Amount,Status)
+                VALUES (@TransactionID, @BookID, @DeviceID, @Amount,@Status);";
 
                     using (MySqlCommand itemCmd = new MySqlCommand(itemQuery, db.Connection))
                     {
@@ -265,7 +258,7 @@ namespace QuanLyThuQuan.DAO
                         itemCmd.Parameters.AddWithValue("@BookID", item.BookID ?? (object)DBNull.Value);
                         itemCmd.Parameters.AddWithValue("@DeviceID", item.DeviceID ?? (object)DBNull.Value);
                         itemCmd.Parameters.AddWithValue("@Amount", item.Amount);
-
+                        itemCmd.Parameters.AddWithValue("@Status", item.Status.ToString());
                         itemCmd.ExecuteNonQuery(); 
                     }
                 }
@@ -418,6 +411,54 @@ namespace QuanLyThuQuan.DAO
             }
         }
 
+        public bool ReturnSingleItem(int itemID)
+        {
+            try
+            {
+                db.OpenConnection();
+                using (MySqlCommand cmd = new MySqlCommand("ReturnSingleItem", db.Connection))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_ItemID", itemID);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi trả món đơn lẻ: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+        public bool UpdateDueDate(int transactionID, DateTime dueDate)
+        {
+            try
+            {
+                db.OpenConnection();
+                string query = "UPDATE Transactions SET DueDate = @DueDate WHERE TransactionID = @ID";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@DueDate", dueDate);
+                    cmd.Parameters.AddWithValue("@ID", transactionID);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi UpdateDueDate: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+    
 
     }
 }

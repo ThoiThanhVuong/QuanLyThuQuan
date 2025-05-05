@@ -52,6 +52,9 @@ namespace QuanLyThuQuan.BUS
         {
             return bookDAO.GetTotalBookQuantity();
         }
-       
+        public int GenerateNewBookCode()
+        {
+            return bookDAO.GenerateNewBookCode()+1;
+        }
     }
 }

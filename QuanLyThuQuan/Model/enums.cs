@@ -20,8 +20,8 @@
     public enum TransactionType
     {
         Borrow,
-        Return,
-        Reserve
+        Return
+       
     }
 
     public enum TransactionStatus
@@ -41,11 +41,6 @@
         Failed
     }
 
-    public enum TransactionValidFields
-    {
-        TransactionID,
-        MemberID
-    }
 
     public enum ReservationStatus
     {
@@ -53,16 +48,10 @@
         Pending,
         Cancelled
     }
-    public enum ReservationValidFields
+    public enum TransactionItemStatus
     {
-        ReservationID,
-        MemberID
+        Borrowed,
+        Returned
     }
-
-    public enum ProductType
-    {
-        All,
-        Books,
-        Devices,
-    }
+ 
 }

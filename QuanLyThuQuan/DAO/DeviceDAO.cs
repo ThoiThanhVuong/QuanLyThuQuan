@@ -82,6 +82,47 @@ namespace QuanLyThuQuan.DAO
 
             return device;
         }
+        public DeviceModel GetDeviceByName(string name)
+        {
+            DeviceModel device = null;
+
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT * FROM Devices WHERE DeviceName LIKE @Name AND Status IN ('Available','OutOf')";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", "%"+name+"%");
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            device = (new DeviceModel(
+                            reader.GetInt32("DeviceID"),
+                            reader.GetString("DeviceName"),
+                            reader.GetString("DeviceImage"),
+                            reader.GetString("DeviceType"),
+                            reader.GetInt32("Quantity"),
+                            (ProductStatus)Enum.Parse(typeof(ProductStatus), reader.GetString("Status")),
+                            reader.GetInt32("fee_per_hour")
+                         ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy thiết bị: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            return device;
+        }
         public List<string> GetDeviceType()
         {
             List<string> deviceTypes = new List<string>();
@@ -147,16 +188,17 @@ namespace QuanLyThuQuan.DAO
             try
             {
                 db.OpenConnection();
-                string query = "INSERT INTO Devices (DeviceName,DeviceImage,DeviceType,Quantity,Status,fee_per_hour)" +
-                    "VALUES (@DeviceName,@DeviceImage,@DeviceType,@Quantity,@Status,@fee_per_hour)";
+                string query = "INSERT INTO Devices (DeviceName,DeviceImage,DeviceType,Quantity,fee_per_hour,Status)" +
+                    "VALUES (@DeviceName,@DeviceImage,@DeviceType,@Quantity,@fee_per_hour,@Status)";
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
                     cmd.Parameters.AddWithValue("@DeviceName", device.DeviceName);
                     cmd.Parameters.AddWithValue("@DeviceImage", device.DeviceImage);
                     cmd.Parameters.AddWithValue("@DeviceType", device.DeviceType);
                     cmd.Parameters.AddWithValue("@Quantity", device.DeviceQuantity);
-                    cmd.Parameters.AddWithValue("@Status", device.DeviceStatus.ToString());
                     cmd.Parameters.AddWithValue("@fee_per_hour", device.FeePerHour);
+                    cmd.Parameters.AddWithValue("@Status", device.DeviceStatus.ToString());
+                   
                     bool result = cmd.ExecuteNonQuery() > 0;
                     db.CloseConnection();
                     return result;
@@ -176,7 +218,7 @@ namespace QuanLyThuQuan.DAO
             {
                 db.OpenConnection();
                 string query = ("UPDATE Devices " +
-                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,Status=@Status,fee_per_hour=@fee_per_hour " +
+                    "SET DeviceName=@DeviceName ,DeviceImage=@DeviceImage,DeviceType=@DeviceType,Quantity=@Quantity,fee_per_hour=@fee_per_hour,Status=@Status " +
                     "WHERE DeviceID =@DeviceID");
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
@@ -221,6 +263,29 @@ namespace QuanLyThuQuan.DAO
             }
 
         }
+        public int DeleteDevicesByCondition()
+        {
+            int rowsAffected = 0;
+            try
+            {               
+                db.OpenConnection();
+                string query = @"
+                    DELETE FROM Devices
+                    WHERE Status = 'Unavailable'";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                rowsAffected = cmd.ExecuteNonQuery();
+             
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("lỗi khi xóa theo điều kiện" + ex.Message);
+            }
+            db.CloseConnection();
+            return rowsAffected;
+
+        }
+
         public List<DeviceModel> SearchDevices(string keyword)
         {
             List<DeviceModel> devices = new List<DeviceModel>();
@@ -294,6 +359,16 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
             }
             return total;
+        }
+        public int GenerateNewDeviceCode()
+        {
+            int lastID = 0;
+            db.OpenConnection();
+            string query = "SELECT MAX(DeviceID) FROM Devices";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            var result = cmd.ExecuteScalar();
+            lastID = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+            return lastID;
         }
     }
 }

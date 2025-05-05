@@ -31,6 +31,9 @@ namespace QuanLyThuQuan.GUI.ProductItem
             {
                 cbbBookType.Items.Add(category.CategoryName);
             }
+            cbbStatus.Items.Clear();
+            cbbStatus.DataSource = Enum.GetValues(typeof(ProductStatus));
+            cbbStatus.SelectedIndex = 0;
         }
         public void SetLabelAndButtonText(string labelText, string buttonText)
         {
@@ -48,10 +51,15 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 txtSoLuong.ReadOnly = true;
                 cbbBookType.Visible = false;
                 txtTheLoai.Visible = true;
+                pnStatus.Visible = false;
 
             }
             else
             {
+                if(labelText.Equals("Thêm Mới"))
+                {
+                    txtMaSach.Text = bookBUS.GenerateNewBookCode()+"";
+                }
                 btnBookControl.Visible = true;
                 btnBookControl.Text = buttonText;
                 txtMaSach.ReadOnly = true;
@@ -64,6 +72,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
                 cbbBookType.Visible = true;
                 txtTheLoai.Visible = false;
                 LoadCategories();
+                pnStatus.Visible = true;
             }
 
         }
@@ -77,47 +86,49 @@ namespace QuanLyThuQuan.GUI.ProductItem
             txtPublishYear.Text = book.PublisYear + "";
             txtGiaThue.Text = book.FeePerDay + "";
             txtSoLuong.Text = book.BookQuantity + "";
+            cbbStatus.Text = book.BookStatus.ToString();
             string relativePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Books", book.BookImage);
             string fullPath = Path.GetFullPath(relativePath);
 
-            if (File.Exists(fullPath))
+            string defaultImagePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Books", "noimage.jpg");
+            defaultImagePath = Path.GetFullPath(defaultImagePath);
+
+            string imagePathToUse = File.Exists(fullPath) ? fullPath : defaultImagePath;
+
+            if (!File.Exists(imagePathToUse))
             {
-                try
+                ptrBook.Image = null;
+                ptrBook.BackColor = Color.LightGray;
+                ptrBook.BorderStyle = BorderStyle.FixedSingle;
+
+                using (Bitmap bmp = new Bitmap(ptrBook.Width, ptrBook.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    // Kiểm tra dung lượng file có hợp lệ không
-                    FileInfo fileInfo = new FileInfo(fullPath);
-                    if (fileInfo.Length == 0)
+                    g.Clear(Color.LightGray);
+                    using (Font font = new Font("Arial", 14))
                     {
-                        MessageBox.Show("File ảnh bị rỗng: " + fullPath);
-                        return;
+                        g.DrawString("No Image", font, Brushes.Black, new PointF(10, ptrBook.Height / 2 - 10));
                     }
-
-                    // Giải phóng bộ nhớ trước khi load ảnh mới
-                    if (ptrBook.Image != null)
-                    {
-                        ptrBook.Image.Dispose();
-                        ptrBook.Image = null;
-                    }
-
-                    // Load ảnh bằng MemoryStream để tránh lỗi
-                    byte[] imageBytes = File.ReadAllBytes(fullPath);
-                    using (MemoryStream ms = new MemoryStream(imageBytes))
-                    {
-                        ptrBook.Image = Image.FromStream(ms);
-                    }
-                    ptrBook.SizeMode = PictureBoxSizeMode.Zoom;
-                    bookImageName = Path.GetFileName(relativePath);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi load ảnh: " + ex.Message);
+                    ptrBook.Image = (Image)bmp.Clone();
                 }
             }
             else
             {
-                MessageBox.Show("Ảnh không tồn tại: " + fullPath);
+                if (ptrBook.Image != null)
+                {
+                    ptrBook.Image.Dispose();
+                    ptrBook.Image = null;
+                }
+
+                byte[] imageBytes = File.ReadAllBytes(imagePathToUse);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    ptrBook.Image = Image.FromStream(ms);
+                }
+                ptrBook.SizeMode = PictureBoxSizeMode.Zoom;
             }
+
+            bookImageName = Path.GetFileName(book.BookImage);
 
             txtMaSach.ReadOnly = true;
             txtTenSach.ReadOnly = false;
@@ -136,17 +147,41 @@ namespace QuanLyThuQuan.GUI.ProductItem
               
                 string txtButton = btnBookControl.Text;
                 if (string.IsNullOrWhiteSpace(txtTenSach.Text))
+                {
                     MessageBox.Show("Tên sách không được bỏ trống.");
+                    txtTenSach.Focus();
+                    return;
+                } 
                 if (string.IsNullOrWhiteSpace(txtMaTacGia.Text))
+                {
                     MessageBox.Show("Tác giả không được bỏ trống.");
+                    txtMaTacGia.Focus();
+                    return;
+                }      
                 if (string.IsNullOrWhiteSpace(txtGiaThue.Text))
+                {
                     MessageBox.Show("Giá thuê không được bỏ trống.");
+                    txtGiaThue.Focus();
+                    return;
+                }       
                 if (string.IsNullOrWhiteSpace(txtSoLuong.Text))
+                {
                     MessageBox.Show("Số lượng không được bỏ trống.");
+                    txtSoLuong.Focus();
+                    return;
+                }   
                 if (cbbBookType.SelectedItem == null)
+                {
                     MessageBox.Show("Thể loại không được bỏ trống.");
+                    cbbBookType.Focus();
+                    return;
+                }      
                 if (string.IsNullOrWhiteSpace(bookImageName))
+                {
                     MessageBox.Show("Ảnh không được bỏ trống.");
+                    return;
+                }
+                   
 
 
 
@@ -182,7 +217,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
                     }
                     categoryID = categoryBUS.GetCategoryIDByName(categoryName);
                 }
-              
+               
                 // Kiểm tra nếu là nút "Thêm"
                 if (txtButton.Equals("Thêm"))
                 {
@@ -194,7 +229,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
                         categoryID,
                         publishYear,
                         quantity,
-                        ProductStatus.Available,
+                       (ProductStatus)Enum.Parse(typeof(ProductStatus), cbbStatus.SelectedItem.ToString()),
                         feePerDay
                        );
                     
@@ -222,7 +257,7 @@ namespace QuanLyThuQuan.GUI.ProductItem
                         categoryID,
                        publishYear,
                        quantity,
-                       ProductStatus.Available,
+                       (ProductStatus)Enum.Parse(typeof(ProductStatus), cbbStatus.SelectedItem.ToString()),
                         feePerDay
                      ));
                     if(result)

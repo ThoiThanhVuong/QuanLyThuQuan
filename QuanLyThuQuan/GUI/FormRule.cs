@@ -1,7 +1,9 @@
-﻿using QuanLyThuQuan.BUS;
+﻿using OfficeOpenXml;
+using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -159,6 +161,59 @@ namespace QuanLyThuQuan.GUI
             ruleBus.DeleteRule(int.Parse(textBox1.Text));
             loadDataTable();
             refresh();
+        }
+        public List<RuleModel> ImportRuleFromExcel(string filePath)
+        {
+            List<RuleModel> rules = new List<RuleModel>();
+            FileInfo fileInfo = new FileInfo(filePath);
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (ExcelPackage package = new ExcelPackage(fileInfo))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                int rowCount = worksheet.Dimension.Rows;
+
+                for (int row = 2; row <= rowCount; row++)
+                {
+                    string ruleTitle = worksheet.Cells[row, 1].Text;
+                    string RuleDescription = worksheet.Cells[row, 2].Text;
+                    string Penalty = worksheet.Cells[row, 3].Text;                
+
+                    RuleModel rule = new RuleModel(ruleTitle, RuleDescription, Penalty, DateTime.Now, ActivityStatus.Active);
+                   
+                    rules.Add(rule);
+                }
+            }
+            return rules;
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    List<RuleModel> rules = ImportRuleFromExcel(filePath);
+                    int successCount = 0;
+
+                    foreach (var rule in rules)
+                    {
+                        if (ruleBus.AddRule(rule))
+                            successCount++;
+                    }
+
+                    MessageBox.Show($"Nhập thành công {successCount}/{rules.Count} điều luật!", "Thông báo");
+                    // Load lại bảng DataGridView nếu muốn
+                    loadDataTable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi khi nhập Excel: " + ex.Message, "Lỗi");
+                }
+            }
         }
     }
 }

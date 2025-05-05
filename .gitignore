@@ -1,36 +1,35 @@
-# Visual Studio
+# ========== Visual Studio ==========
 .vs/
 *.user
 *.suo
-*.cache
-*.dbmdl
 *.bak
-*.backup
+*.backup.*
 *.tmp
-*.obj
 *.log
 *.tlog
 *.ilk
+*.cache
+*.dbmdl
 *.htm
-packages/
 
-# Bin/Obj
-[Bb]in/
-[Oo]bj/
-
-# Build results
+# ========== Build artifacts ==========
+bin/
+obj/
 *.exe
 *.dll
 *.pdb
 
-# Layout & designer autosaves
+# ========== Project-specific ==========
 *.csproj.user
+*.csproj.FileListAbsolute.txt
 *.layout.*
 *.local.json
 
-# Others
-*.json
-*.cache
-*.config
-*.csproj.FileListAbsolute.txt
+# ========== NuGet ==========
+packages/
+*.nupkg
+
+# ========== Optional ==========
+
+# ========== Extensions ==========
 .claudiaideconfig

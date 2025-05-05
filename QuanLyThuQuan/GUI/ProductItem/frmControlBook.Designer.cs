@@ -69,6 +69,10 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtBookControl = new System.Windows.Forms.Label();
             this.btnBookControl = new System.Windows.Forms.Button();
+            this.pnStatus = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnStatus = new System.Windows.Forms.Label();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrBook)).BeginInit();
@@ -80,6 +84,7 @@
             this.panel16.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel20.SuspendLayout();
+            this.pnStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtMaSach
@@ -528,11 +533,54 @@
             this.btnBookControl.UseVisualStyleBackColor = false;
             this.btnBookControl.Click += new System.EventHandler(this.btnBookControl_Click);
             // 
+            // pnStatus
+            // 
+            this.pnStatus.BackColor = System.Drawing.Color.White;
+            this.pnStatus.Controls.Add(this.cbbStatus);
+            this.pnStatus.Controls.Add(this.panel22);
+            this.pnStatus.Controls.Add(this.btnStatus);
+            this.pnStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnStatus.ForeColor = System.Drawing.Color.Black;
+            this.pnStatus.Location = new System.Drawing.Point(600, 233);
+            this.pnStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.pnStatus.Name = "pnStatus";
+            this.pnStatus.Size = new System.Drawing.Size(260, 37);
+            this.pnStatus.TabIndex = 10;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.Black;
+            this.panel22.Location = new System.Drawing.Point(6, 29);
+            this.panel22.Margin = new System.Windows.Forms.Padding(0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(260, 1);
+            this.panel22.TabIndex = 5;
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.AutoSize = true;
+            this.btnStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatus.Location = new System.Drawing.Point(1, 9);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(102, 22);
+            this.btnStatus.TabIndex = 3;
+            this.btnStatus.Text = "Trạng thái :";
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Location = new System.Drawing.Point(68, 3);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(189, 30);
+            this.cbbStatus.TabIndex = 7;
+            // 
             // frmControlBook
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 450);
+            this.Controls.Add(this.pnStatus);
             this.Controls.Add(this.btnBookControl);
             this.Controls.Add(this.panel20);
             this.Controls.Add(this.panel18);
@@ -567,6 +615,8 @@
             this.panel18.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
+            this.pnStatus.ResumeLayout(false);
+            this.pnStatus.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -613,5 +663,9 @@
         private System.Windows.Forms.Label txtBookControl;
         private System.Windows.Forms.Button btnBookControl;
         private System.Windows.Forms.ComboBox cbbBookType;
+        private System.Windows.Forms.Panel pnStatus;
+        private System.Windows.Forms.ComboBox cbbStatus;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Label btnStatus;
     }
 }

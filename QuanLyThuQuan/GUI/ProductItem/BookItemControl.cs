@@ -23,41 +23,42 @@ namespace QuanLyThuQuan.GUI
 
             lblBookTitle.Text = book.BookTitle;
 
-            if (File.Exists(fullPath))
+            string defaultImagePath = Path.Combine("..", "..", "..", "QuanLyThuQuan", "Public", "Img", "Books", "noimage.jpg");
+            defaultImagePath = Path.GetFullPath(defaultImagePath);
+
+            string imagePathToUse = File.Exists(fullPath) ? fullPath : defaultImagePath;
+
+            if (!File.Exists(imagePathToUse))
             {
-                try
-                {
-                    // Kiểm tra dung lượng file có hợp lệ không
-                    FileInfo fileInfo = new FileInfo(fullPath);
-                    if (fileInfo.Length == 0)
-                    {
-                        MessageBox.Show("File ảnh bị rỗng: " + fullPath);
-                        return;
-                    }
+                pbBookCover.Image = null;
+                pbBookCover.BackColor = Color.LightGray;
+                pbBookCover.BorderStyle = BorderStyle.FixedSingle;
 
-                    // Giải phóng bộ nhớ trước khi load ảnh mới
-                    if (pbBookCover.Image != null)
-                    {
-                        pbBookCover.Image.Dispose();
-                        pbBookCover.Image = null;
-                    }
-
-                    // Load ảnh bằng MemoryStream để tránh lỗi
-                    byte[] imageBytes = File.ReadAllBytes(fullPath);
-                    using (MemoryStream ms = new MemoryStream(imageBytes))
-                    {
-                        pbBookCover.Image = Image.FromStream(ms);
-                    }
-                    pbBookCover.SizeMode = PictureBoxSizeMode.Zoom;
-                }
-                catch (Exception ex)
+                using (Bitmap bmp = new Bitmap(pbBookCover.Width, pbBookCover.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    MessageBox.Show("Lỗi khi load ảnh: " + ex.Message);
+                    g.Clear(Color.LightGray);
+                    using (Font font = new Font("Arial", 14))
+                    {
+                        g.DrawString("No Image", font, Brushes.Black, new PointF(10, pbBookCover.Height / 2 - 10));
+                    }
+                    pbBookCover.Image = (Image)bmp.Clone();
                 }
             }
             else
             {
-                MessageBox.Show("Ảnh không tồn tại: " + fullPath);
+                if (pbBookCover.Image != null)
+                {
+                    pbBookCover.Image.Dispose();
+                    pbBookCover.Image = null;
+                }
+
+                byte[] imageBytes = File.ReadAllBytes(imagePathToUse);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    pbBookCover.Image = Image.FromStream(ms);
+                }
+                pbBookCover.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 

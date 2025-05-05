@@ -1,8 +1,12 @@
-﻿using QuanLyThuQuan.BUS;
+﻿using OfficeOpenXml;
+using QuanLyThuQuan.BUS;
+using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.GUI.ProductItem;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI
@@ -12,6 +16,7 @@ namespace QuanLyThuQuan.GUI
         private FormMain mainForm;
         private BookBUS bookBUS = new BookBUS();
         private CategoryBUS categoryBUS = new CategoryBUS();
+        private AuthorBUS authorBUS = new AuthorBUS();
         private string lastSearchTerm = "";
         public frmQuanLySach(FormMain main)
         {
@@ -74,7 +79,7 @@ namespace QuanLyThuQuan.GUI
             frmControlBook formAddBook = new frmControlBook();
         
             formAddBook.SetLabelAndButtonText("Thêm Mới", "Thêm");
-           
+            
             formAddBook.ShowDialog();
             LoadData();
 
@@ -238,6 +243,94 @@ namespace QuanLyThuQuan.GUI
             else
             {
                 MessageBox.Show("Vui lòng chọn thể loại để tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        public List<BookModel> ImportBookFromExcel(string filePath)
+        {
+            List<BookModel> books = new List<BookModel>();
+            FileInfo fileInfo = new FileInfo(filePath);
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (ExcelPackage package = new ExcelPackage(fileInfo))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                int rowCount = worksheet.Dimension.Rows;
+
+                for (int row = 2; row <= rowCount; row++)
+                {
+                    string bookTitle = worksheet.Cells[row, 1].Text;
+                    string authorName = worksheet.Cells[row, 2].Text;
+                    string bookImage = worksheet.Cells[row, 3].Text;
+                    string categoryName = worksheet.Cells[row, 4].Text;
+                    int authorID = authorBUS.GetAuthorByName(authorName);
+                    if (authorID == -1)
+                    {
+                        bool addAuthor = authorBUS.AddAuthor(new AuthorModel(authorName, ActivityStatus.Active));
+                        if (!addAuthor)
+                        {
+                            MessageBox.Show("có lỗi khi thêm tác giả");
+                            return null;
+                        }
+                        authorID = authorBUS.GetAuthorByName(authorName);
+                    }
+                    int categoryID = categoryBUS.GetCategoryIDByName(categoryName);
+                    if (categoryID == -1)
+                    {
+                        bool addCategory = categoryBUS.AddCategory(new CategoriesModel(categoryName, ActivityStatus.Active));
+                        if (!addCategory)
+                        {
+                            MessageBox.Show("Có lỗi khi thêm thể loại mới");
+                            return null;
+                        }
+                        categoryID = categoryBUS.GetCategoryIDByName(categoryName);
+                    }
+                    int publishYear = int.Parse(worksheet.Cells[row, 5].Text);
+                    int quantity = int.Parse(worksheet.Cells[row, 6].Text);
+                    int feePerDay = int.Parse(worksheet.Cells[row, 7].Text);
+
+                    BookModel book = new BookModel(
+                        bookTitle,
+                        authorID,
+                        bookImage,
+                        categoryID,
+                        publishYear,
+                        quantity,
+                        ProductStatus.Available,
+                        feePerDay
+                       );             
+                    books.Add(book);
+                }
+            }
+            return books;
+        }
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    List<BookModel> books = ImportBookFromExcel(filePath);
+                   
+                    int successCount = 0;
+
+                    foreach (var book in books)
+                    {
+                        if (bookBUS.AddBook(book))
+                            successCount++;
+                    }
+
+                    MessageBox.Show($"Nhập thành công {successCount}/{books.Count} sách!", "Thông báo");
+                    
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi khi nhập Excel: " + ex.Message, "Lỗi");
+                }
             }
         }
     }

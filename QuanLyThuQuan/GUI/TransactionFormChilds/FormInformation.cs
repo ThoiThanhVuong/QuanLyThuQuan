@@ -1,6 +1,6 @@
 ﻿using QuanLyThuQuan.BUS;
 using QuanLyThuQuan.Model;
-using QuanLyThuQuan.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.TransactionFormChilds
 {
+    
     public partial class FormInformation : Form
     {
+       
+        private TransactionModel currentTransaction;
         private bool isReturned = false;
         public FormInformation()
         {
@@ -31,12 +34,11 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         }
         public void SetValue(TransactionModel trans)
         {
-            // Load thêm chi tiết Payment và Violation nếu chưa có
+            currentTransaction = trans;
             var bus = new TransactionBUS();
             bus.LoadExtraDetails(trans);
-            
 
-            // Gán giá trị giao diện
+            // Load thông tin giao dịch
             txtTransactionID.Text = trans.TransactionID.ToString();
             txtTransType.Text = trans.TransactionType.ToString();
             txtDate.Text = trans.TransactionDate.ToString("g");
@@ -48,8 +50,8 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             txtPhoneNumber.Text = trans.Member?.PhoneNumber ?? "";
 
             dgvTransactionItem.Rows.Clear();
-            dgvTransactionItem.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvTransactionItem.Columns[4].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+            dgvTransactionItem.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTransactionItem.Columns[5].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
             int index = 1;
             foreach (var item in trans.TransactionItems)
             {
@@ -58,13 +60,26 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                     item.BookID?.ToString() ?? "",
                     item.DeviceID?.ToString() ?? "",
                     item.Amount,
+                    item.Status.ToString(),
                     "..."
                 );
             }
 
-          
+            LoadPayments(trans);
+
+            btnViolation.Visible = trans.Violations != null && trans.Violations.Any();
+            btnViolation.Enabled = btnViolation.Visible;
+
+        // Ẩn nút xác nhận nếu giao dịch đã hoàn thành
+            btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
+            btnConfirmReturn.Visible = (trans.Status == TransactionStatus.Active);
+        }
+
+
+        private void LoadPayments(TransactionModel trans)
+        {
             txtTotalPayment.Text = trans.TotalPaymentAmount.ToString("N0") + " VND";
-            txtStatusPayment.Text = trans.IsFullyPaid ? "Đã thanh toán" : "Chưa thanh toán";
+            txtStatusPayment.Text = trans.IsFullyPaid ? "\u0110\u00e3 thanh to\u00e1n" : "Ch\u01b0a thanh to\u00e1n";
 
             dgvPayments.Rows.Clear();
             foreach (var pay in trans.Payments)
@@ -75,26 +90,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                     pay.Description
                 );
             }
-
-            if (trans.Violations != null && trans.Violations.Any())
-            {
-                btnViolation.Enabled = true;
-                btnViolation.Visible = true;
-                btnViolation.Click -= btnViolation_Click;
-                btnViolation.Click += btnViolation_Click;
-            }
-            else
-            {
-                btnViolation.Enabled = false;
-                btnViolation.Visible = false;
-            }
-
-            // Ẩn nút xác nhận nếu giao dịch đã hoàn thành
-            btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
-            btnConfirmReturn.Visible = (trans.Status == TransactionStatus.Active);
         }
-
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -124,11 +120,13 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 if (success)
                 {
                     isReturned = true;
-                    MessageBox.Show("Đã tính toán thanh toán và vi phạm (nếu có). Bấm xác nhận lần nữa để lưu.");
+                   
 
                     transaction = bus.GetTransactionByID(transactionID);
                     bus.LoadExtraDetails(transaction);
                     SetValue(transaction);
+                    MessageBox.Show("Đã tính toán thanh toán cho các món còn Borrowed. Bấm xác nhận lần nữa để lưu trạng thái hoàn tất.");
+                    //isReturned = false;
                 }
                 else
                 {
@@ -149,6 +147,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                 {
                     MessageBox.Show("Lỗi khi cập nhật trạng thái trả.");
                 }
+
             }
 
         }
@@ -156,6 +155,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private void btnViolation_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtTransactionID.Text, out int transactionID)) return;
+
             var bus = new TransactionBUS();
             var transaction = bus.GetTransactionByID(transactionID);
             bus.LoadExtraDetails(transaction);
@@ -173,29 +173,34 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
         private void dgvTransactionItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
             {
-                FormShowProductItem item = new FormShowProductItem();
+                var item = currentTransaction.TransactionItems[e.RowIndex];
+                int itemID = item.ItemID;
+                int? bookID = item.BookID;
+                int? deviceID = item.DeviceID;
 
-                string bookVal = dgvTransactionItem.Rows[e.RowIndex].Cells[1].Value?.ToString();
-                string deviceVal = dgvTransactionItem.Rows[e.RowIndex].Cells[2].Value?.ToString();
+                var form = new FormShowProductItem();
 
-                int bookID = 0, deviceID = 0;
-                int.TryParse(bookVal, out bookID);
-                int.TryParse(deviceVal, out deviceID);
-
-                if (bookID != 0)
+                if (bookID.HasValue)
                 {
-                    var book = new BookBUS().GetBookByID(bookID);
-                    item.setvalue(book, null);
+                    var book = new BookBUS().GetBookByID(bookID.Value);
+                    form.SetValueWithID(itemID, item.Status, book, null);
                 }
-                else if (deviceID != 0)
+                else if (deviceID.HasValue)
                 {
-                    var device = new DeviceBUS().GetDeviceByID(deviceID);
-                    item.setvalue(null, device);
+                    var device = new DeviceBUS().GetDeviceByID(deviceID.Value);
+                    form.SetValueWithID(itemID, item.Status, null, device);
                 }
 
-                item.ShowDialog();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    // reload lại nếu thành công
+                    var bus = new TransactionBUS();
+                    var updatedTransaction = bus.GetTransactionByID(currentTransaction.TransactionID);
+                    bus.LoadExtraDetails(updatedTransaction);
+                    SetValue(updatedTransaction);
+                }
             }
         }
     }
