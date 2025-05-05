@@ -154,5 +154,39 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return members;
         }
+    
+
+    public int DeleteMembersByDateRangeAndType(DateTime startDate, DateTime endDate, string userType)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                db.OpenConnection();
+                string query = @"
+                UPDATE Member
+                SET Status = 'Inactive'
+                WHERE RegistrationDate BETWEEN @StartDate AND @EndDate
+                  AND UserType = @UserType
+                  AND Status = 'Active'";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@StartDate", startDate);
+                cmd.Parameters.AddWithValue("@EndDate", endDate);
+                cmd.Parameters.AddWithValue("@UserType", userType);
+
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            return rowsAffected;
+        }
     }
+
 }

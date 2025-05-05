@@ -11,6 +11,8 @@ namespace QuanLyThuQuan.GUI
     public partial class FormDashBoard : Form
     {
         private SessionStudyBUS sessionStudyBUS = new SessionStudyBUS();
+        private ViolationBUS violationBUS = new ViolationBUS();
+        private MemberBUS memberBUS = new MemberBUS();
         public FormDashBoard()
         {
             InitializeComponent();
@@ -41,6 +43,8 @@ namespace QuanLyThuQuan.GUI
                     row.Cells["SessionId"].Value = sessionStudy.SessionId;
                     row.Cells["MemberId"].Value = sessionStudy.MemberId;
                     row.Cells["CheckInTIme"].Value = sessionStudy.CheckInTime;
+                    row.Cells["FullName"].Value = sessionStudy.FullName;
+                    row.Cells["UserName"].Value = sessionStudy.UserName;
                 }
             }
         }
@@ -53,6 +57,19 @@ namespace QuanLyThuQuan.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             string idMember = textBox1.Text;
+            if (violationBUS.checkCountViolationByID(int.Parse(idMember)) > 0)
+            {
+                MessageBox.Show("Thành viên đã vi phạm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!memberBUS.GetMemberById(int.Parse(idMember)))
+            {
+                MessageBox.Show("Thành viên không tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+
             sessionStudyBUS.CheckInTime(int.Parse(idMember));
             loadTable();
         }

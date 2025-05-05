@@ -18,6 +18,8 @@ namespace QuanLyThuQuan.Model
         public TransactionModel Transaction { get; set; }
         public RuleModel Rule { get; set; }
 
+
+
         public ViolationModel()
         {
 
