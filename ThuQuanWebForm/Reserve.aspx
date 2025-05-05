@@ -456,6 +456,10 @@
                 CommandArgument="available" OnClientClick="filterItemsClient('available', event); return true;">
                 <i class="fas fa-check-circle"></i> Có sẵn
             </asp:LinkButton>
+            <asp:LinkButton ID="FilterBorrowedButton" runat="server" CssClass="filter-btn" OnClick="FilterButton_Click"
+                CommandArgument="borrowed" OnClientClick="filterItemsClient('borrowed', event); return true;">
+                <i class="fas fa-times-circle"></i> Đang mượn
+            </asp:LinkButton>
             <asp:LinkButton ID="FilterBooksButton" runat="server" CssClass="filter-btn" OnClick="FilterButton_Click"
                 CommandArgument="books" OnClientClick="filterItemsClient('books', event); return true;">
                 <i class="fas fa-book"></i> Sách
@@ -577,7 +581,7 @@
                 }
             }
 
-            // Validation function for pagination buttons
+            // Improved validation function for pagination buttons
             function validatePaginationClick(button) {
                 // If the button has the disabled class, prevent the click
                 if (button.classList.contains('disabled')) {
@@ -589,6 +593,13 @@
 
             // Add functionality for reservation modal
             document.addEventListener('DOMContentLoaded', function () {
+                // Fix for pagination buttons - ensure they're clickable
+                document.querySelectorAll('.pagination-btn').forEach(btn => {
+                    if (!btn.classList.contains('disabled')) {
+                        btn.style.pointerEvents = 'auto';
+                    }
+                });
+
                 const modal = document.getElementById('reservationModal');
                 const cancelBtn = document.getElementById('cancelReservation');
                 const startDateTimeControl = document.getElementById('<%= startDateTimeControl.ClientID %>');

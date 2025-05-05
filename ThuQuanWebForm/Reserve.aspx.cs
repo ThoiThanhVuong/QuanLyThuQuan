@@ -233,6 +233,50 @@ namespace ThuQuanWebForm
             LinkButton btn = (LinkButton)sender;
             string action = btn.CommandArgument; // "prev" or "next"
 
+            // Get current filter and search term from ViewState to calculate total pages
+            string currentFilter = (string)ViewState["CurrentFilter"] ?? "all";
+            string currentSearchTerm = (string)ViewState["CurrentSearchTerm"] ?? "";
+
+            // Get all items with filtering applied to calculate total pages correctly
+            var allItems = GetItemsFromDatabase();
+
+            // Apply search filter if provided
+            if (!string.IsNullOrWhiteSpace(currentSearchTerm))
+            {
+                allItems = allItems.Where(item =>
+                    (item.ItemName != null && item.ItemName.IndexOf(currentSearchTerm, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    (item.Description != null && item.Description.IndexOf(currentSearchTerm, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    (item.Author != null && item.Author.IndexOf(currentSearchTerm, StringComparison.OrdinalIgnoreCase) >= 0) || // If book
+                    (item.Spec1 != null && item.Spec1.IndexOf(currentSearchTerm, StringComparison.OrdinalIgnoreCase) >= 0)      // If device
+                ).ToList();
+            }
+
+            // Apply item type filter
+            switch (currentFilter)
+            {
+                case "available":
+                    allItems = allItems.Where(item => item.IsAvailable).ToList();
+                    break;
+                case "borrowed":
+                    allItems = allItems.Where(item => !item.IsAvailable).ToList();
+                    break;
+                case "books":
+                    allItems = allItems.Where(item => item.ItemType == "book").ToList();
+                    break;
+                case "devices":
+                    allItems = allItems.Where(item => item.ItemType == "device").ToList();
+                    break;
+                case "all":
+                default:
+                    // No additional filtering needed
+                    break;
+            }
+
+            // Calculate total pages based on filtered items
+            int totalItems = allItems.Count();
+            _totalPages = (int)Math.Ceiling((double)totalItems / ItemsPerPage);
+
+            // Now change the page based on button clicked
             if (action == "prev" && CurrentPage > 1)
             {
                 CurrentPage--;
@@ -242,12 +286,11 @@ namespace ThuQuanWebForm
                 CurrentPage++;
             }
 
-            // Get current filter and search term from ViewState
-            string currentFilter = (string)ViewState["CurrentFilter"] ?? "all";
-            string currentSearchTerm = (string)ViewState["CurrentSearchTerm"] ?? "";
-
             // Rebind data with current page, filter, and search term
             BindItemData(filter: currentFilter, searchTerm: currentSearchTerm);
+
+            // Output debug info for troubleshooting
+            System.Diagnostics.Debug.WriteLine($"[PaginationButton_Click] Action: {action}, Current Page: {CurrentPage}, Total Pages: {_totalPages}, Total Items: {totalItems}");
         }
 
         // Event handler for pagination number buttons
