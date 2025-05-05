@@ -380,7 +380,7 @@ namespace ThuQuanWebForm
         }
 
         // Helper method to update UI based on results count
-        private void UpdatePaginationUI(int totalItems)
+        private void UpdatePaginationUI()
         {
             // Enable/disable pagination based on number of items
             PaginationRepeater.Visible = (_totalPages > 1);
