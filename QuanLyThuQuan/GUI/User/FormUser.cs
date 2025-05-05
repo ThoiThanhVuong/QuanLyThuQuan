@@ -136,5 +136,12 @@ namespace QuanLyThuQuan.GUI.User
             loadTable();
             MessageBox.Show("Xóa thành công.");
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DeleteCondition deleteCondition = new DeleteCondition();
+            deleteCondition.StartPosition = FormStartPosition.CenterScreen;
+            deleteCondition.ShowDialog();
+        }
     }
 }
