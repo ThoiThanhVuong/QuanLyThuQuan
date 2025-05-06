@@ -12,6 +12,8 @@ namespace QuanLyThuQuan.Model
         public string Reason { get; set; }
         public DateTime ViolationDate { get; set; }
         public bool IsCompensationRequired { get; set; }
+        public string HandlingAction { get; set; }
+        public string Status { get; set; }
 
         // Navigation Properties
         public MemberModel Member { get; set; }
@@ -36,6 +38,12 @@ namespace QuanLyThuQuan.Model
             Reason = reason;
             ViolationDate = violationDate;
             IsCompensationRequired = isCompensationRequired;
+        }
+
+        public ViolationModel(int violationID, int memberID, int? transactionID, int ruleID, decimal fineAmount, string reason, DateTime violationDate, bool isCompensationRequired, string handlingAction, string status) : this(violationID, memberID, transactionID, ruleID, fineAmount, reason, violationDate, isCompensationRequired)
+        {
+            HandlingAction = handlingAction;
+            Status = status;
         }
 
         public ViolationModel(int violationID, int memberID, int? transactionID,

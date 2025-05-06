@@ -137,6 +137,7 @@
     <Compile Include="DAO\DeviceDAO.cs" />
     <Compile Include="DAO\LoginHistoryDAO.cs" />
     <Compile Include="DAO\MemberDAO.cs" />
+    <Compile Include="DAO\MemberPenaltyDAO.cs" />
     <Compile Include="DAO\ReservationDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
@@ -308,6 +309,7 @@
     <Compile Include="Model\enums.cs" />
     <Compile Include="Model\LoginHistoryModel.cs" />
     <Compile Include="Model\MemberModel.cs" />
+    <Compile Include="Model\MemberPenaltyModel.cs" />
     <Compile Include="Model\PaymentModel.cs" />
     <Compile Include="Model\ReservationItemModel.cs" />
     <Compile Include="Model\ReservationModel.cs" />
