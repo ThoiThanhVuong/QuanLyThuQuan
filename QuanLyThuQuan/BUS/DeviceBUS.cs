@@ -67,5 +67,9 @@ namespace QuanLyThuQuan.BUS
         {
             return deviceDAO.GenerateNewDeviceCode() + 1;
         }
+        public int SetDeviceInactiveByNameAndType(string nameKeyword, string deviceType)
+        {
+            return deviceDAO.SetDeviceInactiveByNameAndType(nameKeyword, deviceType);
+        }
     }
 }

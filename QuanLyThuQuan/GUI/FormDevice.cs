@@ -316,5 +316,12 @@ namespace QuanLyThuQuan.GUI
                 LoadData();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteDeviceConditions deleteDeviceConditions = new DeleteDeviceConditions();
+            deleteDeviceConditions.StartPosition = FormStartPosition.CenterParent;
+            deleteDeviceConditions.ShowDialog();
+        }
     }
 }

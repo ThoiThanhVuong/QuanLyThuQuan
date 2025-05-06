@@ -3,6 +3,7 @@ using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -370,5 +371,42 @@ namespace QuanLyThuQuan.DAO
             lastID = result != DBNull.Value ? Convert.ToInt32(result) : 0;
             return lastID;
         }
+
+        public int SetDeviceInactiveByNameAndType(string nameKeyword, string deviceType)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                db.OpenConnection();
+                string query = @"
+UPDATE Devices
+SET Status = 'Unavailable'
+WHERE DeviceName LIKE @NamePattern
+  AND DeviceType = @DeviceType
+  AND Status = 'Available'";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@NamePattern", "%" + nameKeyword + "%");
+                cmd.Parameters.AddWithValue("@DeviceType", deviceType);
+
+                rowsAffected = cmd.ExecuteNonQuery();
+
+                MessageBox.Show($"{rowsAffected} thiết bị đã được cập nhật thành Unavailable.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine($"{rowsAffected} thiết bị đã được chuyển trạng thái.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật trạng thái thiết bị: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Lỗi khi cập nhật trạng thái thiết bị: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            return rowsAffected;
+        }
+
     }
 }

@@ -375,7 +375,7 @@ namespace QuanLyThuQuan.DAO
             return lastID;
         }
 
-        public int SetBookInactiveByTitleAndYear(string titleKeyword, int publishYear)
+        public int SetBookInactiveByTitleAndYearRange(string titleKeyword, int fromYear, int toYear)
         {
             int rowsAffected = 0;
 
@@ -383,19 +383,20 @@ namespace QuanLyThuQuan.DAO
             {
                 db.OpenConnection();
                 string query = @"
- UPDATE Books
- SET Status = 'Unavailable'
- WHERE BookTitle LIKE @TitlePattern
-   AND PublishYear = @PublishYear
-   AND Status = 'Available'";
+        UPDATE Books
+        SET Status = 'Unavailable'
+        WHERE BookTitle LIKE @TitlePattern
+          AND PublishYear BETWEEN @FromYear AND @ToYear
+          AND Status = 'Available'";
 
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@TitlePattern", "%" + titleKeyword + "%");
-                cmd.Parameters.AddWithValue("@PublishYear", publishYear);
+                cmd.Parameters.AddWithValue("@FromYear", fromYear);
+                cmd.Parameters.AddWithValue("@ToYear", toYear);
 
                 rowsAffected = cmd.ExecuteNonQuery();
-                MessageBox.Show($"{rowsAffected} sách đã được cập nhật thành Inactive.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Console.WriteLine($"{rowsAffected} sách đã được xóa.");
+                MessageBox.Show($"{rowsAffected} sách đã được xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine($"{rowsAffected} sách đã được cập nhật.");
             }
             catch (Exception ex)
             {
@@ -409,6 +410,7 @@ namespace QuanLyThuQuan.DAO
 
             return rowsAffected;
         }
+
 
     }
 }

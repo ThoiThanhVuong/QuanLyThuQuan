@@ -58,9 +58,9 @@ namespace QuanLyThuQuan.BUS
             return bookDAO.GenerateNewBookCode()+1;
         }
 
-        public int SetBookInactiveByTitleAndYear(string titleKeyword, int publishYear)
+        public int SetBookInactiveByTitleAndYearRange(string titleKeyword, int start , int end)
         {
-            return bookDAO.SetBookInactiveByTitleAndYear(titleKeyword, publishYear);
+            return bookDAO.SetBookInactiveByTitleAndYearRange(titleKeyword, start , end);
         }
     }
 }

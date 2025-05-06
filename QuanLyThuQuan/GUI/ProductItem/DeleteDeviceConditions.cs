@@ -11,18 +11,17 @@ using System.Windows.Forms;
 
 namespace QuanLyThuQuan.GUI.ProductItem
 {
-    
-    public partial class DeleteBookConditios : Form
+    public partial class DeleteDeviceConditions : Form
     {
-        BookBUS bookBus = new BookBUS();
-        public DeleteBookConditios()
+        DeviceBUS deviceBUS = new DeviceBUS();
+        public DeleteDeviceConditions()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bookBus.SetBookInactiveByTitleAndYearRange(textBox1.Text , dateTimePicker1.Value.Year , dateTimePicker2.Value.Year);
+            deviceBUS.SetDeviceInactiveByNameAndType(textBox1.Text , textBox2.Text);
         }
     }
 }
