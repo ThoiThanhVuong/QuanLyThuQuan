@@ -444,9 +444,6 @@ namespace ThuQuanWebForm
             {
                 ItemCountLabel.Visible = false;
             }
-
-            // Debug information can be displayed during development
-            System.Diagnostics.Debug.WriteLine($"Page: {CurrentPage}, Total: {_totalPages}, Items: {totalItems}");
         }
 
         // Helper method to convert database data to display format

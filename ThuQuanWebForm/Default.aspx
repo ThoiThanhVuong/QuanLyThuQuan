@@ -14,9 +14,15 @@
                         <a href="Reserve.aspx" class="btn btn-gradient">
                             <i class="fas fa-search"></i> Tìm Thiết Bị
                         </a>
+                        <%if(!IsUserLogin) { %>
                         <a href="Register.aspx" class="btn btn-success">
                             <i class="fas fa-user-plus"></i> Đăng Ký Ngay
                         </a>
+                        <%} else {  %>
+                        <a href="Profile.aspx" class="btn btn-success">
+                            <i class="fas fa-user"></i> Xem Hồ Sơ
+                        </a>
+                        <% } %>
                     </div>
                 </div>
             </div>
