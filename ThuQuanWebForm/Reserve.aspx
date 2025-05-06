@@ -278,6 +278,14 @@
                 box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
             }
 
+            .pagination-btn.disabled {
+                background-color: #f5f5f5;
+                color: #999;
+                cursor: not-allowed;
+                opacity: 0.6;
+                pointer-events: none;
+            }
+
             @keyframes fadeIn {
                 from {
                     opacity: 0;
@@ -410,6 +418,12 @@
             .btn-confirm:hover {
                 box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
             }
+
+            .item-count-label {
+                font-size: 0.9rem;
+                color: #555;
+                margin-bottom: 1rem;
+            }
         </style>
     </asp:Content>
 
@@ -441,6 +455,10 @@
             <asp:LinkButton ID="FilterAvailableButton" runat="server" CssClass="filter-btn" OnClick="FilterButton_Click"
                 CommandArgument="available" OnClientClick="filterItemsClient('available', event); return true;">
                 <i class="fas fa-check-circle"></i> Có sẵn
+            </asp:LinkButton>
+            <asp:LinkButton ID="FilterBorrowedButton" runat="server" CssClass="filter-btn" OnClick="FilterButton_Click"
+                CommandArgument="borrowed" OnClientClick="filterItemsClient('borrowed', event); return true;">
+                <i class="fas fa-times-circle"></i> Đang mượn
             </asp:LinkButton>
             <asp:LinkButton ID="FilterBooksButton" runat="server" CssClass="filter-btn" OnClick="FilterButton_Click"
                 CommandArgument="books" OnClientClick="filterItemsClient('books', event); return true;">
@@ -498,9 +516,14 @@
         </div>
 
         <!-- Updated Pagination Controls with Server-side Paging -->
+        <div class="text-center mb-3">
+            <asp:Label ID="ItemCountLabel" runat="server" CssClass="item-count-label" Visible="false"></asp:Label>
+        </div>
+
         <div class="pagination">
             <asp:LinkButton ID="PrevPageButton" runat="server" CssClass="pagination-btn"
-                OnClick="PaginationButton_Click" CommandArgument="prev" ToolTip="Trang trước">
+                OnClick="PaginationButton_Click" CommandArgument="prev" ToolTip="Trang trước"
+                OnClientClick="return validatePaginationClick(this);">
                 <i class="fas fa-chevron-left"></i>
             </asp:LinkButton>
 
@@ -514,7 +537,8 @@
             </asp:Repeater>
 
             <asp:LinkButton ID="NextPageButton" runat="server" CssClass="pagination-btn"
-                OnClick="PaginationButton_Click" CommandArgument="next" ToolTip="Trang kế">
+                OnClick="PaginationButton_Click" CommandArgument="next" ToolTip="Trang kế"
+                OnClientClick="return validatePaginationClick(this);">
                 <i class="fas fa-chevron-right"></i>
             </asp:LinkButton>
         </div>
@@ -557,8 +581,25 @@
                 }
             }
 
+            // Improved validation function for pagination buttons
+            function validatePaginationClick(button) {
+                // If the button has the disabled class, prevent the click
+                if (button.classList.contains('disabled')) {
+                    console.log('Button is disabled, preventing click');
+                    return false;
+                }
+                return true;
+            }
+
             // Add functionality for reservation modal
             document.addEventListener('DOMContentLoaded', function () {
+                // Fix for pagination buttons - ensure they're clickable
+                document.querySelectorAll('.pagination-btn').forEach(btn => {
+                    if (!btn.classList.contains('disabled')) {
+                        btn.style.pointerEvents = 'auto';
+                    }
+                });
+
                 const modal = document.getElementById('reservationModal');
                 const cancelBtn = document.getElementById('cancelReservation');
                 const startDateTimeControl = document.getElementById('<%= startDateTimeControl.ClientID %>');
