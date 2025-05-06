@@ -45,27 +45,36 @@ namespace QuanLyThuQuan.DAO
         public List<SessionStudy> GetSessionStudies()
         {
             List<SessionStudy> sessionStudys = new List<SessionStudy>();
-            try {
+            try
+            {
                 db.OpenConnection();
-               
-                string query = "SELECT * FROM studysession WHERE DATE(CheckInTime) = CURDATE()";
+
+                string query = @"
+            SELECT s.SessionID, s.MemberID, s.CheckInTime, m.FullName, m.UserName
+            FROM StudySession s
+            JOIN Member m ON s.MemberID = m.MemberID
+            WHERE DATE(s.CheckInTime) = CURDATE()";
+
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    sessionStudys.Add(new SessionStudy(
-                        reader.GetInt32("SessionId"),
-                        reader.GetInt32("MemberId"),
-                        reader.GetDateTime("CheckInTime"))
+                    SessionStudy session = new SessionStudy(
+                        reader.GetInt32("SessionID"),
+                        reader.GetInt32("MemberID"),
+                        reader.GetDateTime("CheckInTime"),
+                        reader.GetString("FullName"),
+                        reader.GetString("UserName")
                     );
+                    sessionStudys.Add(session);
                 }
 
                 reader.Close();
-               
-                
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine("lỗi khi lấy dữ liệu " + ex.Message);
+                Console.WriteLine("Lỗi khi lấy dữ liệu: " + ex.Message);
             }
             db.CloseConnection();
             return sessionStudys;

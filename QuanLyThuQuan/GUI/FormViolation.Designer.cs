@@ -57,10 +57,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -168,6 +169,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Controls.Add(this.dateTimePicker1);
@@ -200,7 +202,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(614, 164);
+            this.radioButton1.Location = new System.Drawing.Point(706, 162);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(62, 24);
             this.radioButton1.TabIndex = 17;
@@ -259,7 +261,7 @@
             // 
             this.label5.Location = new System.Drawing.Point(434, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 16);
+            this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "FineAmount:";
             // 
@@ -360,24 +362,12 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button4.Location = new System.Drawing.Point(428, 269);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 27);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Xuất file";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button5.Location = new System.Drawing.Point(543, 270);
+            this.button5.Location = new System.Drawing.Point(419, 268);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(82, 27);
             this.button5.TabIndex = 6;
@@ -407,13 +397,35 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "QUẢN LÝ VI PHẠM";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.button4.Location = new System.Drawing.Point(525, 268);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(129, 27);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Xử lí vi phạm";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(634, 162);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(54, 24);
+            this.radioButton2.TabIndex = 19;
+            this.radioButton2.Text = "No";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // FormViolation
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(968, 627);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -443,7 +455,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -469,5 +480,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }

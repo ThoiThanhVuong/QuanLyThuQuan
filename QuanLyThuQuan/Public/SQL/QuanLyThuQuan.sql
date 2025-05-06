@@ -318,6 +318,8 @@ CREATE TABLE IF NOT EXISTS `Violation` (
   `Reason` VARCHAR(255) NOT NULL,
   `ViolationDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsCompensationRequired` BOOLEAN DEFAULT FALSE, -- xác định có bồi thường thiết bị/sách không?
+  `HandlingAction` VARCHAR(100) DEFAULT NULL,
+  `Status` ENUM('Pending', 'Handled') DEFAULT 'Pending',
   PRIMARY KEY (`ViolationID`),
   FOREIGN KEY (`MemberID`) REFERENCES `Member`(`MemberID`) 
     ON DELETE CASCADE ON UPDATE CASCADE,
@@ -330,7 +332,18 @@ CREATE TABLE IF NOT EXISTS `Violation` (
 -- Values Violation
 INSERT INTO `Violation`(`MemberID`, `TransactionID`, `RuleID`, `FineAmount`, `Reason`, `ViolationDate`)
 VALUES (4, 2, 3, 10000, 'Trả sách quá hạn', '2025-02-15 08:00:00');
-            
+
+-- ============================================= Bảng MemberPenalty ================================================  
+CREATE TABLE MemberPenalty (
+  PenaltyID INT AUTO_INCREMENT PRIMARY KEY,
+  MemberID INT NOT NULL,
+  ViolationID INT NOT NULL,
+  StartDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  EndDate DATETIME NULL, -- NULL nếu khóa vĩnh viễn
+  Description VARCHAR(255),
+  FOREIGN KEY (MemberID) REFERENCES Member(MemberID) ON DELETE CASCADE,
+  FOREIGN KEY (ViolationID) REFERENCES Violation(ViolationID) ON DELETE CASCADE
+);
 
 -- ===================================== Bảng Payment ===========================================
 -- dùng để ghi nhận số tiền phải thu từ thành viên (liên quan đến vi phạm / mượn phí)
@@ -452,6 +465,25 @@ BEGIN
     SET Status = 'Confirmed'
     WHERE ReservationID = p_ReservationID;
 END $$
+
+DELIMITER ;
+
+-- tự động mở thẻ cho thành viên
+DELIMITER $$
+
+CREATE PROCEDURE AutoUnblockMembers()
+BEGIN
+    UPDATE Member m
+    SET m.Status = 'Active'
+    WHERE m.Status = 'Inactive'
+      AND EXISTS (
+        SELECT 1
+        FROM MemberPenalty mp
+        WHERE mp.MemberID = m.MemberID
+          AND mp.EndDate IS NOT NULL
+          AND mp.EndDate < NOW()
+      );
+END$$
 
 DELIMITER ;
 

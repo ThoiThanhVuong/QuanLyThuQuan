@@ -3,6 +3,7 @@ using QuanLyThuQuan.AppConfig;
 using QuanLyThuQuan.Model;
 using System;
 using System.Collections.Generic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -32,7 +33,8 @@ namespace QuanLyThuQuan.DAO
                 string reason = reader.GetString("Reason");
                 DateTime violationDate = reader.GetDateTime("ViolationDate");
                 bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
-
+                string HandlingAction = reader.IsDBNull(reader.GetOrdinal("HandlingAction")) ? null : reader.GetString("HandlingAction");
+                string Status = reader.GetString("Status");
                 violations.Add(new ViolationModel(
                     violationId,
                     memberId,
@@ -41,7 +43,9 @@ namespace QuanLyThuQuan.DAO
                     fineAmount,
                     reason,
                     violationDate,
-                    isCompRequired
+                    isCompRequired,
+                    HandlingAction,
+                    Status
                 ));
             }
 
@@ -53,18 +57,19 @@ namespace QuanLyThuQuan.DAO
         public bool AddViolation(ViolationModel violation)
         {
             db.OpenConnection();
-            string query = "INSERT INTO Violation (MemberId, TransactionId, RuleId," +
-                " FineAmount, Reason, ViolationDate, IsCompensationRequired)" +
-                " VALUES (@MemberId, @TransactionId, @RuleId, @FineAmount, @Reason, @ViolationDate, @IsCompensationRequired)";
+            string query = "INSERT INTO Violation (MemberId, TransactionId, RuleId, FineAmount, Reason, ViolationDate, IsCompensationRequired, HandlingAction, Status) " +
+                           "VALUES (@MemberId, @TransactionId, @RuleId, @FineAmount, @Reason, @ViolationDate, @IsCompensationRequired, @HandlingAction, @Status)";
             using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
             {
                 cmd.Parameters.AddWithValue("@MemberId", violation.MemberID);
-                cmd.Parameters.AddWithValue("@TransactionId", violation.TransactionID);
+                cmd.Parameters.AddWithValue("@TransactionId", (object)violation.TransactionID ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@RuleId", violation.RuleID);
                 cmd.Parameters.AddWithValue("@FineAmount", violation.FineAmount);
                 cmd.Parameters.AddWithValue("@Reason", violation.Reason);
                 cmd.Parameters.AddWithValue("@ViolationDate", violation.ViolationDate);
                 cmd.Parameters.AddWithValue("@IsCompensationRequired", violation.IsCompensationRequired);
+                cmd.Parameters.AddWithValue("@HandlingAction", (object)violation.HandlingAction ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Status", violation.Status);
                 bool result = cmd.ExecuteNonQuery() > 0;
                 db.CloseConnection();
                 return result;
@@ -74,18 +79,20 @@ namespace QuanLyThuQuan.DAO
         public bool UpdateViolation(ViolationModel violation)
         {
             db.OpenConnection();
-            string query = "UPDATE Violation SET MemberId = @MemberId, TransactionId = @TransactionId," +
-                " RuleId = @RuleId, FineAmount = @FineAmount, Reason = @Reason, ViolationDate = @ViolationDate," +
-                " IsCompensationRequired = @IsCompensationRequired WHERE ViolationID = @ViolationID";
+            string query = "UPDATE Violation SET MemberId = @MemberId, TransactionId = @TransactionId, RuleId = @RuleId, FineAmount = @FineAmount, Reason = @Reason, " +
+                           "ViolationDate = @ViolationDate, IsCompensationRequired = @IsCompensationRequired, HandlingAction = @HandlingAction, Status = @Status " +
+                           "WHERE ViolationID = @ViolationID";
             using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
             {
                 cmd.Parameters.AddWithValue("@MemberId", violation.MemberID);
-                cmd.Parameters.AddWithValue("@TransactionId", violation.TransactionID);
+                cmd.Parameters.AddWithValue("@TransactionId", (object)violation.TransactionID ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@RuleId", violation.RuleID);
                 cmd.Parameters.AddWithValue("@FineAmount", violation.FineAmount);
                 cmd.Parameters.AddWithValue("@Reason", violation.Reason);
                 cmd.Parameters.AddWithValue("@ViolationDate", violation.ViolationDate);
-                cmd.Parameters.AddWithValue("@PaidStatus", violation.IsCompensationRequired);
+                cmd.Parameters.AddWithValue("@IsCompensationRequired", violation.IsCompensationRequired);
+                cmd.Parameters.AddWithValue("@HandlingAction", (object)violation.HandlingAction ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Status", violation.Status);
                 cmd.Parameters.AddWithValue("@ViolationID", violation.ViolationID);
                 bool result = cmd.ExecuteNonQuery() > 0;
                 db.CloseConnection();

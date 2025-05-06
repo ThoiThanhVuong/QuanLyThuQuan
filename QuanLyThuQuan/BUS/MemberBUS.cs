@@ -43,6 +43,12 @@ namespace QuanLyThuQuan.BUS
             return memberDAO.GetActiveMembers();
         }
 
+        public int DeleteMembersByDateRangeAndType(DateTime startDate, DateTime endDate, string userType)
+        {
+            return memberDAO.DeleteMembersByDateRangeAndType(startDate, endDate, userType);
+        }
+
+
 
 
     }

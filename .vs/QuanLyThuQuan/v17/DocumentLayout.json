@@ -1,10 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\QuanLyThuQuan\\",
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\source\\repos\\Quanli\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|d:\\c#\\quanlythuquan\\quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\user\\deletecondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\deletecondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\user\\deletecondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\deletecondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\dao\\memberdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\memberdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\bus\\memberbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\bus\\memberbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\user\\formuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formviolation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\model\\violationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\violationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\dao\\sessionstudydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\model\\sessionstudy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\model\\sessionstudy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|c:\\users\\asus\\source\\repos\\quanli\\quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CE9EAB-7C67-4CCB-8713-296A3E95185F}|QuanLyThuQuan\\QuanLyThuQuan.csproj|solutionrelative:quanlythuquan\\gui\\formdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +58,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 13,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormUser.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAiwI8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T05:38:30.463Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MemberBUS.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\BUS\\MemberBUS.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\BUS\\MemberBUS.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\BUS\\MemberBUS.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\BUS\\MemberBUS.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAkwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T06:04:40.645Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -33,16 +105,157 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3fd5e0cc-709a-4f8c-94c3-7f0f8dff5bb2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormDevice.cs",
-              "DocumentMoniker": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
-              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDevice.cs",
-              "ToolTip": "D:\\C#\\QuanLyThuQuan\\QuanLyThuQuan\\GUI\\FormDevice.cs",
-              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDevice.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAowGYAAAA5AAAAAAAAAA==",
+              "Title": "DeleteCondition.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAewBcAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T14:51:52.911Z",
+              "WhenOpened": "2025-05-05T06:05:19.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MemberDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\DAO\\MemberDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\MemberDAO.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\DAO\\MemberDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\MemberDAO.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAawKIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T06:02:47.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeleteCondition.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\DeleteCondition.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T05:39:55.551Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormUser.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\User\\FormUser.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\User\\FormUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T05:38:25.894Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ViolationModel.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\ViolationModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T05:18:35.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormViolation.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormViolation.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormViolation.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormViolation.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormViolation.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:58:09.698Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormDashBoard.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:49:54.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormDashBoard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\GUI\\FormDashBoard.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\GUI\\FormDashBoard.cs [Design]",
+              "RelativeToolTip": "QuanLyThuQuan\\GUI\\FormDashBoard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:48:55.502Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SessionStudyDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\DAO\\SessionStudyDAO.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAYwEUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:39:57.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SessionStudy.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\Model\\SessionStudy.cs",
+              "RelativeDocumentMoniker": "QuanLyThuQuan\\Model\\SessionStudy.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\Quanli\\QuanLyThuQuan\\Model\\SessionStudy.cs",
+              "RelativeToolTip": "QuanLyThuQuan\\Model\\SessionStudy.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:43:03.383Z",
               "EditorCaption": ""
             }
           ]

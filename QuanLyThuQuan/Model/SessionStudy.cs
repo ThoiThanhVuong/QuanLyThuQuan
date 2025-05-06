@@ -11,6 +11,8 @@ namespace QuanLyThuQuan.Model
         public int SessionId { get; set; }
         public int MemberId { get; set; }
         public DateTime CheckInTime { get; set; }
+        public string FullName { get; set; }
+        public string UserName { get; set; }
 
         public SessionStudy() { }
 
@@ -19,6 +21,15 @@ namespace QuanLyThuQuan.Model
             SessionId = sessionId;
             MemberId = memberId;
             CheckInTime = checkInTime;
+        }
+
+        public SessionStudy(int sessionId, int memberId, DateTime checkInTime, string fullName, string userName)
+        {
+            SessionId = sessionId;
+            MemberId = memberId;
+            CheckInTime = checkInTime;
+            FullName = fullName;
+            UserName = userName;
         }
     }
 }
