@@ -333,5 +333,12 @@ namespace QuanLyThuQuan.GUI
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteBookConditios deleteBookConditios = new DeleteBookConditios();
+            deleteBookConditios.StartPosition = FormStartPosition.CenterParent;
+            deleteBookConditios.ShowDialog();
+        }
     }
 }

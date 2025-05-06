@@ -1,5 +1,6 @@
 ﻿using QuanLyThuQuan.DAO;
 using QuanLyThuQuan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,6 +56,11 @@ namespace QuanLyThuQuan.BUS
         public int GenerateNewBookCode()
         {
             return bookDAO.GenerateNewBookCode()+1;
+        }
+
+        public int SetBookInactiveByTitleAndYear(string titleKeyword, int publishYear)
+        {
+            return bookDAO.SetBookInactiveByTitleAndYear(titleKeyword, publishYear);
         }
     }
 }

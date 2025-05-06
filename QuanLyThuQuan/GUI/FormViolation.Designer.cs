@@ -38,6 +38,7 @@
             this.ViolationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsCompensationRequired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -61,7 +62,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -191,12 +191,22 @@
             this.panel1.Size = new System.Drawing.Size(916, 197);
             this.panel1.TabIndex = 1;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(634, 162);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(46, 20);
+            this.radioButton2.TabIndex = 19;
+            this.radioButton2.Text = "No";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(149, 160);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 28);
+            this.comboBox1.Size = new System.Drawing.Size(158, 24);
             this.comboBox1.TabIndex = 18;
             // 
             // radioButton1
@@ -204,7 +214,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(706, 162);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 24);
+            this.radioButton1.Size = new System.Drawing.Size(52, 20);
             this.radioButton1.TabIndex = 17;
             this.radioButton1.Text = "Yes";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -213,21 +223,21 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(555, 118);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 16;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(555, 73);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(158, 26);
+            this.textBox6.Size = new System.Drawing.Size(158, 22);
             this.textBox6.TabIndex = 13;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(555, 29);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(158, 26);
+            this.textBox5.Size = new System.Drawing.Size(158, 22);
             this.textBox5.TabIndex = 12;
             // 
             // label8
@@ -235,7 +245,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(434, 164);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(194, 20);
+            this.label8.Size = new System.Drawing.Size(163, 16);
             this.label8.TabIndex = 11;
             this.label8.Text = "IsCompensationRequired:";
             // 
@@ -244,7 +254,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(434, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 20);
+            this.label7.Size = new System.Drawing.Size(91, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "ViolationDate:";
             // 
@@ -253,7 +263,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(434, 76);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 20);
+            this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Reason:";
             // 
@@ -270,7 +280,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(39, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.Size = new System.Drawing.Size(46, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "RuleId";
             // 
@@ -278,14 +288,14 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(149, 117);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(158, 26);
+            this.textBox3.Size = new System.Drawing.Size(158, 22);
             this.textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(149, 70);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 26);
+            this.textBox2.Size = new System.Drawing.Size(158, 22);
             this.textBox2.TabIndex = 4;
             // 
             // textBox1
@@ -293,7 +303,7 @@
             this.textBox1.Location = new System.Drawing.Point(149, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(158, 26);
+            this.textBox1.Size = new System.Drawing.Size(158, 22);
             this.textBox1.TabIndex = 3;
             // 
             // label3
@@ -301,7 +311,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(37, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 20);
+            this.label3.Size = new System.Drawing.Size(92, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "TransactionId:";
             // 
@@ -310,7 +320,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(39, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "MemberId:";
             // 
@@ -319,7 +329,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(39, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "ViolationId:";
             // 
@@ -393,7 +403,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
             this.label9.Location = new System.Drawing.Point(12, 11);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(218, 29);
+            this.label9.Size = new System.Drawing.Size(186, 25);
             this.label9.TabIndex = 0;
             this.label9.Text = "QUẢN LÝ VI PHẠM";
             // 
@@ -408,16 +418,6 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "Xử lí vi phạm";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(634, 162);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(54, 24);
-            this.radioButton2.TabIndex = 19;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // FormViolation
             // 

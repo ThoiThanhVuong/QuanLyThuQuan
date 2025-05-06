@@ -200,6 +200,12 @@
     <Compile Include="GUI\FormViolation.Designer.cs">
       <DependentUpon>FormViolation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProductItem\DeleteBookConditios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ProductItem\DeleteBookConditios.Designer.cs">
+      <DependentUpon>DeleteBookConditios.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProductItem\frmControlBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormViolation.resx">
       <DependentUpon>FormViolation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProductItem\DeleteBookConditios.resx">
+      <DependentUpon>DeleteBookConditios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductItem\frmControlBook.resx">
       <DependentUpon>frmControlBook.cs</DependentUpon>

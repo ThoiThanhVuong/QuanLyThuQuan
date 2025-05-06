@@ -53,6 +53,7 @@
             this.GiaThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             this.panel2.SuspendLayout();
@@ -91,7 +92,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
             this.label1.Location = new System.Drawing.Point(48, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 29);
+            this.label1.Size = new System.Drawing.Size(161, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "QUẢN LÝ SÁCH";
             // 
@@ -109,13 +110,13 @@
             // 
             this.cbbTypeBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbTypeBook.FormattingEnabled = true;
-            this.cbbTypeBook.ItemHeight = 20;
+            this.cbbTypeBook.ItemHeight = 16;
             this.cbbTypeBook.Items.AddRange(new object[] {
             ""});
             this.cbbTypeBook.Location = new System.Drawing.Point(509, 4);
             this.cbbTypeBook.Margin = new System.Windows.Forms.Padding(0);
             this.cbbTypeBook.Name = "cbbTypeBook";
-            this.cbbTypeBook.Size = new System.Drawing.Size(146, 28);
+            this.cbbTypeBook.Size = new System.Drawing.Size(146, 24);
             this.cbbTypeBook.TabIndex = 1;
             this.cbbTypeBook.Text = "Thể Loại";
             this.cbbTypeBook.SelectedIndexChanged += new System.EventHandler(this.cbbTypeBook_SelectedIndexChanged);
@@ -124,13 +125,14 @@
             // 
             this.txtSearchBook.Location = new System.Drawing.Point(12, 4);
             this.txtSearchBook.Name = "txtSearchBook";
-            this.txtSearchBook.Size = new System.Drawing.Size(269, 26);
+            this.txtSearchBook.Size = new System.Drawing.Size(269, 22);
             this.txtSearchBook.TabIndex = 0;
             this.txtSearchBook.TextChanged += new System.EventHandler(this.txtSearchBook_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnImportExcel);
             this.panel3.Controls.Add(this.btnView);
             this.panel3.Controls.Add(this.btnRemove);
@@ -303,6 +305,21 @@
             // 
             this.searchTimer.Tick += new System.EventHandler(this.txtSearchBook_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.button1.Location = new System.Drawing.Point(8, 366);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 73);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Xóa có điều kiện";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmQuanLySach
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -352,5 +369,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.Timer searchTimer;
         private System.Windows.Forms.Button btnImportExcel;
+        private System.Windows.Forms.Button button1;
     }
 }
