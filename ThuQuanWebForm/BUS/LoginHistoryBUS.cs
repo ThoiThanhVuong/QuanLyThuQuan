@@ -14,5 +14,16 @@ namespace ThuQuanWebForm.BUS
             return loginHistoryDAO.GetAllLoginHistory();
         }
 
+        public bool RecordLogin(int memberId)
+        {
+            try
+            {
+                return loginHistoryDAO.RecordLogin(memberId);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

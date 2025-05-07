@@ -12,7 +12,7 @@ namespace ThuQuanWebForm
     public partial class Login : System.Web.UI.Page
     {
         private readonly MemberBUS _memberBUS = new MemberBUS();
-        private readonly SessionStudyBUS _sessionStudyBUS = new SessionStudyBUS();
+        private readonly LoginHistoryBUS _loginHistoryBUS = new LoginHistoryBUS();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,6 @@ namespace ThuQuanWebForm
                 return;
             }
 
-
             // Store user session data
             Session["UserID"] = member.MemberID;
             Session["Username"] = member.Username;
@@ -63,13 +62,12 @@ namespace ThuQuanWebForm
             Session["Email"] = member.Email;
             Session["UserType"] = member.UserType;
 
-            // Record user check-in time in SessionStudies table
-            // No need for try-catch here as error handling is now in the DAO layer
-            bool checkInRecorded = _sessionStudyBUS.CheckInTime(member.MemberID);
-            if (!checkInRecorded)
+            // Record user login in LoginHistory table
+            bool loginRecorded = _loginHistoryBUS.RecordLogin(member.MemberID);
+            if (!loginRecorded)
             {
                 // Just log the failure but continue with login
-                System.Diagnostics.Debug.WriteLine($"Failed to record check-in time for user {member.Username}");
+                System.Diagnostics.Debug.WriteLine($"Failed to record login for user {member.Username}");
             }
 
             // Set remember me cookie if checked
