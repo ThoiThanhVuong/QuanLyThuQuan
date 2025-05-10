@@ -126,6 +126,7 @@
     <Compile Include="BUS\DeviceBUS.cs" />
     <Compile Include="BUS\LoginHistoryBUS.cs" />
     <Compile Include="BUS\MemberBUS.cs" />
+    <Compile Include="BUS\PaymentBUS.cs" />
     <Compile Include="BUS\ResevationBUS.cs" />
     <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="DAO\LoginHistoryDAO.cs" />
     <Compile Include="DAO\MemberDAO.cs" />
     <Compile Include="DAO\MemberPenaltyDAO.cs" />
+    <Compile Include="DAO\PaymentDAO.cs" />
     <Compile Include="DAO\ReservationDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
@@ -272,6 +274,12 @@
     <Compile Include="GUI\SubStatisticForms\FormMemberStatistic.Designer.cs">
       <DependentUpon>FormMemberStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SubViolationForm\FormPaymentConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubViolationForm\FormPaymentConfirmation.Designer.cs">
+      <DependentUpon>FormPaymentConfirmation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TransactionFormChilds\FormBorrowBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SubStatisticForms\FormMemberStatistic.resx">
       <DependentUpon>FormMemberStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubViolationForm\FormPaymentConfirmation.resx">
+      <DependentUpon>FormPaymentConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TransactionFormChilds\FormBorrowBook.resx">
       <DependentUpon>FormBorrowBook.cs</DependentUpon>

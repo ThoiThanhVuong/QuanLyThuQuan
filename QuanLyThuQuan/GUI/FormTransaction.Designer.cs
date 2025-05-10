@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBorrow = new System.Windows.Forms.Button();
             this.btnBookReservation = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -35,6 +36,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbbStatusTrans = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MemberID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +51,12 @@
             this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,26 +120,88 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 50);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(960, 104);
+            this.panel3.Size = new System.Drawing.Size(960, 102);
             this.panel3.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(0, 101);
+            this.label2.Location = new System.Drawing.Point(0, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(960, 3);
             this.label2.TabIndex = 7;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvTransactions);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 154);
+            this.panel2.Location = new System.Drawing.Point(0, 152);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(960, 496);
+            this.panel2.Size = new System.Drawing.Size(960, 498);
             this.panel2.TabIndex = 7;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.cbbStatusTrans);
+            this.panel4.Controls.Add(this.txtSearch);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(960, 39);
+            this.panel4.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(121)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(0, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(960, 2);
+            this.label3.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(192, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Tìm kiếm thành viên:";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(185, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(181, 30);
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // cbbStatusTrans
+            // 
+            this.cbbStatusTrans.FormattingEnabled = true;
+            this.cbbStatusTrans.Items.AddRange(new object[] {
+            "All",
+            "Active",
+            "Completed"});
+            this.cbbStatusTrans.Location = new System.Drawing.Point(626, 3);
+            this.cbbStatusTrans.Name = "cbbStatusTrans";
+            this.cbbStatusTrans.Size = new System.Drawing.Size(126, 33);
+            this.cbbStatusTrans.TabIndex = 3;
+            this.cbbStatusTrans.SelectedIndexChanged += new System.EventHandler(this.cbbStatusTrans_SelectedIndexChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.dgvTransactions);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 39);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(960, 459);
+            this.panel5.TabIndex = 2;
             // 
             // dgvTransactions
             // 
@@ -146,12 +218,12 @@
             this.detail});
             this.dgvTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTransactions.Location = new System.Drawing.Point(0, 0);
+            this.dgvTransactions.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.dgvTransactions.Name = "dgvTransactions";
             this.dgvTransactions.RowHeadersWidth = 62;
             this.dgvTransactions.RowTemplate.Height = 28;
-            this.dgvTransactions.Size = new System.Drawing.Size(960, 496);
-            this.dgvTransactions.TabIndex = 0;
-            this.dgvTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactions_CellContentClick);
+            this.dgvTransactions.Size = new System.Drawing.Size(960, 459);
+            this.dgvTransactions.TabIndex = 1;
             // 
             // TransactionID
             // 
@@ -217,6 +289,10 @@
             this.detail.Name = "detail";
             this.detail.Width = 60;
             // 
+            // searchTimer
+            // 
+            this.searchTimer.Tick += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // FormTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -237,6 +313,9 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
 
@@ -251,6 +330,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbStatusTrans;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MemberID;
@@ -260,5 +345,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn detail;
+        private System.Windows.Forms.Timer searchTimer;
     }
 }

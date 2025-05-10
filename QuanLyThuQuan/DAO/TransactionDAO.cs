@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Input;
 
 namespace QuanLyThuQuan.DAO
 {
@@ -275,41 +276,6 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
             }
         }
-        public bool DeleteTransactionWithItems(int transactionID)
-        {
-            try
-            {
-                db.OpenConnection();
-               
-                string deleteItemsQuery = "DELETE FROM TransactionItems WHERE TransactionID = @TransactionID;";
-                using (MySqlCommand deleteItemsCmd = new MySqlCommand(deleteItemsQuery, db.Connection))
-                {
-                    deleteItemsCmd.Parameters.AddWithValue("@TransactionID", transactionID);
-                    deleteItemsCmd.ExecuteNonQuery();
-                }
-
-                // Xóa giao dịch
-                string deleteTransactionQuery = "DELETE FROM Transactions WHERE TransactionID = @TransactionID;";
-                using (MySqlCommand deleteTransactionCmd = new MySqlCommand(deleteTransactionQuery, db.Connection))
-                {
-                    deleteTransactionCmd.Parameters.AddWithValue("@TransactionID", transactionID);
-                    deleteTransactionCmd.ExecuteNonQuery();
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi khi xóa giao dịch: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
-        }
-
-      
         public List<PaymentModel> GetPaymentsByTransactionID(int transactionID)
         {
             List<PaymentModel> list = new List<PaymentModel>();
@@ -373,7 +339,9 @@ namespace QuanLyThuQuan.DAO
                                 reader.GetDecimal(reader.GetOrdinal("FineAmount")),
                                 reader.GetString(reader.GetOrdinal("Reason")),
                                 reader.GetDateTime(reader.GetOrdinal("ViolationDate")),
-                                reader.GetBoolean(reader.GetOrdinal("IsCompensationRequired"))
+                                reader.GetBoolean(reader.GetOrdinal("IsCompensationRequired")),
+                                reader.GetString(reader.GetOrdinal("HandlingAction")),
+                                reader.GetString(reader.GetOrdinal("Status"))
                             ));
                         }
                     }
@@ -457,8 +425,87 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
             }
         }
+        public List<TransactionModel> SearchTransactionsByFilter(string status, string memberIDText)
+        {
+            List<TransactionModel> transactions = new List<TransactionModel>();
+            Dictionary<int, TransactionModel> transactionMap = new Dictionary<int, TransactionModel>();
 
-    
+            try
+            {
+                db.OpenConnection();
+
+                // Truy vấn cơ sở
+                string query = @"
+            SELECT t.*, ti.ItemID, ti.BookID, ti.DeviceID, ti.Amount, ti.Status AS ItemStatus
+            FROM Transactions t
+            LEFT JOIN TransactionItems ti ON t.TransactionID = ti.TransactionID
+            WHERE 1 = 1";
+
+                bool filterByStatus = status != "All";
+                bool filterByMemberID = int.TryParse(memberIDText, out int memberID);
+
+                if (filterByStatus)
+                    query += " AND t.Status = @Status";
+                if (filterByMemberID)
+                    query += " AND t.MemberID = @MemberID";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    if (filterByStatus)
+                        cmd.Parameters.AddWithValue("@Status", status);
+                    if (filterByMemberID)
+                        cmd.Parameters.AddWithValue("@MemberID", memberID);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int transactionID = reader.GetInt32("TransactionID");
+
+                            if (!transactionMap.ContainsKey(transactionID))
+                            {
+                                var transaction = new TransactionModel(
+                                    transactionID,
+                                    reader.GetInt32("MemberID"),
+                                    (TransactionType)Enum.Parse(typeof(TransactionType), reader.GetString("TransactionType")),
+                                    reader.GetDateTime("TransactionDate"),
+                                    reader.IsDBNull(reader.GetOrdinal("DueDate")) ? (DateTime?)null : reader.GetDateTime("DueDate"),
+                                    reader.IsDBNull(reader.GetOrdinal("ReturnDate")) ? (DateTime?)null : reader.GetDateTime("ReturnDate"),
+                                    (TransactionStatus)Enum.Parse(typeof(TransactionStatus), reader.GetString("Status"))
+                                );
+                                transaction.TransactionItems = new List<TransactionItemModel>();
+                                transactionMap[transactionID] = transaction;
+                            }
+
+                            if (!reader.IsDBNull(reader.GetOrdinal("ItemID")))
+                            {
+                                var item = new TransactionItemModel(
+                                    reader.GetInt32("ItemID"),
+                                    transactionID,
+                                    reader.IsDBNull(reader.GetOrdinal("BookID")) ? (int?)null : reader.GetInt32("BookID"),
+                                    reader.IsDBNull(reader.GetOrdinal("DeviceID")) ? (int?)null : reader.GetInt32("DeviceID"),
+                                    reader.GetInt32("Amount"),
+                                    (TransactionItemStatus)Enum.Parse(typeof(TransactionItemStatus), reader.GetString("ItemStatus"))
+                                );
+                                transactionMap[transactionID].TransactionItems.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi tìm kiếm transaction: " + ex.Message);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            transactions.AddRange(transactionMap.Values);
+            return transactions;
+        }
+
 
     }
 }

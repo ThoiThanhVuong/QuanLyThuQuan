@@ -70,9 +70,9 @@
             this.txtBookControl = new System.Windows.Forms.Label();
             this.btnBookControl = new System.Windows.Forms.Button();
             this.pnStatus = new System.Windows.Forms.Panel();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.panel22 = new System.Windows.Forms.Panel();
             this.btnStatus = new System.Windows.Forms.Label();
-            this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrBook)).BeginInit();
@@ -547,6 +547,14 @@
             this.pnStatus.Size = new System.Drawing.Size(260, 37);
             this.pnStatus.TabIndex = 10;
             // 
+            // cbbStatus
+            // 
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Location = new System.Drawing.Point(68, 3);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(189, 30);
+            this.cbbStatus.TabIndex = 7;
+            // 
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.Color.Black;
@@ -566,14 +574,6 @@
             this.btnStatus.Size = new System.Drawing.Size(102, 22);
             this.btnStatus.TabIndex = 3;
             this.btnStatus.Text = "Trạng thái :";
-            // 
-            // cbbStatus
-            // 
-            this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.Location = new System.Drawing.Point(68, 3);
-            this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(189, 30);
-            this.cbbStatus.TabIndex = 7;
             // 
             // frmControlBook
             // 

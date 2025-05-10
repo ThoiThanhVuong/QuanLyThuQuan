@@ -53,7 +53,49 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return violations;
         }
+        public ViolationModel GetViolationByID(int ID)
+        {
+            ViolationModel violation = null;
+            db.OpenConnection();
+            string query = "SELECT * FROM Violation WHERE ViolationID=@ID";
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int violationId = reader.GetInt32("ViolationID");
+                int memberId = reader.GetInt32("MemberID");
 
+                int? transactionId = reader.IsDBNull(reader.GetOrdinal("TransactionID"))
+                                        ? (int?)null
+                                        : reader.GetInt32(reader.GetOrdinal("TransactionID"));
+
+
+                int ruleId = reader.GetInt32("RuleID");
+                int fineAmount = reader.GetInt32("FineAmount");
+                string reason = reader.GetString("Reason");
+                DateTime violationDate = reader.GetDateTime("ViolationDate");
+                bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
+                string HandlingAction = reader.IsDBNull(reader.GetOrdinal("HandlingAction")) ? null : reader.GetString("HandlingAction");
+                string Status = reader.GetString("Status");
+              violation=(new ViolationModel(
+                    violationId,
+                    memberId,
+                    transactionId,
+                    ruleId,
+                    fineAmount,
+                    reason,
+                    violationDate,
+                    isCompRequired,
+                    HandlingAction,
+                    Status
+                ));
+            }
+
+            reader.Close();
+            db.CloseConnection();
+            return violation;
+        }
         public bool AddViolation(ViolationModel violation)
         {
             db.OpenConnection();
@@ -146,6 +188,71 @@ namespace QuanLyThuQuan.DAO
                 db.CloseConnection();
                 return 0;
             }
+        }
+        public bool MarkViolationAsHandled(int violationID)
+        {
+            db.OpenConnection();
+            string query = "UPDATE Violation SET Status = 'Handled' WHERE ViolationID = @ViolationID";
+            using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+            {
+                cmd.Parameters.AddWithValue("@ViolationID", violationID);
+                bool result = cmd.ExecuteNonQuery() > 0;
+                db.CloseConnection();
+                return result;
+            }
+        }
+        public List<ViolationModel> SearchViolationByMemberID(string keyword)
+        {
+            List<ViolationModel> violations = new List<ViolationModel>();
+            try {
+                db.OpenConnection();
+                bool isNumber = int.TryParse(keyword, out int memberID);
+                if (isNumber)
+                {
+                    string query = "SELECT * FROM Violation WHERE MemberID=@keyword";
+                    MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                    cmd.Parameters.AddWithValue("@keyword", memberID);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int violationId = reader.GetInt32("ViolationID");
+                        int memberId = reader.GetInt32("MemberID");
+                        int? transactionId = reader.IsDBNull(reader.GetOrdinal("TransactionID"))
+                                                ? (int?)null
+                                                : reader.GetInt32(reader.GetOrdinal("TransactionID"));
+                        int ruleId = reader.GetInt32("RuleID");
+                        int fineAmount = reader.GetInt32("FineAmount");
+                        string reason = reader.GetString("Reason");
+                        DateTime violationDate = reader.GetDateTime("ViolationDate");
+                        bool isCompRequired = reader.GetBoolean("IsCompensationRequired");
+                        string HandlingAction = reader.IsDBNull(reader.GetOrdinal("HandlingAction")) ? null : reader.GetString("HandlingAction");
+                        string Status = reader.GetString("Status");
+
+                        violations.Add(new ViolationModel(
+                            violationId,
+                            memberId,
+                            transactionId,
+                            ruleId,
+                            fineAmount,
+                            reason,
+                            violationDate,
+                            isCompRequired,
+                            HandlingAction,
+                            Status
+                        ));
+
+                    }
+                    reader.Close();
+                }
+              
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Lỗi khi tìm kiếm" + ex.Message);
+            }
+           db.CloseConnection();
+            return violations;
         }
     }
 }

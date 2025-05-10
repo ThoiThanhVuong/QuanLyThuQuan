@@ -12,7 +12,10 @@ namespace QuanLyThuQuan.BUS
         {
             return violationDAO.GetViolations();
         }
-
+        public ViolationModel GetViolationByID(int ID)
+        {
+            return violationDAO.GetViolationByID(ID);
+        }
         public bool AddViolation(ViolationModel violation)
         {
             return violationDAO.AddViolation(violation);
@@ -35,6 +38,14 @@ namespace QuanLyThuQuan.BUS
         public int checkCountViolationByID(int ID)
         {
             return violationDAO.checkCountViolationByID(ID);
+        }
+        public bool MarkViolationAsHandled(int violationID)
+        {
+            return violationDAO.MarkViolationAsHandled(violationID);
+        }
+        public List<ViolationModel> SearchViolationByMemberID(string keyword)
+        {
+            return violationDAO.SearchViolationByMemberID(keyword);
         }
     }
 }

@@ -33,10 +33,7 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.UpdateTransactionWithItems(transaction);
         }
-        public bool DeleteTransactionWithItems(int transactionID)
-        {
-            return transactionDAO.DeleteTransactionWithItems(transactionID);
-        }
+    
         public List<PaymentModel> GetPaymentsByTransactionID(int transactionID)
         {
             return transactionDAO.GetPaymentsByTransactionID(transactionID);
@@ -51,10 +48,6 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.ConfirmReturnAndCalculatePayment(transactionID);
         }
-        //public bool ReturnTransaction(int transactionID)
-        //{
-        //    return transactionDAO.ReturnTransaction(transactionID);
-        //}
 
         public void LoadExtraDetails(TransactionModel transaction)
         {
@@ -101,6 +94,9 @@ namespace QuanLyThuQuan.BUS
         {
             return transactionDAO.UpdateDueDate(transactionID, dueDate);
         }
-
+        public List<TransactionModel> SearchTransactionsByFilter(string status, string memberIDText)
+        {
+            return transactionDAO.SearchTransactionsByFilter(status, memberIDText);
+        }
     }
 }

@@ -11,13 +11,15 @@ namespace QuanLyThuQuan.GUI
     public partial class FormTransaction : Form
     {
         private TransactionBUS trans = new TransactionBUS();
-       
-      
+
+        private string lastSearchTerm = "";
 
         public FormTransaction()
         {
             InitializeComponent();
-          
+            searchTimer = new Timer();
+            searchTimer.Interval = 500;
+            searchTimer.Tick += SearchTimer_Tick;
         }
 
         private void FormTransaction_Load(object sender, EventArgs e)
@@ -25,9 +27,11 @@ namespace QuanLyThuQuan.GUI
             this.ControlBox = false;
             this.DoubleBuffered = true;
             LoadAllTransaction();
-
+            cbbStatusTrans.SelectedIndex = 0;
             dgvTransactions.CellContentClick -= dgvTransactions_CellContentClick; 
             dgvTransactions.CellContentClick += dgvTransactions_CellContentClick;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            cbbStatusTrans.SelectedIndexChanged += cbbStatusTrans_SelectedIndexChanged;
 
         }
 
@@ -90,6 +94,59 @@ namespace QuanLyThuQuan.GUI
             }
             
             
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.Trim();
+
+            if (searchTerm != lastSearchTerm)
+            {
+                lastSearchTerm = searchTerm;
+                searchTimer.Stop();
+                searchTimer.Start();
+            }
+        }
+        private void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+
+            string status = cbbStatusTrans.SelectedItem.ToString().Trim();
+            string memberIDInput = txtSearch.Text.Trim();
+
+            List<TransactionModel> filteredTransactions = trans.SearchTransactionsByFilter(status, memberIDInput);
+
+            dgvTransactions.Rows.Clear();
+            dgvTransactions.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTransactions.Columns[7].DefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+
+            if (filteredTransactions.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy giao dịch phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            foreach (var transaction in filteredTransactions)
+            {
+                dgvTransactions.Rows.Add(
+                    transaction.TransactionID,
+                    transaction.MemberID,
+                    transaction.TransactionType,
+                    transaction.TransactionDate,
+                    transaction.DueDate,
+                    transaction.ReturnDate,
+                    transaction.Status,
+                    "..."
+                );
+            }
+
+
+        }
+
+        private void cbbStatusTrans_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Start();
         }
     }
 }

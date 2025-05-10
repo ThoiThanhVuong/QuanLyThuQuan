@@ -336,12 +336,10 @@ VALUES (4, 2, 3, 10000, 'Trả sách quá hạn', '2025-02-15 08:00:00');
 -- ============================================= Bảng MemberPenalty ================================================  
 CREATE TABLE MemberPenalty (
   PenaltyID INT AUTO_INCREMENT PRIMARY KEY,
-  MemberID INT NOT NULL,
   ViolationID INT NOT NULL,
   StartDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   EndDate DATETIME NULL, -- NULL nếu khóa vĩnh viễn
   Description VARCHAR(255),
-  FOREIGN KEY (MemberID) REFERENCES Member(MemberID) ON DELETE CASCADE,
   FOREIGN KEY (ViolationID) REFERENCES Violation(ViolationID) ON DELETE CASCADE
 );
 
@@ -365,7 +363,7 @@ CREATE TABLE `Payment` (
 );
 INSERT INTO `Payment` (`MemberID`, `ViolationID`, `TransactionID`, `Amount`, `Description`, `Status`)
 			VALUES(3,NULL,1,270000,'Phí mượn sách(3 cuốn,9 ngày)','Paid'),
-					(4,1,2,210000,'Trả sách quá hạn' ,'Paid'),
+					(4,1,2,210000,'Trả sách quá hạn' ,'UnPaid'),
 					(4, NULL, 3, 300000, 'Phí mượn sách (3 cuốn, 10 ngày)', 'Paid'),
 					(3, NULL, 4, 210000, 'Phí mượn sách (3 cuốn, 7 ngày)', 'Paid'),
 					(3, NULL, 5, 280000, 'Phí mượn thiết bị (7 thiết bị, 8 giờ)', 'Paid'),
@@ -474,15 +472,12 @@ DELIMITER $$
 CREATE PROCEDURE AutoUnblockMembers()
 BEGIN
     UPDATE Member m
+    JOIN Violation v ON v.MemberID = m.MemberID
+    JOIN MemberPenalty mp ON mp.ViolationID = v.ViolationID
     SET m.Status = 'Active'
     WHERE m.Status = 'Inactive'
-      AND EXISTS (
-        SELECT 1
-        FROM MemberPenalty mp
-        WHERE mp.MemberID = m.MemberID
-          AND mp.EndDate IS NOT NULL
-          AND mp.EndDate < NOW()
-      );
+      AND mp.EndDate IS NOT NULL
+      AND mp.EndDate < NOW();
 END$$
 
 DELIMITER ;
