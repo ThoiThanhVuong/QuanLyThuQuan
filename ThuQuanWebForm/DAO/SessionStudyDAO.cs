@@ -77,14 +77,32 @@ namespace ThuQuanWebForm.DAO
 
         public bool addSessionStudy(int id)
         {
-            db.OpenConnection();
-            string query = "INSERT INTO studysession (MemberId , CheckInTime)" +
-                " VALUES (@MemberId , NOW())";
-            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-            cmd.Parameters.AddWithValue("@MemberId", id);
-            int result = cmd.ExecuteNonQuery();
-            db.CloseConnection();
-            return result > 0;
+            bool success = false;
+            try
+            {
+                db.OpenConnection();
+                string query = "INSERT INTO studysession (MemberId , CheckInTime)" +
+                    " VALUES (@MemberId , NOW())";
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@MemberId", id);
+                int result = cmd.ExecuteNonQuery();
+                success = result > 0;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                System.Diagnostics.Debug.WriteLine($"Error adding session study for member ID {id}: {ex.Message}");
+                success = false;
+            }
+            finally
+            {
+                // Ensure the connection is closed even if an exception occurs
+                if (db.Connection != null && db.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseConnection();
+                }
+            }
+            return success;
         }
 
     }
