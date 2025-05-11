@@ -57,9 +57,16 @@ namespace QuanLyThuQuan.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             string idMember = textBox1.Text;
-            if (violationBUS.checkCountViolationByID(int.Parse(idMember)) > 0)
+            int memberId;
+            if (!int.TryParse(idMember, out memberId))
             {
-                MessageBox.Show("Thành viên đã vi phạm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập ID hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (violationBUS.checkViolationStatusPendingByID(int.Parse(idMember)) > 0)
+            {
+                MessageBox.Show("Thành viên có vi phạm chưa xử lý.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -89,6 +89,28 @@ namespace QuanLyThuQuan.DAO
                 return result;
             }
         }
+        public bool MarkAllPaymentsAsPaid(int transactionID)
+        {
+            try
+            {
+                db.OpenConnection();
+                string query = "UPDATE Payment SET Status = 'Paid' WHERE TransactionID = @TransactionID";
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi MarkAllPaymentsAsPaid: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
 
 
     }

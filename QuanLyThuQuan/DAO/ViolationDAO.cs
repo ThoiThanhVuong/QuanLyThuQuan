@@ -166,12 +166,37 @@ namespace QuanLyThuQuan.DAO
             db.CloseConnection();
             return maxViolationID;
         }
+        // Kiểm tra số lượng đã vi phạm của thành viên
         public int checkCountViolationByID(int ID)
         {
             try
             {
                 db.OpenConnection();
                 string query = "SELECT COUNT(*) FROM Violation WHERE MemberID = @ID";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    object result = cmd.ExecuteScalar();
+                    db.CloseConnection();
+
+                    return Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi truy vấn: " + ex.Message);
+                db.CloseConnection();
+                return 0;
+            }
+        }
+        // kiểm tra thành viên có vi phạm nào chưa xử lý không
+        public int checkViolationStatusPendingByID(int ID)
+        {
+            try
+            {
+                db.OpenConnection();
+                string query = "SELECT COUNT(*) FROM Violation WHERE MemberID = @ID AND Status = 'Pending'";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
@@ -201,6 +226,19 @@ namespace QuanLyThuQuan.DAO
                 return result;
             }
         }
+        public bool MarkViolationsAsHandledByTransactionID(int transactionID)
+        {
+            db.OpenConnection();
+            string query = "UPDATE Violation SET Status = 'Handled' WHERE TransactionID = @TransactionID";
+            using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+            {
+                cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                bool result = cmd.ExecuteNonQuery() > 0;
+                db.CloseConnection();
+                return result;
+            }
+        }
+
         public List<ViolationModel> SearchViolationByMemberID(string keyword)
         {
             List<ViolationModel> violations = new List<ViolationModel>();

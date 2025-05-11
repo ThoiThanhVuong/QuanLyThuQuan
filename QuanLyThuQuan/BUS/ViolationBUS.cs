@@ -39,10 +39,19 @@ namespace QuanLyThuQuan.BUS
         {
             return violationDAO.checkCountViolationByID(ID);
         }
+        public int checkViolationStatusPendingByID(int ID)
+        {
+            return violationDAO.checkViolationStatusPendingByID(ID);
+        }
         public bool MarkViolationAsHandled(int violationID)
         {
             return violationDAO.MarkViolationAsHandled(violationID);
         }
+        public bool MarkViolationsAsHandledByTransactionID(int transactionID)
+        {
+            return violationDAO.MarkViolationsAsHandledByTransactionID(transactionID);
+        }
+
         public List<ViolationModel> SearchViolationByMemberID(string keyword)
         {
             return violationDAO.SearchViolationByMemberID(keyword);

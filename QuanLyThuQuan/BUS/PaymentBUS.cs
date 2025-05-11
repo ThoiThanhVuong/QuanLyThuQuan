@@ -28,6 +28,10 @@ namespace QuanLyThuQuan.BUS
         {
             return paymentDAO.MarkAsPaidByViolationID(violationID);
         }
+        public bool MarkAllPaymentsAsPaid(int transactionID)
+        {
+            return paymentDAO.MarkAllPaymentsAsPaid(transactionID);
+        }
 
     }
 }

@@ -67,8 +67,7 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
             LoadPayments(trans);
 
-            btnViolation.Visible = trans.Violations != null && trans.Violations.Any();
-            btnViolation.Enabled = btnViolation.Visible;
+            
 
         // Ẩn nút xác nhận nếu giao dịch đã hoàn thành
             btnConfirmReturn.Enabled = (trans.Status == TransactionStatus.Active);
@@ -79,7 +78,22 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
         private void LoadPayments(TransactionModel trans)
         {
             txtTotalPayment.Text = trans.TotalPaymentAmount.ToString("N0") + " VND";
-            txtStatusPayment.Text = trans.IsFullyPaid ? "\u0110\u00e3 thanh to\u00e1n" : "Ch\u01b0a thanh to\u00e1n";
+            if (trans.Payments.Count == 0)
+            {
+                txtStatusPayment.Text = "Không có giao dịch thanh toán";
+                button1.Visible = false;
+            }
+            else if (trans.Payments.All(p => p.Status == PaidStatus.Paid))
+            {
+                txtStatusPayment.Text = "Đã thanh toán";
+                button1.Visible = false;
+            }
+            else
+            {
+                txtStatusPayment.Text = "Chưa thanh toán";
+                button1.Visible = true;
+            }
+
 
             dgvPayments.Rows.Clear();
             foreach (var pay in trans.Payments)
@@ -152,25 +166,6 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
         }
 
-        private void btnViolation_Click(object sender, EventArgs e)
-        {
-            if (!int.TryParse(txtTransactionID.Text, out int transactionID)) return;
-
-            var bus = new TransactionBUS();
-            var transaction = bus.GetTransactionByID(transactionID);
-            bus.LoadExtraDetails(transaction);
-
-            if (transaction.Violations == null || transaction.Violations.Count == 0)
-            {
-                MessageBox.Show("Không có vi phạm.");
-                return;
-            }
-
-            string message = string.Join("\n------------------\n", transaction.Violations.Select(v =>
-                $"Lỗi: {v.Reason}\nTiền phạt: {v.FineAmount:N0} VND\nNgày: {v.ViolationDate:g}"));
-            MessageBox.Show(message, "Chi tiết vi phạm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
         private void dgvTransactionItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 5 && e.RowIndex >= 0)
@@ -202,6 +197,11 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
                     SetValue(updatedTransaction);
                 }
             }
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

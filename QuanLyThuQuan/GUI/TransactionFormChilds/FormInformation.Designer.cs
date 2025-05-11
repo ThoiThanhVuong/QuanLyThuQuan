@@ -34,11 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.btnViolation = new System.Windows.Forms.Button();
-            this.txtViolation = new System.Windows.Forms.TextBox();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -78,6 +73,12 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnConfirmReturn = new System.Windows.Forms.Button();
             this.dgvTransactionItem = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -91,17 +92,11 @@
             this.txtTotalPayment = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeviceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -169,7 +164,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel22, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel20, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel18, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel16, 1, 1);
@@ -193,61 +187,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 600);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.White;
-            this.panel22.Controls.Add(this.btnViolation);
-            this.panel22.Controls.Add(this.txtViolation);
-            this.panel22.Controls.Add(this.panel23);
-            this.panel22.Controls.Add(this.label11);
-            this.panel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel22.ForeColor = System.Drawing.Color.Black;
-            this.panel22.Location = new System.Drawing.Point(450, 200);
-            this.panel22.Margin = new System.Windows.Forms.Padding(0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(448, 50);
-            this.panel22.TabIndex = 15;
-            // 
-            // btnViolation
-            // 
-            this.btnViolation.Location = new System.Drawing.Point(339, 4);
-            this.btnViolation.Name = "btnViolation";
-            this.btnViolation.Size = new System.Drawing.Size(55, 34);
-            this.btnViolation.TabIndex = 6;
-            this.btnViolation.Text = "xem";
-            this.btnViolation.UseVisualStyleBackColor = true;
-            this.btnViolation.Click += new System.EventHandler(this.btnViolation_Click);
-            // 
-            // txtViolation
-            // 
-            this.txtViolation.BackColor = System.Drawing.SystemColors.Window;
-            this.txtViolation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtViolation.Location = new System.Drawing.Point(84, 17);
-            this.txtViolation.Margin = new System.Windows.Forms.Padding(0);
-            this.txtViolation.Name = "txtViolation";
-            this.txtViolation.Size = new System.Drawing.Size(252, 21);
-            this.txtViolation.TabIndex = 1;
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.Black;
-            this.panel23.Location = new System.Drawing.Point(16, 38);
-            this.panel23.Margin = new System.Windows.Forms.Padding(0);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(420, 1);
-            this.panel23.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Location = new System.Drawing.Point(18, 15);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 22);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Violation : ";
             // 
             // panel20
             // 
@@ -690,6 +629,54 @@
             this.dgvTransactionItem.TabIndex = 1;
             this.dgvTransactionItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactionItem_CellContentClick);
             // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // BookID
+            // 
+            this.BookID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BookID.HeaderText = "BookID";
+            this.BookID.MinimumWidth = 8;
+            this.BookID.Name = "BookID";
+            this.BookID.Width = 108;
+            // 
+            // DeviceID
+            // 
+            this.DeviceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DeviceID.HeaderText = "DeviceID";
+            this.DeviceID.MinimumWidth = 8;
+            this.DeviceID.Name = "DeviceID";
+            this.DeviceID.Width = 110;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 8;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 90;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
+            this.Status.Width = 120;
+            // 
+            // action
+            // 
+            this.action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.action.HeaderText = "";
+            this.action.MinimumWidth = 8;
+            this.action.Name = "action";
+            this.action.Width = 82;
+            // 
             // label12
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -772,6 +759,7 @@
             // 
             // panel25
             // 
+            this.panel25.Controls.Add(this.button1);
             this.panel25.Controls.Add(this.txtStatusPayment);
             this.panel25.Controls.Add(this.txtTotalPayment);
             this.panel25.Controls.Add(this.label14);
@@ -816,53 +804,18 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Total Payment:";
             // 
-            // STT
+            // button1
             // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 8;
-            this.STT.Name = "STT";
-            this.STT.Width = 50;
-            // 
-            // BookID
-            // 
-            this.BookID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BookID.HeaderText = "BookID";
-            this.BookID.MinimumWidth = 8;
-            this.BookID.Name = "BookID";
-            this.BookID.Width = 108;
-            // 
-            // DeviceID
-            // 
-            this.DeviceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DeviceID.HeaderText = "DeviceID";
-            this.DeviceID.MinimumWidth = 8;
-            this.DeviceID.Name = "DeviceID";
-            this.DeviceID.Width = 110;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 8;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 90;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 8;
-            this.Status.Name = "Status";
-            this.Status.Width = 120;
-            // 
-            // action
-            // 
-            this.action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.action.HeaderText = "";
-            this.action.MinimumWidth = 8;
-            this.action.Name = "action";
-            this.action.Width = 82;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.button1.Location = new System.Drawing.Point(238, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 27);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Thanh toán";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FormInformation
             // 
@@ -880,8 +833,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -939,10 +890,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.TextBox txtViolation;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Panel panel21;
@@ -973,7 +920,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LoaiPhi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sotien;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
-        private System.Windows.Forms.Button btnViolation;
         private System.Windows.Forms.Button btnConfirmReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookID;
@@ -981,5 +927,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
+        private System.Windows.Forms.Button button1;
     }
 }
