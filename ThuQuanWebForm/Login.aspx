@@ -135,23 +135,6 @@
                     transform: translateY(0);
                 }
             }
-
-            .error-container {
-                margin-bottom: 1.5rem;
-                padding: 0.75rem;
-                border: 1px solid #f44336;
-                border-radius: 5px;
-                background-color: #ffebee;
-                color: #d32f2f;
-                display: block;
-                margin: 1rem auto;
-                max-width: 450px;
-            }
-
-            .error-message {
-                margin: 0;
-                font-size: 0.875rem;
-            }
         </style>
     </asp:Content>
 

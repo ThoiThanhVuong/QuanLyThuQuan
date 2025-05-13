@@ -237,24 +237,79 @@ namespace QuanLyThuQuan.GUI
         private void button3_Click(object sender, EventArgs e)
         {
             string validationMessage = validator(); // Kiểm tra dữ liệu hợp lệ
-            if (!string.IsNullOrEmpty(validationMessage)) // Nếu có lỗi, dừng việc sửa
+            if (!string.IsNullOrEmpty(validationMessage))
             {
                 return;
             }
 
+            int violationId = int.Parse(textBox1.Text);
+            int memberId = int.Parse(textBox2.Text);
+            int? transactionId = string.IsNullOrEmpty(textBox3.Text) ? null : (int?)int.Parse(textBox3.Text);
+            int ruleId = Convert.ToInt32(comboBox1.SelectedValue);
+            decimal fineAmount = decimal.Parse(textBox5.Text);
+            string reason = textBox6.Text;
+            DateTime violationDate = dateTimePicker1.Value;
+            bool isCompensationRequired = radioButton1.Checked;
 
-            violationBus.UpdateViolation(new ViolationModel(
-                int.Parse(textBox1.Text),
-                int.Parse(textBox2.Text),
-                int.Parse(textBox3.Text),
-                Convert.ToInt32(comboBox1.SelectedValue),
-                decimal.Parse(textBox5.Text),
-                textBox6.Text,
-                dateTimePicker1.Value,
-                radioButton1.Checked
-             ));
+            string selectedOption = cbbHandlingOption.SelectedItem?.ToString();
 
-            button2.Enabled = false;
+            // Cập nhật Violation
+            var updatedViolation = new ViolationModel(
+                violationId,
+                memberId,
+                transactionId,
+                ruleId,
+                fineAmount,
+                reason,
+                violationDate,
+                isCompensationRequired,
+                selectedOption,
+                "Pending"
+            );
+            violationBus.UpdateViolation(updatedViolation);
+
+            // Nếu có chọn hình thức xử lý → xử lý hình phạt
+            if (!string.IsNullOrEmpty(selectedOption))
+            {
+                DateTime startDate = DateTime.Now;
+                DateTime? endDate = null;
+                if (selectedOption.Contains("1 tháng"))
+                    endDate = startDate.AddMonths(1);
+                else if (selectedOption.Contains("2 tháng"))
+                    endDate = startDate.AddMonths(2);
+
+                // Cập nhật hoặc thêm mới MemberPenalty
+                new MemberPenaltyDAO().AddPenalty(new MemberPenaltyModel
+                {
+                    ViolationID = violationId,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    Description = selectedOption
+                });
+
+                // Nếu có bồi thường thì thêm lại Payment
+                decimal compensationAmount = 0;
+                if (isCompensationRequired)
+                {
+                    if (!decimal.TryParse(txtCompensationAmount.Text, out compensationAmount))
+                    {
+                        MessageBox.Show("Vui lòng nhập đúng số tiền bồi thường!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                // Thêm lại Payment
+                new PaymentBUS().AddPayment(new PaymentModel(
+                    memberId,
+                    violationId,
+                    transactionId,
+                    fineAmount + compensationAmount,
+                    "Cập nhật xử lý vi phạm (có thể có bồi thường)",
+                    PaidStatus.Unpaid
+                ));
+            }
+
+            MessageBox.Show("Đã cập nhật vi phạm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             refresh();
             loadTable();
         }
@@ -290,7 +345,7 @@ namespace QuanLyThuQuan.GUI
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Nếu click đúng cột "action"
-            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "action")
+            if (e.RowIndex >= 0 && e.ColumnIndex ==9)
             {
                 int violationID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ViolationID"].Value);
 

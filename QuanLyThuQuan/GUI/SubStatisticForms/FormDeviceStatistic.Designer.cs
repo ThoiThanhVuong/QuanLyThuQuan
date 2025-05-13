@@ -50,8 +50,8 @@
             this.lblDeviceStatistic.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeviceStatistic.Location = new System.Drawing.Point(0, 0);
             this.lblDeviceStatistic.Name = "lblDeviceStatistic";
-            this.lblDeviceStatistic.Padding = new System.Windows.Forms.Padding(12, 9, 0, 0);
-            this.lblDeviceStatistic.Size = new System.Drawing.Size(214, 40);
+            this.lblDeviceStatistic.Padding = new System.Windows.Forms.Padding(14, 11, 0, 0);
+            this.lblDeviceStatistic.Size = new System.Drawing.Size(262, 49);
             this.lblDeviceStatistic.TabIndex = 0;
             this.lblDeviceStatistic.Text = "Thống kê Thiết bị";
             // 
@@ -67,35 +67,38 @@
             this.grpDeviceFilter.Controls.Add(this.dtpDeviceFrom);
             this.grpDeviceFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpDeviceFilter.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDeviceFilter.Location = new System.Drawing.Point(0, 40);
+            this.grpDeviceFilter.Location = new System.Drawing.Point(0, 49);
+            this.grpDeviceFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpDeviceFilter.Name = "grpDeviceFilter";
-            this.grpDeviceFilter.Padding = new System.Windows.Forms.Padding(12, 3, 12, 3);
-            this.grpDeviceFilter.Size = new System.Drawing.Size(890, 140);
+            this.grpDeviceFilter.Padding = new System.Windows.Forms.Padding(14, 4, 14, 4);
+            this.grpDeviceFilter.Size = new System.Drawing.Size(1001, 175);
             this.grpDeviceFilter.TabIndex = 1;
             this.grpDeviceFilter.TabStop = false;
             this.grpDeviceFilter.Text = "Bộ lọc";
             // 
             // txtDeviceName
             // 
-            this.txtDeviceName.Location = new System.Drawing.Point(144, 95);
+            this.txtDeviceName.Location = new System.Drawing.Point(162, 119);
+            this.txtDeviceName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDeviceName.Name = "txtDeviceName";
-            this.txtDeviceName.Size = new System.Drawing.Size(365, 30);
+            this.txtDeviceName.Size = new System.Drawing.Size(410, 35);
             this.txtDeviceName.TabIndex = 7;
             // 
             // lblDeviceName
             // 
             this.lblDeviceName.AutoSize = true;
-            this.lblDeviceName.Location = new System.Drawing.Point(28, 98);
+            this.lblDeviceName.Location = new System.Drawing.Point(32, 122);
             this.lblDeviceName.Name = "lblDeviceName";
-            this.lblDeviceName.Size = new System.Drawing.Size(102, 23);
+            this.lblDeviceName.Size = new System.Drawing.Size(125, 30);
             this.lblDeviceName.TabIndex = 6;
             this.lblDeviceName.Text = "Tên Thiết bị:";
             // 
             // btnDeviceCurrentlyBorrowed
             // 
-            this.btnDeviceCurrentlyBorrowed.Location = new System.Drawing.Point(622, 87);
+            this.btnDeviceCurrentlyBorrowed.Location = new System.Drawing.Point(700, 109);
+            this.btnDeviceCurrentlyBorrowed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeviceCurrentlyBorrowed.Name = "btnDeviceCurrentlyBorrowed";
-            this.btnDeviceCurrentlyBorrowed.Size = new System.Drawing.Size(213, 38);
+            this.btnDeviceCurrentlyBorrowed.Size = new System.Drawing.Size(240, 48);
             this.btnDeviceCurrentlyBorrowed.TabIndex = 5;
             this.btnDeviceCurrentlyBorrowed.Text = "Đang được mượn";
             this.btnDeviceCurrentlyBorrowed.UseVisualStyleBackColor = true;
@@ -103,9 +106,10 @@
             // 
             // btnDeviceBorrowedCount
             // 
-            this.btnDeviceBorrowedCount.Location = new System.Drawing.Point(622, 33);
+            this.btnDeviceBorrowedCount.Location = new System.Drawing.Point(700, 41);
+            this.btnDeviceBorrowedCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeviceBorrowedCount.Name = "btnDeviceBorrowedCount";
-            this.btnDeviceBorrowedCount.Size = new System.Drawing.Size(213, 38);
+            this.btnDeviceBorrowedCount.Size = new System.Drawing.Size(240, 48);
             this.btnDeviceBorrowedCount.TabIndex = 4;
             this.btnDeviceBorrowedCount.Text = "Lượt mượn";
             this.btnDeviceBorrowedCount.UseVisualStyleBackColor = true;
@@ -114,35 +118,37 @@
             // lblDeviceTo
             // 
             this.lblDeviceTo.AutoSize = true;
-            this.lblDeviceTo.Location = new System.Drawing.Point(28, 63);
+            this.lblDeviceTo.Location = new System.Drawing.Point(32, 79);
             this.lblDeviceTo.Name = "lblDeviceTo";
-            this.lblDeviceTo.Size = new System.Drawing.Size(87, 23);
+            this.lblDeviceTo.Size = new System.Drawing.Size(107, 30);
             this.lblDeviceTo.TabIndex = 3;
             this.lblDeviceTo.Text = "Đến ngày:";
             // 
             // lblDeviceFrom
             // 
             this.lblDeviceFrom.AutoSize = true;
-            this.lblDeviceFrom.Location = new System.Drawing.Point(28, 29);
+            this.lblDeviceFrom.Location = new System.Drawing.Point(32, 36);
             this.lblDeviceFrom.Name = "lblDeviceFrom";
-            this.lblDeviceFrom.Size = new System.Drawing.Size(75, 23);
+            this.lblDeviceFrom.Size = new System.Drawing.Size(92, 30);
             this.lblDeviceFrom.TabIndex = 2;
             this.lblDeviceFrom.Text = "Từ ngày:";
             // 
             // dtpDeviceTo
             // 
             this.dtpDeviceTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDeviceTo.Location = new System.Drawing.Point(144, 57);
+            this.dtpDeviceTo.Location = new System.Drawing.Point(162, 71);
+            this.dtpDeviceTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDeviceTo.Name = "dtpDeviceTo";
-            this.dtpDeviceTo.Size = new System.Drawing.Size(200, 30);
+            this.dtpDeviceTo.Size = new System.Drawing.Size(224, 35);
             this.dtpDeviceTo.TabIndex = 1;
             // 
             // dtpDeviceFrom
             // 
             this.dtpDeviceFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDeviceFrom.Location = new System.Drawing.Point(144, 23);
+            this.dtpDeviceFrom.Location = new System.Drawing.Point(162, 29);
+            this.dtpDeviceFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDeviceFrom.Name = "dtpDeviceFrom";
-            this.dtpDeviceFrom.Size = new System.Drawing.Size(200, 30);
+            this.dtpDeviceFrom.Size = new System.Drawing.Size(224, 35);
             this.dtpDeviceFrom.TabIndex = 0;
             // 
             // dgvDeviceStats
@@ -151,24 +157,26 @@
             this.dgvDeviceStats.AllowUserToDeleteRows = false;
             this.dgvDeviceStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDeviceStats.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDeviceStats.Location = new System.Drawing.Point(0, 180);
+            this.dgvDeviceStats.Location = new System.Drawing.Point(0, 224);
+            this.dgvDeviceStats.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvDeviceStats.Name = "dgvDeviceStats";
             this.dgvDeviceStats.ReadOnly = true;
             this.dgvDeviceStats.RowHeadersWidth = 51;
             this.dgvDeviceStats.RowTemplate.Height = 24;
-            this.dgvDeviceStats.Size = new System.Drawing.Size(890, 359);
+            this.dgvDeviceStats.Size = new System.Drawing.Size(1001, 450);
             this.dgvDeviceStats.TabIndex = 2;
             // 
             // FormDeviceStatistic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(890, 539);
+            this.ClientSize = new System.Drawing.Size(1001, 674);
             this.ControlBox = false;
             this.Controls.Add(this.dgvDeviceStats);
             this.Controls.Add(this.grpDeviceFilter);
             this.Controls.Add(this.lblDeviceStatistic);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDeviceStatistic";
             this.grpDeviceFilter.ResumeLayout(false);
             this.grpDeviceFilter.PerformLayout();

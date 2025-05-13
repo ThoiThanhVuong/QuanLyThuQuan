@@ -68,8 +68,8 @@
             this.IsCompensationRequired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSeach = new System.Windows.Forms.TextBox();
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
+            this.txtSeach = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -467,6 +467,10 @@
             this.action.Name = "action";
             this.action.Width = 60;
             // 
+            // searchTimer
+            // 
+            this.searchTimer.Tick += new System.EventHandler(this.txtSeach_TextChanged);
+            // 
             // txtSeach
             // 
             this.txtSeach.Location = new System.Drawing.Point(539, 314);
@@ -475,10 +479,6 @@
             this.txtSeach.TabIndex = 20;
             this.txtSeach.Tag = "";
             this.txtSeach.TextChanged += new System.EventHandler(this.txtSeach_TextChanged);
-            // 
-            // searchTimer
-            // 
-            this.searchTimer.Tick += new System.EventHandler(this.txtSeach_TextChanged);
             // 
             // FormViolation
             // 
@@ -548,7 +548,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IsCompensationRequired;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
-        private System.Windows.Forms.TextBox txtSeach;
         private System.Windows.Forms.Timer searchTimer;
+        private System.Windows.Forms.TextBox txtSeach;
     }
 }

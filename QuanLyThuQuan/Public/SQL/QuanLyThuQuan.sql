@@ -402,33 +402,6 @@ VALUES
 (4, '2025-03-06 13:30:00'),
 (3, '2025-03-08 09:00:00');
 
--- ===================================== Bảng Review ===========================================
-CREATE TABLE IF NOT EXISTS `Review` (
-  `ReviewID` INT AUTO_INCREMENT NOT NULL ,
-  `MemberID` INT NOT NULL,
-  `BookID` INT NULL,
-  `DeviceID` INT NULL,
-  `Rating` INT NOT NULL CHECK(`Rating` BETWEEN 1 AND 5),
-  `ReviewText` TEXT NULL,
-  `ReviewDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ReviewID`),
-  INDEX(`BookID`),
-  INDEX(`DeviceID`),
-  INDEX(`MemberID`),
-  FOREIGN KEY (`MemberID`) REFERENCES `Member`(`MemberID`) 
-    ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`BookID`) REFERENCES `Books`(`BookID`) 
-    ON DELETE SET NULL ON UPDATE CASCADE,
-  FOREIGN KEY (`DeviceID`) REFERENCES `Devices`(`DeviceID`) 
-    ON DELETE SET NULL ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-INSERT INTO `Review` (`MemberID`,`BookID`, `DeviceID`,`Rating`,`ReviewText`,`ReviewDate`)
-			VALUES (3, 1,NULL, 5, 'Sách rất hay, nội dung cuốn hút từ đầu đến cuối!', '2025-02-20'),
-					(4, 10,NULL,4, 'Nội dung khá thú vị nhưng một số phần hơi khó hiểu.', '2025-02-21'),
-					(4, 5,NULL, 3, 'Sách ổn nhưng không như mong đợi.', '2025-02-22'),
-					(4, 2,NULL,5, 'Tuyệt vời! Mình học được rất nhiều kiến thức bổ ích.', '2025-02-23'),
-					(3, 4,NULL,4, 'Nội dung dễ hiểu và hữu ích cho công việc.', '2025-02-24');
 
 -- ======================================== procedure =================================================================
 -- thủ tục chuyển đổi dữ liệu từ bảng Reservations sang bảng transaction
@@ -484,6 +457,7 @@ DELIMITER ;
 
 
 DELIMITER $$
+
 CREATE PROCEDURE ConfirmReturnAndCalculatePayment(IN p_TransactionID INT)
 BEGIN
     DECLARE v_MemberID INT;
@@ -492,22 +466,25 @@ BEGIN
     DECLARE v_Days INT;
     DECLARE v_Hours INT;
     DECLARE v_FineAmount DECIMAL(10, 0) DEFAULT 0;
-    
+    DECLARE v_DaysLate INT;
+    DECLARE v_LateFine DECIMAL(10, 0);
+    DECLARE v_DueDate DATETIME;
+
     -- Lấy thông tin giao dịch
-    SELECT MemberID, TransactionDate, COALESCE(ReturnDate, NOW()) 
-    INTO v_MemberID, v_TransactionDate, v_ReturnDate
+    SELECT MemberID, TransactionDate, COALESCE(ReturnDate, NOW()), DueDate
+    INTO v_MemberID, v_TransactionDate, v_ReturnDate, v_DueDate
     FROM Transactions
     WHERE TransactionID = p_TransactionID;
-    
+
     -- Tính số ngày và số giờ mượn
     SET v_Days = DATEDIFF(v_ReturnDate, v_TransactionDate);
     SET v_Hours = TIMESTAMPDIFF(HOUR, v_TransactionDate, v_ReturnDate);
-    
+
     -- Cập nhật ReturnDate và Status thành 'Completed'
     UPDATE Transactions
     SET ReturnDate = v_ReturnDate, Status = 'Completed'
     WHERE TransactionID = p_TransactionID;
-    
+
     -- Tính tiền thanh toán từ sách
     INSERT INTO Payment (MemberID, TransactionID, Amount, Description, Status)
     SELECT v_MemberID, p_TransactionID, 
@@ -515,9 +492,8 @@ BEGIN
            CONCAT('Thuê sách "', b.BookTitle, '" ', v_Days, ' ngày'), 'Unpaid'
     FROM TransactionItems ti
     JOIN Books b ON b.BookID = ti.BookID
-    WHERE ti.TransactionID = p_TransactionID AND
-	 		ti.Status = 'Borrowed';
-    
+    WHERE ti.TransactionID = p_TransactionID AND ti.Status = 'Borrowed';
+
     -- Tính tiền thanh toán từ thiết bị
     INSERT INTO Payment (MemberID, TransactionID, Amount, Description, Status)
     SELECT v_MemberID, p_TransactionID, 
@@ -533,11 +509,38 @@ BEGIN
            CONCAT('Phạt: ', v.Reason), 'Unpaid'
     FROM Violation v
     WHERE v.TransactionID = p_TransactionID AND v.FineAmount > 0;
-    
+
+    -- Cập nhật trạng thái TransactionItems thành Returned
     UPDATE TransactionItems
-	SET Status = 'Returned'
-	WHERE TransactionID = p_TransactionID AND Status = 'Borrowed';
+    SET Status = 'Returned'
+    WHERE TransactionID = p_TransactionID AND Status = 'Borrowed';
+
+    -- ======================= XỬ LÝ TRẢ TRỄ =========================
+    IF v_ReturnDate > v_DueDate THEN
+        SET v_DaysLate = DATEDIFF(v_ReturnDate, v_DueDate);
+        SET v_LateFine = v_DaysLate * 10000;
+
+        -- Thêm bản ghi Violation mới (RuleID = 3: Trả sách đúng hạn)
+        INSERT INTO Violation (
+            MemberID, TransactionID, RuleID, FineAmount, Reason, ViolationDate, IsCompensationRequired, Status
+        )
+        VALUES (
+            v_MemberID, p_TransactionID, 3, v_LateFine, 'Trả sách trễ hạn', v_ReturnDate, FALSE, 'Pending'
+        );
+
+        -- Ghi nhận ID violation mới nhất
+        SET @lastViolationID = LAST_INSERT_ID();
+
+        -- Thêm Payment tương ứng
+        INSERT INTO Payment (
+            MemberID, ViolationID, TransactionID, Amount, Description, Status
+        )
+        VALUES (
+            v_MemberID, @lastViolationID, p_TransactionID, v_LateFine, 'Phạt: Trả sách trễ hạn', 'Unpaid'
+        );
+    END IF;
 END$$
+
 DELIMITER ;
 
 

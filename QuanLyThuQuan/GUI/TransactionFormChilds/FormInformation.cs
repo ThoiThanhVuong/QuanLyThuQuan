@@ -81,17 +81,17 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
             if (trans.Payments.Count == 0)
             {
                 txtStatusPayment.Text = "Không có giao dịch thanh toán";
-                button1.Visible = false;
+                btnThanhToan.Visible = false;
             }
             else if (trans.Payments.All(p => p.Status == PaidStatus.Paid))
             {
                 txtStatusPayment.Text = "Đã thanh toán";
-                button1.Visible = false;
+                btnThanhToan.Visible = false;
             }
             else
             {
                 txtStatusPayment.Text = "Chưa thanh toán";
-                button1.Visible = true;
+                btnThanhToan.Visible = true;
             }
 
 
@@ -201,7 +201,42 @@ namespace QuanLyThuQuan.GUI.TransactionFormChilds
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(txtTransactionID.Text, out int transactionID))
+            {
+                MessageBox.Show("Không hợp lệ");
+                return;
+            }
 
+            var paymentBUS = new PaymentBUS();
+            var violationBUS = new ViolationBUS();
+            var transactionBUS = new TransactionBUS();
+
+            // Đánh dấu toàn bộ payment là đã thanh toán
+            bool paidSuccess = paymentBUS.MarkAllPaymentsAsPaid(transactionID);
+
+            // Cập nhật trạng thái violation thành Handled
+            var violations = transactionBUS.GetViolationsByTransactionID(transactionID);
+            foreach (var v in violations)
+            {
+                if (v.Status == "Pending")
+                {
+                    violationBUS.MarkViolationAsHandled(v.ViolationID);
+                }
+            }
+
+            if (paidSuccess)
+            {
+                MessageBox.Show("Thanh toán thành công!");
+
+                // Bắt buộc reload lại transaction để load các bản ghi Payment mới từ database
+                var updatedTransaction = transactionBUS.GetTransactionByID(transactionID);
+                transactionBUS.LoadExtraDetails(updatedTransaction);
+                SetValue(updatedTransaction);
+            }
+            else
+            {
+                MessageBox.Show("Thanh toán thất bại.");
+            }
         }
     }
 }

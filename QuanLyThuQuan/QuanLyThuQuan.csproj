@@ -128,7 +128,6 @@
     <Compile Include="BUS\MemberBUS.cs" />
     <Compile Include="BUS\PaymentBUS.cs" />
     <Compile Include="BUS\ResevationBUS.cs" />
-    <Compile Include="BUS\ReviewBUS.cs" />
     <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\SessionStudyBUS.cs" />
     <Compile Include="BUS\ViolationBUS.cs" />
@@ -141,7 +140,6 @@
     <Compile Include="DAO\MemberPenaltyDAO.cs" />
     <Compile Include="DAO\PaymentDAO.cs" />
     <Compile Include="DAO\ReservationDAO.cs" />
-    <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\RuleDAO.cs" />
     <Compile Include="DAO\SessionStudyDAO.cs" />
     <Compile Include="DAO\ViolationDAO.cs" />
@@ -177,12 +175,6 @@
     </Compile>
     <Compile Include="GUI\FormDevice.Designer.cs">
       <DependentUpon>FormDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormReview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormReview.Designer.cs">
-      <DependentUpon>FormReview.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormRule.cs">
       <SubType>Form</SubType>
@@ -333,7 +325,6 @@
     <Compile Include="Model\PaymentModel.cs" />
     <Compile Include="Model\ReservationItemModel.cs" />
     <Compile Include="Model\ReservationModel.cs" />
-    <Compile Include="Model\ReviewModel.cs" />
     <Compile Include="Model\RuleModel.cs" />
     <Compile Include="Model\SessionStudy.cs" />
     <Compile Include="Model\TransactionItemModel.cs" />
@@ -358,9 +349,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDevice.resx">
       <DependentUpon>FormDevice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormReview.resx">
-      <DependentUpon>FormReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormRule.resx">
       <DependentUpon>FormRule.cs</DependentUpon>

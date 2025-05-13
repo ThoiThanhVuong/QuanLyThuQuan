@@ -27,7 +27,6 @@ namespace QuanLyThuQuan.DAO
                                         ? (int?)null
                                         : reader.GetInt32(reader.GetOrdinal("TransactionID"));
 
-
                 int ruleId = reader.GetInt32("RuleID");
                 int fineAmount = reader.GetInt32("FineAmount");
                 string reason = reader.GetString("Reason");

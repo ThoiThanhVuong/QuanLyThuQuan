@@ -92,7 +92,14 @@ namespace QuanLyThuQuan.GUI.User
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+      
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             if (!IsValid()) return;
 
@@ -127,13 +134,6 @@ namespace QuanLyThuQuan.GUI.User
 
             parentForm.loadTable();
             this.Close();
-
         }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }

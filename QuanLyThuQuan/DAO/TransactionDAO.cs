@@ -340,7 +340,7 @@ namespace QuanLyThuQuan.DAO
                                 reader.GetString(reader.GetOrdinal("Reason")),
                                 reader.GetDateTime(reader.GetOrdinal("ViolationDate")),
                                 reader.GetBoolean(reader.GetOrdinal("IsCompensationRequired")),
-                                reader.GetString(reader.GetOrdinal("HandlingAction")),
+                                reader.IsDBNull(reader.GetOrdinal("HandlingAction")) ? null : reader.GetString(reader.GetOrdinal("HandlingAction")),
                                 reader.GetString(reader.GetOrdinal("Status"))
                             ));
                         }

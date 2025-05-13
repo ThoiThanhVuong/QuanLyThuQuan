@@ -93,7 +93,7 @@ namespace QuanLyThuQuan.GUI
                     btnDashBoard.Width = SideBar.Width;
                     btnRule.Width = SideBar.Width;
                     btnTransaction.Width = SideBar.Width;
-                    btnReview.Width = SideBar.Width;
+                 
                     ProductContainer.Width = SideBar.Width;
                     btnViolation.Width = SideBar.Width;
                     btnLogout.Width = SideBar.Width;
@@ -146,11 +146,6 @@ namespace QuanLyThuQuan.GUI
 
 
 
-        private void btnReview_Click(object sender, EventArgs e)
-        {
-            ShowFormInPanel(new FormReview());
-
-        }
 
 
         private void btnCloseProgram_Click(object sender, EventArgs e)

@@ -88,11 +88,11 @@
             this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.txtStatusPayment = new System.Windows.Forms.TextBox();
             this.txtTotalPayment = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -759,7 +759,7 @@
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.button1);
+            this.panel25.Controls.Add(this.btnThanhToan);
             this.panel25.Controls.Add(this.txtStatusPayment);
             this.panel25.Controls.Add(this.txtTotalPayment);
             this.panel25.Controls.Add(this.label14);
@@ -769,6 +769,20 @@
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(444, 64);
             this.panel25.TabIndex = 0;
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.btnThanhToan.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
+            this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThanhToan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
+            this.btnThanhToan.Location = new System.Drawing.Point(238, 34);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(144, 27);
+            this.btnThanhToan.TabIndex = 4;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = false;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // txtStatusPayment
             // 
@@ -803,19 +817,6 @@
             this.label13.Size = new System.Drawing.Size(131, 22);
             this.label13.TabIndex = 0;
             this.label13.Text = "Total Payment:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(30)))), ((int)(((byte)(76)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(232)))), ((int)(((byte)(245)))));
-            this.button1.Location = new System.Drawing.Point(238, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Thanh toán";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // FormInformation
             // 
@@ -927,6 +928,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThanhToan;
     }
 }

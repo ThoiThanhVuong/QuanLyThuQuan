@@ -65,16 +65,15 @@ namespace QuanLyThuQuan.GUI
             this.SideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.TopMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashBoard = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnRule = new System.Windows.Forms.Button();
             this.btnTransaction = new System.Windows.Forms.Button();
             this.btnViolation = new System.Windows.Forms.Button();
-            this.btnReview = new System.Windows.Forms.Button();
             this.btnStatistic = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.SideBar = new System.Windows.Forms.TableLayoutPanel();
             this.BottomMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.TitleBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -258,7 +257,6 @@ namespace QuanLyThuQuan.GUI
             this.TopMenu.Controls.Add(this.btnRule);
             this.TopMenu.Controls.Add(this.btnTransaction);
             this.TopMenu.Controls.Add(this.btnViolation);
-            this.TopMenu.Controls.Add(this.btnReview);
             this.TopMenu.Controls.Add(this.btnStatistic);
             this.TopMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -290,6 +288,29 @@ namespace QuanLyThuQuan.GUI
             this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashBoard.UseVisualStyleBackColor = false;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 100);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(240, 50);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "     Member";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnRule
             // 
@@ -359,28 +380,6 @@ namespace QuanLyThuQuan.GUI
             this.btnViolation.UseVisualStyleBackColor = false;
             this.btnViolation.Click += new System.EventHandler(this.btnViolation_Click);
             // 
-            // btnReview
-            // 
-            this.btnReview.BackColor = System.Drawing.Color.Transparent;
-            this.btnReview.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnReview.FlatAppearance.BorderSize = 0;
-            this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReview.Image = ((System.Drawing.Image)(resources.GetObject("btnReview.Image")));
-            this.btnReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReview.Location = new System.Drawing.Point(0, 300);
-            this.btnReview.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReview.Name = "btnReview";
-            this.btnReview.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnReview.Size = new System.Drawing.Size(240, 50);
-            this.btnReview.TabIndex = 10;
-            this.btnReview.Text = "     Reviews";
-            this.btnReview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReview.UseVisualStyleBackColor = false;
-            this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
-            // 
             // btnStatistic
             // 
             this.btnStatistic.BackColor = System.Drawing.Color.Transparent;
@@ -391,7 +390,7 @@ namespace QuanLyThuQuan.GUI
             this.btnStatistic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnStatistic.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistic.Image")));
             this.btnStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistic.Location = new System.Drawing.Point(0, 350);
+            this.btnStatistic.Location = new System.Drawing.Point(0, 300);
             this.btnStatistic.Margin = new System.Windows.Forms.Padding(0);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -466,29 +465,6 @@ namespace QuanLyThuQuan.GUI
             this.pnMain.Size = new System.Drawing.Size(960, 600);
             this.pnMain.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 100);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(240, 50);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "     Member";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -531,7 +507,6 @@ namespace QuanLyThuQuan.GUI
         private System.Windows.Forms.Timer SideBarTransition;
         private System.Windows.Forms.FlowLayoutPanel TopMenu;
         private System.Windows.Forms.Button btnViolation;
-        private System.Windows.Forms.Button btnReview;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.PictureBox btnMaximize;
