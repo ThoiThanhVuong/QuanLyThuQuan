@@ -13,7 +13,7 @@ namespace QuanLyThuQuan.GUI
     {
         private BookBUS bookBUS = new BookBUS();
         private FormMain mainForm;
-        private TransactionBUS transactionBUS = new TransactionBUS();
+       
 
         public FormBook(FormMain main)
         {
@@ -25,15 +25,10 @@ namespace QuanLyThuQuan.GUI
         {
             this.ControlBox = false;
             listSach();
-            LoadData();
+      
 
         }
-        private void LoadData()
-        {
-            List<BookModel> books = bookBUS.GetAllBooks();
-           
-
-        }
+       
 
         private void listSach()
         {
